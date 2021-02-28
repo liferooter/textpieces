@@ -1,0 +1,7 @@
+data/com.github.liferooter.textpieces.desktop.in
+data/com.github.liferooter.textpieces.appdata.xml.in
+data/com.github.liferooter.textpieces.gschema.xml
+src/window.ui
+src/main.vala
+src/window.vala
+
