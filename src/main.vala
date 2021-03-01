@@ -28,6 +28,9 @@ int main (string[] args) {
 	        Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
 
+        var settings = Gtk.Settings.get_default ();
+        settings.gtk_application_prefer_dark_theme  = true;
+
 	    // Create window
 		var win = app.active_window;
 		if (win == null) {
