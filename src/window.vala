@@ -25,25 +25,20 @@ namespace Textpieces {
 
     struct Tool {
         public string name;
+        public string icon;
         public ToolFunc func;
     }
 
 	[GtkTemplate (ui = "/com/github/liferooter/textpieces/window.ui")]
 	public class Window : ApplicationWindow {
 		[GtkChild]
-		ListBox tool_listbox;
+		Box tool_box;
 		[GtkChild]
-		Label tool_name;
+		Entry tool_name;
 		[GtkChild]
 		Popover tool_popover;
 		[GtkChild]
 		TextBuffer text_buffer;
-		[GtkChild]
-		Button apply_button;
-		[GtkChild]
-		Button undo_button;
-		[GtkChild]
-		Button redo_button;
 
         uint _selected_tool;
 		uint selected_tool { get { return _selected_tool; } set { _selected_tool = value; tool_name.set_text (current_tool.name); } }
@@ -61,34 +56,42 @@ namespace Textpieces {
         Tool[] TOOLS = {
             Tool () {
               name = "Hash - SHA1",
+              icon = "preferences-other-symbolic",
               func = (s) => Checksum.compute_for_string (ChecksumType.SHA1, s)
             },
             Tool () {
               name = "Hash - SHA256",
+              icon = "preferences-other-symbolic",
               func = (s) => Checksum.compute_for_string (ChecksumType.SHA256, s)
             },
             Tool () {
               name = "Hash - SHA384",
+              icon = "preferences-other-symbolic",
               func = (s) => Checksum.compute_for_string (ChecksumType.SHA384, s)
             },
             Tool () {
               name = "Hash - SHA512",
+              icon = "preferences-other-symbolic",
               func = (s) => Checksum.compute_for_string (ChecksumType.SHA512, s)
             },
             Tool () {
               name = "Hash - MD5",
+              icon = "preferences-other-symbolic",
               func = (s) => Checksum.compute_for_string (ChecksumType.MD5, s)
             },
             Tool () {
               name = "Base64 - Encode",
+              icon = "preferences-other-symbolic",
               func = (s) => Base64.encode (s.data)
             },
             Tool () {
                 name = "Base64 - Decode",
+              icon = "preferences-other-symbolic",
                 func = (s) => (string) Base64.decode (s)
             },
             Tool () {
                 name = "Text - Trim",
+              icon = "preferences-other-symbolic",
                 func = (s) => {
                     var spaces_in_head = 0;
                     var spaces_in_tail = 0;
@@ -110,30 +113,25 @@ namespace Textpieces {
 
 			// Render tool list
             foreach (Tool tool in TOOLS) {
-                ListBoxRow row = new ListBoxRow ();
-                row.add (new Label (tool.name));
 
-                tool_listbox.add (row);
+                var model_button = new ModelButton ();
+                model_button.text = tool.name;
+                model_button.icon = new ThemedIcon (tool.icon);
+                tool_box.add (model_button);
 
-                row.show_all ();
+                model_button.show();
             }
 
             selected_tool = 0;
 
-            // Select tool on click
-            tool_listbox.row_activated.connect (select_tool_row);
-
-            // Connect apply button
-            // apply_button.clicked.connect(apply_tool);
-
             // Set text changed handler
             text_buffer.changed.connect (on_text_buffer_changed);
 
-            // Connect undo button
-            // undo_button.clicked.connect(undo);
-
-            // Connect redo button
-            // redo_button.clicked.connect(redo);
+            // Show tool popover on click
+            tool_name.button_press_event.connect ((e) => {
+                tool_popover.popup ();
+                return true;
+            });
 		}
 
 		void add_actions () {
