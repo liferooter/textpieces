@@ -260,7 +260,4 @@
       </object>
     </child>
   </object>
-  <object class="GThemedIcon" id="themedicon1">
-    <property name="names">web-browser-symbolic</property>
-  </object>
 </interface>
