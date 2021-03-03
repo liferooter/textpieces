@@ -61,54 +61,44 @@ namespace Textpieces {
 		// List of tools
         Tool[] TOOLS = {
             Tool () {
-              name = "Hash - SHA1",
-              icon = "fingerprint2-symbolic",
-              func = (s) => Checksum.compute_for_string (ChecksumType.SHA1, s)
+                name = "Hash - SHA1",
+                icon = "fingerprint2-symbolic",
+                func = (s) => Checksum.compute_for_string (ChecksumType.SHA1, s)
             },
             Tool () {
-              name = "Hash - SHA256",
-              icon = "fingerprint2-symbolic",
-              func = (s) => Checksum.compute_for_string (ChecksumType.SHA256, s)
+                name = "Hash - SHA256",
+                icon = "fingerprint2-symbolic",
+                func = (s) => Checksum.compute_for_string (ChecksumType.SHA256, s)
             },
             Tool () {
-              name = "Hash - SHA384",
-              icon = "fingerprint2-symbolic",
-              func = (s) => Checksum.compute_for_string (ChecksumType.SHA384, s)
+                name = "Hash - SHA384",
+                icon = "fingerprint2-symbolic",
+                func = (s) => Checksum.compute_for_string (ChecksumType.SHA384, s)
             },
             Tool () {
-              name = "Hash - SHA512",
-              icon = "fingerprint2-symbolic",
-              func = (s) => Checksum.compute_for_string (ChecksumType.SHA512, s)
+                name = "Hash - SHA512",
+                icon = "fingerprint2-symbolic",
+                func = (s) => Checksum.compute_for_string (ChecksumType.SHA512, s)
             },
             Tool () {
-              name = "Hash - MD5",
-              icon = "fingerprint2-symbolic",
-              func = (s) => Checksum.compute_for_string (ChecksumType.MD5, s)
+                name = "Hash - MD5",
+                icon = "fingerprint2-symbolic",
+                func = (s) => Checksum.compute_for_string (ChecksumType.MD5, s)
             },
             Tool () {
-              name = "Base64 - Encode",
-              icon = "size-right-symbolic",
-              func = (s) => Base64.encode (s.data)
+                name = "Base64 - Encode",
+                icon = "size-right-symbolic",
+                func = (s) => Base64.encode (s.data)
             },
             Tool () {
                 name = "Base64 - Decode",
-              icon = "size-left-symbolic",
+                icon = "size-left-symbolic",
                 func = (s) => (string) Base64.decode (s)
             },
             Tool () {
                 name = "Text - Trim trailing whitespaces",
-              icon = "text-symbolic",
-                func = (s) => {
-                    var spaces_in_head = 0;
-                    var spaces_in_tail = 0;
-                    while (" \n".contains (s[spaces_in_head].to_string())) {
-                        spaces_in_head++;
-                    }
-                    while (" \n".contains (s[s.length - spaces_in_tail - 1].to_string())) {
-                        spaces_in_tail++;
-                    }
-                    return s[spaces_in_head : s.length - spaces_in_tail - 1];
-                }
+                icon = "text-symbolic",
+                func = (s) => s.strip()
             }
         };
 
