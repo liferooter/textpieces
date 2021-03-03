@@ -1,6 +1,7 @@
 textpieces_sources = [
   'main.vala',
   'window.vala',
+  'tool-row.vala',
 ]
 
 textpieces_deps = [

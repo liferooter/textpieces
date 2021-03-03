@@ -21,9 +21,9 @@ using Gtk, Gee;
 
 namespace Textpieces {
     // Define type of tool function
-    delegate string ToolFunc(string input);
+    public delegate string ToolFunc(string input);
 
-    struct Tool {
+    public struct Tool {
         public string name;
         public string icon;
         public ToolFunc func;
@@ -32,7 +32,7 @@ namespace Textpieces {
 	[GtkTemplate (ui = "/com/github/liferooter/textpieces/window.ui")]
 	public class Window : ApplicationWindow {
 		[GtkChild]
-		Box tool_box;
+		ListBox tool_listbox;
 		[GtkChild]
 		Entry tool_name;
 		[GtkChild]
@@ -40,10 +40,16 @@ namespace Textpieces {
 		[GtkChild]
 		TextBuffer text_buffer;
 
-        uint _selected_tool;
-		uint selected_tool { get { return _selected_tool; } set { _selected_tool = value; tool_name.set_text (current_tool.name); } }
+        uint? _selected_tool = null;
+		uint? selected_tool { get { return _selected_tool; } set { _selected_tool = value; tool_name.set_text (current_tool.name); } }
 
-		Tool current_tool { get { return TOOLS[selected_tool]; } }
+		Tool? current_tool { get {
+		    if (selected_tool == null) {
+		        return null;
+		    } else {
+		        return TOOLS[(uint) selected_tool];
+		    }
+		} }
 
 		LinkedList<string> history = new LinkedList<string> ();
 		LinkedList<string> reversed_history = new LinkedList<string> ();
@@ -56,42 +62,42 @@ namespace Textpieces {
         Tool[] TOOLS = {
             Tool () {
               name = "Hash - SHA1",
-              icon = "preferences-other-symbolic",
+              icon = "fingerprint2-symbolic",
               func = (s) => Checksum.compute_for_string (ChecksumType.SHA1, s)
             },
             Tool () {
               name = "Hash - SHA256",
-              icon = "preferences-other-symbolic",
+              icon = "fingerprint2-symbolic",
               func = (s) => Checksum.compute_for_string (ChecksumType.SHA256, s)
             },
             Tool () {
               name = "Hash - SHA384",
-              icon = "preferences-other-symbolic",
+              icon = "fingerprint2-symbolic",
               func = (s) => Checksum.compute_for_string (ChecksumType.SHA384, s)
             },
             Tool () {
               name = "Hash - SHA512",
-              icon = "preferences-other-symbolic",
+              icon = "fingerprint2-symbolic",
               func = (s) => Checksum.compute_for_string (ChecksumType.SHA512, s)
             },
             Tool () {
               name = "Hash - MD5",
-              icon = "preferences-other-symbolic",
+              icon = "fingerprint2-symbolic",
               func = (s) => Checksum.compute_for_string (ChecksumType.MD5, s)
             },
             Tool () {
               name = "Base64 - Encode",
-              icon = "preferences-other-symbolic",
+              icon = "size-right-symbolic",
               func = (s) => Base64.encode (s.data)
             },
             Tool () {
                 name = "Base64 - Decode",
-              icon = "preferences-other-symbolic",
+              icon = "size-left-symbolic",
                 func = (s) => (string) Base64.decode (s)
             },
             Tool () {
-                name = "Text - Trim",
-              icon = "preferences-other-symbolic",
+                name = "Text - Trim trailing whitespaces",
+              icon = "text-symbolic",
                 func = (s) => {
                     var spaces_in_head = 0;
                     var spaces_in_tail = 0;
@@ -114,24 +120,20 @@ namespace Textpieces {
 			// Render tool list
             foreach (Tool tool in TOOLS) {
 
-                var model_button = new ModelButton ();
-                model_button.text = tool.name;
-                model_button.icon = new ThemedIcon (tool.icon);
-                tool_box.add (model_button);
-
-                model_button.show();
+                // model_button.show();
+                var row = new ToolRow (tool);
+                tool_listbox.add (row);
             }
 
-            selected_tool = 0;
-
             // Set text changed handler
-            text_buffer.changed.connect (on_text_buffer_changed);
+            text_buffer.changed.connect (validate_actions);
 
             // Show tool popover on click
-            tool_name.button_press_event.connect ((e) => {
+            tool_name.grab_focus.connect ((e) => {
                 tool_popover.popup ();
-                return true;
             });
+
+            tool_listbox.row_activated.connect (select_tool_row);
 		}
 
 		void add_actions () {
@@ -149,12 +151,14 @@ namespace Textpieces {
 		}
 
 		void select_tool_row (ListBoxRow row) {
+		    tool_name.primary_icon_name = ((ToolRow) row).tool_image.icon_name;
 		    tool_popover.popdown  ();
             selected_tool = row.get_index ();
+            validate_actions ();
 		}
 
-		void on_text_buffer_changed () {
-		    apply_action.set_enabled (text_buffer.text != "");
+		void validate_actions () {
+		    apply_action.set_enabled (text_buffer.text != "" && selected_tool != null);
 
             undo_action.set_enabled (history.size > 0 || text_buffer.text != "");
             redo_action.set_enabled (reversed_history.size != 0);
