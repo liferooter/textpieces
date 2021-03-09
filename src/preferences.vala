@@ -21,6 +21,9 @@
 namespace Textpieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/preferences.ui")]
     class Preferences : Hdy.PreferencesWindow {
+        [GtkChild]
+        public Gtk.Switch prefer_dark;
+
         public Preferences (Gtk.Window win) {
             Object ();
             this.set_transient_for (win);

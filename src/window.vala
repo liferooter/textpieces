@@ -37,8 +37,6 @@ namespace Textpieces {
         [GtkChild]
         private Gtk.SourceBuffer text_buffer;
         [GtkChild]
-        private Gtk.SourceView text_view;
-        [GtkChild]
         private Gtk.Button apply_button;
 
         private int _selected_tool = -1;
@@ -90,10 +88,10 @@ namespace Textpieces {
             // Set dark theme if needed
             Textpieces.Application.settings.changed.connect (() => {
                 Gtk.Settings.get_default ().gtk_application_prefer_dark_theme
-                    = Textpieces.Application.settings.get_boolean("dark-theme");
+                    = Textpieces.Application.settings.get_boolean("prefer-dark");
             });
             Gtk.Settings.get_default ().gtk_application_prefer_dark_theme
-                = Textpieces.Application.settings.get_boolean("dark-theme");
+                = Textpieces.Application.settings.get_boolean("prefer-dark");
 
 
             // Setup keybindings
@@ -177,9 +175,12 @@ namespace Textpieces {
             shortcuts_window.present ();
         }
         void action_preferences () {
-            var preferences = new Textpieces.Preferences (this);
-            preferences.show_all ();
-            preferences.present ();
+            var prefs = new Textpieces.Preferences (this);
+
+            Textpieces.Application.settings.bind ("prefer-dark", prefs.prefer_dark, "active", SettingsBindFlags.DEFAULT);
+
+            prefs.show_all ();
+            prefs.present ();
         }
 
         void select_tool_row (Gtk.ListBoxRow row) {
