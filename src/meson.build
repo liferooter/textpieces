@@ -2,6 +2,7 @@ textpieces_sources = [
   'application.vala',
   'window.vala',
   'tool-row.vala',
+  'tools.vala',
   'shortcuts.vala',
   'preferences.vala',
 ]
@@ -9,7 +10,6 @@ textpieces_sources = [
 textpieces_deps = [
   dependency('gio-2.0', version: '>= 2.50'),
   dependency('gtk+-3.0', version: '>= 3.22'),
-  dependency('gee-0.8', version: '>= 0.20'),
   dependency('gtksourceview-4', version: '>= 4.8'),
   dependency('libhandy-1', version: '>= 1.0.3'),
 ]

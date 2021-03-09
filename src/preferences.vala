@@ -24,17 +24,6 @@ namespace Textpieces {
         public Preferences (Gtk.Window win) {
             Object ();
             this.set_transient_for (win);
-            // var accel = new Gtk.AccelGroup ();
-            // accel.connect (
-            //     Gdk.Key.Escape,
-            //     0,
-            //     0,
-            //     () => {
-            //         this.close ();
-            //         return true;
-            //     }
-            // );
-            // this.add_accel_group (accel);
         }
     }
 }

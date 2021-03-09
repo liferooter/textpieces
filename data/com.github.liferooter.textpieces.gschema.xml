@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="textpieces">
 	<schema id="com.github.liferooter.textpieces" path="/com/github/liferooter/textpieces/">
-	  <key name="prefer-dark-theme" type="b">
+	  <key name="dark-theme" type="b">
 	    <default>true</default>
       <summary>Prefer dark theme</summary>
 	    <description>Whether the application should use dark theme</description>

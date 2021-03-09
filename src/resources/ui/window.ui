@@ -91,7 +91,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkButton" id="apply_button">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
@@ -195,6 +195,7 @@
               <object class="GtkSourceView" id="text_view">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="has-focus">True</property>
                 <property name="left-margin">6</property>
                 <property name="right-margin">8</property>
                 <property name="top-margin">6</property>
@@ -207,6 +208,7 @@
                 <property name="insert-spaces-instead-of-tabs">True</property>
                 <property name="smart-home-end">before</property>
                 <property name="smart-backspace">True</property>
+                <property name="buffer">text_buffer</property>
               </object>
             </child>
           </object>
