@@ -1,5 +1,5 @@
 textpieces_sources = [
-  'main.vala',
+  'application.vala',
   'window.vala',
   'tool-row.vala',
   'shortcuts.vala',

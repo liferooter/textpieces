@@ -56,7 +56,7 @@
       </object>
     </child>
   </object>
-  <template class="TextpiecesWindow" parent="HdyApplicationWindow">
+  <template class="TextpiecesMainWindow" parent="HdyApplicationWindow">
     <property name="can-focus">False</property>
     <property name="default-width">720</property>
     <property name="default-height">360</property>

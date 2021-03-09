@@ -27,7 +27,7 @@ namespace Textpieces {
     }
 
 	[GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/window.ui")]
-	public class Window : Hdy.ApplicationWindow {
+	public class MainWindow : Hdy.ApplicationWindow {
 		[GtkChild]
 		Gtk.ListBox tool_listbox;
 		[GtkChild]
@@ -123,7 +123,7 @@ namespace Textpieces {
             }
         };
 
-		public Window (Gtk.Application app) {
+		public MainWindow (Gtk.Application app) {
 			Object (application: app);
 
 			// Render tool list
