@@ -37,6 +37,8 @@ namespace Textpieces {
         [GtkChild]
         private Gtk.SourceBuffer text_buffer;
         [GtkChild]
+        private Gtk.SourceView text_view;
+        [GtkChild]
         private Gtk.Button apply_button;
 
         private int _selected_tool = -1;
@@ -86,12 +88,8 @@ namespace Textpieces {
             }
 
             // Set dark theme if needed
-            Textpieces.Application.settings.changed.connect (() => {
-                Gtk.Settings.get_default ().gtk_application_prefer_dark_theme
-                    = Textpieces.Application.settings.get_boolean("prefer-dark");
-            });
-            Gtk.Settings.get_default ().gtk_application_prefer_dark_theme
-                = Textpieces.Application.settings.get_boolean("prefer-dark");
+            Textpieces.Application.settings.changed.connect (update_from_settings);
+            update_from_settings ();
 
 
             // Setup keybindings
@@ -143,6 +141,25 @@ namespace Textpieces {
             tool_listbox.row_activated.connect (select_tool_row);
         }
 
+        void update_from_settings () {
+            var settings = Textpieces.Application.settings;
+
+            // Setup SourceView
+            with (text_view) {
+                show_line_numbers = settings.get_boolean ("show-line-numbers");
+                background_pattern = settings.get_boolean ("show-grid")
+                    ? Gtk.SourceBackgroundPatternType.GRID
+                    : Gtk.SourceBackgroundPatternType.NONE;
+                tab_width = settings.get_uint ("tab-width");
+                indent_width = (int) settings.get_uint ("tab-width");
+                insert_spaces_instead_of_tabs = settings.get_boolean ("tab-to-spaces");
+            }
+
+            Gtk.Settings.get_default ().gtk_application_prefer_dark_theme
+                = settings.get_boolean("prefer-dark");
+
+        }
+
         void check_whether_can_apply () {
             apply_button.set_sensitive (text_buffer.text != "" && current_tool != null);
         }
@@ -176,8 +193,6 @@ namespace Textpieces {
         }
         void action_preferences () {
             var prefs = new Textpieces.Preferences (this);
-
-            Textpieces.Application.settings.bind ("prefer-dark", prefs.prefer_dark, "active", SettingsBindFlags.DEFAULT);
 
             prefs.show_all ();
             prefs.present ();

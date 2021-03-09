@@ -203,9 +203,7 @@
                 <property name="populate-all">True</property>
                 <property name="monospace">True</property>
                 <property name="show-line-numbers">True</property>
-                <property name="tab-width">4</property>
                 <property name="auto-indent">True</property>
-                <property name="insert-spaces-instead-of-tabs">True</property>
                 <property name="smart-home-end">before</property>
                 <property name="smart-backspace">True</property>
                 <property name="buffer">text_buffer</property>
