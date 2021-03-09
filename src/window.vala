@@ -127,107 +127,107 @@ namespace Textpieces {
 			Object (application: app);
 
 			// Render tool list
-            foreach (Tool tool in this.TOOLS) {
+            foreach (Tool tool in TOOLS) {
 
                 // model_button.show();
-                var row = new ToolRow (tool);
-                this.tool_listbox.add (row);
+                var row = new Textpieces.ToolRow (tool);
+                tool_listbox.add (row);
             }
 
             // Set text changed handler
-            this.text_buffer.changed.connect (this.validate_actions);
+            text_buffer.changed.connect (validate_actions);
 
             // Show tool popover on click
-            this.tool_name.grab_focus.connect ((e) => {
-                this.tool_popover.popup ();
+            tool_name.grab_focus.connect ((e) => {
+                tool_popover.popup ();
             });
 
-            this.tool_listbox.row_activated.connect (this.select_tool_row);
+            tool_listbox.row_activated.connect (select_tool_row);
 
-            this.add_actions ();
-			this.setup_keybindings ();
+            add_actions ();
+			setup_keybindings ();
 		}
 
 		void setup_keybindings () {
-		    this.keybindings.connect (
+		    keybindings.connect (
                 Gdk.keyval_from_name ("question"),
                 Gdk.ModifierType.CONTROL_MASK,
                 0,
                 () => {
-                    this.show_keybindings.activate (null);
+                    show_keybindings.activate (null);
                     return true;
                 }
 		    );
 
-		    this.keybindings.connect (
+		    keybindings.connect (
 		        Gdk.keyval_from_name ("comma"),
 		        Gdk.ModifierType.CONTROL_MASK,
 		        0,
 		        () => {
-		            this.show_preferences.activate (null);
+		            show_preferences.activate (null);
 		            return true;
 		        }
 		    );
 
-		    this.add_accel_group (this.keybindings);
+		    add_accel_group (keybindings);
 		}
 
 		void add_actions () {
-            this.undo_action.activate.connect (() => {
-                this.text_buffer.undo ();
+            undo_action.activate.connect (() => {
+                text_buffer.undo ();
             });
-            this.redo_action.activate.connect (() => {
-                this.text_buffer.redo ();
+            redo_action.activate.connect (() => {
+                text_buffer.redo ();
             });
-            this.apply_action.activate.connect (apply);
-            this.show_keybindings.activate.connect (() => {
+            apply_action.activate.connect (apply);
+            show_keybindings.activate.connect (() => {
                 var shortcuts_window = new Textpieces.ShortcutsWindow (this);
                 shortcuts_window.show_all ();
                 shortcuts_window.present ();
             });
-            this.show_preferences.activate.connect (() => {
+            show_preferences.activate.connect (() => {
                 var preferences = new Textpieces.Preferences (this);
                 preferences.show_all ();
                 preferences.present ();
             });
 
-            this.apply_action.set_enabled (false);
+            apply_action.set_enabled (false);
 
-            this.add_action (this.undo_action);
-            this.add_action (this.redo_action);
-            this.add_action (this.apply_action);
-            this.add_action (this.show_keybindings);
-            this.add_action (this.show_preferences);
+            add_action (undo_action);
+            add_action (redo_action);
+            add_action (apply_action);
+            add_action (show_keybindings);
+            add_action (show_preferences);
 		}
 
 		void select_tool_row (Gtk.ListBoxRow row) {
-		    this.tool_name.primary_icon_name = ((ToolRow) row).tool_image.icon_name;
-		    this.tool_popover.popdown  ();
-            this.selected_tool = row.get_index ();
-            this.validate_actions ();
+		    tool_name.primary_icon_name = ((ToolRow) row).tool_image.icon_name;
+		    tool_popover.popdown  ();
+            selected_tool = row.get_index ();
+            validate_actions ();
 		}
 
 		void validate_actions () {
-		    this.apply_action.set_enabled (this.text_buffer.text != "" && this.current_tool != null);
+		    apply_action.set_enabled (text_buffer.text != "" && current_tool != null);
 		}
 
 		void apply () {
-		    var old_text = this.text_buffer.text;
-            if (this.text_buffer.has_selection) {
+		    var old_text = text_buffer.text;
+            if (text_buffer.has_selection) {
                 Gtk.TextIter start, end;
-                this.text_buffer.get_selection_bounds (out start, out end);
+                text_buffer.get_selection_bounds (out start, out end);
 
-                var result = this.current_tool.func (this.text_buffer.get_text (start, end, false));
+                var result = current_tool.func (text_buffer.get_text (start, end, false));
 
-                this.text_buffer.@delete (ref start, ref end);
-                this.text_buffer.insert (ref start, result, -1);
+                text_buffer.@delete (ref start, ref end);
+                text_buffer.insert (ref start, result, -1);
             }
             else
-                this.text_buffer.text = this.current_tool.func (this.text_buffer.text);
+                text_buffer.text = current_tool.func (text_buffer.text);
 
-            if (old_text != this.text_buffer.text)
-                this.reversed_history.clear ();
-                this.history.offer_head (old_text);
+            if (old_text != text_buffer.text)
+                reversed_history.clear ();
+                history.offer_head (old_text);
 		}
 	}
 }
