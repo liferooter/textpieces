@@ -1,4 +1,4 @@
-/* tool-row.vala
+/* preferences.vala
  *
  * Copyright 2021 Liferooter <glebsmirnov0708@gmail.com>
  *
@@ -18,23 +18,23 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-using Gtk;
-
 namespace Textpieces {
-
-    [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/tool-row.ui")]
-    public class ToolRow : ListBoxRow {
-
-        [GtkChild]
-        public Image tool_image;
-        [GtkChild]
-        Label tool_label;
-
-        public ToolRow (Tool tool) {
+    [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/preferences.ui")]
+    class Preferences : Hdy.PreferencesWindow {
+        public Preferences (Gtk.Window win) {
             Object ();
-            tool_label.set_text (tool.name);
-
-            tool_image.icon_name = tool.icon;
+            this.set_transient_for (win);
+            // var accel = new Gtk.AccelGroup ();
+            // accel.connect (
+            //     Gdk.Key.Escape,
+            //     0,
+            //     0,
+            //     () => {
+            //         this.close ();
+            //         return true;
+            //     }
+            // );
+            // this.add_accel_group (accel);
         }
     }
 }

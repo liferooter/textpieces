@@ -16,9 +16,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Gtk, Gee;
-
-
 namespace Textpieces {
     // Define type of tool function
     public delegate string ToolFunc(string input);
@@ -29,34 +26,40 @@ namespace Textpieces {
         public ToolFunc func;
     }
 
-	[GtkTemplate (ui = "/com/github/liferooter/textpieces/window.ui")]
-	public class Window : ApplicationWindow {
+	[GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/window.ui")]
+	public class Window : Hdy.ApplicationWindow {
 		[GtkChild]
-		ListBox tool_listbox;
+		Gtk.ListBox tool_listbox;
 		[GtkChild]
-		Entry tool_name;
+		Gtk.Entry tool_name;
 		[GtkChild]
-		Popover tool_popover;
+		Gtk.Popover tool_popover;
 		[GtkChild]
-		TextBuffer text_buffer;
+		Gtk.SourceBuffer text_buffer;
+        [GtkChild]
+        Gtk.SourceView text_view;
 
-        uint? _selected_tool = null;
-		uint? selected_tool { get { return _selected_tool; } set { _selected_tool = value; tool_name.set_text (current_tool.name); } }
+        int _selected_tool = -1;
+		int selected_tool { get { return _selected_tool; } set { _selected_tool = value; tool_name.set_text (current_tool.name); } }
 
 		Tool? current_tool { get {
-		    if (selected_tool == null) {
+		    if (selected_tool == -1) {
 		        return null;
 		    } else {
 		        return TOOLS[(uint) selected_tool];
 		    }
 		} }
 
-		LinkedList<string> history = new LinkedList<string> ();
-		LinkedList<string> reversed_history = new LinkedList<string> ();
+		Gee.LinkedList<string> history = new Gee.LinkedList<string> ();
+		Gee.LinkedList<string> reversed_history = new Gee.LinkedList<string> ();
 
-        SimpleAction undo_action = new SimpleAction ("undo", null);
-        SimpleAction redo_action = new SimpleAction ("redo", null);
-        SimpleAction apply_action = new SimpleAction ("apply", null);
+        GLib.SimpleAction undo_action = new GLib.SimpleAction ("undo", null);
+        GLib.SimpleAction apply_action = new GLib.SimpleAction ("apply", null);
+        GLib.SimpleAction redo_action = new GLib.SimpleAction ("redo", null);
+        GLib.SimpleAction show_keybindings = new GLib.SimpleAction ("show-keybindings", null);
+        GLib.SimpleAction show_preferences = new GLib.SimpleAction ("show-preferences", null);
+
+        Gtk.AccelGroup keybindings = new Gtk.AccelGroup ();
 
 		// List of tools
         Tool[] TOOLS = {
@@ -99,91 +102,132 @@ namespace Textpieces {
                 name = "Text - Trim trailing whitespaces",
                 icon = "text-symbolic",
                 func = (s) => s.strip()
+            },
+            Tool () {
+                name = "Text - Count symbols",
+                icon = "text-symbolic",
+                func = (s) => s.length.to_string()
+            },
+            Tool () {
+                name = "Text - Count lines",
+                icon = "text-symbolic",
+                func = (s) => {
+                    var counter = 1;
+                    for (var i = 0; i < s.length; i++) {
+                        if (s[i] == '\n') {
+                            counter++;
+                        }
+                    }
+                    return counter.to_string();
+                }
             }
         };
 
 		public Window (Gtk.Application app) {
 			Object (application: app);
 
-			add_actions ();
-
 			// Render tool list
-            foreach (Tool tool in TOOLS) {
+            foreach (Tool tool in this.TOOLS) {
 
                 // model_button.show();
                 var row = new ToolRow (tool);
-                tool_listbox.add (row);
+                this.tool_listbox.add (row);
             }
 
             // Set text changed handler
-            text_buffer.changed.connect (validate_actions);
+            this.text_buffer.changed.connect (this.validate_actions);
 
             // Show tool popover on click
-            tool_name.grab_focus.connect ((e) => {
-                tool_popover.popup ();
+            this.tool_name.grab_focus.connect ((e) => {
+                this.tool_popover.popup ();
             });
 
-            tool_listbox.row_activated.connect (select_tool_row);
+            this.tool_listbox.row_activated.connect (this.select_tool_row);
+
+            this.add_actions ();
+			this.setup_keybindings ();
+		}
+
+		void setup_keybindings () {
+		    this.keybindings.connect (
+                Gdk.keyval_from_name ("question"),
+                Gdk.ModifierType.CONTROL_MASK,
+                0,
+                () => {
+                    this.show_keybindings.activate (null);
+                    return true;
+                }
+		    );
+
+		    this.keybindings.connect (
+		        Gdk.keyval_from_name ("comma"),
+		        Gdk.ModifierType.CONTROL_MASK,
+		        0,
+		        () => {
+		            this.show_preferences.activate (null);
+		            return true;
+		        }
+		    );
+
+		    this.add_accel_group (this.keybindings);
 		}
 
 		void add_actions () {
-            undo_action.activate.connect (undo);
-            redo_action.activate.connect (redo);
-            apply_action.activate.connect (apply);
+            this.undo_action.activate.connect (() => {
+                this.text_buffer.undo ();
+            });
+            this.redo_action.activate.connect (() => {
+                this.text_buffer.redo ();
+            });
+            this.apply_action.activate.connect (apply);
+            this.show_keybindings.activate.connect (() => {
+                var shortcuts_window = new Textpieces.ShortcutsWindow (this);
+                shortcuts_window.show_all ();
+                shortcuts_window.present ();
+            });
+            this.show_preferences.activate.connect (() => {
+                var preferences = new Textpieces.Preferences (this);
+                preferences.show_all ();
+                preferences.present ();
+            });
 
-            undo_action.set_enabled (false);
-            redo_action.set_enabled (false);
-            apply_action.set_enabled (false);
+            this.apply_action.set_enabled (false);
 
-            this.add_action (undo_action);
-            this.add_action (redo_action);
-            this.add_action (apply_action);
+            this.add_action (this.undo_action);
+            this.add_action (this.redo_action);
+            this.add_action (this.apply_action);
+            this.add_action (this.show_keybindings);
+            this.add_action (this.show_preferences);
 		}
 
-		void select_tool_row (ListBoxRow row) {
-		    tool_name.primary_icon_name = ((ToolRow) row).tool_image.icon_name;
-		    tool_popover.popdown  ();
-            selected_tool = row.get_index ();
-            validate_actions ();
+		void select_tool_row (Gtk.ListBoxRow row) {
+		    this.tool_name.primary_icon_name = ((ToolRow) row).tool_image.icon_name;
+		    this.tool_popover.popdown  ();
+            this.selected_tool = row.get_index ();
+            this.validate_actions ();
 		}
 
 		void validate_actions () {
-		    apply_action.set_enabled (text_buffer.text != "" && selected_tool != null);
-
-            undo_action.set_enabled (history.size > 0 || text_buffer.text != "");
-            redo_action.set_enabled (reversed_history.size != 0);
+		    this.apply_action.set_enabled (this.text_buffer.text != "" && this.current_tool != null);
 		}
 
 		void apply () {
-		    var old_text = text_buffer.text;
-            if (text_buffer.has_selection) {
-                TextIter start, end;
-                text_buffer.get_selection_bounds (out start, out end);
+		    var old_text = this.text_buffer.text;
+            if (this.text_buffer.has_selection) {
+                Gtk.TextIter start, end;
+                this.text_buffer.get_selection_bounds (out start, out end);
 
-                var result = current_tool.func (text_buffer.get_text (start, end, false));
-                text_buffer.@delete (ref start, ref end);
-                text_buffer.insert (ref start, result, -1);
+                var result = this.current_tool.func (this.text_buffer.get_text (start, end, false));
+
+                this.text_buffer.@delete (ref start, ref end);
+                this.text_buffer.insert (ref start, result, -1);
             }
             else
-                text_buffer.text = current_tool.func (text_buffer.text);
+                this.text_buffer.text = this.current_tool.func (this.text_buffer.text);
 
-            if (old_text != text_buffer.text)
-                reversed_history.clear ();
-                history.offer_head (old_text);
+            if (old_text != this.text_buffer.text)
+                this.reversed_history.clear ();
+                this.history.offer_head (old_text);
 		}
-
-		void redo () {
-		    history.offer_head (text_buffer.text);
-            text_buffer.text = reversed_history.poll_head ();
-		}
-
-		void undo () {
-		    var n = text_buffer.text != (history.peek_head() ?? "") ? 1 : 2;
-		    reversed_history.offer_head (text_buffer.text);
-		    for (int i = 0; i < n; i++) {
-                text_buffer.text = history.poll_head () ?? "";
-		    }
-		}
-
 	}
 }

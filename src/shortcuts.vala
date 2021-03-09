@@ -1,4 +1,4 @@
-/* tool-row.vala
+/* shortcuts.vala
  *
  * Copyright 2021 Liferooter <glebsmirnov0708@gmail.com>
  *
@@ -21,20 +21,11 @@
 using Gtk;
 
 namespace Textpieces {
-
-    [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/tool-row.ui")]
-    public class ToolRow : ListBoxRow {
-
-        [GtkChild]
-        public Image tool_image;
-        [GtkChild]
-        Label tool_label;
-
-        public ToolRow (Tool tool) {
+    [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/shortcuts.ui")]
+    public class ShortcutsWindow : Gtk.ShortcutsWindow {
+        public ShortcutsWindow (Textpieces.Window window) {
             Object ();
-            tool_label.set_text (tool.name);
-
-            tool_image.icon_name = tool.icon;
+            this.set_transient_for (window);
         }
     }
 }

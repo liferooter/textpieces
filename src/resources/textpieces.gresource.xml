@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/liferooter/textpieces">
-    <file compressed="true">window.ui</file>
-    <file compressed="true">tool-row.ui</file>
-    <file compressed="true">style.css</file>
+    <file compressed="true">ui/window.ui</file>
+    <file compressed="true">ui/tool-row.ui</file>
+    <file compressed="true">ui/shortcuts.ui</file>
+    <file compressed="true">ui/preferences.ui</file>
+    <file compressed="true" alias="style.css">css/style.css</file>
     <file preprocess="xml-stripblanks">icons/size-right-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/size-left-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/text-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/fingerprint2-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/settings-symbolic.svg</file>
   </gresource>
 </gresources>
