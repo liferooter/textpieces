@@ -14,6 +14,11 @@
   <developer_name>Liferooter</developer_name>
   <url type="homepage">https://github.com/liferooter/textpieces</url>
   <url type="bugtracker">https://github.com/liferooter/textpieces/issues</url>
+  <screenshots>
+      <screenshot type="default">
+          <image>https://raw.githubusercontent.com/liferooter/textpieces/main/screenshot.png</image>
+      </screenshot>
+  </screenshots>
   <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">none</content_attribute>
     <content_attribute id="violence-fantasy">none</content_attribute>
