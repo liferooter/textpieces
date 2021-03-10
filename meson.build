@@ -4,6 +4,7 @@ project('textpieces', ['c', 'vala'],
   default_options: [ 'warning_level=2',
                    ],
 )
+textpieces_sources = []
 
 i18n = import('i18n')
 
