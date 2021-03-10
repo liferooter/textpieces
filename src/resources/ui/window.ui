@@ -45,6 +45,7 @@
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
+            <property name="action-name">win.about</property>
             <property name="text" translatable="yes" context="main menu">About Text Pieces</property>
           </object>
           <packing>
@@ -58,8 +59,10 @@
   </object>
   <template class="TextpiecesMainWindow" parent="HdyApplicationWindow">
     <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Text Pieces</property>
     <property name="default-width">720</property>
     <property name="default-height">360</property>
+    <property name="icon-name">com.github.liferooter.textpieces</property>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
@@ -124,19 +127,24 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="undo_button">
+              <object class="GtkMenuButton">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="focus-on-click">False</property>
                 <property name="receives-default">True</property>
-                <property name="action-name">win.undo</property>
+                <property name="popover">menu_popover</property>
                 <child>
                   <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="icon-name">edit-undo-symbolic</property>
+                    <property name="icon-name">open-menu-symbolic</property>
                   </object>
                 </child>
+                <accelerator key="F10" signal="activate"/>
               </object>
+              <packing>
+                <property name="pack-type">end</property>
+              </packing>
             </child>
             <child>
               <object class="GtkButton" id="redo_button">
@@ -153,24 +161,23 @@
                 </child>
               </object>
               <packing>
+                <property name="pack-type">end</property>
                 <property name="position">1</property>
               </packing>
             </child>
             <child>
-              <object class="GtkMenuButton">
+              <object class="GtkButton" id="undo_button">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
-                <property name="focus-on-click">False</property>
                 <property name="receives-default">True</property>
-                <property name="popover">menu_popover</property>
+                <property name="action-name">win.undo</property>
                 <child>
                   <object class="GtkImage">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
-                    <property name="icon-name">open-menu-symbolic</property>
+                    <property name="icon-name">edit-undo-symbolic</property>
                   </object>
                 </child>
-                <accelerator key="F10" signal="activate"/>
               </object>
               <packing>
                 <property name="pack-type">end</property>
@@ -206,7 +213,6 @@
                 <property name="auto-indent">True</property>
                 <property name="smart-home-end">before</property>
                 <property name="smart-backspace">True</property>
-                <property name="buffer">text_buffer</property>
               </object>
             </child>
           </object>

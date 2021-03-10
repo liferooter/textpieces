@@ -5,6 +5,7 @@ textpieces_sources = [
   'tools.vala',
   'shortcuts.vala',
   'preferences.vala',
+  'about.vala',
 ]
 
 textpieces_deps = [

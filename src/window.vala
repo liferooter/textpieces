@@ -57,13 +57,15 @@ namespace Textpieces {
         public const string ACTION_APPLY = "apply";
         public const string ACTION_SHORTCUTS = "show-keybindings";
         public const string ACTION_PREFERENCES = "show-preferences";
+        public const string ACTION_ABOUT = "about";
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_UNDO, action_undo },
             { ACTION_REDO, action_redo },
             { ACTION_APPLY, action_apply },
             { ACTION_SHORTCUTS, action_shortcuts },
-            { ACTION_PREFERENCES, action_preferences }
+            { ACTION_PREFERENCES, action_preferences },
+            { ACTION_ABOUT, action_about }
         };
 
         public SimpleActionGroup actions;
@@ -138,7 +140,12 @@ namespace Textpieces {
             });
 
             // Select tool on click
-            tool_listbox.row_activated.connect (select_tool_row);
+            tool_listbox.row_activated.connect ((row) => {
+                tool_name.primary_icon_name = ((ToolRow) row).tool_image.icon_name;
+                tool_popover.popdown  ();
+                selected_tool = row.get_index ();
+                check_whether_can_apply ();
+            });
         }
 
         void update_from_settings () {
@@ -172,19 +179,19 @@ namespace Textpieces {
             text_buffer.redo ();
         }
         void action_apply () {
+            text_buffer.begin_user_action ();
             if (text_buffer.has_selection) {
                 Gtk.TextIter start, end;
                 text_buffer.get_selection_bounds (out start, out end);
 
                 var result = current_tool.func (text_buffer.get_text (start, end, false));
 
-                text_buffer.begin_user_action ();
                 text_buffer.@delete (ref start, ref end);
                 text_buffer.insert (ref start, result, -1);
-                text_buffer.end_user_action ();
             }
             else
                 text_buffer.text = current_tool.func (text_buffer.text);
+            text_buffer.end_user_action ();
         }
         void action_shortcuts () {
             var shortcuts_window = new Textpieces.ShortcutsWindow (this);
@@ -198,11 +205,11 @@ namespace Textpieces {
             prefs.present ();
         }
 
-        void select_tool_row (Gtk.ListBoxRow row) {
-            tool_name.primary_icon_name = ((ToolRow) row).tool_image.icon_name;
-            tool_popover.popdown  ();
-            selected_tool = row.get_index ();
-            check_whether_can_apply ();
+        void action_about () {
+            var about = new Textpieces.AboutDialog (this);
+
+            about.show_all ();
+            about.present ();
         }
     }
 }

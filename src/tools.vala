@@ -64,7 +64,7 @@ namespace Textpieces {
             Tool () {
                 name = "Text - Count symbols",
                 icon = "text-symbolic",
-                func = (s) => s.length.to_string()
+                func = (s) => s.char_count().to_string()
             },
             Tool () {
                 name = "Text - Count lines",
