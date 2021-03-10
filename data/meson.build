@@ -43,10 +43,10 @@ endif
 
 # Icons
 install_subdir(
-  join_paths('icons', meson.project_name() + '.svg'),
+  join_paths('icons', 'com.github.liferooter.textpieces.svg'),
   install_dir: join_paths (get_option('datadir'), 'icons', 'hicolor', 'scalable', 'apps')
 )
 install_subdir(
-  join_paths('icons', meson.project_name() + '-symbolic.svg'),
+  join_paths('icons', 'com.github.liferooter.textpieces-symbolic.svg'),
   install_dir: join_paths (get_option('datadir'), 'icons', 'hicolor', 'symbolic', 'apps')
 )
