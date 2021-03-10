@@ -40,6 +40,8 @@ namespace Textpieces {
         private Gtk.SourceView text_view;
         [GtkChild]
         private Gtk.Button apply_button;
+        [GtkChild]
+        private Gtk.Popover copied_popover;
 
         private int _selected_tool = -1;
         public int selected_tool { get { return _selected_tool; } set { _selected_tool = value; tool_name.set_text (current_tool.name); } }
@@ -217,6 +219,8 @@ namespace Textpieces {
         void action_copy () {
             var clipboard = Gtk.Clipboard.get_default (Gdk.Display.get_default ());
             clipboard.set_text (text_buffer.text, -1);
+
+            copied_popover.popup ();
         }
     }
 }
