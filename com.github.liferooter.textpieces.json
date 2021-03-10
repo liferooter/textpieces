@@ -45,7 +45,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "file:///home/liferooter/Projects/TextPieces"
+                    "url" : "https://github.com/liferooter/textpieces",
+                    "branch" : "main"
                 }
             ]
         }
