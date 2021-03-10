@@ -29,16 +29,25 @@ if appstream_util.found()
   )
 endif
 
-install_data('com.github.liferooter.textpieces.gschema.xml',
-  install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
-)
-
-compile_schemas = find_program('glib-compile-schemas', required: false)
+compile_schemas = find_program('glib-compile-schemas', required: false, install: true)
 if compile_schemas.found()
   test('Validate schema file', compile_schemas,
     args: ['--strict', '--dry-run', meson.current_source_dir()]
   )
 endif
+
+install_data('com.github.liferooter.textpieces.gschema.xml',
+  install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
+)
+
+
+
+gnome = import('gnome')
+textpieces_sources += gnome.compile_resources('textpieces-resources',
+  'textpieces.gresource.xml',
+  source_dir: 'resources',
+  c_name: 'textpieces',
+)
 
 
 # Icons
