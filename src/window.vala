@@ -58,6 +58,7 @@ namespace Textpieces {
         public const string ACTION_SHORTCUTS = "show-keybindings";
         public const string ACTION_PREFERENCES = "show-preferences";
         public const string ACTION_ABOUT = "about";
+        public const string ACTION_COPY = "copy";
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_UNDO, action_undo },
@@ -65,7 +66,8 @@ namespace Textpieces {
             { ACTION_APPLY, action_apply },
             { ACTION_SHORTCUTS, action_shortcuts },
             { ACTION_PREFERENCES, action_preferences },
-            { ACTION_ABOUT, action_about }
+            { ACTION_ABOUT, action_about },
+            { ACTION_COPY, action_copy }
         };
 
         public SimpleActionGroup actions;
@@ -210,6 +212,11 @@ namespace Textpieces {
 
             about.show_all ();
             about.present ();
+        }
+
+        void action_copy () {
+            var clipboard = Gtk.Clipboard.get_default (Gdk.Display.get_default ());
+            clipboard.set_text (text_buffer.text, -1);
         }
     }
 }
