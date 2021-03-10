@@ -1,4 +1,4 @@
-textpieces_sources = [
+textpieces_sources += [
   'application.vala',
   'window.vala',
   'tool-row.vala',
@@ -15,13 +15,8 @@ textpieces_deps = [
   dependency('libhandy-1', version: '>= 1.0.3'),
 ]
 
-gnome = import('gnome')
 
-textpieces_sources += gnome.compile_resources('textpieces-resources',
-  join_paths('resources', 'textpieces.gresource.xml'),
-  source_dir: 'resources',
-  c_name: 'textpieces',
-)
+
 
 executable('textpieces', textpieces_sources,
   vala_args: '--target-glib=2.50',  dependencies: textpieces_deps,
