@@ -42,11 +42,11 @@ endif
 
 
 # Icons
-install_subdir(
+install_data(
   join_paths('icons', 'com.github.liferooter.textpieces.svg'),
   install_dir: join_paths (get_option('datadir'), 'icons', 'hicolor', 'scalable', 'apps')
 )
-install_subdir(
+install_data(
   join_paths('icons', 'com.github.liferooter.textpieces-symbolic.svg'),
   install_dir: join_paths (get_option('datadir'), 'icons', 'hicolor', 'symbolic', 'apps')
 )
