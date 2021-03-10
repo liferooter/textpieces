@@ -19,6 +19,15 @@
  */
 
 namespace Textpieces {
+    // Define type of tool function
+    public delegate string ToolFunc(string input);
+
+    public struct Tool {
+        public string name;
+        public string icon;
+        public ToolFunc func;
+    }
+
     Tool[] get_tools () {
         return {
             Tool () {

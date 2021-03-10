@@ -30,10 +30,17 @@ namespace Textpieces {
         [GtkChild]
         Label tool_label;
 
-        public ToolRow (Tool tool) {
-            Object ();
-            tool_label.set_text (tool.name);
+        public uint index;
+        public string name;
+        public ToolFunc func;
 
+        public ToolRow (Tool tool, uint _index) {
+            Object ();
+            name = tool.name;
+            func = tool.func;
+            index = _index;
+
+            tool_label.set_text (name);
             tool_image.icon_name = tool.icon;
         }
     }

@@ -17,15 +17,6 @@
  */
 
 namespace Textpieces {
-    // Define type of tool function
-    public delegate string ToolFunc(string input);
-
-    public struct Tool {
-        public string name;
-        public string icon;
-        public ToolFunc func;
-    }
-
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/window.ui")]
     public class MainWindow : Hdy.ApplicationWindow {
         [GtkChild]
@@ -43,16 +34,7 @@ namespace Textpieces {
         [GtkChild]
         private Gtk.Popover copied_popover;
 
-        private int _selected_tool = -1;
-        public int selected_tool { get { return _selected_tool; } set { _selected_tool = value; tool_name.set_text (current_tool.name); } }
-
-        Tool? current_tool { get {
-            if (selected_tool == -1) {
-                return null;
-            } else {
-                return TOOLS[(uint) selected_tool];
-            }
-        } }
+        Tool? current_tool = null;
 
         public const string ACTION_UNDO = "undo";
         public const string ACTION_REDO = "redo";
@@ -74,22 +56,19 @@ namespace Textpieces {
 
         public SimpleActionGroup actions;
 
-        // List of tools
-        Tool[] TOOLS;
-
         public MainWindow (Gtk.Application app) {
             Object (application: app);
         }
 
         construct {
             // Get tools
-            TOOLS = get_tools ();
+            var TOOLS = get_tools ();
 
             // Generate tool list
-            foreach (Tool tool in TOOLS) {
+            for (int i = 0; i < TOOLS.length; i++) {
 
                 // model_button.show();
-                var row = new Textpieces.ToolRow (tool);
+                var row = new Textpieces.ToolRow (TOOLS[i], i);
                 tool_listbox.add (row);
             }
 
@@ -145,10 +124,16 @@ namespace Textpieces {
 
             // Select tool on click
             tool_listbox.row_activated.connect ((row) => {
-                tool_name.primary_icon_name = ((ToolRow) row).tool_image.icon_name;
-                tool_popover.popdown  ();
-                selected_tool = row.get_index ();
+                var tool_row = (ToolRow) row;
+                current_tool = Tool () {
+                    name = tool_row.name,
+                    icon = tool_row.tool_image.icon_name,
+                    func = tool_row.func
+                };
+                tool_name.primary_icon_name = current_tool.icon;
+                tool_name.set_text (current_tool.name);
                 check_whether_can_do_actions ();
+                tool_popover.popdown  ();
             });
         }
 
