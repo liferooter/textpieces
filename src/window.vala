@@ -135,8 +135,8 @@ namespace Textpieces {
             // Setup handlers
 
             // Set text changed handler
-            text_buffer.changed.connect (check_whether_can_apply);
-            check_whether_can_apply ();
+            text_buffer.changed.connect (check_whether_can_do_actions);
+            check_whether_can_do_actions ();
 
             // Show tool popover on click
             tool_name.grab_focus.connect ((e) => {
@@ -148,7 +148,7 @@ namespace Textpieces {
                 tool_name.primary_icon_name = ((ToolRow) row).tool_image.icon_name;
                 tool_popover.popdown  ();
                 selected_tool = row.get_index ();
-                check_whether_can_apply ();
+                check_whether_can_do_actions ();
             });
         }
 
@@ -171,16 +171,18 @@ namespace Textpieces {
 
         }
 
-        void check_whether_can_apply () {
+        void check_whether_can_do_actions () {
             apply_button.set_sensitive (text_buffer.text != "" && current_tool != null);
         }
 
         void action_undo () {
-            text_buffer.undo ();
+            if (text_buffer.can_undo)
+                text_buffer.undo ();
         }
 
         void action_redo () {
-            text_buffer.redo ();
+            if (text_buffer.can_redo)
+                text_buffer.redo ();
         }
         void action_apply () {
             text_buffer.begin_user_action ();
