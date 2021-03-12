@@ -1,14 +1,24 @@
 # ![icon](icon.png) Text Pieces
+
+[<img alt="" height="50" src="https://flathub.org/assets/badges/flathub-badge-en.png">](https://flathub.org/apps/details/com.github.liferooter.textpieces)
 ![screenshot](screenshot.png)
+
 
 Small tool for quick text transformations such as hashes, encoding, decoding and so on. Written in Vala for GNOME desktop environment in hope to be useful.
 
-# Building
-## Via GNOME Builder
+# Installation
+
+## From Flathub
+> **Recommended**
+
+You can install my app from Flathub <a href="https://flathub.org/apps/details/com.github.liferooter.textpieces">here</a>
+
+## Build from source
+### Via GNOME Builder
 Text Pieces can be built with GNOME Builder >= 3.38. Just clone this repo and click run button.
-## Via Flatpak
+### Via Flatpak
 Text Pieces has Flatpak manifest, so it can be <a href="https://docs.flatpak.org/en/latest/building-introduction.html">built with Flatpak</a>.
-## Via Meson
+### Via Meson
 Text Pieces can be built directly via Meson:
 ```bash
 git clone https://github.com/liferooter/textpieces
