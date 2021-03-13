@@ -26,21 +26,18 @@ namespace Textpieces {
     public class ToolRow : ListBoxRow {
 
         [GtkChild]
-        public Image tool_image;
+        Image tool_image;
         [GtkChild]
         Label tool_label;
 
-        public uint index;
-        public string name;
-        public ToolFunc func;
+        public Tool tool {get; construct; }
 
-        public ToolRow (Tool tool, uint _index) {
-            Object ();
-            name = tool.name;
-            func = tool.func;
-            index = _index;
+        public ToolRow (Tool _tool) {
+            Object (
+                tool: _tool
+            );
 
-            tool_label.set_text (name);
+            tool_label.set_text (tool.name);
             tool_image.icon_name = tool.icon;
         }
     }

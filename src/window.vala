@@ -72,7 +72,7 @@ namespace Textpieces {
             for (int i = 0; i < TOOLS.length; i++) {
 
                 // model_button.show();
-                var row = new Textpieces.ToolRow (TOOLS[i], i);
+                var row = new Textpieces.ToolRow (TOOLS[i]);
                 tool_listbox.add (row);
             }
 
@@ -129,11 +129,7 @@ namespace Textpieces {
             // Select tool on click
             tool_listbox.row_activated.connect ((row) => {
                 var tool_row = (ToolRow) row;
-                current_tool = Tool () {
-                    name = tool_row.name,
-                    icon = tool_row.tool_image.icon_name,
-                    func = tool_row.func
-                };
+                current_tool = tool_row.tool;
                 tool_name.primary_icon_name = current_tool.icon;
                 tool_name.set_text (current_tool.name);
                 check_whether_can_do_actions ();
@@ -145,15 +141,13 @@ namespace Textpieces {
             var settings = Textpieces.Application.settings;
 
             // Setup SourceView
-            with (text_view) {
-                show_line_numbers = settings.get_boolean ("show-line-numbers");
-                background_pattern = settings.get_boolean ("show-grid")
-                    ? Gtk.SourceBackgroundPatternType.GRID
-                    : Gtk.SourceBackgroundPatternType.NONE;
-                tab_width = settings.get_uint ("tab-width");
-                indent_width = (int) settings.get_uint ("tab-width");
-                insert_spaces_instead_of_tabs = settings.get_boolean ("tab-to-spaces");
-            }
+            text_view.show_line_numbers = settings.get_boolean ("show-line-numbers");
+            text_view.background_pattern = settings.get_boolean ("show-grid")
+                ? Gtk.SourceBackgroundPatternType.GRID
+                : Gtk.SourceBackgroundPatternType.NONE;
+            text_view.tab_width = settings.get_uint ("tab-width");
+            text_view.indent_width = (int) settings.get_uint ("tab-width");
+            text_view.insert_spaces_instead_of_tabs = settings.get_boolean ("tab-to-spaces");
 
             Gtk.Settings.get_default ().gtk_application_prefer_dark_theme
                 = settings.get_boolean("prefer-dark");
