@@ -21,7 +21,7 @@ namespace Textpieces {
     class ErrorMessage : Gtk.MessageDialog {
         public ErrorMessage (string err, Gtk.Window win) {
             Object (
-                secondary_text: err
+                text: err
             );
             this.set_transient_for (win);
         }
