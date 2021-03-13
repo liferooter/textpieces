@@ -33,6 +33,7 @@ along with Text Pieces.  If not, see <http://www.gnu.org/licenses/>.
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="margin">4</property>
+        <property name="spacing">8</property>
         <child>
           <object class="GtkImage" id="tool_image">
             <property name="visible">True</property>
