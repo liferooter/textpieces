@@ -1,13 +1,13 @@
 textpieces_sources += [
-  'application.vala',
-  'window.vala',
-  'tool-row.vala',
-  'tools.vala',
-  'shortcuts.vala',
-  'preferences.vala',
-  'about.vala',
-  'argument.vala',
-  'error-message.vala',
+  'Application.vala',
+  'MainWindow.vala',
+  'ToolRow.vala',
+  'Tool.vala',
+  'ShortcutsWindow.vala',
+  'Preferences.vala',
+  'AboutDialog.vala',
+  'Argument.vala',
+  'ErrorDialog.vala',
 ]
 
 textpieces_deps = [
