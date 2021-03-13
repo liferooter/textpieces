@@ -33,6 +33,10 @@ namespace Textpieces {
         private Gtk.Button apply_button;
         [GtkChild]
         private Gtk.Popover copied_popover;
+        [GtkChild]
+        private Gtk.Button undo_button;
+        [GtkChild]
+        private Gtk.Button redo_button;
 
         Tool? current_tool = null;
 
@@ -158,6 +162,11 @@ namespace Textpieces {
 
         void check_whether_can_do_actions () {
             apply_button.set_sensitive (text_buffer.text != "" && current_tool != null);
+            Idle.add (() => {
+                undo_button.set_sensitive (text_buffer.can_undo);
+                redo_button.set_sensitive (text_buffer.can_redo);
+                return false;
+            });
         }
 
         void action_undo () {
