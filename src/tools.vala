@@ -67,29 +67,73 @@ namespace Textpieces {
                 func = (s) => (string) Base64.decode (s)
             },
             Tool () {
-                name = "Text - Trim trailing whitespaces",
-                icon = "text-symbolic",
-                func = (s) => s.strip()
+                name = "Replace - Substring",
+                icon = "edit-find-replace-symbolic",
+                func = (s, args) => {
+                    return s.replace (args[0], args[1]);
+                },
+                args = {"Find", "Replace"}
             },
             Tool () {
-                name = "Text - Count symbols",
-                icon = "text-symbolic",
+                name = "Replace - Regular Expression",
+                icon = "edit-find-replace-symbolic",
+                func = (s, args) => {
+                    try {
+                        var regex = new Regex (args[0]);
+                        return regex.replace (s, s.length, 0, args[1]);
+                    } catch (RegexError e) {
+                        warning ("Bad regex: %s", args[0]);
+                        return s;
+                    }
+                },
+                args = {"Find", "Replace"}
+            },
+            Tool () {
+                name = "Remove - Substring",
+                icon = "edit-cut-symbolic",
+                func = (s, args) => {
+                    return s.replace (args[0], "");
+                },
+                args = {"Substring"}
+            },
+            Tool () {
+                name = "Remove - Regular Expression",
+                icon = "edit-cut-symbolic",
+                func = (s, args) => {
+                    try {
+                        var regex = new Regex (args[0]);
+                        return regex.replace (s, s.length, 0, "");
+                    } catch (RegexError e) {
+                        warning ("Bad regex: %s", args[0]);
+                        return s;
+                    }
+                },
+                args = {"Regular expression"}
+            },
+            Tool () {
+                name = "Remove - Trailing Whitespaces",
+                icon = "edit-cut-symbolic",
+                func = (s) => {
+                    var lines = s.split ("\n");
+                    for (var i = 0; i < lines.length; i++)
+                        lines[i] = lines[i].strip ();
+
+                    return string.joinv ("\n", lines);
+                }
+            },
+            Tool () {
+                name = "Count - Symbols",
+                icon = "view-list-ordered-symbolic",
                 func = (s) => s.char_count().to_string(),
                 args = {}
             },
             Tool () {
-                name = "Text - Count lines",
-                icon = "text-symbolic",
+                name = "Count - Count lines",
+                icon = "view-list-ordered-symbolic",
                 func = (s) => {
-                    var counter = 1;
-                    for (var i = 0; i < s.length; i++) {
-                        if (s[i] == '\n') {
-                            counter++;
-                        }
-                    }
-                    return counter.to_string();
+                    return s.split("\n").length.to_string();
                 }
-            }
+            },
         };
     }
 }
