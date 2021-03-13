@@ -21,7 +21,7 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="1.0.2">
+    <release version="1.0.2" date="2021-03-13">
       <description>
         Add tools for replacement and removing
       </description>
