@@ -4,5 +4,5 @@ Icon=com.github.liferooter.textpieces
 Exec=textpieces
 Terminal=false
 Type=Application
-Categories=GTK;
+Categories=Utility;TextTools;GTK;GNOME;
 StartupNotify=true
