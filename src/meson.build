@@ -7,6 +7,7 @@ textpieces_sources += [
   'preferences.vala',
   'about.vala',
   'argument.vala',
+  'error-message.vala',
 ]
 
 textpieces_deps = [

@@ -20,7 +20,7 @@
 
 namespace Textpieces {
     // Define type of tool function
-    delegate string ToolFunc(string input, string[] args = {});
+    delegate string? ToolFunc(string input, string[] args = {}, ref string? err);
 
     struct Tool {
         public string name;
@@ -77,13 +77,13 @@ namespace Textpieces {
             Tool () {
                 name = "Replace - Regular Expression",
                 icon = "edit-find-replace-symbolic",
-                func = (s, args) => {
+                func = (s, args, ref err) => {
                     try {
                         var regex = new Regex (args[0]);
                         return regex.replace (s, s.length, 0, args[1]);
                     } catch (RegexError e) {
-                        warning ("Bad regex: %s", args[0]);
-                        return s;
+                        err = "Incorrect regular expression";
+                        return null;
                     }
                 },
                 args = {"Find", "Replace"}
@@ -99,13 +99,13 @@ namespace Textpieces {
             Tool () {
                 name = "Remove - Regular Expression",
                 icon = "edit-cut-symbolic",
-                func = (s, args) => {
+                func = (s, args, ref err) => {
                     try {
                         var regex = new Regex (args[0]);
                         return regex.replace (s, s.length, 0, "");
                     } catch (RegexError e) {
-                        warning ("Bad regex: %s", args[0]);
-                        return s;
+                        err = "Incorrect regular expression";
+                        return null;
                     }
                 },
                 args = {"Regular expression"}
