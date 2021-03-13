@@ -193,19 +193,34 @@ namespace Textpieces {
                 args[i] = ((Argument) arg_entries.nth_data(i)).arg_entry.get_text ();
             }
 
-            text_buffer.begin_user_action ();
+            string? err = null;
+
             if (text_buffer.has_selection) {
                 Gtk.TextIter start, end;
                 text_buffer.get_selection_bounds (out start, out end);
 
-                var result = current_tool.func (text_buffer.get_text (start, end, false), args);
-
-                text_buffer.@delete (ref start, ref end);
-                text_buffer.insert (ref start, result, -1);
+                var result = current_tool.func (text_buffer.get_text (start, end, false), args, ref err);
+                if (result != null) {
+                    text_buffer.begin_user_action ();
+                    text_buffer.@delete (ref start, ref end);
+                    text_buffer.insert (ref start, result, -1);
+                    text_buffer.end_user_action ();
+                }
             }
-            else
-                text_buffer.text = current_tool.func (text_buffer.text, args);
-            text_buffer.end_user_action ();
+            else {
+                var result = current_tool.func (text_buffer.text, args, ref err);
+                if (result != null) {
+                    text_buffer.begin_user_action ();
+                    text_buffer.text = result;
+                    text_buffer.end_user_action ();
+                }
+            }
+
+            if (err != null) {
+                var error_message = new ErrorMessage (err, this);
+                error_message.show_all ();
+                error_message.present ();
+            }
         }
         void action_shortcuts () {
             var shortcuts_window = new Textpieces.ShortcutsWindow (this);
