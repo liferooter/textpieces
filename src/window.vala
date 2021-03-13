@@ -37,6 +37,8 @@ namespace Textpieces {
         private Gtk.Button undo_button;
         [GtkChild]
         private Gtk.Button redo_button;
+        [GtkChild]
+        private Gtk.Box args_box;
 
         Tool? current_tool = null;
 
@@ -133,7 +135,19 @@ namespace Textpieces {
                 tool_name.primary_icon_name = current_tool.icon;
                 tool_name.set_text (current_tool.name);
                 check_whether_can_do_actions ();
-                tool_popover.popdown  ();
+
+                args_box.foreach ((el) => {
+                    el.destroy ();
+                });
+
+                foreach (var arg in current_tool.args) {
+                    var argument = new Argument (arg);
+                    args_box.add (argument);
+                }
+
+                args_box.visible = current_tool.args.length > 0;
+
+                tool_popover.popdown ();
             });
         }
 
@@ -173,18 +187,24 @@ namespace Textpieces {
                 text_buffer.redo ();
         }
         void action_apply () {
+            var arg_entries = args_box.get_children ();
+            var args = new string[arg_entries.length ()];
+            for (var i = 0; i < arg_entries.length (); i++) {
+                args[i] = ((Argument) arg_entries.nth_data(i)).arg_entry.get_text ();
+            }
+
             text_buffer.begin_user_action ();
             if (text_buffer.has_selection) {
                 Gtk.TextIter start, end;
                 text_buffer.get_selection_bounds (out start, out end);
 
-                var result = current_tool.func (text_buffer.get_text (start, end, false));
+                var result = current_tool.func (text_buffer.get_text (start, end, false), args);
 
                 text_buffer.@delete (ref start, ref end);
                 text_buffer.insert (ref start, result, -1);
             }
             else
-                text_buffer.text = current_tool.func (text_buffer.text);
+                text_buffer.text = current_tool.func (text_buffer.text, args);
             text_buffer.end_user_action ();
         }
         void action_shortcuts () {

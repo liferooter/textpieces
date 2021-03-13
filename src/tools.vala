@@ -20,12 +20,13 @@
 
 namespace Textpieces {
     // Define type of tool function
-    public delegate string ToolFunc(string input);
+    delegate string ToolFunc(string input, string[] args = {});
 
-    public struct Tool {
+    struct Tool {
         public string name;
         public string icon;
         public ToolFunc func;
+        public string[] args;
     }
 
     Tool[] get_tools () {
@@ -73,7 +74,8 @@ namespace Textpieces {
             Tool () {
                 name = "Text - Count symbols",
                 icon = "text-symbolic",
-                func = (s) => s.char_count().to_string()
+                func = (s) => s.char_count().to_string(),
+                args = {}
             },
             Tool () {
                 name = "Text - Count lines",

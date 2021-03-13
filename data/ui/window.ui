@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <requires lib="gtksourceview" version="4.0"/>
@@ -74,7 +73,7 @@
             <property name="can-focus">False</property>
             <property name="show-close-button">True</property>
             <child type="title">
-              <object class="GtkBox" id="box1">
+              <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <child>
@@ -211,6 +210,18 @@
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="args_box">
+            <property name="visible">False</property>
+            <property name="spacing">4</property>
+            <property name="orientation">horizontal</property>
+            <property name="margin">6</property>
+          </object>
+          <packing>
+            <property name="fill">True</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child>
