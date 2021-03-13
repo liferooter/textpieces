@@ -3,7 +3,7 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <template class="TextpiecesShortcutsWindow" parent="GtkShortcutsWindow">
-        <property name="modal">1</property>
+    <property name="modal">1</property>
     <child>
       <object class="GtkShortcutsSection">
         <property name="visible">1</property>

@@ -37,6 +37,8 @@ namespace Textpieces {
         private Gtk.Button undo_button;
         [GtkChild]
         private Gtk.Button redo_button;
+        [GtkChild]
+        private Gtk.Box args_box;
 
         Tool? current_tool = null;
 
@@ -72,7 +74,7 @@ namespace Textpieces {
             for (int i = 0; i < TOOLS.length; i++) {
 
                 // model_button.show();
-                var row = new Textpieces.ToolRow (TOOLS[i], i);
+                var row = new Textpieces.ToolRow (TOOLS[i]);
                 tool_listbox.add (row);
             }
 
@@ -129,15 +131,23 @@ namespace Textpieces {
             // Select tool on click
             tool_listbox.row_activated.connect ((row) => {
                 var tool_row = (ToolRow) row;
-                current_tool = Tool () {
-                    name = tool_row.name,
-                    icon = tool_row.tool_image.icon_name,
-                    func = tool_row.func
-                };
+                current_tool = tool_row.tool;
                 tool_name.primary_icon_name = current_tool.icon;
                 tool_name.set_text (current_tool.name);
                 check_whether_can_do_actions ();
-                tool_popover.popdown  ();
+
+                args_box.foreach ((el) => {
+                    el.destroy ();
+                });
+
+                foreach (var arg in current_tool.args) {
+                    var argument = new Argument (arg);
+                    args_box.add (argument);
+                }
+
+                args_box.visible = current_tool.args.length > 0;
+
+                tool_popover.popdown ();
             });
         }
 
@@ -145,15 +155,13 @@ namespace Textpieces {
             var settings = Textpieces.Application.settings;
 
             // Setup SourceView
-            with (text_view) {
-                show_line_numbers = settings.get_boolean ("show-line-numbers");
-                background_pattern = settings.get_boolean ("show-grid")
-                    ? Gtk.SourceBackgroundPatternType.GRID
-                    : Gtk.SourceBackgroundPatternType.NONE;
-                tab_width = settings.get_uint ("tab-width");
-                indent_width = (int) settings.get_uint ("tab-width");
-                insert_spaces_instead_of_tabs = settings.get_boolean ("tab-to-spaces");
-            }
+            text_view.show_line_numbers = settings.get_boolean ("show-line-numbers");
+            text_view.background_pattern = settings.get_boolean ("show-grid")
+                ? Gtk.SourceBackgroundPatternType.GRID
+                : Gtk.SourceBackgroundPatternType.NONE;
+            text_view.tab_width = settings.get_uint ("tab-width");
+            text_view.indent_width = (int) settings.get_uint ("tab-width");
+            text_view.insert_spaces_instead_of_tabs = settings.get_boolean ("tab-to-spaces");
 
             Gtk.Settings.get_default ().gtk_application_prefer_dark_theme
                 = settings.get_boolean("prefer-dark");
@@ -179,18 +187,24 @@ namespace Textpieces {
                 text_buffer.redo ();
         }
         void action_apply () {
+            var arg_entries = args_box.get_children ();
+            var args = new string[arg_entries.length ()];
+            for (var i = 0; i < arg_entries.length (); i++) {
+                args[i] = ((Argument) arg_entries.nth_data(i)).arg_entry.get_text ();
+            }
+
             text_buffer.begin_user_action ();
             if (text_buffer.has_selection) {
                 Gtk.TextIter start, end;
                 text_buffer.get_selection_bounds (out start, out end);
 
-                var result = current_tool.func (text_buffer.get_text (start, end, false));
+                var result = current_tool.func (text_buffer.get_text (start, end, false), args);
 
                 text_buffer.@delete (ref start, ref end);
                 text_buffer.insert (ref start, result, -1);
             }
             else
-                text_buffer.text = current_tool.func (text_buffer.text);
+                text_buffer.text = current_tool.func (text_buffer.text, args);
             text_buffer.end_user_action ();
         }
         void action_shortcuts () {

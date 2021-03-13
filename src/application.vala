@@ -38,15 +38,6 @@ namespace Textpieces {
             // Initialize Libhandy
             Hdy.init ();
 
-            // Load custom CSS
-            var css_provider = new Gtk.CssProvider ();
-            css_provider.load_from_resource ("com/github/liferooter/textpieces/style.css");
-            Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (),
-                css_provider,
-                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-            );
-
             // Create window
             if (win == null) {
                 win = new MainWindow (this);

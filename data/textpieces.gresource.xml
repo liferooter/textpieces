@@ -6,7 +6,7 @@
     <file compressed="true">ui/shortcuts.ui</file>
     <file compressed="true">ui/preferences.ui</file>
     <file compressed="true">ui/about.ui</file>
-    <file compressed="true" alias="style.css">css/style.css</file>
+    <file compressed="true">ui/argument.ui</file>
     <file preprocess="xml-stripblanks">icons/size-right-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/size-left-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/text-symbolic.svg</file>

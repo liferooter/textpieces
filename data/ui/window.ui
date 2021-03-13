@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
 <interface>
-  <requires lib="gtk+" version="3.24" />
-  <requires lib="gtksourceview" version="4.0" />
-  <requires lib="libhandy" version="0.0" />
+  <requires lib="gtk+" version="3.24"/>
+  <requires lib="gtksourceview" version="4.0"/>
+  <requires lib="libhandy" version="0.0"/>
   <object class="GtkPopover" id="menu_popover">
     <property name="can-focus">False</property>
     <child>
@@ -18,7 +17,7 @@
             <property name="receives-default">True</property>
             <property name="action-name">win.show-keybindings</property>
             <property name="text" translatable="yes" context="main menu">Keyboard shortcuts</property>
-            <accelerator key="question" signal="activate" modifiers="GDK_CONTROL_MASK" />
+            <accelerator key="question" signal="activate" modifiers="GDK_CONTROL_MASK"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -74,7 +73,7 @@
             <property name="can-focus">False</property>
             <property name="show-close-button">True</property>
             <child type="title">
-              <object class="GtkBox" id="box1">
+              <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <child>
@@ -85,7 +84,7 @@
                     <property name="editable">False</property>
                     <property name="primary-icon-name">applications-utilities-symbolic</property>
                     <property name="placeholder-text" translatable="yes" context="tool entry">Select tool...</property>
-                    <accelerator key="Return" signal="grab-focus" modifiers="GDK_MOD1_MASK" />
+                    <accelerator key="Return" signal="grab-focus" modifiers="GDK_MOD1_MASK"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -107,9 +106,9 @@
                         <property name="icon-name">object-select-symbolic</property>
                       </object>
                     </child>
-                    <accelerator key="a" signal="clicked" modifiers="GDK_MOD1_MASK" />
+                    <accelerator key="a" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                     <style>
-                      <class name="suggested-action" />
+                      <class name="suggested-action"/>
                     </style>
                   </object>
                   <packing>
@@ -119,7 +118,7 @@
                   </packing>
                 </child>
                 <style>
-                  <class name="linked" />
+                  <class name="linked"/>
                 </style>
               </object>
               <packing>
@@ -140,7 +139,7 @@
                     <property name="icon-name">open-menu-symbolic</property>
                   </object>
                 </child>
-                <accelerator key="F10" signal="activate" />
+                <accelerator key="F10" signal="activate"/>
               </object>
               <packing>
                 <property name="pack-type">end</property>
@@ -159,7 +158,7 @@
                     <property name="icon-name">edit-copy-symbolic</property>
                   </object>
                 </child>
-                <accelerator key="c" signal="clicked" modifiers="GDK_MOD1_MASK" />
+                <accelerator key="c" signal="clicked" modifiers="GDK_MOD1_MASK"/>
               </object>
               <packing>
                 <property name="pack-type">end</property>
@@ -180,7 +179,7 @@
                     <property name="icon-name">edit-undo-symbolic</property>
                   </object>
                 </child>
-                <accelerator key="z" signal="clicked" modifiers="GDK_CONTROL_MASK" />
+                <accelerator key="z" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -200,7 +199,7 @@
                     <property name="icon-name">edit-redo-symbolic</property>
                   </object>
                 </child>
-                <accelerator key="z" signal="clicked" modifiers="GDK_SHIFT_MASK | GDK_CONTROL_MASK" />
+                <accelerator key="z" signal="clicked" modifiers="GDK_SHIFT_MASK | GDK_CONTROL_MASK"/>
               </object>
               <packing>
                 <property name="position">3</property>
@@ -211,6 +210,18 @@
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="args_box">
+            <property name="visible">False</property>
+            <property name="spacing">4</property>
+            <property name="orientation">horizontal</property>
+            <property name="margin">6</property>
+          </object>
+          <packing>
+            <property name="fill">True</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child>
@@ -295,5 +306,5 @@
       </object>
     </child>
   </object>
-  <object class="GtkSourceBuffer" id="text_buffer" />
+  <object class="GtkSourceBuffer" id="text_buffer"/>
 </interface>
