@@ -1,62 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 
-
-Copyright (C) Liferooter <glebsmirnov0708@gmail.com>
-
-This file is part of Text Pieces.
-
-Text Pieces is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-Text Pieces is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with Text Pieces.  If not, see <http://www.gnu.org/licenses/>.
-
--->
 <interface>
-  <requires lib="gtk+" version="3.24"/>
-  <!-- interface-css-provider-path style.css -->
-  <!-- interface-license-type gplv3 -->
-  <!-- interface-name Text Pieces -->
-  <!-- interface-copyright Liferooter <glebsmirnov0708@gmail.com> -->
   <template class="TextpiecesToolRow" parent="GtkListBoxRow">
     <property name="visible">True</property>
-    <property name="can-focus">True</property>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
-        <property name="can-focus">False</property>
         <property name="margin">4</property>
         <property name="spacing">8</property>
         <child>
           <object class="GtkImage" id="tool_image">
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
             <property name="pixel-size">18</property>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
         </child>
         <child>
           <object class="GtkLabel" id="tool_label">
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
             <property name="label" translatable="yes">tool_name</property>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
     </child>

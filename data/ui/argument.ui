@@ -1,33 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.38.2 -->
 <interface>
-  <requires lib="gtk+" version="3.24"/>
   <template class="TextpiecesArgument" parent="GtkBox">
     <property name="visible">True</property>
-    <property name="can-focus">False</property>
     <property name="spacing">12</property>
     <property name="halign">center</property>
     <child>
       <object class="GtkLabel" id="arg_label">
         <property name="visible">True</property>
-        <property name="can-focus">False</property>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">0</property>
-      </packing>
     </child>
     <child>
       <object class="GtkEntry" id="arg_entry">
         <property name="visible">True</property>
-        <property name="can-focus">True</property>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">1</property>
-      </packing>
     </child>
   </template>
 </interface>
