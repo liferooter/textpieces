@@ -8,7 +8,7 @@ namespace Textpieces {
         [GtkChild]
         private Gtk.Popover tool_popover;
         [GtkChild]
-        private Gtk.SourceBuffer text_buffer;
+        public Gtk.SourceBuffer text_buffer;
         [GtkChild]
         private Gtk.SourceView text_view;
         [GtkChild]
@@ -128,8 +128,24 @@ namespace Textpieces {
                 }
 
                 args_box.visible = current_tool.args.length > 0;
-
                 tool_popover.popdown ();
+            });
+
+            // Paste clipboard when can
+            ulong paste_clipboard_handler;
+            paste_clipboard_handler = text_view.draw.connect (() => {
+                Idle.add(() => {
+                    var clipboard = Gtk.Clipboard.get_default (Gdk.Display.get_default ());
+                    clipboard.request_text ((clip, text) => {
+                        if (text != null) {
+                            text_buffer.set_text (text);
+                            text_view.disconnect (paste_clipboard_handler);
+                        } else {
+                            print ("Hello world!\n");
+                        }
+                    });
+                });
+                return false;
             });
         }
 
