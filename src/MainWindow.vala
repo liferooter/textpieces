@@ -132,20 +132,12 @@ namespace Textpieces {
             });
 
             // Paste clipboard when can
-            ulong paste_clipboard_handler;
-            paste_clipboard_handler = text_view.draw.connect (() => {
-                Idle.add(() => {
-                    var clipboard = Gtk.Clipboard.get_default (Gdk.Display.get_default ());
-                    clipboard.request_text ((clip, text) => {
-                        if (text != null) {
-                            text_buffer.set_text (text);
-                            text_view.disconnect (paste_clipboard_handler);
-                        } else {
-                            print ("Hello world!\n");
-                        }
-                    });
-                });
-                return false;
+            ulong handler_id;
+            handler_id = this.focus_in_event.connect (() => {
+                var clipboard = Gtk.Clipboard.get_for_display (Gdk.Display.get_default (), Gdk.SELECTION_CLIPBOARD);
+                var text = clipboard.wait_for_text ();
+                    text_buffer.text = text;
+                this.disconnect (handler_id);
             });
         }
 
