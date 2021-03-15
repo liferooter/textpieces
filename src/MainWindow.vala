@@ -130,15 +130,6 @@ namespace Textpieces {
                 args_box.visible = current_tool.args.length > 0;
                 tool_popover.popdown ();
             });
-
-            // Paste clipboard when can
-            ulong handler_id;
-            handler_id = this.focus_in_event.connect (() => {
-                var clipboard = Gtk.Clipboard.get_for_display (Gdk.Display.get_default (), Gdk.SELECTION_CLIPBOARD);
-                var text = clipboard.wait_for_text ();
-                    text_buffer.text = text;
-                this.disconnect (handler_id);
-            });
         }
 
         void update_from_settings () {
