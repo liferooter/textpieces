@@ -244,6 +244,7 @@
                 <property name="monospace">True</property>
                 <property name="show-line-numbers">True</property>
                 <property name="show-line-marks">True</property>
+                <property name="wrap-mode">word-char</property>
                 <property name="auto-indent">True</property>
                 <property name="smart-home-end">before</property>
                 <property name="smart-backspace">True</property>
