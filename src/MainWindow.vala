@@ -2,23 +2,13 @@ namespace Textpieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/window.ui")]
     public class MainWindow : Hdy.ApplicationWindow {
         [GtkChild]
-        private Gtk.ListBox tool_listbox;
-        [GtkChild]
         private Gtk.Entry tool_name;
-        [GtkChild]
-        private Gtk.Popover tool_popover;
         [GtkChild]
         public Gtk.SourceBuffer text_buffer;
         [GtkChild]
         private Gtk.SourceView text_view;
         [GtkChild]
-        private Gtk.Button apply_button;
-        [GtkChild]
         private Gtk.Popover copied_popover;
-        [GtkChild]
-        private Gtk.Button undo_button;
-        [GtkChild]
-        private Gtk.Button redo_button;
         [GtkChild]
         private Gtk.Box args_box;
 
@@ -49,16 +39,6 @@ namespace Textpieces {
         }
 
         construct {
-            // Get tools
-            var TOOLS = get_tools ();
-
-            // Generate tool list
-            for (int i = 0; i < TOOLS.length; i++) {
-
-                // model_button.show();
-                var row = new Textpieces.ToolRow (TOOLS[i]);
-                tool_listbox.add (row);
-            }
 
             // Set dark theme if needed
             Textpieces.Application.settings.changed.connect (update_from_settings);
@@ -66,17 +46,25 @@ namespace Textpieces {
 
 
             // Setup keybindings
-
             var keybindings = new Gtk.AccelGroup ();
 
             // Show shortcuts window (Ctrl+?)
             keybindings.connect (
-                Gdk.keyval_from_name ("question"),
+                Gdk.Key.question,
                 Gdk.ModifierType.CONTROL_MASK,
                 0,
                 () => {
                     action_shortcuts ();
                     return true;
+                }
+            );
+
+            keybindings.connect (
+                Gdk.Key.P,
+                Gdk.ModifierType.MOD1_MASK,
+                0,
+                () => {
+                    show_tools_popover ();
                 }
             );
 
@@ -106,30 +94,35 @@ namespace Textpieces {
             check_whether_can_do_actions ();
 
             // Show tool popover on click
-            tool_name.grab_focus.connect ((e) => {
-                tool_popover.popup ();
+            tool_name.button_press_event.connect (() => {
+                show_tools_popover();
+            });
+        }
+
+        void on_select_tool (Tool tool) {
+            current_tool = tool;
+            tool_name.primary_icon_name = tool.icon;
+            tool_name.text = tool.name;
+            
+            check_whether_can_do_actions ();
+            
+            // Ask for the arguments
+            args_box.foreach ((el) => {
+                el.destroy ();
             });
 
-            // Select tool on click
-            tool_listbox.row_activated.connect ((row) => {
-                var tool_row = (ToolRow) row;
-                current_tool = tool_row.tool;
-                tool_name.primary_icon_name = current_tool.icon;
-                tool_name.set_text (current_tool.name);
-                check_whether_can_do_actions ();
+            foreach (var arg in current_tool.args) {
+                var argument = new Argument (arg);
+                args_box.add (argument);
+            }
 
-                args_box.foreach ((el) => {
-                    el.destroy ();
-                });
+            args_box.visible = current_tool.args.length > 0;
+        }
 
-                foreach (var arg in current_tool.args) {
-                    var argument = new Argument (arg);
-                    args_box.add (argument);
-                }
-
-                args_box.visible = current_tool.args.length > 0;
-                tool_popover.popdown ();
-            });
+        void show_tools_popover () {
+            var popover = new ToolsPopover (tool_name);
+            popover.select_tool.connect (on_select_tool);
+            popover.popup ();
         }
 
         void update_from_settings () {
@@ -150,11 +143,11 @@ namespace Textpieces {
         }
 
         void check_whether_can_do_actions () {
-            apply_button.set_sensitive (text_buffer.text != "" && current_tool != null);
+            actions.lookup_action (ACTION_APPLY).set ("enabled", (text_buffer.text != "" && current_tool != null));
             Idle.add (() => {
-                undo_button.set_sensitive (text_buffer.can_undo);
-                redo_button.set_sensitive (text_buffer.can_redo);
-                return false;
+                actions.lookup_action (ACTION_UNDO).set ("enabled", text_buffer.can_undo);
+                actions.lookup_action (ACTION_REDO).set ("enabled", text_buffer.can_redo);
+                return Source.REMOVE;
             });
         }
 

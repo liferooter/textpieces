@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <template class="TextpiecesToolsPopover" parent="GtkPopover">
+        <property name="position">bottom</property>
+        <child>
+            <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="orientation">vertical</property>
+                <property name="margin">8</property>
+                <property name="spacing">4</property>
+                <child>
+                    <object class="GtkSearchEntry" id="search_entry">
+                        <property name="visible">True</property>
+                        <property name="has-focus">True</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkScrolledWindow">
+                        <property name="visible">True</property>
+                        <property name="hscrollbar-policy">never</property>
+                        <property name="max-content-height">256</property>
+                        <property name="min-content-height">256</property>
+                        <child>
+                            <object class="GtkTreeView" id="tool_tree">
+                                <property name="visible">True</property>
+                                <property name="vexpand">True</property>
+                                <property name="headers-visible">False</property>
+                                <property name="activate-on-single-click">True</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </template>
+</interface>

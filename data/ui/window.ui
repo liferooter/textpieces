@@ -55,7 +55,6 @@
                     <property name="can-focus">False</property>
                     <property name="primary-icon-name">applications-utilities-symbolic</property>
                     <property name="placeholder-text" translatable="yes" context="tool entry">Select tool...</property>
-                    <accelerator key="Return" signal="grab-focus" modifiers="GDK_MOD1_MASK"/>
                   </object>
                 </child>
                 <child>
@@ -116,8 +115,6 @@
             <child>
               <object class="GtkButton" id="undo_button">
                 <property name="visible">True</property>
-                <property name="sensitive">False</property>
-
                 <property name="action-name">win.undo</property>
                 <child>
                   <object class="GtkImage">
@@ -131,7 +128,6 @@
             <child>
               <object class="GtkButton" id="redo_button">
                 <property name="visible">True</property>
-                <property name="sensitive">False</property>
                 <property name="action-name">win.redo</property>
                 <child>
                   <object class="GtkImage">
@@ -196,30 +192,6 @@
         <property name="margin-top">6</property>
         <property name="margin-bottom">6</property>
         <property name="label" translatable="yes">Copied!</property>
-      </object>
-    </child>
-  </object>
-  <object class="GtkPopover" id="tool_popover">
-    <property name="relative-to">tool_name</property>
-    <child>
-      <object class="GtkScrolledWindow">
-        <property name="visible">True</property>
-        <property name="margin">8</property>
-        <property name="shadow-type">in</property>
-        <property name="min-content-width">256</property>
-        <property name="max-content-height">256</property>
-        <property name="propagate-natural-width">True</property>
-        <property name="propagate-natural-height">True</property>
-        <child>
-          <object class="GtkViewport">
-            <property name="visible">True</property>
-            <child>
-              <object class="GtkListBox" id="tool_listbox">
-                <property name="visible">True</property>
-              </object>
-            </child>
-          </object>
-        </child>
       </object>
     </child>
   </object>
