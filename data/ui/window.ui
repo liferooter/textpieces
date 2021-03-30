@@ -49,13 +49,10 @@
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <child>
-                  <object class="GtkEntry" id="tool_name">
-                    <property name="width-request">360</property>
+                  <object class="TextpiecesToolEntry" id="tool_name">
                     <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="editable">False</property>
-                    <property name="primary-icon-name">applications-utilities-symbolic</property>
-                    <property name="placeholder-text" translatable="yes" context="tool entry">Select tool...</property>
+                    <signal name="select-tool" handler="on_select_tool" swapped="no"/>
+                    <accelerator key="p" signal="show-tools-popover" modifiers="GDK_SHIFT_MASK | GDK_CONTROL_MASK"/>
                   </object>
                 </child>
                 <child>
@@ -196,5 +193,7 @@
       </object>
     </child>
   </object>
-  <object class="GtkSourceBuffer" id="text_buffer"/>
+  <object class="GtkSourceBuffer" id="text_buffer">
+    <signal name="changed" handler="check_whether_can_do_actions"/>
+  </object>
 </interface>

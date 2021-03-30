@@ -2,8 +2,6 @@ namespace Textpieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/window.ui")]
     public class MainWindow : Hdy.ApplicationWindow {
         [GtkChild]
-        private Gtk.Entry tool_name;
-        [GtkChild]
         public Gtk.SourceBuffer text_buffer;
         [GtkChild]
         private Gtk.SourceView text_view;
@@ -40,7 +38,7 @@ namespace Textpieces {
 
         construct {
 
-            // Set dark theme if needed
+            // Update settings
             Textpieces.Application.settings.changed.connect (update_from_settings);
             update_from_settings ();
 
@@ -59,15 +57,6 @@ namespace Textpieces {
                 }
             );
 
-            keybindings.connect (
-                Gdk.Key.P,
-                Gdk.ModifierType.MOD1_MASK,
-                0,
-                () => {
-                    show_tools_popover ();
-                }
-            );
-
             // Show preferences window (Ctrl+,)
             keybindings.connect (
                 Gdk.keyval_from_name ("comma"),
@@ -79,30 +68,19 @@ namespace Textpieces {
                 }
             );
 
-            add_accel_group (keybindings);
+            this.add_accel_group (keybindings);
 
             // Setup actions
             actions = new SimpleActionGroup ();
             actions.add_action_entries (ACTION_ENTRIES, this);
             insert_action_group ("win", actions);
 
-
-            // Setup handlers
-
-            // Set text changed handler
-            text_buffer.changed.connect (check_whether_can_do_actions);
             check_whether_can_do_actions ();
-
-            // Show tool popover on click
-            tool_name.button_press_event.connect (() => {
-                show_tools_popover();
-            });
         }
 
+        [GtkCallback]
         void on_select_tool (Tool tool) {
             current_tool = tool;
-            tool_name.primary_icon_name = tool.icon;
-            tool_name.text = tool.name;
             
             check_whether_can_do_actions ();
             
@@ -117,12 +95,6 @@ namespace Textpieces {
             }
 
             args_box.visible = current_tool.args.length > 0;
-        }
-
-        void show_tools_popover () {
-            var popover = new ToolsPopover (tool_name);
-            popover.select_tool.connect (on_select_tool);
-            popover.popup ();
         }
 
         void update_from_settings () {
@@ -142,6 +114,7 @@ namespace Textpieces {
 
         }
 
+        [GtkCallback]
         void check_whether_can_do_actions () {
             actions.lookup_action (ACTION_APPLY).set ("enabled", (text_buffer.text != "" && current_tool != null));
             Idle.add (() => {

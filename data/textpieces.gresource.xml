@@ -6,6 +6,7 @@
     <file compressed="true">ui/error-message.ui</file>
     <file compressed="true">ui/preferences.ui</file>
     <file compressed="true">ui/shortcuts.ui</file>
+    <file compressed="true">ui/tool-entry.ui</file>
     <file compressed="true">ui/tools-popover.ui</file>
     <file compressed="true">ui/window.ui</file>
     <file preprocess="xml-stripblanks">icons/fingerprint2-symbolic.svg</file>

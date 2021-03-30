@@ -9,6 +9,7 @@ textpieces_sources += [
   'Search.vala',
   'ShortcutsWindow.vala',
   'Tool.vala',
+  'ToolEntry.vala',
   'ToolPopover.vala',
 ]
 

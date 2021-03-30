@@ -26,6 +26,9 @@ namespace Textpieces {
         }
 
         public static int main (string[] args) {
+            // Ensure types from templates
+            typeof (Textpieces.ToolEntry).ensure ();
+
             var app = new Textpieces.Application ();
             return app.run (args);
         }

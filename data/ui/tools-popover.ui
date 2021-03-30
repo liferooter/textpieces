@@ -26,8 +26,14 @@
                                 <property name="vexpand">True</property>
                                 <property name="headers-visible">False</property>
                                 <property name="activate-on-single-click">True</property>
+                                <style>
+                                    <class name="homogeneous-flat"/>
+                                </style>
                             </object>
                         </child>
+                        <style>
+                            <class name="homogeneous-flat"/>
+                        </style>
                     </object>
                 </child>
             </object>
