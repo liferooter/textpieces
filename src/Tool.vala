@@ -5,9 +5,15 @@ namespace Textpieces {
         ERROR
     }
 
-    struct Result {
+    [Compact]
+    class Result {
         public string value;
         public ResultType type;
+
+        public Result (string value, ResultType type = ResultType.OK) {
+            this.value = value;
+            this.type = type;
+        }
     }
 
     delegate Result ToolFunc(string input, string[] args);
@@ -24,58 +30,58 @@ namespace Textpieces {
             Tool () {
                 name = "SHA1 Checksum",
                 icon = "fingerprint2-symbolic",
-                func = (s) => Result () {
-                    value = Checksum.compute_for_string (ChecksumType.SHA1, s)
-                }
+                func = (s) => new Result (
+                    Checksum.compute_for_string (ChecksumType.SHA1, s)
+                )
             },
             Tool () {
                 name = "SHA256 Checksum",
                 icon = "fingerprint2-symbolic",
-                func = (s) => Result () {
-                    value = Checksum.compute_for_string (ChecksumType.SHA256, s)
-                }
+                func = (s) => new Result (
+                    Checksum.compute_for_string (ChecksumType.SHA256, s)
+                )
             },
             Tool () {
                 name = "SHA384 Checksum",
                 icon = "fingerprint2-symbolic",
-                func = (s) => Result () {
-                    value = Checksum.compute_for_string (ChecksumType.SHA384, s)
-                }
+                func = (s) => new Result (
+                    Checksum.compute_for_string (ChecksumType.SHA384, s)
+                )
             },
             Tool () {
                 name = "SHA512 Checksum",
                 icon = "fingerprint2-symbolic",
-                func = (s) => Result () {
-                    value = Checksum.compute_for_string (ChecksumType.SHA512, s)
-                }
+                func = (s) => new Result (
+                    Checksum.compute_for_string (ChecksumType.SHA512, s)
+                )
             },
             Tool () {
                 name = "MD5 Checksum",
                 icon = "fingerprint2-symbolic",
-                func = (s) => Result () {
-                    value = Checksum.compute_for_string (ChecksumType.MD5, s)
-                }
+                func = (s) => new Result (
+                    Checksum.compute_for_string (ChecksumType.MD5, s)
+                )
             },
             Tool () {
                 name = "Base64 Encode",
                 icon = "size-right-symbolic",
-                func = (s) => Result () {
-                    value = Base64.encode (s.data)
-                }
+                func = (s) => new Result (
+                    Base64.encode (s.data)
+                )
             },
             Tool () {
                 name = "Base64 Decode",
                 icon = "size-left-symbolic",
-                func = (s) => Result () {
-                    value = (string) Base64.decode (s)
-                }
+                func = (s) => new Result (
+                    (string) Base64.decode (s)
+                )
             },
             Tool () {
                 name = "Replace substring",
                 icon = "edit-find-replace-symbolic",
-                func = (s, args) => Result () {
-                    value = s.replace (args[0], args[1])
-                },
+                func = (s, args) => new Result (
+                    s.replace (args[0], args[1])
+                ),
                 args = {"Find", "Replace"}
             },
             Tool () {
@@ -85,15 +91,15 @@ namespace Textpieces {
                     try {
                         var regex = new Regex (args[0]);
                         
-                        return Result () {
-                            value = regex.replace (s, s.length, 0, args[1]),
-                            type = ResultType.OK
-                        };
+                        return new Result (
+                            regex.replace (s, s.length, 0, args[1]),
+                            ResultType.OK
+                        );
                     } catch (RegexError e) {
-                        return Result () {
-                            value = "Incorrect regular expression",
-                            type = ResultType.ERROR
-                        };
+                        return new Result (
+                            "Incorrect regular expression",
+                            ResultType.ERROR
+                        );
                     }
                 },
                 args = {"Find", "Replace"}
@@ -101,9 +107,9 @@ namespace Textpieces {
             Tool () {
                 name = "Remove substring",
                 icon = "edit-cut-symbolic",
-                func = (s, args) => Result () {
-                    value = s.replace (args[0], "")
-                },
+                func = (s, args) => new Result (
+                    s.replace (args[0], "")
+                ),
                 args = {"Substring"}
             },
             Tool () {
@@ -113,15 +119,15 @@ namespace Textpieces {
                     try {
                         var regex = new Regex (args[0]);
                         
-                        return Result () {
-                            value = regex.replace (s, s.length, 0, ""),
-                            type = ResultType.OK
-                        };
+                        return new Result (
+                            regex.replace (s, s.length, 0, ""),
+                            ResultType.OK
+                        );
                     } catch (RegexError e) {
-                        return Result () {
-                            value = "Incorrect regular expression",
-                            type = ResultType.ERROR
-                        };
+                        return new Result (
+                            "Incorrect regular expression",
+                            ResultType.ERROR
+                        );
                     }
                 },
                 args = {"Regular expression"}
@@ -134,24 +140,24 @@ namespace Textpieces {
                     for (var i = 0; i < lines.length; i++)
                         lines[i] = lines[i].strip ();
 
-                    return Result () {
-                        value = string.joinv ("\n", lines)
-                    };
+                    return new Result (
+                        string.joinv ("\n", lines)
+                    );
                 }
             },
             Tool () {
                 name = "Count symbols",
                 icon = "view-list-ordered-symbolic",
-                func = (s) => Result () {
-                    value = s.char_count().to_string()
-                }
+                func = (s) => new Result (
+                    s.char_count().to_string()
+                )
             },
             Tool () {
                 name = "Count lines",
                 icon = "view-list-ordered-symbolic",
-                func = (s) => Result () {
-                    value = s.split("\n").length.to_string()
-                }
+                func = (s) => new Result (
+                    s.split("\n").length.to_string()
+                )
             }
         };
     }
