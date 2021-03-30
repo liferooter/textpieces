@@ -2,9 +2,9 @@ namespace Textpieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/argument.ui")]
     class Argument : Gtk.Box {
         [GtkChild]
-        private Gtk.Label arg_label;
+        private unowned Gtk.Label arg_label;
         [GtkChild]
-        public Gtk.Entry arg_entry;
+        public unowned Gtk.Entry arg_entry;
 
         public Argument (string name) {
             Object (

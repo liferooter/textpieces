@@ -2,13 +2,13 @@ namespace Textpieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/preferences.ui")]
     class Preferences : Hdy.PreferencesWindow {
         [GtkChild]
-        Gtk.Switch prefer_dark;
+        private unowned Gtk.Switch prefer_dark;
         [GtkChild]
-        Gtk.Switch show_line_numbers;
+        private unowned Gtk.Switch show_line_numbers;
         [GtkChild]
-        Gtk.Switch show_grid;
+        private unowned Gtk.Switch show_grid;
         [GtkChild]
-        Gtk.Switch tab_to_spaces;
+        private unowned Gtk.Switch tab_to_spaces;
 
         public Preferences (Gtk.Window win) {
             Object ();

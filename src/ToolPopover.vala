@@ -2,9 +2,9 @@ namespace Textpieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/tools-popover.ui")]
     class ToolsPopover : Gtk.Popover {
         [GtkChild]
-        Gtk.TreeView tool_tree;
+        private unowned Gtk.TreeView tool_tree;
         [GtkChild]
-        Gtk.SearchEntry search_entry;
+        private unowned Gtk.SearchEntry search_entry;
 
         public enum Column {
             NAME,

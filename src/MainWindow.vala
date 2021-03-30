@@ -2,13 +2,13 @@ namespace Textpieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/window.ui")]
     public class MainWindow : Hdy.ApplicationWindow {
         [GtkChild]
-        public Gtk.SourceBuffer text_buffer;
+        public unowned Gtk.SourceBuffer text_buffer;
         [GtkChild]
-        private Gtk.SourceView text_view;
+        private unowned Gtk.SourceView text_view;
         [GtkChild]
-        private Gtk.Popover copied_popover;
+        private unowned Gtk.Popover copied_popover;
         [GtkChild]
-        private Gtk.Box args_box;
+        private unowned Gtk.Box args_box;
 
         Tool? current_tool = null;
 
