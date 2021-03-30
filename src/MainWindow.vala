@@ -140,31 +140,30 @@ namespace Textpieces {
                 args[i] = ((Argument) arg_entries.nth_data(i)).arg_entry.get_text ();
             }
 
-            string? err;
-
+            Result result;
             if (text_buffer.has_selection) {
                 Gtk.TextIter start, end;
                 text_buffer.get_selection_bounds (out start, out end);
 
-                var result = current_tool.func (text_buffer.get_text (start, end, false), args, out err);
-                if (result != null) {
+                result = current_tool.func (text_buffer.get_text (start, end, false), args);
+                if (result.type == ResultType.OK) {
                     text_buffer.begin_user_action ();
                     text_buffer.@delete (ref start, ref end);
-                    text_buffer.insert (ref start, result, -1);
+                    text_buffer.insert (ref start, result.value, -1);
                     text_buffer.end_user_action ();
                 }
             }
             else {
-                var result = current_tool.func (text_buffer.text, args, out err);
-                if (result != null) {
+                result = current_tool.func (text_buffer.text, args);
+                if (result.type == ResultType.OK) {
                     text_buffer.begin_user_action ();
-                    text_buffer.text = result;
+                    text_buffer.text = result.value;
                     text_buffer.end_user_action ();
                 }
             }
 
-            if (err != null) {
-                var error_message = new ErrorDialog (err, this);
+            if (result.type == ResultType.ERROR) {
+                var error_message = new ErrorDialog (result.value, this);
                 error_message.show_all ();
                 error_message.present ();
             }
