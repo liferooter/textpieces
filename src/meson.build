@@ -3,7 +3,6 @@ textpieces_sources += [
   'Application.vala',
   'Argument.vala',
   'ErrorDialog.vala',
-  'JSTool.vala',
   'MainWindow.vala',
   'Preferences.vala',
   'Search.vala',

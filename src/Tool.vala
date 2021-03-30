@@ -115,19 +115,6 @@ namespace Textpieces {
                 func = (s) => {
                     return s.split("\n").length.to_string();
                 }
-            },
-            Tool () {
-                name = "Test JS",
-                icon = "radio-mixed-symbolic",
-                func = (s, args, out err) => {
-                    return new JSTool ("""
-                    result = {
-                        output: "Hello world!",
-                        err: null,
-                    }
-                    """).run(s, args, out err);
-                },
-                args = {"Test", "Me"}
             }
         };
     }
