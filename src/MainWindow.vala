@@ -1,4 +1,6 @@
 namespace Textpieces {
+    const uint NOTIFICATION_TIMEOUT = 4000;
+
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/window.ui")]
     public class MainWindow : Hdy.ApplicationWindow {
         [GtkChild]
@@ -9,6 +11,12 @@ namespace Textpieces {
         private unowned Gtk.Popover copied_popover;
         [GtkChild]
         private unowned Gtk.Box args_box;
+        [GtkChild]
+        private unowned Gtk.Revealer notification_revealer;
+        [GtkChild]
+        private unowned Gtk.Label notification_label;
+
+        private uint? close_notification_source = null;
 
         Tool? current_tool = null;
 
@@ -53,18 +61,25 @@ namespace Textpieces {
                 0,
                 () => {
                     action_shortcuts ();
-                    return true;
                 }
             );
 
             // Show preferences window (Ctrl+,)
             keybindings.connect (
-                Gdk.keyval_from_name ("comma"),
+                Gdk.Key.comma,
                 Gdk.ModifierType.CONTROL_MASK,
                 0,
                 () => {
                     action_preferences ();
-                    return true;
+                }
+            );
+
+            keybindings.connect (
+                Gdk.Key.Escape,
+                0,
+                0,
+                () => {
+                    close_notification ();
                 }
             );
 
@@ -97,23 +112,6 @@ namespace Textpieces {
             args_box.visible = current_tool.args.length > 0;
         }
 
-        void update_from_settings () {
-            var settings = Textpieces.Application.settings;
-
-            // Setup SourceView
-            text_view.show_line_numbers = settings.get_boolean ("show-line-numbers");
-            text_view.background_pattern = settings.get_boolean ("show-grid")
-                ? Gtk.SourceBackgroundPatternType.GRID
-                : Gtk.SourceBackgroundPatternType.NONE;
-            text_view.tab_width = settings.get_uint ("tab-width");
-            text_view.indent_width = (int) settings.get_uint ("tab-width");
-            text_view.insert_spaces_instead_of_tabs = settings.get_boolean ("tab-to-spaces");
-
-            Gtk.Settings.get_default ().gtk_application_prefer_dark_theme
-                = settings.get_boolean("prefer-dark");
-
-        }
-
         [GtkCallback]
         void check_whether_can_do_actions () {
             actions.lookup_action (ACTION_APPLY).set ("enabled", (text_buffer.text != "" && current_tool != null));
@@ -122,6 +120,14 @@ namespace Textpieces {
                 actions.lookup_action (ACTION_REDO).set ("enabled", text_buffer.can_redo);
                 return Source.REMOVE;
             });
+        }
+
+        [GtkCallback]
+        void close_notification () {
+            if (close_notification_source != null) {
+                GLib.Source.remove (close_notification_source);
+            }
+            notification_revealer.reveal_child = false;
         }
 
         void action_undo () {
@@ -133,6 +139,7 @@ namespace Textpieces {
             if (text_buffer.can_redo)
                 text_buffer.redo ();
         }
+
         void action_apply () {
             var arg_entries = args_box.get_children ();
             var args = new string[arg_entries.length ()];
@@ -162,17 +169,15 @@ namespace Textpieces {
                 }
             }
 
-            if (result.type == ResultType.ERROR) {
-                var error_message = new ErrorDialog (result.value, this);
-                error_message.show_all ();
-                error_message.present ();
-            }
+            if (result.type == ResultType.ERROR) show_notification (result.value);
         }
+
         void action_shortcuts () {
             var shortcuts_window = new Textpieces.ShortcutsWindow (this);
             shortcuts_window.show_all ();
             shortcuts_window.present ();
         }
+
         void action_preferences () {
             var prefs = new Textpieces.Preferences (this);
 
@@ -192,6 +197,35 @@ namespace Textpieces {
             clipboard.set_text (text_buffer.text, -1);
 
             copied_popover.popup ();
+        }
+
+        void update_from_settings () {
+            var settings = Textpieces.Application.settings;
+
+            // Setup SourceView
+            text_view.show_line_numbers = settings.get_boolean ("show-line-numbers");
+            text_view.background_pattern = settings.get_boolean ("show-grid")
+                ? Gtk.SourceBackgroundPatternType.GRID
+                : Gtk.SourceBackgroundPatternType.NONE;
+            text_view.tab_width = settings.get_uint ("tab-width");
+            text_view.indent_width = (int) settings.get_uint ("tab-width");
+            text_view.insert_spaces_instead_of_tabs = settings.get_boolean ("tab-to-spaces");
+
+            Gtk.Settings.get_default ().gtk_application_prefer_dark_theme
+                = settings.get_boolean("prefer-dark");
+
+        }
+
+        void show_notification (string message) {
+            if (close_notification_source != null) {
+                GLib.Source.remove (close_notification_source);
+            }
+            notification_label.label = message;
+            notification_revealer.reveal_child = true;
+            close_notification_source = Timeout.add (NOTIFICATION_TIMEOUT, () => {
+                close_notification ();
+                return GLib.Source.REMOVE;
+            });
         }
     }
 }

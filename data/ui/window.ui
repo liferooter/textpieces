@@ -19,7 +19,7 @@
                 <child>
                   <object class="TextpiecesToolEntry" id="tool_name">
                     <property name="visible">True</property>
-                    <signal name="select-tool" handler="on_select_tool" swapped="no"/>
+                    <signal name="select-tool" handler="on_select_tool"/>
                     <accelerator key="p" signal="show-tools-popover" modifiers="GDK_SHIFT_MASK | GDK_CONTROL_MASK"/>
                   </object>
                 </child>
@@ -107,28 +107,69 @@
           </object>
         </child>
         <child>
-          <object class="GtkScrolledWindow">
+          <object class="GtkOverlay">
             <property name="visible">True</property>
-            <property name="shadow-type">in</property>
-            <property name="propagate-natural-width">True</property>
-            <property name="propagate-natural-height">True</property>
             <child>
-              <object class="GtkSourceView" id="text_view">
+              <object class="GtkScrolledWindow">
                 <property name="visible">True</property>
-                <property name="has-focus">True</property>
-                <property name="left-margin">6</property>
-                <property name="right-margin">8</property>
-                <property name="top-margin">6</property>
-                <property name="bottom-margin">8</property>
-                <property name="populate-all">True</property>
-                <property name="monospace">True</property>
-                <property name="show-line-numbers">True</property>
-                <property name="show-line-marks">False</property>
-                <property name="wrap-mode">word-char</property>
-                <property name="auto-indent">True</property>
-                <property name="smart-home-end">before</property>
-                <property name="smart-backspace">True</property>
-                <property name="buffer">text_buffer</property>
+                <property name="shadow-type">in</property>
+                <property name="propagate-natural-width">True</property>
+                <property name="propagate-natural-height">True</property>
+                <child>
+                  <object class="GtkSourceView" id="text_view">
+                    <property name="visible">True</property>
+                    <property name="has-focus">True</property>
+                    <property name="left-margin">6</property>
+                    <property name="right-margin">8</property>
+                    <property name="top-margin">6</property>
+                    <property name="bottom-margin">8</property>
+                    <property name="populate-all">True</property>
+                    <property name="monospace">True</property>
+                    <property name="show-line-numbers">True</property>
+                    <property name="show-line-marks">False</property>
+                    <property name="wrap-mode">word-char</property>
+                    <property name="auto-indent">True</property>
+                    <property name="smart-home-end">before</property>
+                    <property name="smart-backspace">True</property>
+                    <property name="buffer">text_buffer</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="overlay">
+              <object class="GtkRevealer" id="notification_revealer">
+                <property name="visible">True</property>
+                <property name="halign">center</property>
+                <property name="valign">start</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="visible">True</property>
+                    <property name="spacing">20</property>
+                    <child>
+                      <object class="GtkLabel" id="notification_label">
+                        <property name="visible">True</property>
+                        <property name="use-markup">True</property>
+                        <property name="label">Notification text</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton">
+                        <property name="visible">True</property>
+                        <property name="relief">none</property>
+                        <signal name="clicked" handler="close_notification"/>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="visible">True</property>
+                            <property name="icon-name">window-close-symbolic</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <style>
+                      <class name="app-notification"/>
+                    </style>
+                  </object>
+                </child>
               </object>
             </child>
           </object>

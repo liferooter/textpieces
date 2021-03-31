@@ -3,7 +3,6 @@
   <gresource prefix="/com/github/liferooter/textpieces">
     <file compressed="true">ui/about.ui</file>
     <file compressed="true">ui/argument.ui</file>
-    <file compressed="true">ui/error-message.ui</file>
     <file compressed="true">ui/preferences.ui</file>
     <file compressed="true">ui/shortcuts.ui</file>
     <file compressed="true">ui/tool-entry.ui</file>

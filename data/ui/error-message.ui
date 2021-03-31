@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<interface>
-  <template class="TextpiecesErrorDialog" parent="GtkMessageDialog">
-    <property name="title" translatable="yes">Error</property>
-    <property name="modal">True</property>
-    <property name="message-type">error</property>
-  </template>
-</interface>
