@@ -20,10 +20,19 @@ namespace Textpieces {
         }
 
         public virtual signal void select_tool (Tool tool) {
+            clear_popover ();
             this.popdown ();
         }
 
+        void clear_popover () {
+            search_entry.grab_focus ();
+            search_entry.set_text ("");
+            tool_tree.set_cursor (new Gtk.TreePath.first (), null, false);
+        }
+
         construct {
+            hide.connect (clear_popover);
+
             var store = new Gtk.ListStore (
                 Column.N_COLUMNS,
                 typeof (string),
