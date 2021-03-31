@@ -64,14 +64,14 @@ namespace Textpieces {
             },
             Tool () {
                 name = "Base64 Encode",
-                icon = "size-right-symbolic",
+                icon = "padlock-symbolic",
                 func = (s) => new Result (
                     Base64.encode (s.data)
                 )
             },
             Tool () {
                 name = "Base64 Decode",
-                icon = "size-left-symbolic",
+                icon = "padlock-open-symbolic",
                 func = (s) => new Result (
                     (string) Base64.decode (s)
                 )

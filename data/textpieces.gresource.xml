@@ -9,9 +9,9 @@
     <file compressed="true">ui/tools-popover.ui</file>
     <file compressed="true">ui/window.ui</file>
     <file preprocess="xml-stripblanks">icons/fingerprint2-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/padlock-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/padlock-open-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/settings-symbolic.svg</file>
-    <file preprocess="xml-stripblanks">icons/size-left-symbolic.svg</file>
-    <file preprocess="xml-stripblanks">icons/size-right-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/text-symbolic.svg</file>
     <file>css/main.css</file>
   </gresource>
