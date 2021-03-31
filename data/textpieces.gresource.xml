@@ -14,5 +14,6 @@
     <file preprocess="xml-stripblanks">icons/size-left-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/size-right-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/text-symbolic.svg</file>
+    <file>css/main.css</file>
   </gresource>
 </gresources>
