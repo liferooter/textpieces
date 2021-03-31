@@ -17,7 +17,7 @@ textpieces_deps = [
   dependency('gtk+-3.0', version: '>= 3.22'),
   dependency('gtksourceview-4', version: '>= 4.8'),
   dependency('libhandy-1', version: '>= 1.0.3'),
-  dependency('javascriptcoregtk-4.0', version: '>= 2.30.4'),
+  dependency('json-glib-1.0', version: '>= 1.6.2'),
   valac.find_library('config', dirs: vapi_dir),
 ]
 

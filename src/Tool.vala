@@ -158,6 +158,27 @@ namespace Textpieces {
                 func = (s) => new Result (
                     s.split("\n").length.to_string()
                 )
+            },
+            Tool () {
+                name = "Format JSON",
+                icon = "format-justify-left-symbolic",
+                func = (s) => {
+                    var parser = new Json.Parser ();
+                    try {
+                        parser.load_from_data (s);
+                    } catch (GLib.Error e) {
+                        return new Result (
+                            "Bad JSON format",
+                            ResultType.ERROR
+                        );
+                    }
+                    var generator = new Json.Generator ();
+                    generator.set_root (parser.get_root ());
+                    generator.pretty = true;
+                    return new Result (
+                        generator.to_data (null)
+                    );
+                }
             }
         };
     }
