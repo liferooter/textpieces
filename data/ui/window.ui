@@ -1,37 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="GtkPopover" id="menu_popover">
-    <property name="can-focus">False</property>
-    <child>
-      <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="orientation">vertical</property>
-        <child>
-          <object class="GtkModelButton">
-            <property name="visible">True</property>
-            <property name="action-name">win.show-keybindings</property>
-            <property name="text" translatable="yes" context="main menu">Keyboard shortcuts</property>
-            <accelerator key="question" signal="activate" modifiers="GDK_CONTROL_MASK"/>
-          </object>
-        </child>
-        <child>
-          <object class="GtkModelButton">
-            <property name="visible">True</property>
-            <property name="action-name">win.show-preferences</property>
-            <property name="text" translatable="yes" context="main menu">Preferences</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkModelButton">
-            <property name="visible">True</property>
-            <property name="action-name">win.about</property>
-            <property name="text" translatable="yes" context="main menu">About Text Pieces</property>
-          </object>
-        </child>
-      </object>
-    </child>
-  </object>
   <template class="TextpiecesMainWindow" parent="HdyApplicationWindow">
     <property name="title" translatable="yes">Text Pieces</property>
     <property name="default-width">720</property>
@@ -179,6 +147,38 @@
       </object>
     </child>
   </template>
+  <object class="GtkPopover" id="menu_popover">
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkModelButton">
+            <property name="visible">True</property>
+            <property name="action-name">win.show-keybindings</property>
+            <property name="text" translatable="yes" context="main menu">Keyboard shortcuts</property>
+            <accelerator key="question" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkModelButton">
+            <property name="visible">True</property>
+            <property name="action-name">win.show-preferences</property>
+            <property name="text" translatable="yes" context="main menu">Preferences</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkModelButton">
+            <property name="visible">True</property>
+            <property name="action-name">win.about</property>
+            <property name="text" translatable="yes" context="main menu">About Text Pieces</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkPopover" id="copied_popover">
     <property name="relative-to">copy_to_clipboard</property>
     <property name="position">bottom</property>
