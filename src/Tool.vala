@@ -179,6 +179,20 @@ namespace Textpieces {
                         generator.to_data (null)
                     );
                 }
+            },
+            Tool () {
+                name = "Escape text",
+                icon = "security-high-symbolic",
+                func = (s) => new Result (
+                    s.escape ().replace ("'", "\'")
+                )
+            },
+            Tool () {
+                name = "Unescape text",
+                icon = "security-low-symbolic",
+                func = (s) => new Result (
+                    s.replace ("\'", "'").compress ()
+                )
             }
         };
     }
