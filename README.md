@@ -1,10 +1,14 @@
 # ![icon](icon.png) Text Pieces
 
 [<img alt="" height="50" src="https://flathub.org/assets/badges/flathub-badge-en.png">](https://flathub.org/apps/details/com.github.liferooter.textpieces)
+
+[![Please do not theme this app](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app) 
 ![screenshot](screenshot.png)
 
 
 Small tool for quick text transformations such as hashes, encoding, decoding and so on. Written in Vala for GNOME desktop environment in hope to be useful.
+
+It supports using any executable (including interpreted languages, such as Python, Bash and Lua) as tool. Of course, it support write tools in pure Vala as closures.
 
 # Installation
 
@@ -37,7 +41,10 @@ If you use GNOME Builder or Flatpak, dependencies will be installed automaticall
 - gtk >= 3.22
 - gtksourceview >= 4.8
 - gio >= 2.50
+- json-glib >= 1.6.2
 - libhandy >= 1.0
+- python >= 3.7
+- pyyaml >= 5.4.1
 
 # Contributions
 Contributions are welcome.
