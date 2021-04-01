@@ -5,7 +5,8 @@
     <property name="program-name">Text Pieces</property>
     <property name="comments" translatable="yes">Calculate hashes, encode and do many other stuff with text</property>
     <property name="website">https://github.com/liferooter/textpieces</property>
-    <property name="authors">Gleb Smirnov</property>
+    <property name="authors">Gleb Smirnov https://github.com/liferooter</property>
+    <property name="artists">Gleb Smirnov https://github.com/liferooter , Tobias Bernard https://tobiasbernard.com/</property>
     <property name="logo-icon-name">com.github.liferooter.textpieces</property>
     <property name="license-type">gpl-3-0</property>
   </template>
