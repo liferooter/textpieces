@@ -11,7 +11,7 @@
   <provides>
     <binary>textpieces</binary>
   </provides>
-  <developer_name>Liferooter</developer_name>
+  <developer_name>Gleb Smirnov</developer_name>
   <url type="homepage">https://github.com/liferooter/textpieces</url>
   <url type="bugtracker">https://github.com/liferooter/textpieces/issues</url>
   <screenshots>
@@ -21,6 +21,16 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="1.1.0" data="2021-04-1">
+      <description>
+        <ul>
+          <li>Add more tools</li>
+          <li>Make tools popover more powerful</li>
+          <li>Redesign icon</li>
+          <li>General improvements</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0.2" date="2021-03-13">
       <description>
         Add tools for replacement and removing
