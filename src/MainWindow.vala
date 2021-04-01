@@ -154,12 +154,18 @@ namespace Textpieces {
                 Gtk.TextIter start, end;
                 text_buffer.get_selection_bounds (out start, out end);
 
+                var line_number = start.get_line ();
+                var line_index = start.get_line_index ();
+
                 result = ((!) current_tool).func (text_buffer.get_text (start, end, false), args);
                 if (result.type == ResultType.OK) {
                     text_buffer.begin_user_action ();
                     text_buffer.@delete (ref start, ref end);
                     text_buffer.insert (ref start, result.value, -1);
                     text_buffer.end_user_action ();
+
+                    text_buffer.get_iter_at_line_index (out start, line_number, line_index);
+                    text_buffer.move_mark ((!) text_buffer.get_mark ("selection_bound"), start);
                 }
             }
             else {
@@ -169,6 +175,9 @@ namespace Textpieces {
                     text_buffer.text = result.value;
                     text_buffer.end_user_action ();
                 }
+                Gtk.TextIter start;
+                text_buffer.get_start_iter (out start);
+                text_buffer.place_cursor (start);
             }
 
             if (result.type == ResultType.ERROR) show_notification (result.value);
