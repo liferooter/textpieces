@@ -21,7 +21,7 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="1.1.0" data="2021-04-01">
+    <release version="1.1.0" date="2021-04-01">
       <description>
         <ul>
           <li>Add more tools</li>
