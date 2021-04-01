@@ -184,15 +184,20 @@ namespace Textpieces {
                 name = "Count symbols",
                 icon = "view-list-ordered-symbolic",
                 func = (s) => new Result (
-                    s.char_count().to_string()
+                    s.char_count ().to_string ()
                 )
             },
             Tool () {
                 name = "Count lines",
                 icon = "view-list-ordered-symbolic",
                 func = (s) => new Result (
-                    s.split("\n").length.to_string()
+                    s.split ("\n").length.to_string ()
                 )
+            },
+            Tool () {
+                name = "Count words",
+                icon = "view-list-ordered-symbolic",
+                func = (s) => run_script (script ("countWords.py"), s)
             },
             Tool () {
                 name = "Format JSON",
