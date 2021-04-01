@@ -17,7 +17,7 @@
       <description>Whether to show editor grid</description>
     </key>
     <key name="tab-to-spaces" type="b">
-      <default>true</default>
+      <default>false</default>
       <summary>Tab to spaces</summary>
       <description>Whether to insert spaces instead of tabs</description>
     </key>
