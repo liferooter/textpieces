@@ -25,6 +25,7 @@ c_args = [
 ]
 
 vala_args = [
+  '--enable-experimental-non-null',
   '--target-glib=2.50',
   '--vapidir', vapi_dir,
 ]

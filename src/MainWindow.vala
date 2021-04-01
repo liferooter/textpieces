@@ -104,12 +104,12 @@ namespace Textpieces {
                 el.destroy ();
             });
 
-            foreach (var arg in current_tool.args) {
+            foreach (var arg in tool.args) {
                 var argument = new Argument (arg);
                 args_box.add (argument);
             }
 
-            args_box.visible = current_tool.args.length > 0;
+            args_box.visible = tool.args.length > 0;
         }
 
         [GtkCallback]
@@ -125,7 +125,7 @@ namespace Textpieces {
         [GtkCallback]
         void close_notification () {
             if (close_notification_source != null) {
-                GLib.Source.remove (close_notification_source);
+                GLib.Source.remove ((!) close_notification_source);
             }
             notification_revealer.reveal_child = false;
         }
@@ -141,6 +141,8 @@ namespace Textpieces {
         }
 
         void action_apply () {
+            if (current_tool == null) return;
+
             var arg_entries = args_box.get_children ();
             var args = new string[arg_entries.length ()];
             for (var i = 0; i < arg_entries.length (); i++) {
@@ -152,7 +154,7 @@ namespace Textpieces {
                 Gtk.TextIter start, end;
                 text_buffer.get_selection_bounds (out start, out end);
 
-                result = current_tool.func (text_buffer.get_text (start, end, false), args);
+                result = ((!) current_tool).func (text_buffer.get_text (start, end, false), args);
                 if (result.type == ResultType.OK) {
                     text_buffer.begin_user_action ();
                     text_buffer.@delete (ref start, ref end);
@@ -161,7 +163,7 @@ namespace Textpieces {
                 }
             }
             else {
-                result = current_tool.func (text_buffer.text, args);
+                result = ((!) current_tool).func (text_buffer.text, args);
                 if (result.type == ResultType.OK) {
                     text_buffer.begin_user_action ();
                     text_buffer.text = result.value;
@@ -193,7 +195,7 @@ namespace Textpieces {
         }
 
         void action_copy () {
-            var clipboard = Gtk.Clipboard.get_default (Gdk.Display.get_default ());
+            var clipboard = Gtk.Clipboard.get_default ((!) Gdk.Display.get_default ());
             clipboard.set_text (text_buffer.text, -1);
 
             copied_popover.popup ();
@@ -211,14 +213,14 @@ namespace Textpieces {
             text_view.indent_width = (int) settings.get_uint ("tab-width");
             text_view.insert_spaces_instead_of_tabs = settings.get_boolean ("tab-to-spaces");
 
-            Gtk.Settings.get_default ().gtk_application_prefer_dark_theme
+            ((!) Gtk.Settings.get_default ()).gtk_application_prefer_dark_theme
                 = settings.get_boolean("prefer-dark");
 
         }
 
         void show_notification (string message) {
             if (close_notification_source != null) {
-                GLib.Source.remove (close_notification_source);
+                GLib.Source.remove ((!) close_notification_source);
             }
             notification_label.label = message;
             notification_revealer.reveal_child = true;

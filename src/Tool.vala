@@ -141,7 +141,7 @@ namespace Textpieces {
                         lines[i] = lines[i].strip ();
 
                     return new Result (
-                        string.joinv ("\n", lines)
+                        string.joinv ("\n", (string?[]?) lines)
                     );
                 }
             },
@@ -173,7 +173,7 @@ namespace Textpieces {
                         );
                     }
                     var generator = new Json.Generator ();
-                    generator.set_root (parser.get_root ());
+                    generator.set_root ((!) parser.get_root ());
                     generator.pretty = true;
                     return new Result (
                         generator.to_data (null)

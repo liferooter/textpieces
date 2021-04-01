@@ -1,6 +1,6 @@
 namespace Textpieces {
     class Application : Gtk.Application {
-        public static MainWindow win = null;
+        public static MainWindow? win = null;
         public static GLib.Settings settings;
 
         public Application () {
@@ -22,7 +22,7 @@ namespace Textpieces {
             var css_provider = new Gtk.CssProvider ();
             css_provider.load_from_resource ("/com/github/liferooter/textpieces/css/main.css");
             Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (),
+                (!) Gdk.Screen.get_default (),
                 css_provider,
                 Gtk.STYLE_PROVIDER_PRIORITY_USER
             );
@@ -31,7 +31,7 @@ namespace Textpieces {
             if (win == null) {
                 win = new MainWindow (this);
             }
-            win.present ();
+            ((!) win).present ();
         }
 
         public static int main (string[] args) {

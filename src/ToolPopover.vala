@@ -89,8 +89,6 @@ namespace Textpieces {
 
             search_entry.changed.connect (() => {
                 tree_model.refilter ();
-                Gtk.TreePath path;
-                tool_tree.get_cursor (out path, null);
                 if (tree_model.iter_n_children(null) != 0)
                     tool_tree.set_cursor (new Gtk.TreePath.first (), null, false);
             });
@@ -105,11 +103,12 @@ namespace Textpieces {
             key_press_event.connect ((e) => {
                 var key = e.keyval;
                 if (key == Gdk.Key.Up || key == Gdk.Key.Down) {
-                    Gtk.TreePath path;
-                    tool_tree.get_cursor (out path, null);
-                    if (path == null) {
+                    Gtk.TreePath? _path;
+                    tool_tree.get_cursor (out _path, null);
+                    if (_path == null) {
                         return true;
                     }
+                    var path = (!) _path;
                     var index = path.get_indices ()[0];
                     var n_columns = tree_model.iter_n_children (null);
                     switch (key) {
@@ -130,10 +129,10 @@ namespace Textpieces {
                 } else if (key == Gdk.Key.Escape) {
                     this.popdown ();
                 } else if (key == Gdk.Key.Return) {
-                    Gtk.TreePath path;
-                    Gtk.TreeViewColumn col;
+                    Gtk.TreePath? path;
+                    Gtk.TreeViewColumn? col;
                     tool_tree.get_cursor (out path, out col);
-                    tool_tree.row_activated (path, col);
+                    tool_tree.row_activated ((!) path, (!) col);
                 } else
                     return false;
                 return true;
