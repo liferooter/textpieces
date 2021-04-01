@@ -45,7 +45,7 @@ namespace Textpieces {
                     _stdout ??input
                 )
                 : new Result (
-                    _stderr ?? "Errror while running tool",
+                    _stderr ?? "Error while running tool",
                     ResultType.ERROR
                 );
         } catch (Error e) {
@@ -216,18 +216,14 @@ namespace Textpieces {
                 }
             },
             Tool () {
-                name = "Escape text",
+                name = "Escape string",
                 icon = "security-high-symbolic",
-                func = (s) => new Result (
-                    s.escape ().replace ("'", "\'")
-                )
+                func = (s) => run_script(script("escapeString.py"), s)
             },
             Tool () {
-                name = "Unescape text",
+                name = "Unescape string",
                 icon = "security-low-symbolic",
-                func = (s) => new Result (
-                    s.replace ("\'", "'").compress ()
-                )
+                func = (s) => run_script(script("unescapeString.py"), s)
             },
             Tool () {
                 name = "Escape HTML",

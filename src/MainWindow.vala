@@ -224,6 +224,7 @@ namespace Textpieces {
             }
             notification_label.label = message;
             notification_revealer.reveal_child = true;
+            print(message);
             close_notification_source = Timeout.add (NOTIFICATION_TIMEOUT, () => {
                 close_notification ();
                 return GLib.Source.REMOVE;
