@@ -201,9 +201,9 @@ namespace Textpieces {
                     var parser = new Json.Parser ();
                     try {
                         parser.load_from_data (s);
-                    } catch (GLib.Error e) {
+                    } catch (Error e) {
                         return new Result (
-                            "Bad JSON format",
+                            "Invalide JSON",
                             ResultType.ERROR
                         );
                     }
@@ -216,24 +216,44 @@ namespace Textpieces {
                 }
             },
             Tool () {
+                name = "Minify JSON",
+                icon = "format-justify-fill-symbolic",
+                func = (s) => {
+                    var parser = new Json.Parser ();
+                    try {
+                        parser.load_from_data (s);
+                    } catch (Error e) {
+                        return new Result (
+                            "Invalide JSON",
+                            ResultType.ERROR
+                        );
+                    }
+                    var generator = new Json.Generator ();
+                    generator.set_root ((!) parser.get_root ());
+                    return new Result (
+                        generator.to_data (null)
+                    );
+                }
+            },
+            Tool () {
                 name = "Escape string",
                 icon = "security-high-symbolic",
-                func = (s) => run_script(script("escapeString.py"), s)
+                func = (s) => run_script (script ("escapeString.py"), s)
             },
             Tool () {
                 name = "Unescape string",
                 icon = "security-low-symbolic",
-                func = (s) => run_script(script("unescapeString.py"), s)
+                func = (s) => run_script (script ("unescapeString.py"), s)
             },
             Tool () {
                 name = "Escape HTML",
                 icon = "security-high-symbolic",
-                func = (s) => run_script(script("escapeHTML.py"), s)
+                func = (s) => run_script (script ("escapeHTML.py"), s)
             },
             Tool () {
                 name = "Unescape HTML",
                 icon = "security-low-symbolic",
-                func = (s) => run_script(script("unescapeHTML.py"), s)
+                func = (s) => run_script (script ("unescapeHTML.py"), s)
             }
         };
     }
