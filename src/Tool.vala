@@ -269,6 +269,25 @@ namespace Textpieces {
                 name = "YAML to JSON",
                 icon = "network-transmit-symbolic",
                 func = (s) => run_script (script ("yamlToJSON.py"), s)
+            },
+            Tool () {
+                name = "URL Encode",
+                icon = "web-browser-symbolic",
+                func = (s) => new Result (Uri.escape_string (s))
+            },
+            Tool () {
+                name = "URL Decode",
+                icon = "web-browser-symbolic",
+                func = (s) => {
+                    var url = Uri.unescape_string (s);
+                    if (url != null)
+                        return new Result ((!) url);
+                    else
+                        return new Result (
+                            "Invalid encoded URL",
+                            ResultType.ERROR
+                        );
+                }
             }
         };
     }
