@@ -233,6 +233,11 @@ namespace Textpieces {
                 name = "Escape HTML",
                 icon = "security-high-symbolic",
                 func = (s) => run_script(script("escapeHTML.py"), s)
+            },
+            Tool () {
+                name = "Unescape HTML",
+                icon = "security-low-symbolic",
+                func = (s) => run_script(script("unescapeHTML.py"), s)
             }
         };
     }
