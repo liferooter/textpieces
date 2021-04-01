@@ -259,6 +259,16 @@ namespace Textpieces {
                 name = "Unescape HTML",
                 icon = "security-low-symbolic",
                 func = (s) => run_script (script ("unescapeHTML.py"), s)
+            },
+            Tool () {
+                name = "JSON to YAML",
+                icon = "network-transmit-symbolic",
+                func = (s) => run_script (script ("jsonToYAML.py"), s)
+            },
+            Tool () {
+                name = "YAML to JSON",
+                icon = "network-transmit-symbolic",
+                func = (s) => run_script (script ("yamlToJSON.py"), s)
             }
         };
     }
