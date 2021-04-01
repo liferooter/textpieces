@@ -15,4 +15,7 @@ subdir('data')
 subdir('src')
 subdir('po')
 
+install_subdir('scripts', install_dir: get_option('datadir'),
+               install_mode: 'rwxr-xr-x')
+
 meson.add_install_script('build-aux/meson/postinstall.py')

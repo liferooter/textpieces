@@ -22,6 +22,8 @@ textpieces_deps = [
 
 c_args = [
   '-DVERSION="' + meson.project_version() + '"',
+  '-DDATADIR="' + join_paths(get_option('prefix'), get_option('datadir')) + '"',
+  '-DSCRIPTSDIR="' +  join_paths(get_option('prefix'), get_option('datadir'), 'scripts') + '"',
 ]
 
 vala_args = [

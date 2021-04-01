@@ -25,7 +25,6 @@ namespace Textpieces {
         }
 
         void clear_popover () {
-            search_entry.grab_focus ();
             search_entry.set_text ("");
             tool_tree.set_cursor (new Gtk.TreePath.first (), null, false);
         }

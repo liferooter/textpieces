@@ -1,5 +1,5 @@
 namespace Textpieces {
-    
+
     enum ResultType {
         OK,
         ERROR
@@ -16,13 +16,48 @@ namespace Textpieces {
         }
     }
 
-    delegate Result ToolFunc(string input, string[] args);
+    delegate Result ToolFunc (string input, string[] args);
 
     struct Tool {
         public string name;
         public string icon;
         public ToolFunc func;
         public string[] args;
+    }
+
+    Result run_script (string script_path, string input, string[] args = {}) {
+        string[] cmdline = {
+            script_path,
+        };
+        foreach (var arg in args) {
+            cmdline += arg;
+        }
+        try {
+            var process = new Subprocess.newv (
+                cmdline,
+                SubprocessFlags.STDIN_PIPE | SubprocessFlags.STDOUT_PIPE | SubprocessFlags.STDERR_PIPE
+            );
+            string? _stdout;
+            string? _stderr;
+            process.communicate_utf8 (input, null, out _stdout, out _stderr);
+            return (process.get_successful ())
+                ? new Result (
+                    _stdout ??input
+                )
+                : new Result (
+                    _stderr ?? "Errror while running tool",
+                    ResultType.ERROR
+                );
+        } catch (Error e) {
+            return new Result (
+                e.message,
+                ResultType.ERROR
+            );
+        }
+    }
+
+    string script (string name) {
+        return Config.SCRIPTSDIR + Path.DIR_SEPARATOR_S + name;
     }
 
     Tool[] get_tools () {
@@ -193,6 +228,11 @@ namespace Textpieces {
                 func = (s) => new Result (
                     s.replace ("\'", "'").compress ()
                 )
+            },
+            Tool () {
+                name = "Escape HTML",
+                icon = "security-high-symbolic",
+                func = (s) => run_script(script("escapeHTML.py"), s)
             }
         };
     }
