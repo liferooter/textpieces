@@ -132,7 +132,7 @@ namespace Textpieces {
                         );
                     } catch (RegexError e) {
                         return new Result (
-                            "Incorrect regular expression",
+                            "Invalid regular expression",
                             ResultType.ERROR
                         );
                     }
@@ -160,7 +160,7 @@ namespace Textpieces {
                         );
                     } catch (RegexError e) {
                         return new Result (
-                            "Incorrect regular expression",
+                            "Invalid regular expression",
                             ResultType.ERROR
                         );
                     }
@@ -288,6 +288,41 @@ namespace Textpieces {
                             ResultType.ERROR
                         );
                 }
+            },
+            Tool () {
+                name = "Sort lines",
+                icon = "view-sort-ascending-symbolic",
+                func = (s) => run_script ("sort", s)
+            },
+            Tool () {
+                name = "Reverse sort lines",
+                icon = "view-sort-descending-symbolic",
+                func = (s) => run_script ("sort", s, {"--reverse"})
+            },
+            Tool () {
+                name = "Filter by regular expression",
+                icon = "edit-find-symbolic",
+                func = (s, args) => {
+                    string[] lines = {};
+                    Regex regex;
+                    try {
+                        regex = new Regex (args[0]);
+                    } catch (RegexError error) {
+                        return new Result (
+                            "Invalid regular expression",
+                            ResultType.ERROR
+                        );
+                    }
+                    foreach (var line in s.split ("\n")) {
+                        if (regex.match (line)) {
+                            lines += line;
+                        }
+                    }
+                    return new Result (
+                        string.joinv ("\n", (string?[]?) lines)
+                    );
+                },
+                args = {"Regular expression"}
             }
         };
     }
