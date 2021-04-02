@@ -7,9 +7,7 @@ namespace Textpieces {
         public unowned Gtk.Entry arg_entry;
 
         public Argument (string name) {
-            Object (
-                hexpand: true
-            );
+            Object ();
             arg_label.set_label (name);
         }
 

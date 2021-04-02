@@ -3,8 +3,8 @@
 <interface>
   <template class="TextpiecesArgument" parent="GtkBox">
     <property name="visible">True</property>
+    <property name="hexpand">True</property>
     <property name="spacing">12</property>
-    <property name="halign">center</property>
     <child>
       <object class="GtkLabel" id="arg_label">
         <property name="visible">True</property>
@@ -13,6 +13,7 @@
     <child>
       <object class="GtkEntry" id="arg_entry">
         <property name="visible">True</property>
+        <property name="hexpand">True</property>
       </object>
     </child>
   </template>
