@@ -21,6 +21,15 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="1.2.0" date="2021-04-03">
+      <description>
+        <ul>
+          <li>Sort tools</li>
+          <li>Filter tools</li>
+          <li>Minify C-like code</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.1.0" date="2021-04-01">
       <description>
         <ul>
@@ -34,12 +43,12 @@
     <release version="1.0.2" date="2021-03-13">
       <description>
         Add tools for replacement and removing
-      </description>
+</description>
     </release>
     <release version="1.0.0" date="2021-03-10">
       <description>
         Application release
-      </description>
+</description>
     </release>
   </releases>
 </component>
