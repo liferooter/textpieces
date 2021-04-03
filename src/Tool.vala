@@ -125,7 +125,7 @@ namespace Textpieces {
                 func = (s, args) => {
                     try {
                         var regex = new Regex (args[0]);
-                        
+
                         return new Result (
                             regex.replace (s, s.length, 0, args[1]),
                             ResultType.OK
@@ -153,7 +153,7 @@ namespace Textpieces {
                 func = (s, args) => {
                     try {
                         var regex = new Regex (args[0]);
-                        
+
                         return new Result (
                             regex.replace (s, s.length, 0, ""),
                             ResultType.OK
@@ -303,26 +303,57 @@ namespace Textpieces {
                 name = "Filter by regular expression",
                 icon = "edit-find-symbolic",
                 func = (s, args) => {
-                    string[] lines = {};
                     Regex regex;
                     try {
                         regex = new Regex (args[0]);
-                    } catch (RegexError error) {
+                    } catch (RegexError e) {
                         return new Result (
                             "Invalid regular expression",
                             ResultType.ERROR
                         );
                     }
+                    string[] lines = {};
                     foreach (var line in s.split ("\n")) {
-                        if (regex.match (line)) {
-                            lines += line;
-                        }
+                        MatchInfo match;
+                        if (regex.match_all (s, 0, out match))
+                            lines += (!) match.fetch (0);
                     }
                     return new Result (
                         string.joinv ("\n", (string?[]?) lines)
                     );
                 },
                 args = {"Regular expression"}
+            },
+            Tool () {
+                name = "Filter lines by regular expression",
+                icon = "edit-find-symbolic",
+                func = (s, args) => Utils.filter_by_regex (s, args[0]),
+                args = {"Regular expression"}
+            },
+            Tool () {
+                name = "Reverse filter lines by regular expression",
+                icon = "edit-find-symbolic",
+                func = (s, args) => Utils.filter_by_regex (s, args[0], true),
+                args = {"Regular expression"}
+            },
+            Tool () {
+                name = "Minify C-like code",
+                icon = "format-justify-fill-symbolic",
+                func = (s) => {
+                    string result;
+                    try {
+                        var regex = new Regex ("\\s+");
+                        result = regex.replace (s, s.length, 0, " ");
+                        regex = new Regex ("((?<=\\W) (?=.))|((?<=.) (?=\\W))");
+                        result = regex.replace (result, result.length, 0, "");
+                        return new Result (result);
+                    } catch (RegexError e) {
+                        return new Result (
+                            "That's wrong with your GLib?!",
+                            ResultType.ERROR
+                        );
+                    }
+                }
             }
         };
     }
