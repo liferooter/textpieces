@@ -96,9 +96,9 @@ namespace Textpieces {
         [GtkCallback]
         void on_select_tool (Tool tool) {
             current_tool = tool;
-            
+
             check_whether_can_do_actions ();
-            
+
             // Ask for the arguments
             args_box.foreach ((el) => {
                 el.destroy ();
@@ -126,6 +126,7 @@ namespace Textpieces {
         void close_notification () {
             if (close_notification_source != null) {
                 GLib.Source.remove ((!) close_notification_source);
+                close_notification_source = null;
             }
             notification_revealer.reveal_child = false;
         }
@@ -233,7 +234,6 @@ namespace Textpieces {
             }
             notification_label.label = message;
             notification_revealer.reveal_child = true;
-            print(message);
             close_notification_source = Timeout.add (NOTIFICATION_TIMEOUT, () => {
                 close_notification ();
                 return GLib.Source.REMOVE;
