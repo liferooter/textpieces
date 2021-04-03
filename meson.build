@@ -1,6 +1,6 @@
 project('textpieces', ['c', 'vala'], 
-    meson_version: '>= 0.50.0',
           version: '1.1.0',
+    meson_version: '>= 0.50.0',
   default_options: [ 'warning_level=2',
                    ],
 )
