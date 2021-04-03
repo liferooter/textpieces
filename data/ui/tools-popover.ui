@@ -2,6 +2,7 @@
 <interface>
     <template class="TextpiecesToolsPopover" parent="GtkPopover">
         <property name="position">bottom</property>
+        <signal name="key-press-event" handler="on_key_press_event"/>
         <child>
             <object class="GtkBox">
                 <property name="visible">True</property>
@@ -12,6 +13,7 @@
                     <object class="GtkSearchEntry" id="search_entry">
                         <property name="visible">True</property>
                         <property name="has-focus">True</property>
+                        <signal name="changed" handler="on_search_changed"/>
                     </object>
                 </child>
                 <child>
@@ -26,6 +28,30 @@
                                 <property name="vexpand">True</property>
                                 <property name="headers-visible">False</property>
                                 <property name="activate-on-single-click">True</property>
+                                <signal name="row-activated" handler="on_row_activated"/>
+                                <child>
+                                    <object class="GtkTreeViewColumn">
+                                        <child>
+                                            <object class="GtkCellRendererPixbuf">
+                                                <property name="xpad">4</property>
+                                                <property name="ypad">4</property>
+                                            </object>
+                                            <attributes>
+                                                <attribute name="icon-name">1</attribute>
+                                            </attributes>
+                                        </child>
+                                    </object>
+                                </child>
+                                <child>
+                                    <object class="GtkTreeViewColumn">
+                                        <child>
+                                            <object class="GtkCellRendererText"></object>
+                                            <attributes>
+                                                <attribute name="text">0</attribute>
+                                            </attributes>
+                                        </child>
+                                    </object>
+                                </child>
                             </object>
                         </child>
                     </object>
