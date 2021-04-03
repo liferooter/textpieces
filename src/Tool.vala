@@ -335,25 +335,6 @@ namespace Textpieces {
                 icon = "edit-find-symbolic",
                 func = (s, args) => Utils.filter_by_regex (s, args[0], true),
                 args = {"Regular expression"}
-            },
-            Tool () {
-                name = "Minify C-like code",
-                icon = "format-justify-fill-symbolic",
-                func = (s) => {
-                    string result;
-                    try {
-                        var regex = new Regex ("\\s+");
-                        result = regex.replace (s, s.length, 0, " ");
-                        regex = new Regex ("((?<=\\W) (?=.))|((?<=.) (?=\\W))");
-                        result = regex.replace (result, result.length, 0, "");
-                        return new Result (result);
-                    } catch (RegexError e) {
-                        return new Result (
-                            "That's wrong with your GLib?!",
-                            ResultType.ERROR
-                        );
-                    }
-                }
             }
         };
     }
