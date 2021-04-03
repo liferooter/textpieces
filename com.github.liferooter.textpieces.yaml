@@ -30,7 +30,7 @@ modules:
     - type: git
       url: https://gitlab.gnome.org/GNOME/libhandy.git
 
-    
+
 - name: python3-pyyaml
   buildsystem: simple
   build-commands:
@@ -47,6 +47,5 @@ modules:
   sources:
     - type: git
       url: https://github.com/liferooter/textpieces
-      tag: v1.1.2
-      commit: ef5900b6ec5889374a12d5324eb3a7836da8fb17
-
+      tag: v1.2.0
+      commit: 1897f1db71621b8fb843272d22662f56b855c9a7
