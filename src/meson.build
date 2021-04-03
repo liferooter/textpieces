@@ -9,6 +9,7 @@ textpieces_sources += [
   'Tool.vala',
   'ToolEntry.vala',
   'ToolPopover.vala',
+  'Utils.vala'
 ]
 
 textpieces_deps = [
