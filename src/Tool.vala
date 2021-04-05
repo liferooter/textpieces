@@ -335,6 +335,23 @@ namespace Textpieces {
                 icon = "edit-find-symbolic",
                 func = (s, args) => Utils.filter_by_regex (s, args[0], true),
                 args = {"Regular expression"}
+            },
+            Tool () {
+                name = "Reverse lines",
+                icon = "object-flip-vertical-symbolic",
+                func = (s) => {
+                    var lines = s.split ("\n");
+                    string[] res_lines = {};
+                    for (var i = lines.length - 1; i >= 0; i--) {
+                        res_lines += lines[i];
+                    }
+                    return new Result (string.joinv ("\n", (string?[]?) res_lines));
+                }
+            },
+            Tool () {
+                name = "Reverse string",
+                icon = "object-flip-horizontal-symbolic",
+                func = (s) => new Result (s.reverse ())
             }
         };
     }
