@@ -114,10 +114,10 @@ namespace Textpieces {
 
         [GtkCallback]
         void check_whether_can_do_actions () {
-            actions.lookup_action (ACTION_APPLY).set ("enabled", (text_buffer.text != "" && current_tool != null));
+            ((!) actions.lookup_action (ACTION_APPLY)).set ("enabled", (text_buffer.text != "" && current_tool != null));
             Idle.add (() => {
-                actions.lookup_action (ACTION_UNDO).set ("enabled", text_buffer.can_undo);
-                actions.lookup_action (ACTION_REDO).set ("enabled", text_buffer.can_redo);
+                ((!) actions.lookup_action (ACTION_UNDO)).set ("enabled", text_buffer.can_undo);
+                ((!) actions.lookup_action (ACTION_REDO)).set ("enabled", text_buffer.can_redo);
                 return Source.REMOVE;
             });
         }
