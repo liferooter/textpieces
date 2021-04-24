@@ -3,3 +3,5 @@
 /build-dir
 .flatpak-builder
 .vscode
+build.sh
+build
