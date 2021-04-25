@@ -108,7 +108,7 @@ namespace Textpieces {
                         path.next ();
                 }
 
-                if (key == Gdk.Key.Return)
+                if (key == Gdk.Key.Return && _path != null)
                     tool_tree.row_activated (path, col);
 
                 tool_tree.set_cursor (
