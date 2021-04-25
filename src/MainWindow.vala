@@ -83,6 +83,15 @@ namespace Textpieces {
                 }
             );
 
+            keybindings.connect (
+                Gdk.Key.q,
+                Gdk.ModifierType.CONTROL_MASK,
+                0,
+                () => {
+                    application.quit ();
+                }
+            );
+
             this.add_accel_group (keybindings);
 
             // Setup actions
