@@ -173,6 +173,19 @@ namespace Textpieces {
                 func = (s) => {
                     var lines = s.split ("\n");
                     for (var i = 0; i < lines.length; i++)
+                        lines[i] = lines[i].chomp ();
+
+                    return new Result (
+                        string.joinv ("\n", (string?[]?) lines)
+                    );
+                }
+            },
+            Tool () {
+                name = "Trim lines",
+                icon = "edit-cut-symbolic",
+                func = (s) => {
+                    var lines = s.split ("\n");
+                    for (var i = 0; i < lines.length; i++)
                         lines[i] = lines[i].strip ();
 
                     return new Result (
