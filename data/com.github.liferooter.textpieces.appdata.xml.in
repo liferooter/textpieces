@@ -19,8 +19,17 @@
       <image>https://raw.githubusercontent.com/liferooter/textpieces/main/screenshot.png</image>
     </screenshot>
   </screenshots>
-  <content_rating type="oars-1.1"/>
+  <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.3.0" date="2021-04-25">
+      <description>
+        <ul>
+          <li>Exit by Ctrl+Q</li>
+          <li>Monospace argument entry</li>
+          <li>Update new runtime</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.0" date="2021-04-03">
       <description>
         <ul>
