@@ -6,7 +6,7 @@ namespace Textpieces {
         public Application () {
             Object (
                 flags: ApplicationFlags.FLAGS_NONE,
-                application_id: "com.github.liferooter.textpieces"
+                application_id: Config.APP_ID
             );
         }
 

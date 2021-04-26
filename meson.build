@@ -11,6 +11,17 @@ i18n = import('i18n')
 valac = meson.get_compiler('vala')
 vapi_dir = join_paths (meson.source_root(), 'src', 'vapis')
 
+if get_option('profile') == 'development'
+  PROFILE = '.Devel'
+  NAME_SUFFIX = ' (Development snapshot)'
+else
+  PROFILE = ''
+  NAME_SUFFIX = ''
+endif
+
+APP_ID = 'com.github.liferooter.textpieces' + PROFILE
+NAME = 'Text Pieces' + NAME_SUFFIX
+
 subdir('data')
 subdir('src')
 subdir('po')
