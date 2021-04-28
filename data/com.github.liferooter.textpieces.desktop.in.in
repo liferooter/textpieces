@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Text Pieces
+Name=@NAME@
 Icon=@APP_ID@
 Exec=textpieces
 Terminal=false

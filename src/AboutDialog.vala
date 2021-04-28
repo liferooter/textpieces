@@ -4,8 +4,7 @@ namespace Textpieces {
         public AboutDialog (Gtk.Window win) {
             Object (
                 version: Config.VERSION,
-                logo_icon_name: Config.APP_ID,
-                program_name: Config.NAME
+                logo_icon_name: Config.APP_ID
             );
             this.set_transient_for (win);
         }

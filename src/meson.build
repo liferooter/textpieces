@@ -23,7 +23,6 @@ textpieces_deps = [
 
 c_args = [
   '-DAPP_ID="' + APP_ID + '"',
-  '-DNAME="' + NAME + '"',
   '-DVERSION="' + meson.project_version() + '"',
   '-DDATADIR="' + join_paths(get_option('prefix'), get_option('datadir')) + '"',
   '-DSCRIPTSDIR="' +  join_paths(get_option('prefix'), get_option('datadir'), 'scripts') + '"',
