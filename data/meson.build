@@ -1,16 +1,6 @@
-conf_data = configuration_data()
-conf_data.set('APP_ID', APP_ID)
-conf_data.set('NAME', NAME)
-
-generated_desktop_file = configure_file(
-  configuration: conf_data,
-  input: 'com.github.liferooter.textpieces.desktop.in.in',
-  output: 'com.github.liferooter.textpieces.desktop.in'
-)
-
 desktop_file = i18n.merge_file(
-  input: generated_desktop_file,
-  output: APP_ID + '.desktop',
+  input: 'com.github.liferooter.textpieces.desktop.in',
+  output: 'com.github.liferooter.textpieces.desktop',
   type: 'desktop',
   po_dir: '../po',
   install: true,
@@ -62,10 +52,10 @@ textpieces_sources += gnome.compile_resources('textpieces-resources',
 
 # Icons
 install_data(
-  join_paths('icons', APP_ID + '.svg'),
+  join_paths('icons', 'com.github.liferooter.textpieces.svg'),
   install_dir: join_paths (get_option('datadir'), 'icons', 'hicolor', 'scalable', 'apps')
 )
 install_data(
-  join_paths('icons', APP_ID + '-symbolic.svg'),
+  join_paths('icons', 'com.github.liferooter.textpieces-symbolic.svg'),
   install_dir: join_paths (get_option('datadir'), 'icons', 'hicolor', 'symbolic', 'apps')
 )

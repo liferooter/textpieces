@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=@NAME@
-Icon=@APP_ID@
+Name=Text Pieces
+Icon=com.github.liferooter.textpieces
 Exec=textpieces
 Terminal=false
 Type=Application
