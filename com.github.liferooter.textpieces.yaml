@@ -20,6 +20,24 @@ cleanup:
   - '*.a'
 modules:
 
+# Libadwaita dependencies
+
+- name: libsass
+  buildsystem: meson
+  sources:
+  - type: git
+    url: https://github.com/lazka/libsass.git
+    branch: meson
+
+- name: sassc
+  buildsystem: meson
+  sources:
+  - type: git
+    url: https://github.com/lazka/sassc.git
+    branch: meson
+
+# Text Pieces dependencies
+
 - name: libadwaita
   buildsystem: meson
   config-opts:
@@ -31,7 +49,6 @@ modules:
     url: https://gitlab.gnome.org/GNOME/libadwaita.git
 
 
-
 - name: python3-pyyaml
   buildsystem: simple
   build-commands:
@@ -41,6 +58,7 @@ modules:
       url: https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz
       sha256: 607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e
 
+# Text Pieces itself
 
 - name: textpieces
   builddir: true
