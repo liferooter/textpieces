@@ -20,15 +20,16 @@ cleanup:
   - '*.a'
 modules:
 
-- name: libhandy
+- name: libadwaita
   buildsystem: meson
-  builddir: true
   config-opts:
-    - -Dexamples=false
-    - -Dtests=false
+  - -Dexamples=false
+  - -Dtests=false
   sources:
-    - type: git
-      url: https://gitlab.gnome.org/GNOME/libhandy.git
+  - branch: main
+    type: git
+    url: https://gitlab.gnome.org/GNOME/libadwaita.git
+
 
 
 - name: python3-pyyaml
