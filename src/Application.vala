@@ -1,6 +1,19 @@
-namespace Textpieces {
+namespace TextPieces {
+
+    struct ActionAccel {
+        string action;
+        string accel;
+    }
+
     class Application : Gtk.Application {
         public static GLib.Settings settings;
+
+        private const ActionAccel[] ACTION_ACCELS = {
+            { "win.apply", "<Alt>Return" },
+            { "win.preferences", "<Control>comma" },
+            { "win.copy", "<Control><Shift>c" },
+            { "window.close", "<Control>q"},
+        };
 
         public Application () {
             Object (
@@ -16,7 +29,11 @@ namespace Textpieces {
         protected override void activate () {
             // Initialize libs
             Adw.init ();
-            Gtk.Source_init ();
+            Gtk.Sourceinit ();
+
+            // Bind dark theme to the settings
+            settings.bind ("dark-theme", ((!) Gtk.Settings.get_default ()),
+                           "gtk-application-prefer-dark-theme", GLib.SettingsBindFlags.DEFAULT);
 
             // Load custom CSS
             var css_provider = new Gtk.CssProvider ();
@@ -27,16 +44,17 @@ namespace Textpieces {
                 Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );
 
+            foreach (var action_accel in ACTION_ACCELS) {
+                set_accels_for_action (action_accel.action, { action_accel.accel });
+            }
+
             // Create window
-            var win = get_active_window ()
-            (win ?? new TextPieces.Window (this)).present ();
+            var win = get_active_window () ?? new TextPieces.Window (this);
+            win.present ();
         }
 
         public static int main (string[] args) {
-            // Ensure types from templates
-            typeof (Textpieces.ToolEntry).ensure ();
-
-            var app = new Textpieces.Application ();
+            var app = new TextPieces.Application ();
             return app.run (args);
         }
     }

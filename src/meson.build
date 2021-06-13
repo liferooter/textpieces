@@ -1,15 +1,15 @@
 textpieces_sources += [
-  'AboutDialog.vala',
+  # 'AboutDialog.vala',
   'Application.vala',
-  'Argument.vala',
-  'MainWindow.vala',
-  'Preferences.vala',
-  'Search.vala',
-  'ShortcutsWindow.vala',
-  'Tool.vala',
-  'ToolEntry.vala',
-  'ToolPopover.vala',
-  'Utils.vala'
+  # 'Argument.vala',
+  'Window.vala',
+  # 'Preferences.vala',
+  # 'Search.vala',
+  # 'ShortcutsWindow.vala',
+  # 'Tool.vala',
+  # 'ToolEntry.vala',
+  # 'ToolPopover.vala',
+  # 'Utils.vala'
 ]
 
 c_args = [

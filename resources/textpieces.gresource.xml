@@ -7,7 +7,7 @@
     <file preprocess="xml-stripblanks">ui/shortcuts.ui</file>
     <file preprocess="xml-stripblanks">ui/tool-entry.ui</file>
     <file preprocess="xml-stripblanks">ui/tools-popover.ui</file>
-    <file preprocess="xml-stripblanks">ui/window.ui</file>
+    <file preprocess="xml-stripblanks">ui/Window.ui</file>
     <file preprocess="xml-stripblanks">icons/fingerprint2-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/padlock-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/padlock-open-symbolic.svg</file>
