@@ -13,6 +13,6 @@
     <file preprocess="xml-stripblanks">icons/padlock-open-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/settings-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/text-symbolic.svg</file>
-    <file>css/main.css</file>
+    <file>style.css</file>
   </gresource>
 </gresources>
