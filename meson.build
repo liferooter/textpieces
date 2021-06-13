@@ -53,6 +53,7 @@ textpieces_deps = [
 i18n = import('i18n')
 
 subdir('data')
+subdir('resources')
 subdir('src')
 subdir('po')
 
