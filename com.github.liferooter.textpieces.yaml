@@ -44,10 +44,19 @@ modules:
   - -Dexamples=false
   - -Dtests=false
   sources:
-  - branch: main
-    type: git
+  - type: git
     url: https://gitlab.gnome.org/GNOME/libadwaita.git
+    branch: main
 
+- name: gtksourceview
+  buildsystem: meson
+  config-options:
+  - -Dtests=false
+  - -Dexamples=false
+  sources:
+  - type: git
+    url: https://gitlab.gnome.org/GNOME/gtksourceview.git
+    branch: master
 
 - name: python3-pyyaml
   buildsystem: simple
