@@ -7,7 +7,7 @@ project('textpieces', ['c', 'vala'],
 textpieces_sources = []
 
 valac = meson.get_compiler('vala')
-vapi_dir = join_paths (meson.source_root(), 'src', 'vapis')
+vapi_dir = join_paths (meson.source_root(), 'src', 'vapi')
 
 # Dependencies {
 
