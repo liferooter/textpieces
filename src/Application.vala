@@ -10,8 +10,9 @@ namespace TextPieces {
 
         private const ActionAccel[] ACTION_ACCELS = {
             { "win.apply", "<Alt>Return" },
-            { "win.preferences", "<Control>comma" },
             { "win.copy", "<Control><Shift>c" },
+            { "win.preferences", "<Control>comma" },
+            { "win.show-help-overlay", "<Control>question" },
             { "window.close", "<Control>q"},
         };
 

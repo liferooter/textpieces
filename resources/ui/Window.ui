@@ -83,14 +83,15 @@
   <menu id="app-menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">_Preferences</attribute>
+        <attribute name="label" translatable="yes">Preferences</attribute>
         <attribute name="action">win.preferences</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">_Keyboard shortcuts</attribute>
+        <attribute name="label" translatable="yes">Keyboard shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">_About application</attribute>
+        <attribute name="label" translatable="yes">About application</attribute>
         <attribute name="action">win.about</attribute>
       </item>
     </section>

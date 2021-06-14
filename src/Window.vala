@@ -15,7 +15,13 @@ namespace TextPieces {
         }
 
         construct {
+            // Load actions
             add_action_entries (ACTION_ENTRIES, this);
+
+            // Set help overlay
+            var builder = new Gtk.Builder.from_resource ("/com/github/liferooter/textpieces/ui/ShortcutsWindow.ui");
+            var overlay = (Gtk.ShortcutsWindow) builder.get_object ("overlay");
+            set_help_overlay (overlay);
         }
 
         void action_apply () {
@@ -24,8 +30,10 @@ namespace TextPieces {
         }
 
         void action_preferences () {
-            // Not Implemented Yet
-            message ("ACTION PREFERENCES");
+            var prefs = new Preferences () {
+                transient_for =  this
+            };
+            prefs.present ();
         }
 
         void action_about () {
