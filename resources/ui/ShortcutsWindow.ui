@@ -27,11 +27,23 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">Tools</property>
+            <property name="title" translatable="yes">Core</property>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes">Apply</property>
-                <property name="accelerator">&lt;alt&gt;Return</property>
+                <property name="accelerator">&lt;alt&gt;a</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Copy</property>
+                <property name="accelerator">&lt;alt&gt;c</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Select tool</property>
+                <property name="accelerator">&lt;alt&gt;s</property>
               </object>
             </child>
           </object>
@@ -39,12 +51,6 @@
         <child>
           <object class="GtkShortcutsGroup">
             <property name="title" translatable="yes">Editor</property>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="title" translatable="yes">Copy</property>
-                <property name="accelerator">&lt;ctrl&gt;c</property>
-              </object>
-            </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes">Copy all</property>
