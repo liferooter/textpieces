@@ -24,11 +24,19 @@ namespace TextPieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Window.ui")]
     public class Window : Adw.ApplicationWindow {
 
+        [GtkChild]
+        unowned Gtk.Stack content_stack;
+        [GtkChild]
+        unowned Gtk.SourceView editor;
+        [GtkChild]
+        unowned Gtk.Entry search_entry;
+
         private const ActionEntry[] ACTION_ENTRIES = {
             { "apply", action_apply },
             { "preferences", action_preferences },
             { "about", action_about },
-            { "copy", action_copy }
+            { "copy", action_copy },
+            { "stop-search", on_stop_search }
         };
 
         public Window (Gtk.Application app) {
@@ -65,6 +73,28 @@ namespace TextPieces {
         void action_copy () {
             // Not Implemented Yet
             message ("ACTION COPY");
+        }
+
+        [GtkCallback]
+        void on_search_focus () {
+            content_stack.set_visible_child_name ("search");
+        }
+
+        [GtkCallback]
+        bool is_page_search (string page) {
+            return page == "search";
+        }
+
+        [GtkCallback]
+        bool is_page_editor (string page) {
+            return page == "editor";
+        }
+
+        [GtkCallback]
+        void on_stop_search () {
+            content_stack.set_visible_child_name ("editor");
+            search_entry.set_text ("");
+            editor.grab_focus ();
         }
     }
 }

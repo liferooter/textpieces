@@ -34,7 +34,8 @@ namespace TextPieces {
             { "win.copy", "<Control><Shift>c" },
             { "win.preferences", "<Control>comma" },
             { "win.show-help-overlay", "<Control>question" },
-            { "window.close", "<Control>q"},
+            { "win.stop-search", "<Alt>Left/Escape" },
+            { "window.close", "<Control>q"}
         };
 
         public Application () {
@@ -67,7 +68,7 @@ namespace TextPieces {
             );
 
             foreach (var action_accel in ACTION_ACCELS) {
-                set_accels_for_action (action_accel.action, { action_accel.accel });
+                set_accels_for_action (action_accel.action, action_accel.accel.split ("/"));
             }
 
             // Create window

@@ -19,6 +19,22 @@
               <object class="GtkButton">
                 <property name="icon-name">edit-copy-symbolic</property>
                 <property name="action-name">win.copy</property>
+                <binding name="visible">
+                  <closure type="gboolean" function="is_page_editor">
+                    <lookup name="visible-child-name">content_stack</lookup>
+                  </closure>
+                </binding>
+              </object>
+            </child>
+            <child type="start">
+              <object class="GtkButton">
+                <property name="icon-name">go-previous-symbolic</property>
+                <signal name="clicked" handler="on_stop_search"/>
+                <binding name="visible">
+                  <closure type="gboolean" function="is_page_search">
+                    <lookup name="visible-child-name">content_stack</lookup>
+                  </closure>
+                </binding>
               </object>
             </child>
             <child type="title">
@@ -32,15 +48,25 @@
                       <class name="linked"/>
                     </style>
                     <child>
-                      <object class="GtkSearchEntry" id="tool_entry">
+                      <object class="GtkEntry" id="search_entry">
                         <property name="hexpand">true</property>
-                        <!-- <property name="width-request">400</property> -->
+                        <property name="primary-icon-name">applications-utilities-symbolic</property>
+                        <child>
+                          <object class="GtkEventControllerFocus">
+                            <signal name="enter" handler="on_search_focus"/>
+                          </object>
+                        </child>
                       </object>
                     </child>
                     <child>
                       <object class="GtkButton" id="apply_button">
                         <property name="action-name">win.apply</property>
                         <property name="icon-name">document-edit-symbolic</property>
+                        <binding name="visible">
+                          <closure type="gboolean" function="is_page_editor">
+                            <lookup name="visible-child-name">content_stack</lookup>
+                          </closure>
+                        </binding>
                         <style>
                           <class name="suggested-action"/>
                         </style>
@@ -60,8 +86,9 @@
           </object>
         </child>
         <child>
-          <object class="GtkStack">
+          <object class="GtkStack" id="content_stack">
             <property name="vexpand">true</property>
+            <property name="transition-type">crossfade</property>
             <child>
               <object class="GtkStackPage">
                 <property name="name">editor</property>
@@ -79,6 +106,20 @@
                         <property name="tab-width">4</property>
                       </object>
                     </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">search</property>
+                <property name="child">
+                  <object class="GtkLabel">
+                    <property name="label">NotImplementedYet</property>
+                    <style>
+                      <class name="title-1"/>
+                      <class name="dim-label"/>
+                    </style>
                   </object>
                 </property>
               </object>
