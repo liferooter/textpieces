@@ -30,8 +30,6 @@ namespace TextPieces {
         public static GLib.Settings settings;
 
         private const ActionAccel[] ACTION_ACCELS = {
-            { "win.apply", "<Alt>Return" },
-            { "win.copy", "<Control><Shift>c" },
             { "win.preferences", "<Control>comma" },
             { "win.show-help-overlay", "<Control>question" },
             { "win.stop-search", "<Alt>Left/Escape" },

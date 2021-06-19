@@ -16,64 +16,100 @@
             <property name="show-start-title-buttons">true</property>
             <property name="show-end-title-buttons">true</property>
             <child type="start">
-              <object class="GtkButton">
-                <property name="icon-name">edit-copy-symbolic</property>
-                <property name="action-name">win.copy</property>
-                <binding name="visible">
-                  <closure type="gboolean" function="is_page_editor">
-                    <lookup name="visible-child-name">content_stack</lookup>
-                  </closure>
-                </binding>
-              </object>
-            </child>
-            <child type="start">
-              <object class="GtkButton">
-                <property name="icon-name">go-previous-symbolic</property>
-                <signal name="clicked" handler="on_stop_search"/>
-                <binding name="visible">
-                  <closure type="gboolean" function="is_page_search">
-                    <lookup name="visible-child-name">content_stack</lookup>
-                  </closure>
-                </binding>
-              </object>
-            </child>
-            <child type="title">
-              <object class="AdwClamp">
-                <property name="hexpand">true</property>
-                <property name="maximum-size">400</property>
+              <object class="GtkRevealer">
+                <property name="transition-type">crossfade</property>
+                <property name="reveal-child"
+                          bind-source="search_bar"
+                          bind-property="search-mode-enabled"
+                          bind-flags="invert-boolean">true</property>
                 <property name="child">
                   <object class="GtkBox">
-                    <property name="hexpand">true</property>
                     <style>
                       <class name="linked"/>
                     </style>
                     <child>
-                      <object class="GtkEntry" id="search_entry">
-                        <property name="hexpand">true</property>
-                        <property name="primary-icon-name">applications-utilities-symbolic</property>
+                      <object class="GtkButton">
+                        <property name="label" translatable="yes">Apply</property>
+                        <property name="action-name">win.apply</property>
+                        <style>
+                          <class name="suggested-action"/>
+                        </style>
                         <child>
-                          <object class="GtkEventControllerFocus">
-                            <signal name="enter" handler="on_search_focus"/>
+                          <object class="GtkShortcutController">
+                            <property name="scope">managed</property>
+                            <child>
+                              <object class="GtkShortcut">
+                                <property name="trigger">&lt;Alt&gt;a</property>
+                                <property name="action">activate</property>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkButton" id="apply_button">
-                        <property name="action-name">win.apply</property>
-                        <property name="icon-name">document-edit-symbolic</property>
-                        <binding name="visible">
-                          <closure type="gboolean" function="is_page_editor">
-                            <lookup name="visible-child-name">content_stack</lookup>
-                          </closure>
-                        </binding>
+                      <object class="GtkButton">
+                        <property name="icon-name">edit-copy-symbolic</property>
+                        <property name="action-name">win.copy</property>
                         <style>
                           <class name="suggested-action"/>
                         </style>
+                        <child>
+                          <object class="GtkShortcutController">
+                            <property name="scope">managed</property>
+                            <child>
+                              <object class="GtkShortcut">
+                                <property name="trigger">&lt;Alt&gt;c</property>
+                                <property name="action">activate</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>
                 </property>
+              </object>
+            </child>
+            <child type="title">
+              <object class="GtkToggleButton" id="tool_button">
+                <style>
+                  <class name="flat"/>
+                </style>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon-name">applications-utilities-symbolic</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="label">Select tool</property>
+                        <style>
+                          <class name="heading"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon-name">pan-down-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+                <child>
+                  <object class="GtkShortcutController">
+                    <property name="scope">managed</property>
+                    <child>
+                      <object class="GtkShortcut">
+                        <property name="trigger">&lt;Alt&gt;s</property>
+                        <property name="action">activate</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
             <child type="end">
@@ -86,9 +122,22 @@
           </object>
         </child>
         <child>
+          <object class="GtkSearchBar" id="search_bar">
+            <property name="search-mode-enabled" bind-property="active" bind-source="tool_button" bind-flags="bidirectional"/>
+            <property name="child">
+              <object class="GtkSearchEntry"/>
+            </property>
+          </object>
+        </child>
+        <child>
           <object class="GtkStack" id="content_stack">
             <property name="vexpand">true</property>
             <property name="transition-type">crossfade</property>
+            <binding name="visible-child-name">
+              <closure type="gchararray" function="get_page_name">
+                <lookup name="search-mode-enabled">search_bar</lookup>
+              </closure>
+            </binding>
             <child>
               <object class="GtkStackPage">
                 <property name="name">editor</property>
