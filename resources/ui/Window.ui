@@ -6,7 +6,7 @@
   <template class="TextPiecesWindow" parent="AdwApplicationWindow">
     <property name="title" translatable="yes">Text Pieces</property>
     <property name="default-width">800</property>
-    <property name="default-height">400</property>
+    <property name="default-height">500</property>
     <property name="icon-name">com.github.liferooter.textpieces</property>
     <child>
       <object class="GtkBox">
@@ -163,12 +163,46 @@
               <object class="GtkStackPage">
                 <property name="name">search</property>
                 <property name="child">
-                  <object class="GtkLabel">
-                    <property name="label">NotImplementedYet</property>
-                    <style>
-                      <class name="title-1"/>
-                      <class name="dim-label"/>
-                    </style>
+                  <object class="GtkScrolledWindow">
+                    <child>
+                      <object class="GtkListBox">
+                        <child type="placeholder">
+                          <object class="AdwStatusPage">
+                            <property name="icon-name">applications-utilities-symbolic</property>
+                            <property name="title" translatable="yes">No tools found</property>
+                            <property name="child">
+                              <object class="GtkButton">
+                                <property name="halign">center</property>
+                                <style>
+                                  <class name="flat"/>
+                                </style>
+                                <property name="child">
+                                  <object class="GtkBox">
+                                    <property name="spacing">8</property>
+                                    <child>
+                                      <object class="GtkImage">
+                                        <property name="icon-name">list-add-symbolic</property>
+                                        <style>
+                                          <class name="dim-label"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="label" translatable="yes">Add custom tool</property>
+                                        <style>
+                                          <class name="dim-label"/>
+                                        </style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </property>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                 </property>
               </object>
