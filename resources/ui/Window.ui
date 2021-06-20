@@ -125,7 +125,25 @@
           <object class="GtkSearchBar" id="search_bar">
             <property name="search-mode-enabled" bind-property="active" bind-source="tool_button" bind-flags="bidirectional"/>
             <property name="child">
-              <object class="GtkSearchEntry"/>
+              <object class="GtkSearchEntry" id="search_entry">
+                <signal name="changed" handler="on_search_changed"/>
+                <child>
+                  <object class="GtkEventControllerKey" id="search_event_controller">
+                    <signal name="key-pressed" handler="on_search_entry_key"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkShortcutController">
+                    <property name="scope">managed</property>
+                    <child>
+                      <object class="GtkShortcut">
+                        <property name="trigger">Escape</property>
+                        <property name="action">signal(stop-search)</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
             </property>
           </object>
         </child>
@@ -167,10 +185,46 @@
               <object class="GtkStackPage">
                 <property name="name">search</property>
                 <property name="child">
-                  <object class="GtkScrolledWindow">
+                  <object class="GtkStack" id="search_stack">
+                    <property name="transition-type">crossfade</property>
                     <child>
-                      <object class="GtkListBox">
-                        <child type="placeholder">
+                      <object class="GtkStackPage">
+                        <property name="name">search</property>
+                        <property name="child">
+                          <object class="GtkScrolledWindow">
+                            <property name="child">
+                              <object class="GtkViewport">
+                                <property name="child">
+                                  <object class="AdwClamp">
+                                    <property name="maximum-size">400</property>
+                                    <property name="child">
+                                      <object class="GtkListBox" id="search_listbox">
+                                        <property name="margin-top">24</property>
+                                        <property name="valign">start</property>
+                                        <property name="selection-mode">none</property>
+                                        <signal name="row-activated" handler="on_row_activated"/>
+                                        <style>
+                                          <class name="content"/>
+                                        </style>
+                                        <child>
+                                          <object class="GtkEventControllerKey">
+                                            <signal name="key-pressed" handler="on_search_listbox_key"/>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </property>
+                              </object>
+                            </property>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkStackPage">
+                        <property name="name">placeholder</property>
+                        <property name="child">
                           <object class="AdwStatusPage">
                             <property name="icon-name">applications-utilities-symbolic</property>
                             <property name="title" translatable="yes">No tools found</property>
@@ -204,7 +258,7 @@
                               </object>
                             </property>
                           </object>
-                        </child>
+                        </property>
                       </object>
                     </child>
                   </object>

@@ -24,6 +24,17 @@ namespace TextPieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Window.ui")]
     public class Window : Adw.ApplicationWindow {
 
+        [GtkChild]
+        unowned Gtk.ListBox search_listbox;
+        [GtkChild]
+        unowned Gtk.SearchEntry search_entry;
+        [GtkChild]
+        unowned Gtk.EventControllerKey search_event_controller;
+        [GtkChild]
+        unowned Gtk.Stack search_stack;
+
+        Gtk.FilterListModel search_list;
+
         private const ActionEntry[] ACTION_ENTRIES = {
             { "apply", action_apply },
             { "preferences", action_preferences },
@@ -43,6 +54,13 @@ namespace TextPieces {
             var builder = new Gtk.Builder.from_resource ("/com/github/liferooter/textpieces/ui/ShortcutsWindow.ui");
             var overlay = (Gtk.ShortcutsWindow) builder.get_object ("overlay");
             set_help_overlay (overlay);
+
+            search_list = get_tools (this);
+
+            search_listbox.bind_model (
+                search_list,
+                build_list_row
+            );
         }
 
         void action_apply () {
@@ -67,6 +85,29 @@ namespace TextPieces {
             message ("ACTION COPY");
         }
 
+        public bool tool_filter_func (Object item) {
+            var tool = (Tool) item;
+
+            var name = tool.name.casefold ();
+            var description = tool.description.casefold ();
+            var terms = search_entry.text.casefold ().split (" ");
+
+            var min_name = 0;
+            var min_desc = 0;
+            int match;
+
+            foreach (var term in terms) {
+                if ((match = description.index_of (term, min_desc)) != -1)
+                    min_desc = match + term.length;
+                else if ((match = name.index_of (term, min_name)) != -1)
+                    min_name = match + term.length;
+                else
+                    return false;
+            }
+
+            return true;
+        }
+
         [GtkCallback]
         string get_page_name (bool search_enabled) {
             if (search_enabled) {
@@ -74,6 +115,41 @@ namespace TextPieces {
             } else {
                 return "editor";
             }
+        }
+
+        [GtkCallback]
+        void on_search_changed () {
+            search_list.filter.changed (Gtk.FilterChange.DIFFERENT);
+            search_stack.set_visible_child_name (search_list.get_n_items () == 0 ? "placeholder" : "search");
+        }
+
+        [GtkCallback]
+        bool on_search_entry_key (uint keyval, uint keycode, Gdk.ModifierType state) {
+            if (keyval == Gdk.Key.Down) {
+                var first_row = search_listbox.get_row_at_index (0);
+                if (first_row != null) {
+                    ((!) first_row).grab_focus ();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        [GtkCallback]
+        bool on_search_listbox_key (uint keyval, uint keycode, Gdk.ModifierType state) {
+            if (keyval == Gdk.Key.Up) {
+                var focus = this.focus_widget;
+                if (focus.get_type () == typeof (Adw.ActionRow) && ((Adw.ActionRow) focus).get_index () == 0) {
+                    search_entry.grab_focus ();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        [GtkCallback]
+        void on_row_activated (Gtk.ListBoxRow row) {
+            message ("ROW ACTIVATED: %s", ((Adw.ActionRow) row).title);
         }
     }
 }

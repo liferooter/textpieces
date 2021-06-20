@@ -5,7 +5,7 @@ textpieces_sources += [
   'Window.vala',
   'Preferences.vala',
   # 'Search.vala',
-  # 'Tool.vala',
+  'Tool.vala',
   # 'ToolEntry.vala',
   # 'ToolPopover.vala',
   # 'Utils.vala'
