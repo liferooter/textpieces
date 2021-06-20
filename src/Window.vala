@@ -32,6 +32,10 @@ namespace TextPieces {
         unowned Gtk.EventControllerKey search_event_controller;
         [GtkChild]
         unowned Gtk.Stack search_stack;
+        [GtkChild]
+        unowned Gtk.Revealer notify_revealer;
+        [GtkChild]
+        unowned Gtk.Label notify_label;
 
         Gtk.FilterListModel search_list;
 
@@ -39,7 +43,8 @@ namespace TextPieces {
             { "apply", action_apply },
             { "preferences", action_preferences },
             { "about", action_about },
-            { "copy", action_copy }
+            { "copy", action_copy },
+            { "close-notification", close_notification }
         };
 
         public Window (Gtk.Application app) {
@@ -83,6 +88,11 @@ namespace TextPieces {
         void action_copy () {
             // Not Implemented Yet
             message ("ACTION COPY");
+            notify ("Text is copied to clipboard");
+        }
+
+        void close_notification () {
+            notify_revealer.set_reveal_child (false);
         }
 
         public bool tool_filter_func (Object item) {
@@ -106,6 +116,11 @@ namespace TextPieces {
             }
 
             return true;
+        }
+
+        void notify (string text) {
+            notify_label.set_label (text);
+            notify_revealer.set_reveal_child (true);
         }
 
         [GtkCallback]
