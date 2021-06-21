@@ -80,13 +80,13 @@
                   <object class="GtkBox">
                     <property name="spacing">6</property>
                     <child>
-                      <object class="GtkImage">
+                      <object class="GtkImage" id="tool_icon">
                         <property name="icon-name">applications-utilities-symbolic</property>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkLabel">
-                        <property name="label">Select tool</property>
+                      <object class="GtkLabel" id="tool_label">
+                        <property name="label" translatable="yes">Select tool</property>
                         <style>
                           <class name="heading"/>
                         </style>

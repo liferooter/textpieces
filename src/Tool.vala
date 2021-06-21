@@ -13,27 +13,27 @@ namespace TextPieces {
           new Tool () {
               name = "Linux",
               description = "The best OS ever",
-              icon = "mail-send-symbolic"
+              icon = "utilities-terminal-symbolic"
           }
         );
         list.append (
           new Tool () {
               name = "Window",
               description = "Must-die operation system",
-              icon = "mail-send-symbolic"
+              icon = "user-trash-symbolic"
           }
         );
         list.append (
           new Tool () {
               name = "YaKur",
-              description = "The best OS ever",
-              icon = "mail-send-symbolic"
+              description = "Smoking",
+              icon = "face-monkey-symbolic"
           }
         );
         list.append (
           new Tool () {
-              name = "DDD",
-              description = "The best OS ever",
+              name = "Telegram",
+              description = "Cool messenger",
               icon = "mail-send-symbolic"
           }
         );

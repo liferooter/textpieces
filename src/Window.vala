@@ -31,13 +31,15 @@ namespace TextPieces {
         [GtkChild]
         unowned Gtk.SearchEntry search_entry;
         [GtkChild]
-        unowned Gtk.EventControllerKey search_event_controller;
-        [GtkChild]
         unowned Gtk.Stack search_stack;
         [GtkChild]
         unowned Gtk.Revealer notification_revealer;
         [GtkChild]
         unowned Gtk.Label notification_label;
+        [GtkChild]
+        unowned Gtk.Image tool_icon;
+        [GtkChild]
+        unowned Gtk.Label tool_label;
 
         Gtk.FilterListModel search_list;
 
@@ -174,7 +176,10 @@ namespace TextPieces {
 
         [GtkCallback]
         void on_row_activated (Gtk.ListBoxRow row) {
-            message ("ROW ACTIVATED: %s", ((Adw.ActionRow) row).title);
+            var tool = (Tool) search_list.get_item (row.get_index ());
+            tool_icon.icon_name = tool.icon;
+            tool_label.label = tool.name;
+            search_entry.stop_search ();
         }
 
         void clear_notification_hide_timeout () {
