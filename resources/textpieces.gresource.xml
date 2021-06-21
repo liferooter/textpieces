@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/liferooter/textpieces">
-    <file preprocess="xml-stripblanks">ui/about.ui</file>
     <file preprocess="xml-stripblanks">ui/argument.ui</file>
-    <file preprocess="xml-stripblanks">ui/tool-entry.ui</file>
-    <file preprocess="xml-stripblanks">ui/tools-popover.ui</file>
     <file preprocess="xml-stripblanks">ui/Preferences.ui</file>
     <file preprocess="xml-stripblanks">ui/ShortcutsWindow.ui</file>
     <file preprocess="xml-stripblanks">ui/Window.ui</file>
