@@ -21,6 +21,8 @@
 
 namespace TextPieces {
 
+    const uint NOTIFICATION_HIDE_TIMEOUT = 2000;
+
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Window.ui")]
     public class Window : Adw.ApplicationWindow {
 
@@ -33,18 +35,20 @@ namespace TextPieces {
         [GtkChild]
         unowned Gtk.Stack search_stack;
         [GtkChild]
-        unowned Gtk.Revealer notify_revealer;
+        unowned Gtk.Revealer notification_revealer;
         [GtkChild]
-        unowned Gtk.Label notify_label;
+        unowned Gtk.Label notification_label;
 
         Gtk.FilterListModel search_list;
+
+        uint? notification_hide_source = null;
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { "apply", action_apply },
             { "preferences", action_preferences },
             { "about", action_about },
             { "copy", action_copy },
-            { "close-notification", close_notification }
+            { "hide-notification", hide_notification }
         };
 
         public Window (Gtk.Application app) {
@@ -88,11 +92,12 @@ namespace TextPieces {
         void action_copy () {
             // Not Implemented Yet
             message ("ACTION COPY");
-            notify ("Text is copied to clipboard");
+            send_notification ("Text is copied to clipboard");
         }
 
-        void close_notification () {
-            notify_revealer.set_reveal_child (false);
+        void hide_notification () {
+            clear_notification_hide_timeout ();
+            notification_revealer.set_reveal_child (false);
         }
 
         public bool tool_filter_func (Object item) {
@@ -118,9 +123,14 @@ namespace TextPieces {
             return true;
         }
 
-        void notify (string text) {
-            notify_label.set_label (text);
-            notify_revealer.set_reveal_child (true);
+        void send_notification (string text) {
+            clear_notification_hide_timeout ();
+            notification_label.set_label (text);
+            notification_revealer.set_reveal_child (true);
+            notification_hide_source = Timeout.add (NOTIFICATION_HIDE_TIMEOUT, () => {
+                hide_notification ();
+                return Source.REMOVE;
+            });
         }
 
         [GtkCallback]
@@ -165,6 +175,13 @@ namespace TextPieces {
         [GtkCallback]
         void on_row_activated (Gtk.ListBoxRow row) {
             message ("ROW ACTIVATED: %s", ((Adw.ActionRow) row).title);
+        }
+
+        void clear_notification_hide_timeout () {
+            if (notification_hide_source != null) {
+                Source.remove ((!) notification_hide_source);
+                notification_hide_source = null;
+            }
         }
     }
 }

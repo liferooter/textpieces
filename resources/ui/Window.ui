@@ -182,7 +182,7 @@
                       </object>
                     </child>
                     <child type="overlay">
-                      <object class="GtkRevealer" id="notify_revealer">
+                      <object class="GtkRevealer" id="notification_revealer">
                         <property name="valign">start</property>
                         <property name="halign">center</property>
                         <property name="transition-type">slide-down</property>
@@ -193,14 +193,14 @@
                               <class name="app-notification"/>
                             </style>
                             <child>
-                              <object class="GtkLabel" id="notify_label">
+                              <object class="GtkLabel" id="notification_label">
                                 <property name="label">Notification</property>
                               </object>
                             </child>
                             <child>
                               <object class="GtkButton">
                                 <property name="icon-name">window-close-symbolic</property>
-                                <property name="action-name">win.close-notification</property>
+                                <property name="action-name">win.hide-notification</property>
                                 <style>
                                   <class name="flat"/>
                                 </style>
@@ -212,7 +212,7 @@
                                 <child>
                                   <object class="GtkShortcut">
                                     <property name="trigger">Escape</property>
-                                    <property name="action">action(win.close-notification)</property>
+                                    <property name="action">action(win.hide-notification)</property>
                                   </object>
                                 </child>
                               </object>
