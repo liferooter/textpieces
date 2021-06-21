@@ -126,7 +126,7 @@
             <property name="search-mode-enabled" bind-property="active" bind-source="tool_button" bind-flags="bidirectional"/>
             <property name="child">
               <object class="GtkSearchEntry" id="search_entry">
-                <signal name="changed" handler="on_search_changed"/>
+                <signal name="search-changed" handler="on_search_changed"/>
                 <child>
                   <object class="GtkEventControllerKey" id="search_event_controller">
                     <signal name="key-pressed" handler="on_search_entry_key"/>
