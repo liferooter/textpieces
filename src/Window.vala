@@ -40,10 +40,14 @@ namespace TextPieces {
         unowned Gtk.Image tool_icon;
         [GtkChild]
         unowned Gtk.Label tool_label;
+        [GtkChild]
+        unowned Gtk.SourceView editor;
 
         Gtk.FilterListModel search_list;
 
         uint? notification_hide_source = null;
+
+        Tool selected_tool = null;
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { "apply", action_apply },
@@ -75,9 +79,49 @@ namespace TextPieces {
         }
 
         void action_apply () {
-            // Not Implemented Yet
-            message ("ACTION APPLY");
+            if (selected_tool == null)
+                return;
+
+            var buffer = editor.buffer;
+            var has_selection = buffer.has_selection;
+
+            Gtk.TextIter start, end;
+
+            if (has_selection)
+                buffer.get_selection_bounds (out start, out end);
+            else
+                buffer.get_bounds (out start, out end);
+
+            var start_offset = start.get_offset ();
+            var end_offset = end.get_offset ();
+
+            var result = selected_tool.apply (buffer.get_text (start, end, false));
+            string result_text;
+            if (result.successful) {
+                result_text = result.output;
+            } else {
+                send_notification (result.output);
+                return;
+            }
+            var result_text_len = result_text.char_count ();
+
+            buffer.begin_user_action ();
+
+            buffer.@delete (ref start, ref end);
+            buffer.insert (ref start, result_text, result_text_len);
+
+            buffer.end_user_action ();
+
+            if (has_selection) {
+                buffer.get_iter_at_offset (out start, start_offset);
+                buffer.get_iter_at_offset (out end, start_offset + result_text_len);
+                buffer.select_range (start, end);
+            } else {
+                buffer.get_start_iter (out start);
+                buffer.place_cursor (start);
+            }
         }
+
 
         void action_preferences () {
             var prefs = new Preferences () {
@@ -177,6 +221,9 @@ namespace TextPieces {
         [GtkCallback]
         void on_row_activated (Gtk.ListBoxRow row) {
             var tool = (Tool) search_list.get_item (row.get_index ());
+
+            selected_tool = tool;
+
             tool_icon.icon_name = tool.icon;
             tool_label.label = tool.name;
             search_entry.stop_search ();

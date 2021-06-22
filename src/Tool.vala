@@ -1,9 +1,44 @@
 namespace TextPieces {
 
+    struct ScriptResult {
+        string output;
+        bool successful;
+    }
+
     class Tool : Object {
         public string name;
         public string description;
         public string icon;
+        public string script;
+        public bool   is_system;
+        public bool   run_on_host;
+
+        public ScriptResult apply (string input) {
+            var scriptdir = is_system ? Config.SCRIPTDIR : Path.build_filename (Environment.get_user_data_dir (), "scripts");
+
+            try {
+                var process = new Subprocess (
+                    SubprocessFlags.STDIN_PIPE | SubprocessFlags.STDOUT_PIPE | SubprocessFlags.STDERR_PIPE,
+                    Path.build_filename (scriptdir, script)
+                );
+
+                string stdout;
+                string stderr;
+                process.communicate_utf8 (input, null, out stdout, out stderr);
+
+                bool success = process.get_successful ();
+
+                return {
+                    success ? stdout ?? "" : stderr ?? "Error while running script",
+                    success
+                };
+            } catch (Error e) {
+                return {
+                    e.message,
+                    false
+                };
+            }
+        }
     }
 
     Gtk.FilterListModel get_tools (TextPieces.Window window) {
@@ -45,19 +80,25 @@ namespace TextPieces {
         var obj = root.get_object (); if (obj == null) return {};
         var is_system = obj.get_boolean_member_with_default ("is_system", false);
 
-        var scriptdir = is_system ? Config.SCRIPTDIR : Path.build_filename (Environment.get_user_data_dir (), "scripts");
-
         var json_tools = obj.get_array_member ("tools");
         if (json_tools == null) return {};
 
         Tool[] tools = {};
 
         foreach (var json_tool in json_tools.get_elements ()) {
-            var tool = json_tool.get_object ();
+            var tool = json_tool.get_object (); if (tool == null) return {};
+
+            if (!tool.has_member ("script")) {
+                continue;
+            }
+
             tools += new Tool () {
-                name = tool.get_string_member ("name"),
-                description = tool.get_string_member ("description"),
-                icon = tool.get_string_member ("icon")
+                name = tool.get_string_member ("name") ?? "",
+                description = tool.get_string_member ("description") ?? "",
+                icon = tool.get_string_member ("icon") ?? "applications-utilities-symbolic",
+                script = tool.get_string_member ("script"),
+                is_system = is_system,
+
             };
         }
 
