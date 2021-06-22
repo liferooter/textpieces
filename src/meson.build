@@ -1,24 +1,17 @@
 textpieces_sources += [
-  # 'AboutDialog.vala',
   'Application.vala',
-  # 'Argument.vala',
   'Window.vala',
   'Preferences.vala',
-  # 'Search.vala',
   'Tool.vala',
-  # 'ToolEntry.vala',
-  # 'ToolPopover.vala',
-  # 'Utils.vala'
 ]
 
 c_args = [
   '-DVERSION="' + meson.project_version() + '"',
-  '-DDATADIR="' + join_paths(get_option('prefix'), get_option('datadir')) + '"',
-  '-DSCRIPTSDIR="' +  join_paths(get_option('prefix'), get_option('datadir'), 'scripts') + '"',
+  '-DPKGDATADIR="' + pkgdata_dir + '"',
+  '-DSCRIPTDIR="' +  pkgdata_dir / 'scripts' + '"',
 ]
 
 vala_args = [
-  '--enable-experimental-non-null',
   '--target-glib=2.50',
   '--vapidir', vapi_dir,
 ]

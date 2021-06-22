@@ -4,6 +4,9 @@ project('textpieces', ['c', 'vala'],
   default_options: [ 'warning_level=2',
                    ],
 )
+
+pkgdata_dir = get_option('prefix') / get_option('datadir') / meson.project_name()
+
 textpieces_sources = []
 
 valac = meson.get_compiler('vala')
@@ -57,7 +60,6 @@ subdir('resources')
 subdir('src')
 subdir('po')
 
-install_subdir('scripts', install_dir: get_option('datadir'),
-               install_mode: 'rwxr-xr-x')
+install_subdir('scripts', install_dir: pkgdata_dir)
 
 meson.add_install_script('build-aux/meson/postinstall.py')

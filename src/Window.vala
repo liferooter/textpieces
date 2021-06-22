@@ -155,7 +155,7 @@ namespace TextPieces {
             if (keyval == Gdk.Key.Down) {
                 var first_row = search_listbox.get_row_at_index (0);
                 if (first_row != null) {
-                    ((!) first_row).grab_focus ();
+                    first_row.grab_focus ();
                     return true;
                 }
             }
@@ -184,7 +184,7 @@ namespace TextPieces {
 
         void clear_notification_hide_timeout () {
             if (notification_hide_source != null) {
-                Source.remove ((!) notification_hide_source);
+                Source.remove (notification_hide_source);
                 notification_hide_source = null;
             }
         }

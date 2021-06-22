@@ -53,14 +53,14 @@ namespace TextPieces {
             Gtk.Sourceinit ();
 
             // Bind dark theme to the settings
-            settings.bind ("dark-theme", ((!) Gtk.Settings.get_default ()),
+            settings.bind ("dark-theme", Gtk.Settings.get_default (),
                            "gtk-application-prefer-dark-theme", GLib.SettingsBindFlags.DEFAULT);
 
             // Load custom CSS
             var css_provider = new Gtk.CssProvider ();
             css_provider.load_from_resource ("/com/github/liferooter/textpieces/style.css");
             Gtk.StyleContext.add_provider_for_display (
-                (!) Gdk.Display.get_default (),
+                Gdk.Display.get_default (),
                 css_provider,
                 Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );

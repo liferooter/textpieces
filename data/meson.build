@@ -50,3 +50,9 @@ install_data(
   join_paths('icons', 'com.github.liferooter.textpieces-symbolic.svg'),
   install_dir: join_paths (get_option('datadir'), 'icons', 'hicolor', 'symbolic', 'apps')
 )
+
+# Tools' JSON
+install_data (
+  'tools.json',
+  install_dir: pkgdata_dir
+)

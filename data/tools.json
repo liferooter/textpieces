@@ -1,0 +1,12 @@
+{
+  "is_system": true,
+  "tools": [
+    {
+      "name": "SHA256",
+      "description": "Secure hash sum",
+      "icon": "auth-fingerprint-symbolic",
+      "script": "sha256.py",
+      "on_host": false
+    }
+  ]
+}
