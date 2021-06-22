@@ -40,7 +40,7 @@
                             <child>
                               <object class="GtkShortcut">
                                 <property name="trigger">&lt;Alt&gt;a</property>
-                                <property name="action">activate</property>
+                                <property name="action">action(win.apply)</property>
                               </object>
                             </child>
                           </object>
@@ -60,7 +60,7 @@
                             <child>
                               <object class="GtkShortcut">
                                 <property name="trigger">&lt;Alt&gt;c</property>
-                                <property name="action">activate</property>
+                                <property name="action">action(win.copy)</property>
                               </object>
                             </child>
                           </object>

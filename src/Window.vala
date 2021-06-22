@@ -76,6 +76,7 @@ namespace TextPieces {
                 search_list,
                 build_list_row
             );
+            ((SimpleAction) lookup_action ("apply")).set_enabled (false);
         }
 
         void action_apply () {
@@ -227,6 +228,8 @@ namespace TextPieces {
             tool_icon.icon_name = tool.icon;
             tool_label.label = tool.name;
             search_entry.stop_search ();
+
+            ((SimpleAction) lookup_action ("apply")).set_enabled (true);
         }
 
         void clear_notification_hide_timeout () {
