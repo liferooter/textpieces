@@ -9,6 +9,7 @@ c_args = [
   '-DVERSION="' + meson.project_version() + '"',
   '-DPKGDATADIR="' + pkgdata_dir + '"',
   '-DSCRIPTDIR="' +  pkgdata_dir / 'scripts' + '"',
+  '-DGETTEXT_PACKAGE="' + meson.project_name() + '"',
 ]
 
 vala_args = [

@@ -29,7 +29,7 @@ namespace TextPieces {
                 bool success = process.get_successful ();
 
                 return {
-                    success ? stdout ?? "" : stderr ?? "Error while running script",
+                    success ? stdout ?? "" : stderr ?? _("Error while running script"),
                     success
                 };
             } catch (Error e) {
@@ -72,7 +72,7 @@ namespace TextPieces {
         try {
             parser.load_from_file (file);
         } catch (Error e) {
-            critical ("Can't load tools from \"%s\": %s", file, e.message);
+            critical (_("Can't load tools from \"%s\": %s"), file, e.message);
             return {};
         }
 

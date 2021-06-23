@@ -140,7 +140,7 @@ namespace TextPieces {
             Gdk.Display.get_default ()
                        .get_clipboard ()
                        .set_text (editor.buffer.text);
-            send_notification ("Text is copied to clipboard");
+            send_notification (_("Text is copied to clipboard"));
         }
 
         void hide_notification () {
