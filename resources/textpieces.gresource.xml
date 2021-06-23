@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/liferooter/textpieces">
-    <file preprocess="xml-stripblanks">ui/argument.ui</file>
     <file preprocess="xml-stripblanks">ui/Preferences.ui</file>
     <file preprocess="xml-stripblanks">ui/ShortcutsWindow.ui</file>
     <file preprocess="xml-stripblanks">ui/Window.ui</file>
-    <file preprocess="xml-stripblanks">icons/gear-symbolic.svg</file>
-    <file preprocess="xml-stripblanks">icons/fingerprint2-symbolic.svg</file>
-    <file preprocess="xml-stripblanks">icons/padlock-symbolic.svg</file>
-    <file preprocess="xml-stripblanks">icons/padlock-open-symbolic.svg</file>
-    <file preprocess="xml-stripblanks">icons/settings-symbolic.svg</file>
-    <file preprocess="xml-stripblanks">icons/text-symbolic.svg</file>
     <file>style.css</file>
   </gresource>
 </gresources>
