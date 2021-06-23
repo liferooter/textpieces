@@ -138,9 +138,9 @@ namespace TextPieces {
 
         void action_copy () {
             // Not Implemented Yet
-            var display = Gdk.Display.get_default ();
-            var clipboard = display.get_clipboard ();
-            clipboard.set_text (editor.buffer.text);
+            Gdk.Display.get_default ()
+                       .get_clipboard ();
+                       .set_text (editor.buffer.text);
             send_notification ("Text is copied to clipboard");
         }
 
