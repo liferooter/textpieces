@@ -137,7 +137,6 @@ namespace TextPieces {
         }
 
         void action_copy () {
-            // Not Implemented Yet
             Gdk.Display.get_default ()
                        .get_clipboard ();
                        .set_text (editor.buffer.text);
