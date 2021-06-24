@@ -8,7 +8,7 @@
     <child>
       <object class="AdwPreferencesPage">
         <property name="title" translatable="yes">General</property>
-        <property name="icon-name">gear-symbolic</property>
+        <property name="icon-name">preferences-symbolic</property>
         <child>
           <object class="AdwPreferencesGroup">
             <property name="title" translatable="yes">General</property>
@@ -27,6 +27,12 @@
             </child>
           </object>
         </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">Custom tools</property>
+        <property name="icon-name">applications-utilities-symbolic</property>
       </object>
     </child>
   </template>

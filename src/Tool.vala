@@ -14,12 +14,13 @@ namespace TextPieces {
         public bool   run_on_host;
 
         public ScriptResult apply (string input) {
-            var scriptdir = is_system ? Config.SCRIPTDIR : Path.build_filename (Environment.get_user_data_dir (), "scripts");
+            var scriptdir = is_system ? Config.SCRIPTDIR : Path.build_filename (Environment.get_user_data_dir (), "textpieces", "scripts");
+            string cmdline = (run_on_host ? "flatpak-spawn --host " : "") + Path.build_filename (scriptdir, script);
 
             try {
-                var process = new Subprocess (
-                    SubprocessFlags.STDIN_PIPE | SubprocessFlags.STDOUT_PIPE | SubprocessFlags.STDERR_PIPE,
-                    Path.build_filename (scriptdir, script)
+                var process = new Subprocess.newv (
+                    cmdline.split (" "),
+                    SubprocessFlags.STDIN_PIPE | SubprocessFlags.STDOUT_PIPE | SubprocessFlags.STDERR_PIPE
                 );
 
                 string stdout;
@@ -47,6 +48,14 @@ namespace TextPieces {
         var system_tools = load_tools_from_file (Path.build_filename (Config.PKGDATADIR, "tools.json"));
         foreach (var tool in system_tools)
             list.append (tool);
+
+        var custom_tools_path = Path.build_filename (Environment.get_user_config_dir (), "textpieces", "tools.json");
+
+        if (File.new_for_path (custom_tools_path).query_exists ()) {
+            var custom_tools = load_tools_from_file (custom_tools_path);
+            foreach (var tool in custom_tools)
+                list.append (tool);
+        }
 
         return new Gtk.FilterListModel (
             list,
@@ -97,8 +106,8 @@ namespace TextPieces {
                 description = tool.get_string_member ("description") ?? "",
                 icon = tool.get_string_member ("icon") ?? "applications-utilities-symbolic",
                 script = tool.get_string_member ("script"),
+                run_on_host = tool.get_boolean_member ("run_on_host"),
                 is_system = is_system,
-
             };
         }
 

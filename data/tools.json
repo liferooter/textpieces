@@ -6,7 +6,7 @@
       "description": "Secure hash sum",
       "icon": "fingerprint-symbolic",
       "script": "sha256.py",
-      "on_host": false
+      "run_on_host": false
     }
   ]
 }
