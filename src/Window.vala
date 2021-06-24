@@ -123,7 +123,6 @@ namespace TextPieces {
             }
         }
 
-
         void action_preferences () {
             var prefs = new Preferences () {
                 transient_for =  this

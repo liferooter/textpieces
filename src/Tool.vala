@@ -49,13 +49,8 @@ namespace TextPieces {
         foreach (var tool in system_tools)
             list.append (tool);
 
-        var custom_tools_path = Path.build_filename (Environment.get_user_config_dir (), "textpieces", "tools.json");
-
-        if (File.new_for_path (custom_tools_path).query_exists ()) {
-            var custom_tools = load_tools_from_file (custom_tools_path);
-            foreach (var tool in custom_tools)
-                list.append (tool);
-        }
+        foreach (var tool in load_custom_tools ())
+            list.append (tool);
 
         return new Gtk.FilterListModel (
             list,
@@ -74,6 +69,13 @@ namespace TextPieces {
             icon_name = tool.icon,
             activatable = true
         };
+    }
+
+    Tool[] load_custom_tools () {
+        var custom_tools_path = Path.build_filename (Environment.get_user_config_dir (), "textpieces", "tools.json");
+        if (File.new_for_path (custom_tools_path).query_exists ()) {
+            return load_tools_from_file (custom_tools_path);
+        } else return {};
     }
 
     Tool[] load_tools_from_file (string file) {
@@ -102,11 +104,11 @@ namespace TextPieces {
             }
 
             tools += new Tool () {
-                name = tool.get_string_member ("name") ?? "",
-                description = tool.get_string_member ("description") ?? "",
-                icon = tool.get_string_member ("icon") ?? "applications-utilities-symbolic",
+                name = tool.has_member ("name") ? tool.get_string_member ("name") : "",
+                description = tool.has_member ("description") ? tool.get_string_member ("description") : "",
+                icon = tool.has_member ("icon") ? tool.get_string_member ("icon") : "applications-utilities-symbolic",
                 script = tool.get_string_member ("script"),
-                run_on_host = tool.get_boolean_member ("run_on_host"),
+                run_on_host = tool.has_member ("run_on_host") ? tool.get_boolean_member ("run_on_host") : false,
                 is_system = is_system,
             };
         }
