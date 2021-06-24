@@ -96,7 +96,6 @@ namespace TextPieces {
                 buffer.get_bounds (out start, out end);
 
             var start_offset = start.get_offset ();
-            var end_offset = end.get_offset ();
 
             var result = selected_tool.apply (
                 buffer.get_text (start, end, false)
