@@ -14,13 +14,24 @@ namespace TextPieces {
         public bool   run_on_host;
 
         public ScriptResult apply (string input) {
-            var scriptdir = is_system ? Config.SCRIPTDIR : Path.build_filename (Environment.get_user_data_dir (), "textpieces", "scripts");
-            string cmdline = (run_on_host ? "flatpak-spawn --host " : "") + Path.build_filename (scriptdir, script);
+            var scriptdir = is_system
+                ? Config.SCRIPTDIR
+                : Path.build_filename (
+                    Environment.get_user_data_dir (), "textpieces", "scripts"
+                    );
+
+            string cmdline = (
+                    run_on_host
+                        ? "flatpak-spawn --host "
+                        : ""
+                ) + Path.build_filename (scriptdir, script);
 
             try {
                 var process = new Subprocess.newv (
                     cmdline.split (" "),
-                    SubprocessFlags.STDIN_PIPE | SubprocessFlags.STDOUT_PIPE | SubprocessFlags.STDERR_PIPE
+                    SubprocessFlags.STDIN_PIPE |
+                    SubprocessFlags.STDOUT_PIPE |
+                    SubprocessFlags.STDERR_PIPE
                 );
 
                 string stdout;
@@ -30,7 +41,9 @@ namespace TextPieces {
                 bool success = process.get_successful ();
 
                 return {
-                    success ? stdout ?? "" : stderr ?? _("Error while running script"),
+                    success
+                        ? stdout ?? ""
+                        : stderr ?? _("Error while running script"),
                     success
                 };
             } catch (Error e) {
@@ -45,7 +58,9 @@ namespace TextPieces {
     Gtk.FilterListModel get_tools (TextPieces.Window window) {
         var list = new ListStore (typeof (Tool));
 
-        var system_tools = load_tools_from_file (Path.build_filename (Config.PKGDATADIR, "tools.json"));
+        var system_tools = load_tools_from_file (
+            Path.build_filename (Config.PKGDATADIR, "tools.json")
+        );
         foreach (var tool in system_tools)
             list.append (tool);
 
@@ -72,7 +87,9 @@ namespace TextPieces {
     }
 
     Tool[] load_custom_tools () {
-        var custom_tools_path = Path.build_filename (Environment.get_user_config_dir (), "textpieces", "tools.json");
+        var custom_tools_path = Path.build_filename (
+            Environment.get_user_config_dir (), "textpieces", "tools.json"
+        );
         if (File.new_for_path (custom_tools_path).query_exists ()) {
             return load_tools_from_file (custom_tools_path);
         } else return {};
@@ -89,7 +106,9 @@ namespace TextPieces {
 
         var root = parser.get_root (); if (root == null) return {};
         var obj = root.get_object (); if (obj == null) return {};
-        var is_system = obj.get_boolean_member_with_default ("is_system", false);
+        var is_system = obj.get_boolean_member_with_default (
+            "is_system", false
+        );
 
         var json_tools = obj.get_array_member ("tools");
         if (json_tools == null) return {};
@@ -104,11 +123,19 @@ namespace TextPieces {
             }
 
             tools += new Tool () {
-                name = tool.has_member ("name") ? tool.get_string_member ("name") : "",
-                description = tool.has_member ("description") ? tool.get_string_member ("description") : "",
-                icon = tool.has_member ("icon") ? tool.get_string_member ("icon") : "applications-utilities-symbolic",
+                name = tool.has_member ("name")
+                    ? tool.get_string_member ("name")
+                    : "",
+                description = tool.has_member ("description")
+                    ? tool.get_string_member ("description")
+                    : "",
+                icon = tool.has_member ("icon")
+                    ? tool.get_string_member ("icon")
+                    : "applications-utilities-symbolic",
                 script = tool.get_string_member ("script"),
-                run_on_host = tool.has_member ("run_on_host") ? tool.get_boolean_member ("run_on_host") : false,
+                run_on_host = tool.has_member ("run_on_host")
+                    ? tool.get_boolean_member ("run_on_host")
+                    : false,
                 is_system = is_system,
             };
         }

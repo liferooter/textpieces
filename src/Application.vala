@@ -53,11 +53,17 @@ namespace TextPieces {
             Gtk.Sourceinit ();
 
             // Bind dark theme to the settings
-            settings.bind ("dark-theme", Gtk.Settings.get_default (),
-                           "gtk-application-prefer-dark-theme", GLib.SettingsBindFlags.DEFAULT);
+            settings.bind (
+                "dark-theme", Gtk.Settings.get_default (),
+                "gtk-application-prefer-dark-theme",
+                GLib.SettingsBindFlags.DEFAULT
+            );
 
             foreach (var action_accel in ACTION_ACCELS) {
-                set_accels_for_action (action_accel.action, action_accel.accel.split ("/"));
+                set_accels_for_action (
+                    action_accel.action,
+                    action_accel.accel.split ("/")
+                );
             }
 
             // Create window

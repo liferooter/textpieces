@@ -30,7 +30,9 @@ namespace TextPieces {
         construct {
             var action_group = new SimpleActionGroup ();
             foreach (var pref in PREF_ACTIONS) {
-                action_group.add_action (TextPieces.Application.settings.create_action (pref));
+                action_group.add_action (
+                    TextPieces.Application.settings.create_action (pref)
+                );
             }
             insert_action_group ("prefs", action_group);
         }

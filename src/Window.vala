@@ -66,7 +66,9 @@ namespace TextPieces {
             add_action_entries (ACTION_ENTRIES, this);
 
             // Set help overlay
-            var builder = new Gtk.Builder.from_resource ("/com/github/liferooter/textpieces/ui/ShortcutsWindow.ui");
+            var builder = new Gtk.Builder.from_resource (
+                "/com/github/liferooter/textpieces/ui/ShortcutsWindow.ui"
+            );
             var overlay = (Gtk.ShortcutsWindow) builder.get_object ("overlay");
             set_help_overlay (overlay);
 
@@ -96,7 +98,10 @@ namespace TextPieces {
             var start_offset = start.get_offset ();
             var end_offset = end.get_offset ();
 
-            var result = selected_tool.apply (buffer.get_text (start, end, false));
+            var result = selected_tool.apply (
+                buffer.get_text (start, end, false)
+            );
+
             string result_text;
             if (result.successful) {
                 result_text = result.output;
@@ -114,8 +119,14 @@ namespace TextPieces {
             buffer.end_user_action ();
 
             if (has_selection) {
-                buffer.get_iter_at_offset (out start, start_offset);
-                buffer.get_iter_at_offset (out end, start_offset + result_text_len);
+                buffer.get_iter_at_offset (
+                    out start,
+                    start_offset
+                );
+                buffer.get_iter_at_offset (
+                    out end,
+                    start_offset + result_text_len
+                );
                 buffer.select_range (start, end);
             } else {
                 buffer.get_start_iter (out start);
@@ -187,10 +198,13 @@ namespace TextPieces {
             clear_notification_hide_timeout ();
             notification_label.set_label (text);
             notification_revealer.set_reveal_child (true);
-            notification_hide_source = Timeout.add (NOTIFICATION_HIDE_TIMEOUT, () => {
-                hide_notification ();
-                return Source.REMOVE;
-            });
+            notification_hide_source = Timeout.add (
+                NOTIFICATION_HIDE_TIMEOUT,
+                () => {
+                    hide_notification ();
+                    return Source.REMOVE;
+                }
+            );
         }
 
         [GtkCallback]
@@ -205,11 +219,17 @@ namespace TextPieces {
         [GtkCallback]
         void on_search_changed () {
             search_list.filter.changed (Gtk.FilterChange.DIFFERENT);
-            search_stack.set_visible_child_name (search_list.get_n_items () == 0 ? "placeholder" : "search");
+            search_stack.set_visible_child_name (
+                search_list.get_n_items () == 0
+                    ? "placeholder"
+                    : "search"
+            );
         }
 
         [GtkCallback]
-        bool on_search_entry_key (uint keyval, uint keycode, Gdk.ModifierType state) {
+        bool on_search_entry_key (uint keyval,
+                                  uint keycode,
+                                  Gdk.ModifierType state) {
             if (keyval == Gdk.Key.Down) {
                 var first_row = search_listbox.get_row_at_index (0);
                 if (first_row != null) {
@@ -221,10 +241,14 @@ namespace TextPieces {
         }
 
         [GtkCallback]
-        bool on_search_listbox_key (uint keyval, uint keycode, Gdk.ModifierType state) {
+        bool on_search_listbox_key (uint keyval,
+                                    uint keycode,
+                                    Gdk.ModifierType state) {
             if (keyval == Gdk.Key.Up) {
                 var focus = this.focus_widget;
-                if (focus.get_type () == typeof (Adw.ActionRow) && ((Adw.ActionRow) focus).get_index () == 0) {
+                if (focus.get_type () == typeof (Adw.ActionRow) &&
+                    ((Adw.ActionRow) focus).get_index () == 0)
+                {
                     search_entry.grab_focus ();
                     return true;
                 }
