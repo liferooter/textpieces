@@ -3,6 +3,7 @@ textpieces_sources += [
   'Window.vala',
   'Preferences.vala',
   'Tool.vala',
+  'CustomToolRow.vala'
 ]
 
 c_args = [

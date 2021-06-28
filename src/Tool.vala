@@ -95,6 +95,11 @@ namespace TextPieces {
         } else return {};
     }
 
+    void dump_custom_tools (Tool[] tools) {
+        // Not Implemented Yet
+        message ("DUMP TOOLS");
+    }
+
     Tool[] load_tools_from_file (string file) {
         var parser = new Json.Parser ();
         try {

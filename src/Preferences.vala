@@ -23,6 +23,9 @@ namespace TextPieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Preferences.ui")]
     class Preferences : Adw.PreferencesWindow {
 
+        [GtkChild]
+        unowned Gtk.ListBox custom_tools_listbox;
+
         private const string[] PREF_ACTIONS = {
             "dark-theme"
         };
@@ -35,6 +38,25 @@ namespace TextPieces {
                 );
             }
             insert_action_group ("prefs", action_group);
+
+            var custom_tools = new ListStore (typeof (Tool));
+            foreach (var tool in load_custom_tools ()) {
+                custom_tools.append (tool);
+            }
+
+            custom_tools_listbox.bind_model (
+                custom_tools,
+                build_custom_tool_row
+            );
+        }
+
+        Gtk.Widget build_custom_tool_row (Object item) {
+            Tool tool = (Tool) item;
+            var widget = new CustomToolRow () {
+                title = tool.name,
+                subtitle = tool.description
+            };
+            return widget;
         }
     }
 }

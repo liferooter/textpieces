@@ -33,6 +33,32 @@
       <object class="AdwPreferencesPage">
         <property name="title" translatable="yes">Custom tools</property>
         <property name="icon-name">applications-utilities-symbolic</property>
+        <child>
+          <object class="GtkScrolledWindow">
+            <child>
+              <object class="GtkViewport">
+                <child>
+                  <object class="AdwClamp">
+                    <property name="maximum-size">600</property>
+                    <property name="margin-top">16</property>
+                    <property name="margin-start">8</property>
+                    <property name="margin-end">8</property>
+                    <property name="valign">start</property>
+                    <child>
+                      <object class="GtkListBox" id="custom_tools_listbox">
+                        <property name="valign">start</property>
+                        <property name="selection-mode">none</property>
+                        <style>
+                          <class name="content"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
   </template>
