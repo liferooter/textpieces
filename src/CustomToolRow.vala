@@ -27,23 +27,42 @@ namespace TextPieces {
         [GtkChild]
         unowned Gtk.Entry description_entry;
 
-        Tool[]
+        public ToolsController tools {get; construct set; }
+        public Tool tool {get; construct set; }
 
-        construct {
-            bind_property (
-                "title", name_entry,
-                "text", BindingFlags.BIDIRECTIONAL
-            );
-            bind_property (
-                "subtitle", description_entry,
-                "text", BindingFlags.BIDIRECTIONAL
+        public CustomToolRow (Tool _tool, ToolsController _tools) {
+            Object (
+                tool: _tool,
+                tools: _tools
             );
         }
 
-        [GtkCallback]
+        construct {
+            tool.bind_property (
+                "name", this,
+                "title", BindingFlags.SYNC_CREATE
+            );
+            tool.bind_property (
+                "description", this,
+                "subtitle", BindingFlags.SYNC_CREATE
+            );
+
+            name_entry.text = tool.name;
+            name_entry.changed.connect (on_tool_change);
+            description_entry.text = tool.description;
+            description_entry.changed.connect (on_tool_change);
+        }
+
         void on_tool_change () {
-            // Not Implemented Yet
-            message ("TOOL CHANGED");
+            if (
+                tool.name != name_entry.text
+                || tool.description != description_entry.text
+            ) {
+                tool.name = name_entry.text;
+                tool.description = description_entry.text;
+
+                tools.dump_custom_tools ();
+            }
         }
     }
 }

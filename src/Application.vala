@@ -29,6 +29,8 @@ namespace TextPieces {
     class Application : Gtk.Application {
         public static GLib.Settings settings;
 
+        public ToolsController tools;
+
         private const ActionAccel[] ACTION_ACCELS = {
             { "win.preferences", "<Control>comma" },
             { "win.show-help-overlay", "<Control>question" },
@@ -48,6 +50,8 @@ namespace TextPieces {
         }
 
         protected override void activate () {
+            tools = new ToolsController ();
+
             // Initialize libs
             Adw.init ();
             Gtk.Sourceinit ();
@@ -67,7 +71,10 @@ namespace TextPieces {
             }
 
             // Create window
-            var win = get_active_window () ?? new TextPieces.Window (this);
+            var win = new TextPieces.Window () {
+                application = this
+            };
+            win.setup_tools ();
             win.present ();
         }
 

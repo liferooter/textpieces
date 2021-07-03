@@ -10,7 +10,6 @@
         <property name="title" translatable="yes">Name</property>
         <child>
           <object class="GtkEntry" id="name_entry">
-            <signal name="changed" handler="on_tool_change"/>
             <property name="valign">center</property>
           </object>
         </child>
@@ -21,7 +20,6 @@
         <property name="title" translatable="yes">Description</property>
         <child>
           <object class="GtkEntry" id="description_entry">
-            <signal name="changed" handler="on_tool_change"/>
             <property name="valign">center</property>
           </object>
         </child>

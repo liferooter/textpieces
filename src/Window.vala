@@ -57,10 +57,6 @@ namespace TextPieces {
             { "hide-notification", hide_notification }
         };
 
-        public Window (Gtk.Application app) {
-            Object (application: app);
-        }
-
         construct {
             // Load actions
             add_action_entries (ACTION_ENTRIES, this);
@@ -72,13 +68,21 @@ namespace TextPieces {
             var overlay = (Gtk.ShortcutsWindow) builder.get_object ("overlay");
             set_help_overlay (overlay);
 
-            search_list = get_tools (this);
+            ((SimpleAction) lookup_action ("apply")).set_enabled (false);
+        }
+
+        public void setup_tools () {
+            search_list = new Gtk.FilterListModel (
+                ((TextPieces.Application) application).tools.all_tools,
+                new Gtk.CustomFilter (
+                    tool_filter_func
+                )
+            );
 
             search_listbox.bind_model (
                 search_list,
                 build_list_row
             );
-            ((SimpleAction) lookup_action ("apply")).set_enabled (false);
         }
 
         void action_apply () {
@@ -135,8 +139,10 @@ namespace TextPieces {
 
         void action_preferences () {
             var prefs = new Preferences () {
-                transient_for =  this
+                transient_for =  this,
+                application = application
             };
+            prefs.setup_tools ();
             prefs.present ();
         }
 
