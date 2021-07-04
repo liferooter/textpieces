@@ -4,9 +4,9 @@ list.nested row {
 }
 
 button.large {
-  padding: 8px;
+  padding: 4px;
 }
 
 button.large image {
-  -gtk-icon-size: 20px;
+  -gtk-icon-size: 18px;
 }
