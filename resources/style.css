@@ -1,0 +1,12 @@
+list.nested row {
+  border: none;
+  background-color: @theme_base_color;
+}
+
+button.large {
+  padding: 8px;
+}
+
+button.large image {
+  -gtk-icon-size: 20px;
+}
