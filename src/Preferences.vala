@@ -71,12 +71,12 @@ namespace TextPieces {
             custom_tools_listbox.append (row);
         }
 
-       /*
-        * Convert `expanded_row` to row's `expanded`.
-        * `b`       - binding object
-        * `from`    - Value with integer, value of `expanded_row`
-        * `to`      - Value with boolean, value of `expanded`
-        */
+        /*
+         * Convert `expanded_row` to row's `expanded`.
+         * `b`       - binding object
+         * `from`    - Value with integer, value of `expanded_row`
+         * `to`      - Value with boolean, value of `expanded`
+         */
         bool from_expanded_row (Binding b, Value from, ref Value to) {
             var tool_row = (CustomToolRow) b.source;
             to.set_boolean (tool_row.get_index () == from.get_int ());
@@ -84,11 +84,11 @@ namespace TextPieces {
         }
 
         /*
-        * Convert row's `expanded` to `expanded_row`.
-        * `b`       - binding object
-        * `from`    - Value with boolean, value of `expanded`
-        * `to`      - Value with integer, value of `expanded_row`
-        */
+         * Convert row's `expanded` to `expanded_row`.
+         * `b`       - binding object
+         * `from`    - Value with boolean, value of `expanded`
+         * `to`      - Value with integer, value of `expanded_row`
+         */
         bool to_expanded_row (Binding b, Value from, ref Value to) {
             var tool_row = (CustomToolRow) b.source;
             if (tool_row.get_index () == to.get_int ()
