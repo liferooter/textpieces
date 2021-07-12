@@ -44,10 +44,31 @@ namespace TextPieces {
 
         public void setup_tools () {
 
-            custom_tools_listbox.bind_model (
-                ((TextPieces.Application) application).tools.custom_tools,
-                build_custom_tool_row
+            var tools = ((TextPieces.Application) application).tools.custom_tools;
+
+            for (int i = 0; i < tools.get_n_items (); i++)
+                custom_tools_listbox.append (build_custom_tool_row (tools.get_item (i)));
+
+
+            var label_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8) {
+                halign = Gtk.Align.CENTER,
+                margin_top = 12,
+                margin_bottom = 12
+            };
+            label_box.append (
+                new Gtk.Image () {
+                    icon_name = "list-add-symbolic"
+                }
             );
+            label_box.append (
+                new Gtk.Label (_("Add new tool"))
+            );
+
+            var row = new Gtk.ListBoxRow () {
+                child = label_box
+            };
+
+            custom_tools_listbox.append (row);
         }
 
        /*
