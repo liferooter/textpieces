@@ -11,7 +11,7 @@ namespace TextPieces {
         public string icon;
         public string script;
         public bool   is_system;
-        public bool   run_on_host;
+        public bool   run_on_host { get; set; }
 
         public ScriptResult apply (string input) {
             var scriptdir = is_system

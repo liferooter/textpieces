@@ -23,9 +23,10 @@ namespace TextPieces {
     class CustomToolRow : Adw.ExpanderRow {
         [GtkChild]
         unowned Gtk.Entry name_entry;
-
         [GtkChild]
         unowned Gtk.Entry description_entry;
+        [GtkChild]
+        unowned Gtk.Switch run_on_host;
 
         public ToolsController tools {get; construct set; }
         public Tool tool {get; construct set; }
@@ -46,11 +47,21 @@ namespace TextPieces {
                 "description", this,
                 "subtitle", BindingFlags.SYNC_CREATE
             );
+            tool.bind_property (
+                "run-on-host", run_on_host,
+                "state", BindingFlags.SYNC_CREATE
+            );
 
             name_entry.text = tool.name;
             name_entry.changed.connect (on_tool_change);
             description_entry.text = tool.description;
             description_entry.changed.connect (on_tool_change);
+
+            run_on_host.state_set.connect ((_, state) => {
+                tool.run_on_host = state;
+                tools.dump_custom_tools ();
+                return false;
+            });
         }
 
         void on_tool_change () {

@@ -24,6 +24,17 @@
       </object>
     </child>
     <child>
+      <object class="AdwActionRow">
+        <property name="title" translatable="yes">Run on host</property>
+        <property name="activatable-widget">run_on_host</property>
+        <child>
+          <object class="GtkSwitch" id="run_on_host">
+            <property name="valign">center</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
       <object class="GtkListBoxRow">
         <property name="activatable">false</property>
         <child>
