@@ -64,5 +64,13 @@ namespace TextPieces {
                 tools.dump_custom_tools ();
             }
         }
+
+        [GtkCallback]
+        void on_delete () {
+            tools.custom_tools.remove (get_index ());
+            tools.dump_custom_tools ();
+
+            ((Gtk.ListBox) parent).remove (this);
+        }
     }
 }

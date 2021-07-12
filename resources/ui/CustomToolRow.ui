@@ -43,6 +43,7 @@
             <child>
               <object class="GtkButton">
                 <property name="icon-name">user-trash-symbolic</property>
+                <signal name="clicked" handler="on_delete"/>
                 <style>
                   <class name="circular"/>
                   <class name="large"/>
