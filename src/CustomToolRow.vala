@@ -28,6 +28,8 @@ namespace TextPieces {
         [GtkChild]
         unowned Gtk.Switch run_on_host;
 
+        public Gtk.Window window;
+
         public ToolsController tools {get; construct set; }
         public Tool tool {get; construct set; }
 
@@ -78,10 +80,26 @@ namespace TextPieces {
 
         [GtkCallback]
         void on_delete () {
-            tools.custom_tools.remove (get_index ());
-            tools.dump_custom_tools ();
+            var dialog = new Gtk.MessageDialog (
+                window,
+                Gtk.DialogFlags.MODAL,
+                Gtk.MessageType.QUESTION,
+                Gtk.ButtonsType.YES_NO,
+                _("Do you really want to delete \"%s\" tool?"),
+                tool.name
+            );
+            dialog.present ();
 
-            ((Gtk.ListBox) parent).remove (this);
+            dialog.response.connect ((res) => {
+                if (res == Gtk.ResponseType.YES) {
+                    set_expanded (false);
+                    tools.custom_tools.remove (get_index ());
+                    tools.dump_custom_tools ();
+
+                    ((Gtk.ListBox) parent).remove (this);
+                }
+                dialog.destroy ();
+            });
         }
     }
 }

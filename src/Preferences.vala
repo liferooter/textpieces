@@ -106,7 +106,9 @@ namespace TextPieces {
             var widget = new CustomToolRow (
                 tool,
                 ((TextPieces.Application) application).tools
-            );
+            ) {
+                window = this
+            };
 
             widget.bind_property (
                 "expanded", this,
