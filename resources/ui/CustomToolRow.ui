@@ -46,7 +46,7 @@
               <object class="GtkButton">
                 <property name="icon-name">document-edit-symbolic</property>
                 <property name="valign">center</property>
-                <signal name="clicked" handler="on_open_script" />
+                <signal name="clicked" handler="open_script" />
                 <style>
                   <class name="circular" />
                 </style>
@@ -55,7 +55,7 @@
             <child>
               <object class="GtkButton">
                 <property name="icon-name">user-trash-symbolic</property>
-                <signal name="clicked" handler="on_delete" />
+                <signal name="clicked" handler="delete_tool" />
                 <style>
                   <class name="circular" />
                   <class name="large" />
@@ -67,6 +67,7 @@
               <object class="GtkButton">
                 <property name="icon-name">folder-open-symbolic</property>
                 <property name="valign">center</property>
+                <signal name="clicked" handler="select_script" />
                 <style>
                   <class name="circular" />
                 </style>

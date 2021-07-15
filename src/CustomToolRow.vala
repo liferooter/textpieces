@@ -79,7 +79,7 @@ namespace TextPieces {
         }
 
         [GtkCallback]
-        void on_delete () {
+        void delete_tool () {
             var dialog = new Gtk.MessageDialog (
                 window,
                 Gtk.DialogFlags.MODAL,
@@ -103,7 +103,7 @@ namespace TextPieces {
         }
 
         [GtkCallback]
-        void on_open_script () {
+        void open_script () {
             try {
                 AppInfo.launch_default_for_uri (
                     "file://"
@@ -116,6 +116,50 @@ namespace TextPieces {
             } catch (Error e) {
                 error (@"Can't open script file: $(e.message)");
             }
+        }
+
+        [GtkCallback]
+        void select_script () {
+            var file_chooser = new Gtk.FileChooserNative (
+                _("Select script"),
+                window,
+                Gtk.FileChooserAction.OPEN,
+                null,
+                null
+            ){
+                create_folders = false,
+                modal = true
+                //  transient_for = window
+            };
+
+            file_chooser.set_transient_for (window);
+
+            file_chooser.response.connect ((id) => {
+                if (id == Gtk.ResponseType.ACCEPT) {
+                    var old_file = file_chooser.get_file ();
+
+                    var new_file = File.new_build_filename (
+                        Tool.CUSTOM_TOOLS_DIR,
+                        tool.preferred_filename
+                    );
+
+                    old_file.copy_async.begin (
+                        new_file,
+                        FileCopyFlags.OVERWRITE,
+                        Priority.HIGH_IDLE,
+                        null,
+                        null,
+                        () => {
+                            FileUtils.chmod (new_file.get_path (), 448);
+                        }
+                    );
+
+                    tool.script = new_file.get_basename ();
+                    tools.dump_custom_tools ();
+                }
+            });
+
+            file_chooser.show ();
         }
     }
 }

@@ -14,6 +14,21 @@ namespace TextPieces {
         public string script;
         public bool   is_system;
         public bool   run_on_host { get; set; }
+        public string preferred_filename {
+            owned get {
+                var hash = Checksum.compute_for_string (
+                    ChecksumType.SHA256,
+                    name + description + icon,
+                    -1
+                ).slice (0, 8);
+                return name
+                        .down ()
+                        .replace (" ", "_")
+                        .replace ("?", "x")
+                        + "-"
+                        + hash;
+            }
+        }
 
         static construct {
             CUSTOM_TOOLS_DIR = Path.build_filename (
