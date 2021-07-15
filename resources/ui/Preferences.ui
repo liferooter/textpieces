@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
 
-  <requires lib="gtk" version="4.2"/>
-  <requires lib="libadwaita" version="1.0"/>
+  <requires lib="gtk" version="4.2" />
+  <requires lib="libadwaita" version="1.0" />
 
   <template class="TextPiecesPreferences" parent="AdwPreferencesWindow">
     <child>
@@ -49,7 +49,7 @@
                         <property name="valign">start</property>
                         <property name="selection-mode">none</property>
                         <style>
-                          <class name="content"/>
+                          <class name="content" />
                         </style>
                       </object>
                     </child>

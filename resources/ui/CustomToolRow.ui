@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
 
-  <requires lib="gtk" version="4.2"/>
-  <requires lib="libadwaita" version="1.0"/>
+  <requires lib="gtk" version="4.2" />
+  <requires lib="libadwaita" version="1.0" />
 
   <template class="TextPiecesCustomToolRow" parent="AdwExpanderRow">
     <child>
@@ -10,7 +10,7 @@
         <property name="activatable">false</property>
         <property name="title" translatable="yes">Name</property>
         <child>
-          <object class="GtkEntry" id="name_entry"/>
+          <object class="GtkEntry" id="name_entry" />
         </child>
       </object>
     </child>
@@ -19,7 +19,7 @@
         <property name="activatable">false</property>
         <property name="title" translatable="yes">Description</property>
         <child>
-          <object class="GtkEntry" id="description_entry"/>
+          <object class="GtkEntry" id="description_entry" />
         </child>
       </object>
     </child>
@@ -46,20 +46,20 @@
               <object class="GtkButton" id="edit_button">
                 <property name="icon-name">document-edit-symbolic</property>
                 <property name="valign">center</property>
-                <signal name="clicked" handler="on_open_script"/>
+                <signal name="clicked" handler="on_open_script" />
                 <style>
-                  <class name="circular"/>
+                  <class name="circular" />
                 </style>
               </object>
             </child>
             <child>
               <object class="GtkButton">
                 <property name="icon-name">user-trash-symbolic</property>
-                <signal name="clicked" handler="on_delete"/>
+                <signal name="clicked" handler="on_delete" />
                 <style>
-                  <class name="circular"/>
-                  <class name="large"/>
-                  <class name="destructive-action"/>
+                  <class name="circular" />
+                  <class name="large" />
+                  <class name="destructive-action" />
                 </style>
               </object>
             </child>
@@ -68,7 +68,7 @@
                 <property name="icon-name">folder-open-symbolic</property>
                 <property name="valign">center</property>
                 <style>
-                  <class name="circular"/>
+                  <class name="circular" />
                 </style>
               </object>
             </child>

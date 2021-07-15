@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.2"/>
-  <requires lib="libadwaita" version="1.0"/>
+  <requires lib="gtk" version="4.2" />
+  <requires lib="libadwaita" version="1.0" />
 
   <template class="TextPiecesWindow" parent="AdwApplicationWindow">
     <property name="title" translatable="yes">Text Pieces</property>
@@ -18,21 +18,18 @@
             <child type="start">
               <object class="GtkRevealer">
                 <property name="transition-type">crossfade</property>
-                <property name="reveal-child"
-                          bind-source="search_bar"
-                          bind-property="search-mode-enabled"
-                          bind-flags="invert-boolean">true</property>
+                <property name="reveal-child" bind-source="search_bar" bind-property="search-mode-enabled" bind-flags="invert-boolean">true</property>
                 <property name="child">
                   <object class="GtkBox">
                     <style>
-                      <class name="linked"/>
+                      <class name="linked" />
                     </style>
                     <child>
                       <object class="GtkButton">
                         <property name="label" translatable="yes">Apply</property>
                         <property name="action-name">win.apply</property>
                         <style>
-                          <class name="suggested-action"/>
+                          <class name="suggested-action" />
                         </style>
                         <child>
                           <object class="GtkShortcutController">
@@ -52,7 +49,7 @@
                         <property name="icon-name">edit-copy-symbolic</property>
                         <property name="action-name">win.copy</property>
                         <style>
-                          <class name="suggested-action"/>
+                          <class name="suggested-action" />
                         </style>
                         <child>
                           <object class="GtkShortcutController">
@@ -74,7 +71,7 @@
             <child type="title">
               <object class="GtkToggleButton" id="tool_button">
                 <style>
-                  <class name="flat"/>
+                  <class name="flat" />
                 </style>
                 <property name="child">
                   <object class="GtkBox">
@@ -88,7 +85,7 @@
                       <object class="GtkLabel" id="tool_label">
                         <property name="label" translatable="yes">Select tool</property>
                         <style>
-                          <class name="heading"/>
+                          <class name="heading" />
                         </style>
                       </object>
                     </child>
@@ -123,13 +120,13 @@
         </child>
         <child>
           <object class="GtkSearchBar" id="search_bar">
-            <property name="search-mode-enabled" bind-property="active" bind-source="tool_button" bind-flags="bidirectional"/>
+            <property name="search-mode-enabled" bind-property="active" bind-source="tool_button" bind-flags="bidirectional" />
             <property name="child">
               <object class="GtkSearchEntry" id="search_entry">
-                <signal name="search-changed" handler="on_search_changed"/>
+                <signal name="search-changed" handler="on_search_changed" />
                 <child>
                   <object class="GtkEventControllerKey" id="search_event_controller">
-                    <signal name="key-pressed" handler="on_search_entry_key"/>
+                    <signal name="key-pressed" handler="on_search_entry_key" />
                   </object>
                 </child>
                 <child>
@@ -190,7 +187,7 @@
                           <object class="GtkBox">
                             <property name="spacing">12</property>
                             <style>
-                              <class name="app-notification"/>
+                              <class name="app-notification" />
                             </style>
                             <child>
                               <object class="GtkLabel" id="notification_label">
@@ -202,7 +199,7 @@
                                 <property name="icon-name">window-close-symbolic</property>
                                 <property name="action-name">win.hide-notification</property>
                                 <style>
-                                  <class name="flat"/>
+                                  <class name="flat" />
                                 </style>
                               </object>
                             </child>
@@ -246,13 +243,13 @@
                                         <property name="margin-top">24</property>
                                         <property name="valign">start</property>
                                         <property name="selection-mode">none</property>
-                                        <signal name="row-activated" handler="on_row_activated"/>
+                                        <signal name="row-activated" handler="on_row_activated" />
                                         <style>
-                                          <class name="content"/>
+                                          <class name="content" />
                                         </style>
                                         <child>
                                           <object class="GtkEventControllerKey">
-                                            <signal name="key-pressed" handler="on_search_listbox_key"/>
+                                            <signal name="key-pressed" handler="on_search_listbox_key" />
                                           </object>
                                         </child>
                                       </object>
@@ -276,7 +273,7 @@
                               <object class="GtkButton">
                                 <property name="halign">center</property>
                                 <style>
-                                  <class name="flat"/>
+                                  <class name="flat" />
                                 </style>
                                 <property name="child">
                                   <object class="GtkBox">
@@ -285,7 +282,7 @@
                                       <object class="GtkImage">
                                         <property name="icon-name">list-add-symbolic</property>
                                         <style>
-                                          <class name="dim-label"/>
+                                          <class name="dim-label" />
                                         </style>
                                       </object>
                                     </child>
@@ -293,7 +290,7 @@
                                       <object class="GtkLabel">
                                         <property name="label" translatable="yes">Add custom tool</property>
                                         <style>
-                                          <class name="dim-label"/>
+                                          <class name="dim-label" />
                                         </style>
                                       </object>
                                     </child>
