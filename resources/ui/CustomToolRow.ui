@@ -43,7 +43,7 @@
             <property name="spacing">8</property>
             <property name="margin-bottom">12</property>
             <child>
-              <object class="GtkButton" id="edit_button">
+              <object class="GtkButton">
                 <property name="icon-name">document-edit-symbolic</property>
                 <property name="valign">center</property>
                 <signal name="clicked" handler="on_open_script" />
