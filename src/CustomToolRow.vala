@@ -101,5 +101,21 @@ namespace TextPieces {
                 dialog.destroy ();
             });
         }
+
+        [GtkCallback]
+        void on_open_script () {
+            try {
+                AppInfo.launch_default_for_uri (
+                    "file://"
+                    + Path.build_filename (
+                        Tool.CUSTOM_TOOLS_DIR,
+                        tool.script
+                    ),
+                    null
+                );
+            } catch (Error e) {
+                error (@"Can't open script file: $(e.message)");
+            }
+        }
     }
 }

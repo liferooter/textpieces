@@ -6,6 +6,8 @@ namespace TextPieces {
     }
 
     class Tool : Object {
+        public static string CUSTOM_TOOLS_DIR;
+
         public string name { get; set; }
         public string description { get; set; }
         public string icon;
@@ -13,12 +15,16 @@ namespace TextPieces {
         public bool   is_system;
         public bool   run_on_host { get; set; }
 
+        static construct {
+            CUSTOM_TOOLS_DIR = Path.build_filename (
+                Environment.get_user_data_dir (), "textpieces", "scripts"
+            );
+        }
+
         public ScriptResult apply (string input) {
             var scriptdir = is_system
                 ? Config.SCRIPTDIR
-                : Path.build_filename (
-                    Environment.get_user_data_dir (), "textpieces", "scripts"
-                    );
+                : CUSTOM_TOOLS_DIR;
 
             string cmdline = (
                     run_on_host
