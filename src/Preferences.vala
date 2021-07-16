@@ -26,7 +26,21 @@ namespace TextPieces {
         [GtkChild]
         unowned Gtk.ListBox custom_tools_listbox;
 
-        public int expanded_row { get; set; default = -1; }
+        int _expanded_row = -1;
+        int expanded_row { get {
+            return _expanded_row;
+        } set {
+            var last_expanded = _expanded_row;
+            _expanded_row = value;
+            if (last_expanded != -1) {
+                (
+                    (Adw.ExpanderRow)
+                    custom_tools_listbox
+                        .observe_children ()
+                        .get_item (last_expanded)
+                ).set_expanded (false);
+            }
+        }}
 
         private const string[] PREF_ACTIONS = {
             "dark-theme"
@@ -95,36 +109,6 @@ namespace TextPieces {
             );
         }
 
-        /*
-         * Convert `expanded_row` to row's `expanded`.
-         * `b`       - binding object
-         * `from`    - Value with integer, value of `expanded_row`
-         * `to`      - Value with boolean, value of `expanded`
-         */
-        bool from_expanded_row (Binding b, Value from, ref Value to) {
-            var tool_row = (CustomToolRow) b.source;
-            to.set_boolean (tool_row.get_index () == from.get_int ());
-            return true;
-        }
-
-        /*
-         * Convert row's `expanded` to `expanded_row`.
-         * `b`       - binding object
-         * `from`    - Value with boolean, value of `expanded`
-         * `to`      - Value with integer, value of `expanded_row`
-         */
-        bool to_expanded_row (Binding b, Value from, ref Value to) {
-            var tool_row = (CustomToolRow) b.source;
-            if (tool_row.get_index () == to.get_int ()
-                || !from.get_boolean ()) {
-                to.set_int (-1);
-            } else if (from.get_boolean ()) {
-                to.set_int (tool_row.get_index ());
-            }
-
-            return true;
-        }
-
         Gtk.Widget build_custom_tool_row (Object item) {
             Tool tool = (Tool) item;
             var widget = new CustomToolRow (
@@ -134,11 +118,17 @@ namespace TextPieces {
                 window = this
             };
 
-            widget.bind_property (
-                "expanded", this,
-                "expanded-row", BindingFlags.BIDIRECTIONAL,
-                to_expanded_row, from_expanded_row
-            );
+            //  widget.bind_property (
+            //      "expanded", this,
+            //      "expanded-row", BindingFlags.BIDIRECTIONAL,
+            //      to_expanded_row, from_expanded_row
+            //  );
+            widget.notify["expanded"].connect (() => {
+                if (widget.expanded == true)
+                    expanded_row = widget.get_index ();
+                else if (expanded_row == widget.get_index ())
+                    expanded_row = -1;
+            });
 
             return widget;
         }
