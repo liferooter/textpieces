@@ -36,8 +36,7 @@ namespace TextPieces {
             var tool = new Tool () {
                 name = name_entry.get_text (),
                 description = description_entry.get_text (),
-                is_system = false,
-                run_on_host = true
+                is_system = false
             };
 
             var script_file = File.new_build_filename (

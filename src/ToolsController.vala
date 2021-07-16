@@ -120,9 +120,6 @@ namespace TextPieces {
                         ? tool.get_string_member ("icon")
                         : "applications-utilities-symbolic",
                     script = tool.get_string_member ("script"),
-                    run_on_host = tool.has_member ("run_on_host")
-                        ? tool.get_boolean_member ("run_on_host")
-                        : false,
                     is_system = is_system
                 };
 
@@ -153,9 +150,6 @@ namespace TextPieces {
 
                 builder.set_member_name ("script");
                 builder.add_string_value (tool.script);
-
-                builder.set_member_name ("run_on_host");
-                builder.add_boolean_value (tool.run_on_host);
 
                 builder.end_object ();
             }

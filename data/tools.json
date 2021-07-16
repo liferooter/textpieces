@@ -5,8 +5,7 @@
       "name": "SHA256",
       "description": "Secure hash sum",
       "icon": "fingerprint-symbolic",
-      "script": "sha256.py",
-      "run_on_host": false
+      "script": "sha256.py"
     }
   ]
 }

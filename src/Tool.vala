@@ -13,12 +13,15 @@ namespace TextPieces {
         public string icon = "applications-utilities-symbolic";
         public string script;
         public bool   is_system;
-        public bool   run_on_host { get; set; }
         public string preferred_filename {
             owned get {
                 var hash = Checksum.compute_for_string (
                     ChecksumType.SHA256,
-                    name + description + icon,
+                    name
+                    + description
+                    + Random
+                        .int_range (1000000, 10000000)
+                        .to_string (),
                     -1
                 ).slice (0, 8);
                 return name
@@ -42,7 +45,7 @@ namespace TextPieces {
                 : CUSTOM_TOOLS_DIR;
 
             string cmdline = (
-                    run_on_host
+                    !is_system
                         ? "flatpak-spawn --host "
                         : ""
                 ) + Path.build_filename (scriptdir, script);
