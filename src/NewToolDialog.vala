@@ -85,5 +85,10 @@ namespace TextPieces {
         bool is_text_empty (uint text_length) {
             return text_length != 0;
         }
+
+        [GtkCallback]
+        void focus_description () {
+            description_entry.grab_focus ();
+        }
     }
 }

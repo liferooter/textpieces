@@ -55,6 +55,7 @@
                 <child>
                   <object class="GtkEntry" id="name_entry">
                     <property name="halign">end</property>
+                    <signal name="activate" handler="focus_description" />
                   </object>
                 </child>
               </object>
