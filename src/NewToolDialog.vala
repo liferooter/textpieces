@@ -62,7 +62,7 @@ namespace TextPieces {
 
             FileUtils.chmod (script_file.get_path (), 488);  // rwxr-x---
 
-            tool.script = script_file.get_path ();
+            tool.script = script_file.get_basename ();
 
             tools.custom_tools.append (tool);
             tools.dump_custom_tools ();
