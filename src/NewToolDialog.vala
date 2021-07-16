@@ -25,14 +25,24 @@ namespace TextPieces {
         unowned Gtk.Entry name_entry;
         [GtkChild]
         unowned Gtk.Entry description_entry;
+        [GtkChild]
+        unowned Gtk.Button create_button;
 
         public Preferences preferences;
         public ToolsController tools;
 
-        construct {}
+        construct {
+            name_entry.changed.connect (() => {
+                create_button.sensitive = name_entry.text_length != 0;
+            });
+        }
 
         [GtkCallback]
         void create () {
+            if (!create_button.sensitive) {
+                return;
+            }
+
             var tool = new Tool () {
                 name = name_entry.get_text (),
                 description = description_entry.get_text (),
@@ -78,11 +88,6 @@ namespace TextPieces {
             }
 
             this.close ();
-        }
-
-        [GtkCallback]
-        bool is_text_empty (uint text_length) {
-            return text_length != 0;
         }
 
         [GtkCallback]

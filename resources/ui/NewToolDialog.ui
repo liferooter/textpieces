@@ -18,16 +18,12 @@
               <object class="GtkButton">
                 <property name="label" translatable="yes">Cancel</property>
                 <property name="action-name">window.close</property>
-                <binding name="sensitive">
-                  <closure type="gboolean" function="is_text_empty">
-                    <lookup name="text-length">name_entry</lookup>
-                  </closure>
-                </binding>
               </object>
             </child>
             <child type="end">
-              <object class="GtkButton">
+              <object class="GtkButton" id="create_button">
                 <property name="label" translatable="yes">Create</property>
+                <property name="sensitive">false</property>
                 <signal name="clicked" handler="create" />
                 <style>
                   <class name="suggested-action" />
