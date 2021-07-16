@@ -10,7 +10,7 @@ namespace TextPieces {
 
         public string name { get; set; }
         public string description { get; set; }
-        public string icon;
+        public string icon = "applications-utilities-symbolic";
         public string script;
         public bool   is_system;
         public bool   run_on_host { get; set; }

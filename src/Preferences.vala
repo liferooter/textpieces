@@ -44,10 +44,11 @@ namespace TextPieces {
 
         public void setup_tools () {
 
-            var tools = ((TextPieces.Application) application).tools.custom_tools;
+            var tools = ((TextPieces.Application) application).tools;
+            var custom_tools = tools.custom_tools;
 
-            for (int i = 0; i < tools.get_n_items (); i++)
-                custom_tools_listbox.append (build_custom_tool_row (tools.get_item (i)));
+            for (int i = 0; i < custom_tools.get_n_items (); i++)
+                custom_tools_listbox.append (build_custom_tool_row (custom_tools.get_item (i)));
 
 
             var label_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8) {
@@ -68,7 +69,30 @@ namespace TextPieces {
                 child = label_box
             };
 
+            custom_tools_listbox.row_activated.connect ((activated_row) => {
+                if (activated_row != row)
+                    return;
+
+                var dialog = new NewToolDialog () {
+                    transient_for = this,
+                    preferences = this,
+                    tools = tools
+                };
+
+                dialog.present ();
+            });
+
             custom_tools_listbox.append (row);
+        }
+
+        public void add_tool (Tool tool) {
+            custom_tools_listbox.insert (
+                build_custom_tool_row (tool),
+                (int) custom_tools_listbox
+                        .observe_children ()
+                        .get_n_items ()
+                        - 1
+            );
         }
 
         /*

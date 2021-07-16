@@ -5,6 +5,7 @@ textpieces_sources += [
   'Tool.vala',
   'ToolsController.vala',
   'CustomToolRow.vala',
+  'NewToolDialog.vala'
 ]
 
 c_args = [

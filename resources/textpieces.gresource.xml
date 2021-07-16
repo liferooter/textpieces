@@ -5,6 +5,7 @@
     <file preprocess="xml-stripblanks">ui/ShortcutsWindow.ui</file>
     <file preprocess="xml-stripblanks">ui/Window.ui</file>
     <file preprocess="xml-stripblanks">ui/CustomToolRow.ui</file>
+    <file preprocess="xml-stripblanks">ui/NewToolDialog.ui</file>
     <file preprocess="xml-stripblanks">icons/scalable/status/fingerprint-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/status/preferences-symbolic.svg</file>
     <file>style.css</file>

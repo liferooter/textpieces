@@ -150,7 +150,7 @@ namespace TextPieces {
                         null,
                         null,
                         () => {
-                            FileUtils.chmod (new_file.get_path (), 448);
+                            FileUtils.chmod (new_file.get_path (), 488); // rwxr-x---
                         }
                     );
 
