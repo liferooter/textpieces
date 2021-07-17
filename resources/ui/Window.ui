@@ -271,6 +271,9 @@
                           <object class="AdwStatusPage">
                             <property name="icon-name">applications-utilities-symbolic</property>
                             <property name="title" translatable="yes">No tools found</property>
+                            <!--
+                                  Wait for ability to open specific page of AdwPreferencesWindow:
+                                  https://gitlab.gnome.org/GNOME/libadwaita/-/issues/233
                             <property name="child">
                               <object class="GtkButton">
                                 <property name="halign">center</property>
@@ -298,6 +301,16 @@
                                     </child>
                                   </object>
                                 </property>
+                              </object>
+                            </property>
+                            -->
+                            <property name="child">
+                              <object class="GtkLabel">
+                                <property name="halign">center</property>
+                                <property name="label" translatable="yes">Tip: you can create custom tool in preferences</property>
+                                <style>
+                                  <class name="dim-label" />
+                                </style>
                               </object>
                             </property>
                           </object>
