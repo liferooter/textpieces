@@ -31,17 +31,6 @@
                         <style>
                           <class name="suggested-action" />
                         </style>
-                        <child>
-                          <object class="GtkShortcutController">
-                            <property name="scope">managed</property>
-                            <child>
-                              <object class="GtkShortcut">
-                                <property name="trigger">&lt;Alt&gt;a</property>
-                                <property name="action">action(win.apply)</property>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
                       </object>
                     </child>
                     <child>
@@ -51,17 +40,6 @@
                         <style>
                           <class name="suggested-action" />
                         </style>
-                        <child>
-                          <object class="GtkShortcutController">
-                            <property name="scope">managed</property>
-                            <child>
-                              <object class="GtkShortcut">
-                                <property name="trigger">&lt;Alt&gt;c</property>
-                                <property name="action">action(win.copy)</property>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
                       </object>
                     </child>
                   </object>
@@ -202,17 +180,6 @@
                                 <style>
                                   <class name="flat" />
                                 </style>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkShortcutController">
-                                <property name="scope">managed</property>
-                                <child>
-                                  <object class="GtkShortcut">
-                                    <property name="trigger">Escape</property>
-                                    <property name="action">action(win.hide-notification)</property>
-                                  </object>
-                                </child>
                               </object>
                             </child>
                           </object>
