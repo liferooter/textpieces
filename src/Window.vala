@@ -153,20 +153,20 @@ namespace TextPieces {
 
         void action_about () {
             string[] AUTHORS = {"Gleb Smirnov <glebsmirnov0708@gmail.com>"};
-		    string[] ARTISTS = {"Tobias Bernard https://tobiasbernard.com"};
+            string[] ARTISTS = {"Tobias Bernard https://tobiasbernard.com"};
 
-		    Gtk.show_about_dialog (
-		        this,
-		        "program-name", _("Text Pieces"),
-		        "logo-icon-name", "com.github.liferooter.textpieces",
-		        "comments", _("Swiss knife of text processing"),
-		        "version", Config.VERSION,
-		        "license-type", Gtk.License.GPL_3_0,
-		        "website", "https://gitlab.com/liferooter/textpieces",
-		        "artists", ARTISTS,
-		        "authors", AUTHORS,
-		        null
-		    );
+            Gtk.show_about_dialog (
+                this,
+                "program-name", _("Text Pieces"),
+                "logo-icon-name", "com.github.liferooter.textpieces",
+                "comments", _("Swiss knife of text processing"),
+                "version", Config.VERSION,
+                "license-type", Gtk.License.GPL_3_0,
+                "website", "https://gitlab.com/liferooter/textpieces",
+                "artists", ARTISTS,
+                "authors", AUTHORS,
+                null
+        );
         }
 
         void action_copy () {
