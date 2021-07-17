@@ -14,13 +14,13 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes">Keyboard shortcuts</property>
-                <property name="accelerator">&lt;ctrl&gt;question</property>
+                <property name="action-name">win.show-help-overlay</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes">Preferences</property>
-                <property name="accelerator">&lt;ctrl&gt;comma</property>
+                <property name="action-name">win.preferences</property>
               </object>
             </child>
           </object>
@@ -31,13 +31,13 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes">Apply</property>
-                <property name="accelerator">&lt;alt&gt;a</property>
+                <property name="action-name">win.apply</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes">Copy</property>
-                <property name="accelerator">&lt;alt&gt;c</property>
+                <property name="action-name">win.copy</property>
               </object>
             </child>
             <child>
