@@ -20,13 +20,13 @@
       "script": "sha384.py"
     },
     {
-      "name": "SHA512",
+      "name": "SHA512 Checksum",
       "description": "Compute SHA512 hash sum",
       "icon": "fingerprint-symbolic",
       "script": "sha512.py"
     },
     {
-      "name": "MD5",
+      "name": "MD5 Checksum",
       "description": "Compute MD5 hash sum",
       "icon": "fingerprint-symbolic",
       "script": "md5.py"
