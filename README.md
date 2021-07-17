@@ -25,11 +25,6 @@ Swiss knife of text processing
 </p>
 
 
-<img alt="Screenshot" src="screenshots/screenshot1.png"/>
-<img alt="Screenshot" src="screenshots/screenshot2.png"/>
-<img alt="Screenshot" src="screenshots/screenshot3.png"/>
-
-
 Small tool for quick text transformations such as checksums, encoding, decoding and so on. Written in Vala for GNOME desktop in hope to be useful.
 
 # Features
@@ -43,6 +38,11 @@ Small tool for quick text transformations such as checksums, encoding, decoding 
 - Sort and reverse sort lines
 - Reverse lines and whole text
 - You can write your own scripts and create custom tools
+
+# Screenshots
+<img alt="Screenshot" src="screenshots/screenshot1.png"/>
+<img alt="Screenshot" src="screenshots/screenshot2.png"/>
+<img alt="Screenshot" src="screenshots/screenshot3.png"/>
 
 # Installation
 
