@@ -24,7 +24,10 @@ Swiss knife of text processing
 </a>
 </p>
 
-<img width="80%" alt="Screenshot" src="screenshots/screenshot1.png"/>
+<p align="center">
+    <img width="80%" alt="Screenshot" src="screenshots/screenshot1.png"/>
+</p>
+
 
 Small tool for quick text transformations such as checksums, encoding, decoding and so on. Written in Vala for GNOME desktop in hope to be useful.
 
