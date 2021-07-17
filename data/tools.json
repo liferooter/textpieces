@@ -1,0 +1,161 @@
+{
+  "is_system": true,
+  "tools": [
+    {
+      "name": "SHA1 Checksum",
+      "description": "Compute SHA1 hash sum",
+      "icon": "fingerprint-symbolic",
+      "script": "sha1.py"
+    },
+    {
+      "name": "SHA256 Checksum",
+      "description": "Compute SHA256 hash sum",
+      "icon": "fingerprint-symbolic",
+      "script": "sha256.py"
+    },
+    {
+      "name": "SHA384 Checksum",
+      "description": "Compute SHA384 hash sum",
+      "icon": "fingerprint-symbolic",
+      "script": "sha384.py"
+    },
+    {
+      "name": "SHA512 Checksum",
+      "description": "Compute SHA512 hash sum",
+      "icon": "fingerprint-symbolic",
+      "script": "sha512.py"
+    },
+    {
+      "name": "MD5 Checksum",
+      "description": "Compute MD5 hash sum",
+      "icon": "fingerprint-symbolic",
+      "script": "md5.py"
+    },
+    {
+      "name": "Base64 Encode",
+      "description": "Encode text to Base64",
+      "icon": "lock-symbolic",
+      "script": "base64-encode.sh"
+    },
+    {
+      "name": "Base64 Decode",
+      "description": "Decode text from Base64",
+      "icon": "unlock-symbolic",
+      "script": "base64-decode.py"
+    },
+    {
+      "name": "Remove trailing",
+      "description": "Remove trailing whitespaces and newlines",
+      "icon": "edit-cut-symbolic",
+      "script": "remove-trailing.py"
+    },
+    {
+      "name": "Trim lines",
+      "description": "Remove leading and trailing whitespaces and newlines",
+      "icon": "edit-cut-symbolic",
+      "script": "trim.py"
+    },
+    {
+      "name": "Count symbols",
+      "description": "Count how many symbols are in text",
+      "icon": "view-list-ordered-symbolic",
+      "script": "count-symbols.py"
+    },
+    {
+      "name": "Count lines",
+      "description": "Count how many lines are in text",
+      "icon": "view-list-ordered-symbolic",
+      "script": "count-lines.py"
+    },
+    {
+      "name": "Count words",
+      "description": "Count how many words are in text",
+      "icon": "view-list-ordered-symbolic",
+      "script": "count-words.py"
+    },
+    {
+      "name": "Prettify JSON",
+      "description": "Parse JSON and prettify it",
+      "icon": "format-justify-left-symbolic",
+      "script": "format-json.py"
+    },
+    {
+      "name": "Minify JSON",
+      "description": "Parse JSON and minify it",
+      "icon": "format-justify-fill-symbolic",
+      "script": "minify-json.py"
+    },
+    {
+      "name": "Escape string",
+      "description": "Replace special characters with escape sequences",
+      "icon": "security-high-symbolic",
+      "script": "escape-string.py"
+    },
+    {
+      "name": "Escape HTML",
+      "description": "Replace special characters with HTML-safe sequences",
+      "icon": "security-high-symbolic",
+      "script": "escape-html.py"
+    },
+    {
+      "name": "Escape URL",
+      "description": "Replace special characters with URL-safe sequences",
+      "icon": "security-high-symbolic",
+      "script": "escape-url.py"
+    },
+    {
+      "name": "Unescape string",
+      "description": "Replace escape sequences with characters",
+      "icon": "security-low-symbolic",
+      "script": "unescape-string.py"
+    },
+    {
+      "name": "Unescape HTML",
+      "description": "Replace HTML sequences with characters",
+      "icon": "security-low-symbolic",
+      "script": "unescape-html.py"
+    },
+    {
+      "name": "Unescape URL",
+      "description": "Replace URL sequences with characters",
+      "icon": "security-low-symbolic",
+      "script": "unescape-url.py"
+    },
+    {
+      "name": "Convert JSON to YAML",
+      "description": "Parse JSON and convert it to YAML document",
+      "icon": "network-transmit-symbolic",
+      "script": "json-to-yaml.py"
+    },
+    {
+      "name": "Convert YAML to JSON",
+      "description": "Parse YAML document and conver it to JSON",
+      "icon": "network-transmit-symbolic",
+      "script": "yaml-to-json.py"
+    },
+    {
+      "name": "Reverse lines",
+      "description": "Reoder lines in reverse order",
+      "icon": "object-flip-vertical-symbolic",
+      "script": "reverse-lines.py"
+    },
+    {
+      "name": "Reverse text",
+      "description": "Reorder characters in reverse order",
+      "icon": "object-flip-horizontal-symbolic",
+      "script": "reverse-string.py"
+    },
+    {
+      "name": "Sort lines",
+      "description": "Sort lines in text in alphabetical order",
+      "icon": "view-sort-ascending-symbolic",
+      "script": "sort-lines.sh"
+    },
+    {
+      "name": "Reverse sort lines",
+      "description": "Sort lines in text in reverse alphabetical order",
+      "icon": "view-sort-descending-symbolic",
+      "script": "sort-lines-reverse.sh"
+    }
+  ]
+}

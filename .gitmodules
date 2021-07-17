@@ -1,0 +1,6 @@
+[submodule "subprojects/libadwaita"]
+	path = subprojects/libadwaita
+	url = https://gitlab.gnome.org/GNOME/libadwaita.git
+[submodule "subprojects/gtksourceview"]
+	path = subprojects/gtksourceview
+	url = https://gitlab.gnome.org/GNOME/gtksourceview.git

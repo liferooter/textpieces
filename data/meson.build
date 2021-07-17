@@ -41,15 +41,6 @@ install_data('com.github.liferooter.textpieces.gschema.xml',
 )
 
 
-
-gnome = import('gnome')
-textpieces_sources += gnome.compile_resources('textpieces-resources',
-  'textpieces.gresource.xml',
-  source_dir: 'resources',
-  c_name: 'textpieces',
-)
-
-
 # Icons
 install_data(
   join_paths('icons', 'com.github.liferooter.textpieces.svg'),
@@ -58,4 +49,10 @@ install_data(
 install_data(
   join_paths('icons', 'com.github.liferooter.textpieces-symbolic.svg'),
   install_dir: join_paths (get_option('datadir'), 'icons', 'hicolor', 'symbolic', 'apps')
+)
+
+# Tools' JSON
+install_data (
+  'tools.json',
+  install_dir: pkgdata_dir
 )

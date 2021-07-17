@@ -1,34 +1,21 @@
 textpieces_sources += [
-  'AboutDialog.vala',
   'Application.vala',
-  'Argument.vala',
-  'MainWindow.vala',
+  'Window.vala',
   'Preferences.vala',
-  'Search.vala',
-  'ShortcutsWindow.vala',
   'Tool.vala',
-  'ToolEntry.vala',
-  'ToolPopover.vala',
-  'Utils.vala'
-]
-
-textpieces_deps = [
-  dependency('gio-2.0', version: '>= 2.50'),
-  dependency('gtk+-3.0', version: '>= 3.22'),
-  dependency('gtksourceview-4', version: '>= 4.8'),
-  dependency('libhandy-1', version: '>= 1.0.3'),
-  dependency('json-glib-1.0', version: '>= 1.6.2'),
-  valac.find_library('config', dirs: vapi_dir),
+  'ToolsController.vala',
+  'CustomToolRow.vala',
+  'NewToolDialog.vala'
 ]
 
 c_args = [
   '-DVERSION="' + meson.project_version() + '"',
-  '-DDATADIR="' + join_paths(get_option('prefix'), get_option('datadir')) + '"',
-  '-DSCRIPTSDIR="' +  join_paths(get_option('prefix'), get_option('datadir'), 'scripts') + '"',
+  '-DPKGDATADIR="' + pkgdata_dir + '"',
+  '-DSCRIPTDIR="' +  pkgdata_dir / 'scripts' + '"',
+  '-DGETTEXT_PACKAGE="' + meson.project_name() + '"',
 ]
 
 vala_args = [
-  '--enable-experimental-non-null',
   '--target-glib=2.50',
   '--vapidir', vapi_dir,
 ]
