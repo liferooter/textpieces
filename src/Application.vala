@@ -32,6 +32,8 @@ namespace TextPieces {
         public ToolsController tools;
 
         private const ActionAccel[] ACTION_ACCELS = {
+            { "win.apply", "<Alt>a" },
+            { "win.copy", "<Alt>c" },
             { "win.preferences", "<Control>comma" },
             { "win.show-help-overlay", "<Control>question" },
             { "win.stop-search", "<Alt>Left/Escape" },
