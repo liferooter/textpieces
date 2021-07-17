@@ -41,6 +41,8 @@ namespace TextPieces {
         [GtkChild]
         unowned Gtk.Label tool_label;
         [GtkChild]
+        unowned Gtk.ToggleButton tool_button;
+        [GtkChild]
         unowned Gtk.SourceView editor;
 
         Gtk.FilterListModel search_list;
@@ -54,7 +56,8 @@ namespace TextPieces {
             { "preferences", action_preferences },
             { "about", action_about },
             { "copy", action_copy },
-            { "hide-notification", hide_notification }
+            { "hide-notification", hide_notification },
+            { "toggle-search", toggle_search }
         };
 
         construct {
@@ -279,6 +282,10 @@ namespace TextPieces {
                 Source.remove (notification_hide_source);
                 notification_hide_source = null;
             }
+        }
+
+        void toggle_search () {
+            tool_button.active = !tool_button.active;
         }
     }
 }
