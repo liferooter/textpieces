@@ -2,7 +2,7 @@
 <gresources>
   <gresource prefix="/com/github/liferooter/textpieces">
     <file preprocess="xml-stripblanks">ui/Preferences.ui</file>
-    <file preprocess="xml-stripblanks">ui/ShortcutsWindow.ui</file>
+    <file preprocess="xml-stripblanks" alias="gtk/help-overlay.ui">ui/ShortcutsWindow.ui</file>
     <file preprocess="xml-stripblanks">ui/Window.ui</file>
     <file preprocess="xml-stripblanks">ui/CustomToolRow.ui</file>
     <file preprocess="xml-stripblanks">ui/NewToolDialog.ui</file>

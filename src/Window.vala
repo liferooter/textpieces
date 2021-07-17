@@ -66,13 +66,6 @@ namespace TextPieces {
             // Load actions
             add_action_entries (ACTION_ENTRIES, this);
 
-            // Set help overlay
-            var builder = new Gtk.Builder.from_resource (
-                "/com/github/liferooter/textpieces/ui/ShortcutsWindow.ui"
-            );
-            var overlay = (Gtk.ShortcutsWindow) builder.get_object ("overlay");
-            set_help_overlay (overlay);
-
             ((SimpleAction) lookup_action ("apply")).set_enabled (false);
 
             tool_button.notify["active"].connect(() => {

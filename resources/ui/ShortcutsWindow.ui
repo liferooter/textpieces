@@ -4,7 +4,7 @@
   <requires lib="gtk" version="4.2" />
   <requires lib="libadwaita" version="1.0" />
 
-  <object class="GtkShortcutsWindow" id="overlay">
+  <object class="GtkShortcutsWindow" id="help_overlay">
     <child>
       <object class="GtkShortcutsSection">
         <property name="section-name">shortcuts</property>
