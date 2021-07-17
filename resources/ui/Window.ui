@@ -182,17 +182,6 @@
                                 </style>
                               </object>
                             </child>
-                            <child>
-                              <object class="GtkShortcutController">
-                                <property name="scope">managed</property>
-                                <child>
-                                  <object class="GtkShortcut">
-                                    <property name="trigger">Escape</property>
-                                    <property name="action">action(win.hide-notification)</property>
-                                  </object>
-                                </child>
-                              </object>
-                            </child>
                           </object>
                         </property>
                       </object>
