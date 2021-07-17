@@ -7,6 +7,7 @@ namespace TextPieces {
 
     class Tool : Object {
         public static string CUSTOM_TOOLS_DIR;
+        public static bool   in_flatpak;
 
         public string name { get; set; }
         public string description { get; set; }
@@ -37,6 +38,8 @@ namespace TextPieces {
             CUSTOM_TOOLS_DIR = Path.build_filename (
                 Environment.get_user_data_dir (), "textpieces", "scripts"
             );
+
+            in_flatpak = File.new_for_path ("/.flatpak-info").query_exists (null);
         }
 
         public ScriptResult apply (string input) {
@@ -45,7 +48,7 @@ namespace TextPieces {
                 : CUSTOM_TOOLS_DIR;
 
             string cmdline = (
-                    !is_system
+                    (!is_system && in_flatpak)
                         ? "flatpak-spawn --host "
                         : ""
                 ) + Path.build_filename (scriptdir, script);
