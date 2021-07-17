@@ -44,6 +44,8 @@ namespace TextPieces {
         unowned Gtk.ToggleButton tool_button;
         [GtkChild]
         unowned Gtk.SourceView editor;
+        [GtkChild]
+        unowned Gtk.Viewport search_viewport;
 
         Gtk.FilterListModel search_list;
 
@@ -72,6 +74,13 @@ namespace TextPieces {
             set_help_overlay (overlay);
 
             ((SimpleAction) lookup_action ("apply")).set_enabled (false);
+
+            tool_button.notify["active"].connect(() => {
+                if (!tool_button.active)
+                    editor.grab_focus ();
+                else
+                    search_viewport.vadjustment.set_value (0);
+            });
         }
 
         public void setup_tools () {

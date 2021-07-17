@@ -235,7 +235,7 @@
                         <property name="child">
                           <object class="GtkScrolledWindow">
                             <property name="child">
-                              <object class="GtkViewport">
+                              <object class="GtkViewport" id="search_viewport">
                                 <property name="scroll-to-focus">true</property>
                                 <property name="child">
                                   <object class="AdwClamp">
