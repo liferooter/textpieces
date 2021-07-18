@@ -22,7 +22,7 @@
             </child>
             <child type="end">
               <object class="GtkButton" id="create_button">
-                <property name="label" translatable="yes">Create</property>
+                <property name="label" translatable="yes">Create and open</property>
                 <property name="sensitive">false</property>
                 <signal name="clicked" handler="create" />
                 <style>

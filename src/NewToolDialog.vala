@@ -78,16 +78,13 @@ namespace TextPieces {
             tools.dump_custom_tools ();
             preferences.add_tool (tool);
 
-            try {
-                AppInfo.launch_default_for_uri (
-                    "file://" + script_file.get_path (),
-                    null
-                );
-            } catch (Error e) {
-                error ("Can't open script: %s", e.message);
-            }
-
             this.close ();
+
+            Gtk.show_uri (
+                preferences,
+                "file://" + script_file.get_path (),
+                Gdk.CURRENT_TIME
+            );
         }
 
         [GtkCallback]
