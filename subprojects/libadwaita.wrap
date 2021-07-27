@@ -1,0 +1,6 @@
+[wrap-git]
+url = https://gitlab.gnome.org/GNOME/libadwaita
+revision = main
+
+[provide]
+dependency_names = libadwaita-1

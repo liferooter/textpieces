@@ -1,0 +1,6 @@
+[wrap-git]
+url = https://gitlab.gnome.org/GNOME/gtksourceview
+revision = master
+
+[provide]
+gtksourceview-5 = gtksource_dep
