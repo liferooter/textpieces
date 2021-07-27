@@ -2,6 +2,7 @@
 **/#*#
 /build-dir
 .flatpak-builder
+_build
 .vscode
 build.sh
 build
