@@ -37,6 +37,7 @@
                       <object class="GtkButton">
                         <property name="icon-name">edit-copy-symbolic</property>
                         <property name="action-name">win.copy</property>
+                        <property name="tooltip-text" translatable="yes">Copy</property>
                         <style>
                           <class name="suggested-action" />
                         </style>
