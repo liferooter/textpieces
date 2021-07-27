@@ -16,7 +16,7 @@ from sys import stdin, stdout
 input_string = stdin.read()
 
 # ...process string...
-output_string = ...
+output_string = '...'
 
 # And write it to stdout
 stdout.write(output_string)
