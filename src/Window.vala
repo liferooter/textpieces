@@ -58,6 +58,7 @@ namespace TextPieces {
             { "preferences", action_preferences },
             { "about", action_about },
             { "copy", action_copy },
+            { "show-custom-tools", show_custom_tools },
             { "hide-notification", hide_notification },
             { "toggle-search", toggle_search }
         };
@@ -144,7 +145,7 @@ namespace TextPieces {
 
         void action_preferences () {
             var prefs = new Preferences () {
-                transient_for =  this,
+                transient_for = this,
                 application = application
             };
             prefs.setup_tools ();
@@ -174,6 +175,16 @@ namespace TextPieces {
                        .get_clipboard ()
                        .set_text (editor.buffer.text);
             send_notification (_("Text is copied to clipboard"));
+        }
+
+        void show_custom_tools () {
+            var prefs = new Preferences () {
+                transient_for = this,
+                application = application,
+                visible_page_name = "custom-tools"
+            };
+            prefs.setup_tools ();
+            prefs.present ();
         }
 
         void hide_notification () {

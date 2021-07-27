@@ -8,6 +8,7 @@
     <child>
       <object class="AdwPreferencesPage">
         <property name="title" translatable="yes">General</property>
+        <property name="name">general</property>
         <property name="icon-name">preferences-symbolic</property>
         <child>
           <object class="AdwPreferencesGroup">
@@ -32,6 +33,7 @@
     <child>
       <object class="AdwPreferencesPage">
         <property name="title" translatable="yes">Custom tools</property>
+        <property name="name">custom-tools</property>
         <property name="icon-name">applications-utilities-symbolic</property>
         <child>
           <object class="GtkScrolledWindow">
