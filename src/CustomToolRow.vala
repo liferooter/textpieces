@@ -116,8 +116,8 @@ namespace TextPieces {
                 null
             ){
                 create_folders = false,
-                modal = true
-                //  transient_for = window
+                modal = true,
+                transient_for = window
             };
 
             file_chooser.set_transient_for (window);
