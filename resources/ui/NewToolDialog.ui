@@ -7,6 +7,7 @@
   <template class="TextPiecesNewToolDialog" parent="AdwWindow">
     <property name="modal">true</property>
     <property name="title" translatable="yes">Add new tool</property>
+    <property name="focus-widget">name_entry</property>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
