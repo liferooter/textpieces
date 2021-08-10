@@ -58,9 +58,8 @@ namespace TextPieces {
             custom_tools.remove_all ();
             var new_custom_tools = load_tools_from_file (CUSTOM_TOOLS_PATH)
                 ?? new ListStore (typeof (Tool));
-            if (File.new_for_path (CUSTOM_TOOLS_PATH).query_exists ())
-                for (var i = 0; i < new_custom_tools.get_n_items (); i++)
-                    custom_tools.append (new_custom_tools.get_item (i));
+            for (var i = 0; i < new_custom_tools.get_n_items (); i++)
+                custom_tools.append (new_custom_tools.get_item (i));
 
             update_all_tools ();
         }
@@ -83,6 +82,9 @@ namespace TextPieces {
         }
 
         private static ListStore? load_tools_from_file (string file) {
+            if (!File.new_for_path (file).query_exists ())
+                return null;
+
             var parser = new Json.Parser ();
             try {
                 parser.load_from_file (file);
