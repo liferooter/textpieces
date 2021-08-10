@@ -26,7 +26,7 @@ namespace TextPieces {
         string accel;
     }
 
-    class Application : Gtk.Application {
+    class Application : Adw.Application {
         public static GLib.Settings settings;
 
         public ToolsController tools;
@@ -65,7 +65,6 @@ namespace TextPieces {
             );
 
             // Initialize libs
-            Adw.init ();
             Gtk.Sourceinit ();
 
             // Bind dark theme to the settings
