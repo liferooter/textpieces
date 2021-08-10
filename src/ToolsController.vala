@@ -21,16 +21,22 @@
 namespace TextPieces {
     public class ToolsController : Object {
 
+        static string CONFIG_DIR;
+
         static string SYSTEM_TOOLS_PATH;
         static string CUSTOM_TOOLS_PATH;
 
         static construct {
-            SYSTEM_TOOLS_PATH = Path.build_filename (
-                Config.PKGDATADIR, "tools.json"
+            CONFIG_DIR = Path.build_filename (
+                Environment.get_user_config_dir (), "textpieces"
             );
 
             CUSTOM_TOOLS_PATH = Path.build_filename (
-                Environment.get_user_config_dir (), "textpieces", "tools.json"
+                CONFIG_DIR, "tools.json"
+            );
+
+            SYSTEM_TOOLS_PATH = Path.build_filename (
+                Config.PKGDATADIR, "tools.json"
             );
         }
 
@@ -132,6 +138,18 @@ namespace TextPieces {
         }
 
         public void dump_custom_tools () {
+
+            {
+                var dir = File.new_for_path (CONFIG_DIR);
+                if (!dir.query_exists ()) {
+                    try {
+                        dir.make_directory_with_parents ();
+                    } catch (Error e) {
+                        error ("Can't create directory for tool scripts: %s", e.message);
+                    }
+                }
+            }
+
             var builder = new Json.Builder ();
 
             builder.begin_object ();

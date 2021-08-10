@@ -39,6 +39,18 @@ namespace TextPieces {
 
         [GtkCallback]
         void create () {
+            {
+                var dir = File.new_for_path (Tool.CUSTOM_TOOLS_DIR);
+                if (!dir.query_exists ()) {
+                    try {
+                        dir.make_directory_with_parents ();
+                    } catch (Error e) {
+                        error ("Can't create directory for tool scripts: %s", e.message);
+                    }
+                }
+            }
+
+
             if (!create_button.sensitive) {
                 return;
             }
