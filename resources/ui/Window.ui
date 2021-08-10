@@ -7,6 +7,7 @@
     <property name="title" translatable="yes">Text Pieces</property>
     <property name="default-width">800</property>
     <property name="default-height">500</property>
+    <property name="focus-widget">editor</property>
     <property name="icon-name">com.github.liferooter.textpieces</property>
     <child>
       <object class="GtkBox">
