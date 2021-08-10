@@ -8,3 +8,4 @@ build.sh
 build
 com.github.liferooter.textpieces.json
 *sass*
+/subprojects/*/
