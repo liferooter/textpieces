@@ -60,7 +60,8 @@ namespace TextPieces {
             { "copy", action_copy },
             { "show-custom-tools", show_custom_tools },
             { "hide-notification", hide_notification },
-            { "toggle-search", toggle_search }
+            { "toggle-search", toggle_search },
+            { "escape", escape }
         };
 
         construct {
@@ -299,6 +300,14 @@ namespace TextPieces {
 
         void toggle_search () {
             tool_button.active = !tool_button.active;
+            hide_notification ();
+        }
+
+        void escape () {
+            if (notification_revealer.reveal_child == true)
+                hide_notification ();
+            else
+                tool_button.set_active (false);
         }
     }
 }

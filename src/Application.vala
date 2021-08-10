@@ -32,13 +32,12 @@ namespace TextPieces {
         public ToolsController tools;
 
         private const ActionAccel[] ACTION_ACCELS = {
-            { "win.hide-notification", "Escape" },
+            { "win.escape", "Escape" },
             { "win.apply", "<Alt>a" },
             { "win.copy", "<Alt>c" },
             { "win.preferences", "<Control>comma" },
             { "win.show-help-overlay", "<Control>question" },
-            { "win.stop-search", "<Alt>Left/Escape" },
-            { "window.close", "<Control>q"}
+            { "window.close", "<Control>q" }
         };
 
         public Application () {
@@ -77,7 +76,7 @@ namespace TextPieces {
             foreach (var action_accel in ACTION_ACCELS) {
                 set_accels_for_action (
                     action_accel.action,
-                    action_accel.accel.split ("/")
+                    { action_accel.accel }
                 );
             }
 
