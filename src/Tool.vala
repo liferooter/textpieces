@@ -39,7 +39,7 @@ namespace TextPieces {
                 Environment.get_user_data_dir (), "textpieces", "scripts"
             );
 
-            in_flatpak = File.new_for_path ("/.flatpak-info").query_exists (null);
+            in_flatpak = Environment.get_variable ("FLATPAK_ID") != null;
         }
 
         public ScriptResult apply (string input) {
