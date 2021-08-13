@@ -1,8 +1,8 @@
 namespace TextPieces {
 
     struct ScriptResult {
-        string output;
-        bool successful;
+        string stdout;
+        string stderr;
     }
 
     class Tool : Object {
@@ -69,14 +69,16 @@ namespace TextPieces {
 
                 return {
                     success
-                        ? stdout ?? ""
-                        : stderr ?? _("Error while running script"),
-                    success
+                        ? stdout
+                        : null,
+                    (stderr ?? "") != ""
+                        ? stderr
+                        : null
                 };
             } catch (Error e) {
                 return {
                     e.message,
-                    false
+                    null
                 };
             }
         }

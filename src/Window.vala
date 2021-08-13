@@ -113,12 +113,17 @@ namespace TextPieces {
             );
 
             string result_text;
-            if (result.successful) {
-                result_text = result.output;
+
+            if (result.stderr != null) {
+                send_notification (result.stderr);
+            }
+
+            if (result.stdout != null) {
+                result_text = result.stdout;
             } else {
-                send_notification (result.output);
                 return;
             }
+
             var result_text_len = result_text.char_count ();
 
             buffer.begin_user_action ();
