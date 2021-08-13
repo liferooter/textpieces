@@ -208,7 +208,7 @@
                                 <property name="scroll-to-focus">true</property>
                                 <property name="child">
                                   <object class="AdwClamp">
-                                    <property name="maximum-size">400</property>
+                                    <property name="maximum-size">600</property>
                                     <property name="child">
                                       <object class="GtkListBox" id="search_listbox">
                                         <property name="margin-top">24</property>
