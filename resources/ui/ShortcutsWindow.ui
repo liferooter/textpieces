@@ -13,7 +13,7 @@
             <property name="title" translatable="yes">General</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="title" translatable="yes">Keyboard shortcuts</property>
+                <property name="title" translatable="yes">Keyboard Shortcuts</property>
                 <property name="action-name">win.show-help-overlay</property>
               </object>
             </child>
@@ -50,7 +50,7 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">Editor</property>
+            <property name="title" translatable="yes">Undo and Redo</property>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes">Undo</property>
@@ -61,6 +61,23 @@
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes">Redo</property>
                 <property name="accelerator">&lt;ctrl&gt;&lt;shift&gt;z</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="title" translatable="yes">Copy and Paste</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Copy</property>
+                <property name="accelerator">&lt;ctrl&gt;c</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Paste</property>
+                <property name="accelerator">&lt;ctrl&gt;v</property>
               </object>
             </child>
             <child>
