@@ -47,7 +47,9 @@ namespace TextPieces {
         [GtkChild]
         unowned Gtk.Viewport search_viewport;
 
-        Gtk.FilterListModel search_list;
+        Gtk.SortListModel search_list;
+        Gtk.Sorter search_sorter;
+        Gtk.Filter search_filter;
 
         uint? notification_hide_source = null;
 
@@ -82,11 +84,18 @@ namespace TextPieces {
         }
 
         public bool setup_tools () {
-            search_list = new Gtk.FilterListModel (
-                ((TextPieces.Application) application).tools.all_tools,
-                new Gtk.CustomFilter (
-                    tool_filter_func
-                )
+
+            search_sorter = new Gtk.CustomSorter (
+                (a, b) => tool_compare_func (a as Tool, b as Tool)
+            );
+            search_filter = new Gtk.CustomFilter (tool_filter_func);
+
+            search_list = new Gtk.SortListModel (
+                new Gtk.FilterListModel (
+                    ((TextPieces.Application) application).tools.all_tools,
+                    search_filter
+                ),
+                search_sorter
             );
 
             search_listbox.bind_model (
@@ -201,27 +210,68 @@ namespace TextPieces {
             notification_revealer.set_reveal_child (false);
         }
 
-        public bool tool_filter_func (Object item) {
-            var tool = (Tool) item;
+        int calculate_relevance (Tool tool) {
+            var query = search_entry.text;
+            var terms = query.split (" ");
 
-            var name = tool.name.casefold ();
-            var description = tool.description.casefold ();
-            var terms = search_entry.text.casefold ().split (" ");
+            string[] fields = {
+                tool.name.casefold (),
+                tool.description.casefold ()
+            };
 
-            var min_name = 0;
-            var min_desc = 0;
-            int match;
+            int[] min_match = {
+                0,
+                0
+            };
+
+            int relevance = 0;
 
             foreach (var term in terms) {
-                if ((match = description.index_of (term, min_desc)) != -1)
-                    min_desc = match + term.length;
-                else if ((match = name.index_of (term, min_name)) != -1)
-                    min_name = match + term.length;
+                int i = 0;
+                int match = 0;
+                while (i < fields.length
+                       && (match = fields[i].index_of (term, min_match[i])) == -1) {
+                    i++;
+                }
+                if (i == fields.length)
+                    return -1;
+
+                relevance += match - min_match[i];
+
+                min_match[i] = match + term.length;
+            }
+            return relevance;
+        }
+
+        bool tool_filter_func (Object item) {
+            var tool = (Tool) item;
+
+            return calculate_relevance (tool) != -1;
+        }
+
+        int tool_compare_func (Tool? a, Tool? b) {
+            // Null-test
+            if (a == null) {
+                if (b == null)
+                    return Gtk.Ordering.EQUAL;
                 else
-                    return false;
+                    return Gtk.Ordering.SMALLER;
+            } if (b == null) {
+                if (a == null)
+                    return Gtk.Ordering.EQUAL;
+                else
+                    return Gtk.Ordering.LARGER;
             }
 
-            return true;
+            var a_rel = calculate_relevance (a);
+            var b_rel = calculate_relevance (b);
+
+            if (a_rel > b_rel)
+                return Gtk.Ordering.LARGER;
+            else if (a_rel < b_rel)
+                return Gtk.Ordering.SMALLER;
+            else // a_rel == b_rel
+                return strcmp (a.name, b.name);
         }
 
         void send_notification (string text) {
@@ -248,7 +298,9 @@ namespace TextPieces {
 
         [GtkCallback]
         void on_search_changed () {
-            search_list.filter.changed (Gtk.FilterChange.DIFFERENT);
+            search_sorter.changed (Gtk.SorterChange.DIFFERENT);
+            search_filter.changed (Gtk.FilterChange.DIFFERENT);
+
             search_stack.set_visible_child_name (
                 search_list.get_n_items () == 0
                     ? "placeholder"
