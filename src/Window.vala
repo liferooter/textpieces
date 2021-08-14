@@ -61,7 +61,9 @@ namespace TextPieces {
             { "show-custom-tools", show_custom_tools },
             { "hide-notification", hide_notification },
             { "toggle-search", toggle_search },
-            { "escape", escape }
+            { "escape", escape },
+            { "save-as", action_save_as },
+            { "load-file", action_load_file }
         };
 
         construct {
@@ -313,6 +315,98 @@ namespace TextPieces {
                 hide_notification ();
             else
                 tool_button.set_active (false);
+        }
+
+        void action_save_as () {
+            var file_chooser = new Gtk.FileChooserNative (
+                _("Save file"),
+                this,
+                Gtk.FileChooserAction.SAVE,
+                null,
+                null
+            );
+            file_chooser.response.connect (() => {
+                var location = file_chooser.get_file ();
+                if (location == null)
+                    return;
+
+                var file = new Gtk.SourceFile ();
+                file.set_location (location);
+
+                var saver = new Gtk.SourceFileSaver (
+                    (Gtk.SourceBuffer) editor.buffer,
+                    file
+                );
+                saver.save_async.begin (
+                    Priority.HIGH,
+                    null,
+                    null,
+                    (obj, res) => {
+                        try {
+                            saver.save_async.end (res);
+                        } catch (Error e) {
+                            var dialog = new Gtk.MessageDialog (
+                                this,
+                                Gtk.DialogFlags.MODAL
+                                | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+                                Gtk.MessageType.WARNING,
+                                Gtk.ButtonsType.CLOSE,
+                                "Can't save to file: %s",
+                                e.message
+                            );
+                            dialog.response.connect (dialog.destroy);
+                            dialog.show ();
+                        }
+                    }
+                );
+            });
+            file_chooser.show ();
+        }
+
+        void action_load_file () {
+            var file_chooser = new Gtk.FileChooserNative (
+                _("Load file"),
+                this,
+                Gtk.FileChooserAction.OPEN,
+                null,
+                null
+            );
+            file_chooser.response.connect (() => {
+                var location = file_chooser.get_file ();
+                if (location == null)
+                    return;
+
+                var file = new Gtk.SourceFile ();
+                file.set_location (location);
+
+                var loader = new Gtk.SourceFileLoader (
+                    (Gtk.SourceBuffer) editor.buffer,
+                    file
+                );
+                loader.load_async.begin (
+                    Priority.HIGH,
+                    null,
+                    null,
+                    (obj, res) => {
+                        try {
+                            loader.load_async.end (res);
+                        } catch (Error e) {
+                            var dialog = new Gtk.MessageDialog (
+                                this,
+                                Gtk.DialogFlags.MODAL
+                                | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+                                Gtk.MessageType.WARNING,
+                                Gtk.ButtonsType.CLOSE,
+                                "Can't load from file: %s",
+                                e.message
+                            );
+                            dialog.response.connect (dialog.destroy);
+                            dialog.show ();
+                        }
+                    }
+                );
+            });
+            file_chooser.show ();
         }
     }
 }

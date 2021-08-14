@@ -29,6 +29,7 @@
                       <object class="GtkButton">
                         <property name="label" translatable="yes">Apply</property>
                         <property name="action-name">win.apply</property>
+                        <property name="tooltip-text" translatable="yes">Apply Selected Tool</property>
                         <style>
                           <class name="suggested-action" />
                         </style>
@@ -90,11 +91,29 @@
                 </child>
               </object>
             </child>
+
+            <!-- Don't forget that end childs have reverse order -->
+
             <child type="end">
               <object class="GtkMenuButton">
                 <property name="icon-name">open-menu-symbolic</property>
                 <property name="menu-model">app-menu</property>
+                <property name="tooltip-text" translatable="yes">Main Menu</property>
                 <!-- <property name="primary">true</property> -->
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton">
+                <property name="icon-name">document-save-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Save to File</property>
+                <property name="action-name">win.save-as</property>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton">
+                <property name="icon-name">document-open-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Load from File</property>
+                <property name="action-name">win.load-file</property>
               </object>
             </child>
           </object>

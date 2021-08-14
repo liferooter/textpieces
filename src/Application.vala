@@ -37,7 +37,9 @@ namespace TextPieces {
             { "win.copy", "<Alt>c" },
             { "win.preferences", "<Control>comma" },
             { "win.show-help-overlay", "<Control>question" },
-            { "window.close", "<Control>q" }
+            { "win.load-file", "<Control>o" },
+            { "win.save-as", "<Control>s" },
+            { "window.close", "<Control>q" },
         };
 
         public Application () {
