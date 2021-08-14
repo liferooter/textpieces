@@ -40,7 +40,7 @@ namespace TextPieces {
             { "win.load-file", "<Control>o" },
             { "win.save-as", "<Control>s" },
             { "win.toggle-search", "<Alt>s" },
-            { "window.close", "<Control>q" },
+            { "window.close", "<Control>q / <Control>w" },
         };
 
         public Application () {
@@ -70,7 +70,7 @@ namespace TextPieces {
             foreach (var action_accel in ACTION_ACCELS) {
                 set_accels_for_action (
                     action_accel.action,
-                    { action_accel.accel }
+                    action_accel.accel.split (" / ")
                 );
             }
 
