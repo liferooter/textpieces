@@ -13,5 +13,6 @@ except Exception:
 
 json.dump(
     _dict,
-    stdout
+    stdout,
+    indent='  '
 )
