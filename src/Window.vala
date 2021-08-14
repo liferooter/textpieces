@@ -58,10 +58,10 @@ namespace TextPieces {
             { "preferences", action_preferences },
             { "about", action_about },
             { "copy", action_copy },
-            { "show-custom-tools", show_custom_tools },
+            { "tools-settings", action_tools_settings },
             { "hide-notification", hide_notification },
-            { "toggle-search", toggle_search },
-            { "escape", escape },
+            { "toggle-search", action_toggle_search },
+            { "escape", action_escape },
             { "save-as", action_save_as },
             { "load-file", action_load_file }
         };
@@ -185,7 +185,7 @@ namespace TextPieces {
             send_notification (_("Text is copied to clipboard"));
         }
 
-        void show_custom_tools () {
+        void action_tools_settings () {
             var prefs = new Preferences () {
                 transient_for = this,
                 application = application,
@@ -305,12 +305,12 @@ namespace TextPieces {
             }
         }
 
-        void toggle_search () {
+        void action_toggle_search () {
             tool_button.active = !tool_button.active;
             hide_notification ();
         }
 
-        void escape () {
+        void action_escape () {
             if (notification_revealer.reveal_child == true)
                 hide_notification ();
             else

@@ -250,7 +250,7 @@
                             <property name="child">
                               <object class="GtkButton">
                                 <property name="halign">center</property>
-                                <property name="action-name">win.show-custom-tools</property>
+                                <property name="action-name">win.tools-settings</property>
                                 <style>
                                   <class name="flat" />
                                 </style>
