@@ -77,18 +77,6 @@
                     </child>
                   </object>
                 </property>
-                <child>
-                  <object class="GtkShortcutController">
-                    <property name="scope">managed</property>
-                    <child>
-                      <object class="GtkShortcut">
-                        <property name="trigger">&lt;Alt&gt;s</property>
-                        <!-- Don't use GtkActivateAction because of button's slow animation -->
-                        <property name="action">action(win.toggle-search)</property>
-                      </object>
-                    </child>
-                  </object>
-                </child>
               </object>
             </child>
 

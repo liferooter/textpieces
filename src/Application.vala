@@ -39,6 +39,7 @@ namespace TextPieces {
             { "win.show-help-overlay", "<Control>question" },
             { "win.load-file", "<Control>o" },
             { "win.save-as", "<Control>s" },
+            { "win.toggle-search", "<Alt>s" },
             { "window.close", "<Control>q" },
         };
 
