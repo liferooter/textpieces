@@ -54,9 +54,11 @@ namespace TextPieces {
                 );
             }
             insert_action_group ("prefs", action_group);
+
+            Idle.add (setup_tools);
         }
 
-        public void setup_tools () {
+        public bool setup_tools () {
 
             var tools = ((TextPieces.Application) application).tools;
             var custom_tools = tools.custom_tools;
@@ -97,6 +99,8 @@ namespace TextPieces {
             });
 
             custom_tools_listbox.append (row);
+
+            return Source.REMOVE;
         }
 
         public void add_tool (Tool tool) {

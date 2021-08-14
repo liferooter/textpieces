@@ -78,7 +78,6 @@ namespace TextPieces {
             var win = new TextPieces.Window () {
                 application = this
             };
-            win.setup_tools ();
             win.present ();
         }
 

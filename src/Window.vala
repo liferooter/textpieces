@@ -78,9 +78,10 @@ namespace TextPieces {
                 else
                     search_viewport.vadjustment.set_value (0);
             });
+            Idle.add (setup_tools);
         }
 
-        public void setup_tools () {
+        public bool setup_tools () {
             search_list = new Gtk.FilterListModel (
                 ((TextPieces.Application) application).tools.all_tools,
                 new Gtk.CustomFilter (
@@ -92,6 +93,7 @@ namespace TextPieces {
                 search_list,
                 build_list_row
             );
+            return Source.REMOVE;
         }
 
         void action_apply () {
@@ -156,7 +158,6 @@ namespace TextPieces {
                 transient_for = this,
                 application = application
             };
-            prefs.setup_tools ();
             prefs.present ();
         }
 
@@ -191,7 +192,6 @@ namespace TextPieces {
                 application = application,
                 visible_page_name = "custom-tools"
             };
-            prefs.setup_tools ();
             prefs.present ();
         }
 
