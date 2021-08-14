@@ -46,6 +46,12 @@ namespace TextPieces {
             "dark-theme"
         };
 
+        /*
+         * This field is used to focus "Add tool" button
+         * when open tools settings.
+         */
+        public bool focus_add_tool_button = false;
+
         construct {
             var action_group = new SimpleActionGroup ();
             foreach (var pref in PREF_ACTIONS) {
@@ -99,6 +105,11 @@ namespace TextPieces {
             });
 
             custom_tools_listbox.append (row);
+
+            if (focus_add_tool_button) {
+                focus_add_tool_button = false;
+                row.grab_focus ();
+            }
 
             return Source.REMOVE;
         }
