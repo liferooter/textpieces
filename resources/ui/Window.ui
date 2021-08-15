@@ -246,7 +246,7 @@
                         <property name="child">
                           <object class="AdwStatusPage">
                             <property name="icon-name">applications-utilities-symbolic</property>
-                            <property name="title" translatable="yes">No tools found</property>
+                            <property name="title" translatable="yes">No Tools Found</property>
                             <property name="child">
                               <object class="GtkButton">
                                 <property name="halign">center</property>
@@ -267,7 +267,7 @@
                                     </child>
                                     <child>
                                       <object class="GtkLabel">
-                                        <property name="label" translatable="yes">Add custom tool</property>
+                                        <property name="label" translatable="yes">Add Custom Tool</property>
                                         <style>
                                           <class name="dim-label" />
                                         </style>
@@ -297,11 +297,11 @@
         <attribute name="action">win.preferences</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">Keyboard shortcuts</attribute>
+        <attribute name="label" translatable="yes">Keyboard Shortcuts</attribute>
         <attribute name="action">win.show-help-overlay</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">About application</attribute>
+        <attribute name="label" translatable="yes">About Application</attribute>
         <attribute name="action">win.about</attribute>
       </item>
     </section>

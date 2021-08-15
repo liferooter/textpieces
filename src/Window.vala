@@ -184,6 +184,7 @@ namespace TextPieces {
                 "website", "https://gitlab.com/liferooter/textpieces",
                 "artists", ARTISTS,
                 "authors", AUTHORS,
+                "translator-credits", _("translator-credits"),
                 null
         );
         }
@@ -216,13 +217,12 @@ namespace TextPieces {
 
             string[] fields = {
                 tool.name.casefold (),
-                tool.description.casefold ()
+                tool.description.casefold (),
+                tool.translated_name.casefold (),
+                tool.translated_description.casefold ()
             };
 
-            int[] min_match = {
-                0,
-                0
-            };
+            int[] min_match = {0, 0, 0, 0};
 
             int relevance = 0;
 
@@ -372,7 +372,7 @@ namespace TextPieces {
 
         void action_save_as () {
             var file_chooser = new Gtk.FileChooserNative (
-                _("Save file"),
+                _("Save to File"),
                 this,
                 Gtk.FileChooserAction.SAVE,
                 null,
@@ -404,7 +404,7 @@ namespace TextPieces {
                                 | Gtk.DialogFlags.DESTROY_WITH_PARENT,
                                 Gtk.MessageType.WARNING,
                                 Gtk.ButtonsType.CLOSE,
-                                "Can't save to file: %s",
+                                _("Can't save to file: %s"),
                                 e.message
                             );
                             dialog.response.connect (dialog.destroy);
@@ -418,7 +418,7 @@ namespace TextPieces {
 
         void action_load_file () {
             var file_chooser = new Gtk.FileChooserNative (
-                _("Load file"),
+                _("Load From File"),
                 this,
                 Gtk.FileChooserAction.OPEN,
                 null,
@@ -450,7 +450,7 @@ namespace TextPieces {
                                 | Gtk.DialogFlags.DESTROY_WITH_PARENT,
                                 Gtk.MessageType.WARNING,
                                 Gtk.ButtonsType.CLOSE,
-                                "Can't load from file: %s",
+                                _("Can't load from file: %s"),
                                 e.message
                             );
                             dialog.response.connect (dialog.destroy);

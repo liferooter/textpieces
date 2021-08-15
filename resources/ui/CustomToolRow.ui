@@ -34,7 +34,7 @@
             <child>
               <object class="GtkButton">
                 <property name="icon-name">document-edit-symbolic</property>
-                <property name="tooltip-text" translatable="yes">Edit script</property>
+                <property name="tooltip-text" translatable="yes">Edit Script</property>
                 <property name="valign">center</property>
                 <signal name="clicked" handler="open_script" />
                 <style>
@@ -45,7 +45,7 @@
             <child>
               <object class="GtkButton">
                 <property name="icon-name">user-trash-symbolic</property>
-                <property name="tooltip-text" translatable="yes">Delete tool</property>
+                <property name="tooltip-text" translatable="yes">Delete Tool</property>
                 <signal name="clicked" handler="delete_tool" />
                 <style>
                   <class name="circular" />
@@ -57,7 +57,7 @@
             <child>
               <object class="GtkButton">
                 <property name="icon-name">folder-open-symbolic</property>
-                <property name="tooltip-text" translatable="yes">Select script</property>
+                <property name="tooltip-text" translatable="yes">Select Script</property>
                 <property name="valign">center</property>
                 <signal name="clicked" handler="select_script" />
                 <style>

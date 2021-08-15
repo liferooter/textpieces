@@ -42,7 +42,7 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="title" translatable="yes">Select tool</property>
+                <property name="title" translatable="yes">Select Tool</property>
                 <property name="action-name">win.toggle-search</property>
               </object>
             </child>
@@ -93,13 +93,13 @@
             <property name="title" translatable="yes">Files</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="title" translatable="yes">Load file</property>
+                <property name="title" translatable="yes">Load From File</property>
                 <property name="action-name">win.load-file</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="title" translatable="yes">Save to file</property>
+                <property name="title" translatable="yes">Save to File</property>
                 <property name="action-name">win.save-as</property>
               </object>
             </child>

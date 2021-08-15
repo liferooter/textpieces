@@ -84,7 +84,7 @@ namespace TextPieces {
                 }
             );
             label_box.append (
-                new Gtk.Label (_("Add new tool"))
+                new Gtk.Label (_("Add new Tool"))
             );
 
             var row = new Gtk.ListBoxRow () {

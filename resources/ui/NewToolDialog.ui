@@ -6,7 +6,7 @@
 
   <template class="TextPiecesNewToolDialog" parent="AdwWindow">
     <property name="modal">true</property>
-    <property name="title" translatable="yes">Add new tool</property>
+    <property name="title" translatable="yes">Add new Tool</property>
     <property name="focus-widget">name_entry</property>
     <child>
       <object class="GtkBox">
@@ -23,7 +23,7 @@
             </child>
             <child type="end">
               <object class="GtkButton" id="create_button">
-                <property name="label" translatable="yes">Create and open</property>
+                <property name="label" translatable="yes">Create and Open</property>
                 <property name="sensitive">false</property>
                 <signal name="clicked" handler="create" />
                 <style>

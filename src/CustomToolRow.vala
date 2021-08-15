@@ -109,7 +109,7 @@ namespace TextPieces {
         [GtkCallback]
         void select_script () {
             var file_chooser = new Gtk.FileChooserNative (
-                _("Select script"),
+                _("Select Script"),
                 window,
                 Gtk.FileChooserAction.OPEN,
                 null,
