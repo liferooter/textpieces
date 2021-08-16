@@ -19,7 +19,7 @@ msgstr ""
 #: data/com.github.liferooter.textpieces.appdata.xml.in:4 src/Window.vala:179
 #: resources/ui/Window.ui:7
 msgid "Text Pieces"
-msgstr "Кусочки текста"
+msgstr "Text Pieces"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:5
 msgid "Hash, encode, decode"
