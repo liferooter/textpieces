@@ -1,0 +1,221 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021 THE textpieces's COPYRIGHT HOLDER
+# This file is distributed under the same license as the textpieces package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: textpieces 2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-16 11:55+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.liferooter.textpieces.desktop.in:3
+#: data/com.github.liferooter.textpieces.appdata.xml.in:4 src/Window.vala:179
+#: resources/ui/Window.ui:7
+msgid "Text Pieces"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:5 src/Window.vala:181
+msgid "Swiss knife of text transformations"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:9
+msgid "Calculate hashes, encode, decode and do many other stuff with text"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:14
+msgid "Gleb Smirnov"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:6
+msgid "Prefer dark theme"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:7
+msgid "Whether the application should use dark theme"
+msgstr ""
+
+#: src/CustomToolRow.vala:76
+#, c-format
+msgid "Do you really want to delete \"%s\" tool?"
+msgstr ""
+
+#: src/CustomToolRow.vala:112 resources/ui/CustomToolRow.ui:60
+msgid "Select Script"
+msgstr ""
+
+#: src/Preferences.vala:87 resources/ui/NewToolDialog.ui:9
+msgid "Add new Tool"
+msgstr ""
+
+#: src/ToolsController.vala:98
+#, c-format
+msgid "Can't load tools from \"%s\": %s"
+msgstr ""
+
+#: src/Window.vala:187
+msgid "translator-credits"
+msgstr ""
+
+#: src/Window.vala:196
+msgid "Text is copied to clipboard"
+msgstr ""
+
+#: src/Window.vala:375 resources/ui/Window.ui:96
+msgid "Save to File"
+msgstr ""
+
+#: src/Window.vala:407
+#, c-format
+msgid "Can't save to file: %s"
+msgstr ""
+
+#: src/Window.vala:421
+msgid "Load From File"
+msgstr ""
+
+#: src/Window.vala:453
+#, c-format
+msgid "Can't load from file: %s"
+msgstr ""
+
+#: resources/ui/CustomToolRow.ui:11 resources/ui/NewToolDialog.ui:48
+msgid "Name"
+msgstr ""
+
+#: resources/ui/CustomToolRow.ui:20 resources/ui/NewToolDialog.ui:64
+msgid "Description"
+msgstr ""
+
+#: resources/ui/CustomToolRow.ui:37
+msgid "Edit Script"
+msgstr ""
+
+#: resources/ui/CustomToolRow.ui:48
+msgid "Delete Tool"
+msgstr ""
+
+#: resources/ui/NewToolDialog.ui:20
+msgid "Cancel"
+msgstr ""
+
+#: resources/ui/NewToolDialog.ui:26
+msgid "Create and Open"
+msgstr ""
+
+#: resources/ui/Preferences.ui:10 resources/ui/Preferences.ui:15
+#: resources/ui/ShortcutsWindow.ui:13
+msgid "General"
+msgstr ""
+
+#: resources/ui/Preferences.ui:18
+msgid "Use Dark Theme"
+msgstr ""
+
+#: resources/ui/Preferences.ui:35
+msgid "Custom Tools"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:16
+msgid "Keyboard shortcuts"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:22 resources/ui/Window.ui:296
+msgid "Preferences"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:28
+msgid "Quit"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:36
+msgid "Core"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:39 resources/ui/Window.ui:30
+msgid "Apply"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:45
+msgid "Select tool"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:53
+msgid "Undo and Redo"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:56
+msgid "Undo"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:62
+msgid "Redo"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:70
+msgid "Copy and Paste"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:73 resources/ui/Window.ui:42
+msgid "Copy"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:79
+msgid "Paste"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:85
+msgid "Copy all"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:93
+msgid "Files"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:96
+msgid "Load from file"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:102
+msgid "Save to file"
+msgstr ""
+
+#: resources/ui/Window.ui:32
+msgid "Apply Selected Tool"
+msgstr ""
+
+#: resources/ui/Window.ui:67
+msgid "Select Tool"
+msgstr ""
+
+#: resources/ui/Window.ui:89
+msgid "Main Menu"
+msgstr ""
+
+#: resources/ui/Window.ui:103
+msgid "Load from File"
+msgstr ""
+
+#: resources/ui/Window.ui:249
+msgid "No Tools Found"
+msgstr ""
+
+#: resources/ui/Window.ui:270
+msgid "Add Custom Tool"
+msgstr ""
+
+#: resources/ui/Window.ui:300
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: resources/ui/Window.ui:304
+msgid "About Application"
+msgstr ""
