@@ -133,11 +133,6 @@ namespace TextPieces {
                 window = this
             };
 
-            //  widget.bind_property (
-            //      "expanded", this,
-            //      "expanded-row", BindingFlags.BIDIRECTIONAL,
-            //      to_expanded_row, from_expanded_row
-            //  );
             widget.notify["expanded"].connect (() => {
                 if (widget.expanded == true)
                     expanded_row = widget.get_index ();

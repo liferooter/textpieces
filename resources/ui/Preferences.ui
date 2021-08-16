@@ -15,7 +15,7 @@
             <property name="title" translatable="yes">General</property>
             <child>
               <object class="AdwActionRow">
-                <property name="title" translatable="yes">Dark Theme</property>
+                <property name="title" translatable="yes">Use Dark Theme</property>
                 <property name="activatable-widget">dark-switch</property>
                 <child>
                   <object class="GtkSwitch" id="dark-switch">
