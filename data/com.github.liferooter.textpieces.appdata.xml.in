@@ -2,7 +2,7 @@
 <component type="desktop">
   <id>com.github.liferooter.textpieces.desktop</id>
   <name>Text Pieces</name>
-  <summary>Hash, encode, decode</summary>
+  <summary>Swiss knife of text transformations</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <description>
