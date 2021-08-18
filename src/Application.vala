@@ -82,6 +82,9 @@ namespace TextPieces {
         }
 
         public static int main (string[] args) {
+            // Setup gettext
+            Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.GNOMELOCALEDIR);
+            Intl.textdomain (Config.GETTEXT_PACKAGE);
             var app = new TextPieces.Application ();
             return app.run (args);
         }
