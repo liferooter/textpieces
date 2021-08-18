@@ -13,7 +13,6 @@ c_args = [
   '-DPKGDATADIR="' + pkgdata_dir + '"',
   '-DSCRIPTDIR="' +  pkgdata_dir / 'scripts' + '"',
   '-DGETTEXT_PACKAGE="' + meson.project_name() + '"',
-  '-DGNOMELOCALEDIR="' + get_option('prefix') / get_option('localedir') + '"',
 ]
 
 vala_args = [

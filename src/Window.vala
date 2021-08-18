@@ -218,8 +218,6 @@ namespace TextPieces {
             string[] fields = {
                 tool.name.casefold (),
                 tool.description.casefold (),
-                tool.translated_name.casefold (),
-                tool.translated_description.casefold ()
             };
 
             int[] min_match = {0, 0, 0, 0};
