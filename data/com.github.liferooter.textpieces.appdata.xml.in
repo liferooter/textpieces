@@ -21,6 +21,17 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="2.0.1" date="2021-08-18">
+      <description>
+        <ul>
+          <li>Port the application to GTK 4</li>
+          <li>Redesign the application</li>
+          <li>Add custom tools support</li>
+          <li>Improve search</li>
+          <li>Add ability to text load from file and save to file</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.3.0" date="2021-04-25">
       <description>
         <ul>
@@ -52,12 +63,12 @@
     <release version="1.0.2" date="2021-03-13">
       <description>
         Add tools for replacement and removing
-</description>
+      </description>
     </release>
     <release version="1.0.0" date="2021-03-10">
       <description>
         Application release
-</description>
+      </description>
     </release>
   </releases>
 </component>
