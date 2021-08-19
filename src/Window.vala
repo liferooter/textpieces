@@ -142,7 +142,7 @@ namespace TextPieces {
             buffer.begin_user_action ();
 
             buffer.@delete (ref start, ref end);
-            buffer.insert (ref start, result_text, result_text_len);
+            buffer.insert (ref start, result_text, -1);
 
             buffer.end_user_action ();
 
