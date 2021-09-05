@@ -21,21 +21,21 @@ libadwaita = subproject(
   install: false,
   default_options: [
     'examples=false',
-    'package_subdir=my-project-name',
+    'package_subdir=' + meson.project_name(),
     'tests=false',
   ]
 )
 libadwaita_dep = libadwaita.get_variable('libadwaita_dep')
 endif
 
-gtksource_dep = dependency('gtksourceview-5', version: '>= 5.0.0', required: true)
+gtksource_dep = dependency('gtksourceview-5', version: '>= 5.0.0', required: false)
 if not gtksource_dep.found()
 gtksourceview = subproject(
   'gtksourceview',
   install: false,
   default_options: [
     'examples=false',
-    'package_subdir=my-project-name',
+    'package_subdir=' + meson.project_name(),
     'tests=false',
   ]
 )
