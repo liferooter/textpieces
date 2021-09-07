@@ -149,13 +149,13 @@
       "name": "Sort Lines",
       "description": "Sort lines in text in alphabetical order",
       "icon": "view-sort-ascending-symbolic",
-      "script": "sort-lines.sh"
+      "script": "sort-lines.py"
     },
     {
       "name": "Reverse Sort Lines",
       "description": "Sort lines in text in reverse alphabetical order",
       "icon": "view-sort-descending-symbolic",
-      "script": "sort-lines-reverse.sh"
+      "script": "sort-lines-reverse.py"
     }
   ]
 }
