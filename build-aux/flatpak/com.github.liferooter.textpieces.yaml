@@ -1,3 +1,7 @@
+# This is the main version of Flatpak manifest.
+# Please, create JSON version for GNOME Builder users.
+# You can do it by Text Pieces itself :)
+
 app-id: com.github.liferooter.textpieces
 runtime: org.gnome.Platform
 runtime-version: '40'
