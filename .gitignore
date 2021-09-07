@@ -1,11 +1,7 @@
 **/*~
 **/#*#
-/build-dir
 .flatpak-builder
 _build
 .vscode
-build.sh
-build
-com.github.liferooter.textpieces.json
 *sass*
 /subprojects/*/
