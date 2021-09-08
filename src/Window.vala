@@ -74,6 +74,9 @@ namespace TextPieces {
                     search_viewport.vadjustment.set_value (0);
             });
             Idle.add (setup_tools);
+            arguments_revealer.notify["child-revealed"].connect (() => {
+                editor.bottom_margin = arguments_revealer.get_allocated_height ();
+            });
         }
 
         public bool setup_tools () {
@@ -357,6 +360,7 @@ namespace TextPieces {
 
             if (selected_tool.arguments.length == 0) {
                 arguments_revealer.set_reveal_child (false);
+                editor.top_margin = 0;
             } else {
                 arguments_revealer.set_reveal_child (true);
                 for (var i = 0; i < selected_tool.arguments.length; i++) {
