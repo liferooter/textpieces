@@ -25,7 +25,11 @@ Swiss knife of text processing
 </p>
 
 <p align="center">
-    <img width="80%" alt="Screenshot" src="screenshots/screenshot1.png"/>
+    <img alt="Screenshot" src="screenshots/screenshot1.png"/>
+    <img alt="Screenshot" src="screenshots/screenshot2.png"/>
+    <img alt="Screenshot" src="screenshots/screenshot3.png"/>
+    <img alt="Screenshot" src="screenshots/screenshot4.png"/>
+
 </p>
 
 
@@ -66,7 +70,7 @@ meson compile
 ```
 Next, it can be installed by `meson install`.
 
-**Attention! You should NEVER install anything directly with `meson install` or `make install` because it creates unmanaged files and can break system**
+**Attention! You should NEVER install anything directly with `meson install` or `make install` because it creates unmanaged files and can break system. Consider building a package for your distro and install it.**
 
 # Dependencies
 If you use GNOME Builder or Flatpak, dependencies will be installed automatically. If you use pure Meson, dependencies will be:
@@ -81,4 +85,3 @@ If you use GNOME Builder or Flatpak, dependencies will be installed automaticall
 
 # Contributions
 Contributions are welcome.
-
