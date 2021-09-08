@@ -156,6 +156,79 @@
       "description": "Sort lines in text in reverse alphabetical order",
       "icon": "view-sort-descending-symbolic",
       "script": "sort-lines-reverse.py"
+    },
+    {
+      "name": "Filter Lines by Regex",
+      "description": "Remove all lines which don't match given regular expression",
+      "icon": "funnel-symbolic",
+      "script": "filter-regex.py",
+      "args": [
+        "Regex"
+      ]
+    },
+    {
+      "name": "Reverse Filter Lines by Regex",
+      "description": "Remove all lines which match given regular expression",
+      "icon": "funnel-symbolic",
+      "script": "reverse-filter-regex.py",
+      "args": [
+        "Regex"
+      ]
+    },
+    {
+      "name": "Filter Lines by Substring",
+      "description": "Remove all lines which don't contain given substring",
+      "icon": "funnel-symbolic",
+      "script": "filter-substring.py",
+      "args": [
+        "Substring"
+      ]
+    },
+    {
+      "name": "Reverse Filter Lines by Substring",
+      "description": "Remove all lines which contain given substring",
+      "icon": "funnel-symbolic",
+      "args": [
+        "Substring"
+      ]
+    },
+    {
+      "name": "Remove Regex",
+      "description": "Remove all matches of regular expression",
+      "icon": "edit-cut-symbolic",
+      "script": "remove-regex.py",
+      "args": [
+        "Regex"
+      ]
+    },
+    {
+      "name": "Remove Substring",
+      "description": "Remove all occurrences of given substring in text",
+      "icon": "edit-cut-symbolic",
+      "script": "remove-substring.py",
+      "args": [
+        "Substring"
+      ]
+    },
+    {
+      "name": "Replace Substring",
+      "description": "Replace all occurrences of given substring in text with other string",
+      "icon": "edit-find-replace-symbolic",
+      "script": "replace-substring.py",
+      "args": [
+        "Find",
+        "Replace With"
+      ]
+    },
+    {
+      "name": "Replace Regex",
+      "description": "Replace all given regex matches in text with given string",
+      "icon": "edit-find-replace-symbolic",
+      "script": "replace-regex.py",
+      "args": [
+        "Find (regex)",
+        "Replace With"
+      ]
     }
   ]
 }

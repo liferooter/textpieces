@@ -10,6 +10,7 @@
     <file preprocess="xml-stripblanks">icons/scalable/status/preferences-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/status/lock-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/status/unlock-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/scalable/status/funnel-symbolic.svg</file>
     <file>style.css</file>
   </gresource>
 </gresources>
