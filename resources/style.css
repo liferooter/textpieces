@@ -15,7 +15,7 @@ button.large image {
   background-color: lighter(@theme_base_color);
   opacity: 0.9;
   padding: 6px;
-  border-radius: 0px 0px 0px 6px;
+  border-radius: 0px 0px 6px 6px;
 }
 
 .argument-view entry {
