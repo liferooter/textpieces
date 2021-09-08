@@ -221,7 +221,7 @@ namespace TextPieces {
                 tool.description.casefold (),
             };
 
-            int[] min_match = {0, 0, 0, 0};
+            int[] min_match = {0, 0};
 
             int relevance = 0;
 
@@ -239,6 +239,10 @@ namespace TextPieces {
 
                 min_match[i] = match + term.length;
             }
+
+            if (min_match[0] == 0)
+                relevance += fields[1].length + 1;
+
             return relevance;
         }
 
