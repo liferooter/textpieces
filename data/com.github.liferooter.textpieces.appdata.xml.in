@@ -2,11 +2,24 @@
 <component type="desktop">
   <id>com.github.liferooter.textpieces.desktop</id>
   <name>Text Pieces</name>
-  <summary>Swiss knife of text transformations</summary>
+  <summary>Transform text without using random websites</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <description>
-    <p>Calculate hashes, encode, decode and do many other stuff with text</p>
+    <p>Do a lot of text transformations, such as:</p>
+    <ul>
+      <li>Calculate hashes</li>
+      <li>Encode text</li>
+      <li>Decode text</li>
+      <li>Remove trailing spaces and lines</li>
+      <li>Count lines, symbols and words</li>
+      <li>Format JSON</li>
+      <li>Escape and unescape strings</li>
+      <li>Convert JSON to YAML and vice versa</li>
+      <li>Filter lines</li>
+      <li>Replace substrings and regular expressions</li>
+    </ul>
+    <p>...and so on.</p>
   </description>
   <provides>
     <binary>textpieces</binary>
@@ -16,7 +29,16 @@
   <url type="bugtracker">https://github.com/liferooter/textpieces/issues</url>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/liferooter/textpieces/main/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/liferooter/textpieces/fa733d8317f6ebb69e62dfd67e03c0105df562b4/screenshots/screenshot1.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/liferooter/textpieces/fa733d8317f6ebb69e62dfd67e03c0105df562b4/screenshots/screenshot2.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/liferooter/textpieces/fa733d8317f6ebb69e62dfd67e03c0105df562b4/screenshots/screenshot3.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/liferooter/textpieces/fa733d8317f6ebb69e62dfd67e03c0105df562b4/screenshots/screenshot4.png</image>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1" />
@@ -24,7 +46,6 @@
     <release version="2.0.1" date="2021-08-18">
       <description>
         <ul>
-          <li>Port the application to GTK 4</li>
           <li>Redesign the application</li>
           <li>Add custom tools support</li>
           <li>Improve search</li>
@@ -61,14 +82,10 @@
       </description>
     </release>
     <release version="1.0.2" date="2021-03-13">
-      <description>
-        Add tools for replacement and removing
-      </description>
+      <description>Add tools for replacement and removing</description>
     </release>
     <release version="1.0.0" date="2021-03-10">
-      <description>
-        Application release
-      </description>
+      <description>Application release</description>
     </release>
   </releases>
 </component>
