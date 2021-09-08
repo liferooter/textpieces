@@ -33,7 +33,7 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">Core</property>
+            <property name="title" translatable="yes">Tools</property>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes">Apply</property>
@@ -44,6 +44,12 @@
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes">Select tool</property>
                 <property name="action-name">win.toggle-search</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Jump to the tool options</property>
+                <property name="action-name">win.jump-to-args</property>
               </object>
             </child>
           </object>

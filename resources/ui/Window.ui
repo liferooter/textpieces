@@ -195,6 +195,20 @@
                         </property>
                       </object>
                     </child>
+                    <child type="overlay">
+                      <object class="GtkRevealer" id="arguments_revealer">
+                        <property name="valign">start</property>
+                        <property name="halign">end</property>
+                        <property name="child">
+                          <object class="GtkBox" id="arguments_box">
+                            <property name="spacing">6</property>
+                            <style>
+                              <class name="argument-view" />
+                            </style>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
                   </object>
                 </property>
               </object>

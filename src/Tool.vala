@@ -10,8 +10,9 @@ namespace TextPieces {
         public static bool   in_flatpak;
 
         public string name { get; set; }
-
         public string description { get; set; }
+
+        public string[] arguments;
 
         public string icon = "applications-utilities-symbolic";
         public string script;
@@ -44,20 +45,22 @@ namespace TextPieces {
             in_flatpak = File.new_for_path ("/.flatpak-info").query_exists (null);
         }
 
-        public ScriptResult apply (string input) {
+        public ScriptResult apply (string input, string[] args) {
             var scriptdir = is_system
                 ? Config.SCRIPTDIR
                 : CUSTOM_TOOLS_DIR;
 
-            string cmdline = (
-                    (!is_system && in_flatpak)
-                        ? "flatpak-spawn --host "
-                        : ""
-                ) + Path.build_filename (scriptdir, script);
+            string[] cmdline = {};
+            if (!is_system && in_flatpak)
+                cmdline += "flatpak-spawn --host ";
+            cmdline += Path.build_filename (scriptdir, script);
+
+            foreach (var arg in args)
+                cmdline += arg;
 
             try {
                 var process = new Subprocess.newv (
-                    cmdline.split (" "),
+                    cmdline,
                     SubprocessFlags.STDIN_PIPE |
                     SubprocessFlags.STDOUT_PIPE |
                     SubprocessFlags.STDERR_PIPE

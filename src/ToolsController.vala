@@ -117,6 +117,17 @@ namespace TextPieces {
                 if (!tool.has_member ("script"))
                     continue;
 
+                string[] arguments = {};
+                if (tool.has_member ("args"))
+                    tool.get_array_member ("args").foreach_element ((a, i, node) => {
+                        if (node.get_node_type () == Json.NodeType.VALUE
+                            && node.get_value_type () == typeof (string)) {
+                            arguments += node.get_string ();
+                        } else {
+                            critical ("Arguments of tools must be string");
+                        }
+                    });
+
                 var new_tool = new Tool () {
                     name = tool.has_member ("name")
                         ? tool.get_string_member ("name")
@@ -128,7 +139,8 @@ namespace TextPieces {
                         ? tool.get_string_member ("icon")
                         : "applications-utilities-symbolic",
                     script = tool.get_string_member ("script"),
-                    is_system = is_system
+                    is_system = is_system,
+                    arguments = arguments
                 };
 
                 tools.append (new_tool);

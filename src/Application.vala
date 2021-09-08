@@ -40,6 +40,7 @@ namespace TextPieces {
             { "win.load-file", "<Control>o" },
             { "win.save-as", "<Control>s" },
             { "win.toggle-search", "<Alt>s" },
+            { "win.jump-to-args", "<Alt>Return" },
             { "window.close", "<Control>q / <Control>w" },
         };
 

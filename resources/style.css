@@ -10,3 +10,14 @@ button.large {
 button.large image {
   -gtk-icon-size: 18px;
 }
+
+.argument-view {
+  background-color: lighter(@theme_base_color);
+  opacity: 0.9;
+  padding: 6px;
+  border-radius: 0px 0px 0px 6px;
+}
+
+.argument-view entry {
+  opacity: 0.9;
+}

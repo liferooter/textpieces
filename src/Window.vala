@@ -26,26 +26,18 @@ namespace TextPieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Window.ui")]
     public class Window : Adw.ApplicationWindow {
 
-        [GtkChild]
-        unowned Gtk.ListBox search_listbox;
-        [GtkChild]
-        unowned Gtk.SearchEntry search_entry;
-        [GtkChild]
-        unowned Gtk.Stack search_stack;
-        [GtkChild]
-        unowned Gtk.Revealer notification_revealer;
-        [GtkChild]
-        unowned Gtk.Label notification_label;
-        [GtkChild]
-        unowned Gtk.Image tool_icon;
-        [GtkChild]
-        unowned Gtk.Label tool_label;
-        [GtkChild]
-        unowned Gtk.ToggleButton tool_button;
-        [GtkChild]
-        unowned Gtk.SourceView editor;
-        [GtkChild]
-        unowned Gtk.Viewport search_viewport;
+        [GtkChild] unowned Gtk.ListBox search_listbox;
+        [GtkChild] unowned Gtk.SearchEntry search_entry;
+        [GtkChild] unowned Gtk.Stack search_stack;
+        [GtkChild] unowned Gtk.Revealer notification_revealer;
+        [GtkChild] unowned Gtk.Revealer arguments_revealer;
+        [GtkChild] unowned Gtk.Label notification_label;
+        [GtkChild] unowned Gtk.Image tool_icon;
+        [GtkChild] unowned Gtk.Label tool_label;
+        [GtkChild] unowned Gtk.ToggleButton tool_button;
+        [GtkChild] unowned Gtk.SourceView editor;
+        [GtkChild] unowned Gtk.Viewport search_viewport;
+        [GtkChild] unowned Gtk.Box arguments_box;
 
         Gtk.SortListModel search_list;
         Gtk.Sorter search_sorter;
@@ -65,7 +57,8 @@ namespace TextPieces {
             { "toggle-search", action_toggle_search },
             { "escape", action_escape },
             { "save-as", action_save_as },
-            { "load-file", action_load_file }
+            { "load-file", action_load_file },
+            { "jump-to-args", action_jump_to_args }
         };
 
         construct {
@@ -121,8 +114,14 @@ namespace TextPieces {
 
             var start_offset = start.get_offset ();
 
+            string[] args = {};
+            var children = arguments_box.observe_children ();
+            for (uint i = 0; i < children.get_n_items (); i++)
+                args += ((Gtk.Entry) children.get_item (i)).get_text ();
+
             var result = selected_tool.apply (
-                buffer.get_text (start, end, false)
+                buffer.get_text (start, end, false),
+                args
             );
 
             string result_text;
@@ -346,6 +345,20 @@ namespace TextPieces {
             tool_label.label = tool.name;
             search_entry.stop_search ();
 
+            var children = arguments_box.observe_children ();
+            for (uint i = 0; i < children.get_n_items (); i++)
+                arguments_box.remove ((Gtk.Widget) children.get_item (i));
+
+            if (selected_tool.arguments.length == 0) {
+                arguments_revealer.set_reveal_child (false);
+            } else {
+                arguments_revealer.set_reveal_child (true);
+                for (var i = 0; i < selected_tool.arguments.length; i++)
+                    arguments_box.append (new Gtk.Entry () {
+                        placeholder_text = selected_tool.arguments[i]
+                    });
+            }
+
             ((SimpleAction) lookup_action ("apply")).set_enabled (true);
         }
 
@@ -458,6 +471,11 @@ namespace TextPieces {
                 );
             });
             file_chooser.show ();
+        }
+
+        void action_jump_to_args () {
+            if (arguments_revealer.reveal_child)
+                ((Gtk.Widget) arguments_box.observe_children ().get_item (0)).grab_focus ();
         }
     }
 }
