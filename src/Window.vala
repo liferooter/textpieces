@@ -101,6 +101,8 @@ namespace TextPieces {
         void action_apply () {
             if (selected_tool == null)
                 return;
+            if (!editor.has_focus)
+                editor.grab_focus ();
 
             var buffer = editor.buffer;
             var has_selection = buffer.has_selection;
@@ -353,13 +355,25 @@ namespace TextPieces {
                 arguments_revealer.set_reveal_child (false);
             } else {
                 arguments_revealer.set_reveal_child (true);
-                for (var i = 0; i < selected_tool.arguments.length; i++)
-                    arguments_box.append (new Gtk.Entry () {
+                for (var i = 0; i < selected_tool.arguments.length; i++) {
+                    var entry = new Gtk.Entry () {
                         placeholder_text = selected_tool.arguments[i]
+                    };
+                    entry.activate.connect (() => {
+                        move_focus (Gtk.DirectionType.TAB_FORWARD);
                     });
+                    arguments_box.append (entry);
+                }
             }
 
             ((SimpleAction) lookup_action ("apply")).set_enabled (true);
+        }
+
+        [GtkCallback]
+        void on_search_activated () {
+            var row = search_listbox.get_row_at_index (0);
+            if (row != null)
+                search_listbox.row_activated  (row);
         }
 
         void clear_notification_hide_timeout () {
@@ -379,6 +393,7 @@ namespace TextPieces {
                 hide_notification ();
             else
                 tool_button.set_active (false);
+            editor.grab_focus ();
         }
 
         void action_save_as () {
