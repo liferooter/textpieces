@@ -92,18 +92,15 @@ namespace TextPieces {
 
         [GtkCallback]
         void open_script () {
-            try {
-                AppInfo.launch_default_for_uri (
-                    "file://"
-                    + Path.build_filename (
-                        Tool.CUSTOM_TOOLS_DIR,
-                        tool.script
-                    ),
-                    null
-                );
-            } catch (Error e) {
-                error (@"Can't open script file: $(e.message)");
-            }
+            Gtk.show_uri (
+                window,
+                "file://"
+                + Path.build_filename (
+                    Tool.CUSTOM_TOOLS_DIR,
+                    tool.script
+                ),
+                Gdk.CURRENT_TIME
+            );
         }
 
         [GtkCallback]
