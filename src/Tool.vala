@@ -39,8 +39,17 @@ namespace TextPieces {
 
         static construct {
             CUSTOM_TOOLS_DIR = Path.build_filename (
-                Environment.get_user_data_dir (), "textpieces", "scripts"
+                Environment.get_home_dir (), ".local", "share", "textpieces", "scripts"
             );
+
+            var tools_dir = File.new_for_path (CUSTOM_TOOLS_DIR);
+
+            try {
+                if (!tools_dir.query_exists ())
+                    tools_dir.make_directory_with_parents ();
+            } catch (Error e) {
+                critical ("Can't create script directory: %s", e.message);
+            }
 
             in_flatpak = File.new_for_path ("/.flatpak-info").query_exists (null);
         }
@@ -86,6 +95,17 @@ namespace TextPieces {
                     null
                 };
             }
+        }
+
+        public void open (Gtk.Window? window = null)
+            requires (!this.is_system)
+        {
+            Utils.open_file.begin (
+                File.new_build_filename (
+                    Tool.CUSTOM_TOOLS_DIR, this.script
+                ),
+                window
+            );
         }
     }
 

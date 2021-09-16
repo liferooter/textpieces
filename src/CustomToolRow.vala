@@ -92,15 +92,7 @@ namespace TextPieces {
 
         [GtkCallback]
         void open_script () {
-            Gtk.show_uri (
-                window,
-                "file://"
-                + Path.build_filename (
-                    Tool.CUSTOM_TOOLS_DIR,
-                    tool.script
-                ),
-                Gdk.CURRENT_TIME
-            );
+            tool.open (window);
         }
 
         [GtkCallback]

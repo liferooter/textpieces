@@ -92,11 +92,7 @@ namespace TextPieces {
 
             this.close ();
 
-            Gtk.show_uri (
-                preferences,
-                "file://" + script_file.get_path (),
-                Gdk.CURRENT_TIME
-            );
+            tool.open (preferences);
         }
 
         [GtkCallback]
