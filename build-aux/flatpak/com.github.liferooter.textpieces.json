@@ -9,6 +9,7 @@
     "--socket=fallback-x11",
     "--socket=wayland",
     "--device=dri",
+    "--filesystem=~/.local/share/textpieces:create",
     "--talk-name=org.freedesktop.Flatpak"
   ],
   "cleanup": [
