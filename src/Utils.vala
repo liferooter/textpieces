@@ -25,7 +25,7 @@ namespace TextPieces.Utils {
         var is_successful = true;
         
         try {
-            FileStream* filestream = FileStream.open (file.get_path (), "rw");
+            var filestream = FileStream.open (file.get_path (), "rw");
 
             if (filestream == null) {
                 critical ("Can't open file %s", file.get_path ());
@@ -34,7 +34,7 @@ namespace TextPieces.Utils {
             }
 
             var parent_window = "";
-            var fd = new UnixInputStream (filestream->fileno (), false);
+            var fd = new UnixInputStream (filestream.fileno (), true);
             var options = new HashTable<string, Variant> (null, null);
 
             var token = Random.next_int ().to_string ();
@@ -82,8 +82,6 @@ namespace TextPieces.Utils {
             assert (real_request_path == request_path);
 
             yield request.close ();
-
-            free (filestream);
 
         } catch (DBusError e) {
             critical ("DBus error: %s", e.message);

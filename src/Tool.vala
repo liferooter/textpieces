@@ -92,6 +92,7 @@ namespace TextPieces {
                         : null
                 };
             } catch (Error e) {
+                message ("INTERNAL ERROR");
                 return {
                     e.message,
                     null
