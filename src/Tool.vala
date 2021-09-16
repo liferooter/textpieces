@@ -60,8 +60,10 @@ namespace TextPieces {
                 : CUSTOM_TOOLS_DIR;
 
             string[] cmdline = {};
-            if (!is_system && in_flatpak)
-                cmdline += "flatpak-spawn --host ";
+            if (!is_system && in_flatpak) {
+                cmdline += "flatpak-spawn";
+                cmdline += "--host";
+            }
             cmdline += Path.build_filename (scriptdir, script);
 
             foreach (var arg in args)
