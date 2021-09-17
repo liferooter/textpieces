@@ -27,6 +27,14 @@
   <developer_name>Gleb Smirnov</developer_name>
   <url type="homepage">https://github.com/liferooter/textpieces</url>
   <url type="bugtracker">https://github.com/liferooter/textpieces/issues</url>
+  <requires>
+    <display_length compare="ge">medium</display_length>
+  </requires>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/liferooter/textpieces/fa733d8317f6ebb69e62dfd67e03c0105df562b4/screenshots/screenshot1.png</image>
