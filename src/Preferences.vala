@@ -42,10 +42,6 @@ namespace TextPieces {
             }
         }}
 
-        private const string[] PREF_ACTIONS = {
-            "dark-theme"
-        };
-
         /*
          * This field is used to focus "Add tool" button
          * when open tools settings.
@@ -53,14 +49,6 @@ namespace TextPieces {
         public bool focus_add_tool_button = false;
 
         construct {
-            var action_group = new SimpleActionGroup ();
-            foreach (var pref in PREF_ACTIONS) {
-                action_group.add_action (
-                    TextPieces.Application.settings.create_action (pref)
-                );
-            }
-            insert_action_group ("prefs", action_group);
-
             Idle.add (setup_tools);
         }
 

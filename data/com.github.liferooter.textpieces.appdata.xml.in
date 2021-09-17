@@ -51,7 +51,7 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
-    <release version="2.1.2" date="2021-09-16">
+    <release version="2.1.2" date="2021-09-17">
       <description>Some bugfixes and improvements</description>
     </release>
     <release version="2.1.1" date="2021-09-08">

@@ -5,31 +5,7 @@
   <requires lib="libadwaita" version="1.0" />
 
   <template class="TextPiecesPreferences" parent="AdwPreferencesWindow">
-    <child>
-      <object class="AdwPreferencesPage">
-        <property name="title" translatable="yes">General</property>
-        <property name="name">general</property>
-        <property name="icon-name">preferences-symbolic</property>
-        <child>
-          <object class="AdwPreferencesGroup">
-            <property name="title" translatable="yes">General</property>
-            <child>
-              <object class="AdwActionRow">
-                <property name="title" translatable="yes">Use Dark Theme</property>
-                <property name="activatable-widget">dark-switch</property>
-                <child>
-                  <object class="GtkSwitch" id="dark-switch">
-                    <property name="can-focus">False</property>
-                    <property name="valign">center</property>
-                    <property name="action-name">prefs.dark-theme</property>
-                  </object>
-                </child>
-              </object>
-            </child>
-          </object>
-        </child>
-      </object>
-    </child>
+    <property name="search-enabled">false</property>
     <child>
       <object class="AdwPreferencesPage">
         <property name="title" translatable="yes">Custom Tools</property>
@@ -42,17 +18,30 @@
                 <child>
                   <object class="AdwClamp">
                     <property name="maximum-size">600</property>
-                    <property name="margin-top">16</property>
                     <property name="margin-start">8</property>
                     <property name="margin-end">8</property>
                     <property name="valign">start</property>
                     <child>
-                      <object class="GtkListBox" id="custom_tools_listbox">
-                        <property name="valign">start</property>
-                        <property name="selection-mode">none</property>
-                        <style>
-                          <class name="content" />
-                        </style>
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Custom tools</property>
+                            <property name="halign">start</property>
+                            <style>
+                              <class name="heading"/>
+                            </style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkListBox" id="custom_tools_listbox">
+                            <property name="valign">start</property>
+                            <property name="selection-mode">none</property>
+                            <style>
+                              <class name="content" />
+                            </style>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>

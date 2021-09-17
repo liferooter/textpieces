@@ -61,12 +61,8 @@ namespace TextPieces {
             // Initialize libs
             Gtk.Sourceinit ();
 
-            // Bind dark theme to the settings
-            settings.bind (
-                "dark-theme", Gtk.Settings.get_default (),
-                "gtk-application-prefer-dark-theme",
-                GLib.SettingsBindFlags.DEFAULT
-            );
+            // Use dark theme
+            Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
             foreach (var action_accel in ACTION_ACCELS) {
                 set_accels_for_action (

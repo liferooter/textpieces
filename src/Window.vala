@@ -204,7 +204,6 @@ namespace TextPieces {
             var prefs = new Preferences () {
                 transient_for = this,
                 application = application,
-                visible_page_name = "custom-tools",
                 focus_add_tool_button = true
             };
             prefs.present ();
