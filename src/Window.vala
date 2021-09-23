@@ -39,6 +39,9 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.Viewport search_viewport;
         [GtkChild] unowned Gtk.Box arguments_box;
 
+        string DEFAULT_TOOL_LABEL;
+        string DEFAULT_TOOL_ICON;
+
         Gtk.SortListModel search_list;
         Gtk.Sorter search_sorter;
         Gtk.Filter search_filter;
@@ -46,6 +49,12 @@ namespace TextPieces {
         uint? notification_hide_source = null;
 
         Tool selected_tool = null;
+
+        ToolsController tools {
+            get {
+                return ((TextPieces.Application) application).tools;
+            }
+        }
 
         private const ActionEntry[] ACTION_ENTRIES = {
             { "apply", action_apply },
@@ -77,6 +86,9 @@ namespace TextPieces {
             arguments_revealer.notify["child-revealed"].connect (() => {
                 editor.bottom_margin = arguments_revealer.get_allocated_height ();
             });
+
+            DEFAULT_TOOL_ICON = tool_icon.icon_name;
+            DEFAULT_TOOL_LABEL = tool_label.label;
         }
 
         public bool setup_tools () {
@@ -88,7 +100,7 @@ namespace TextPieces {
 
             search_list = new Gtk.SortListModel (
                 new Gtk.FilterListModel (
-                    ((TextPieces.Application) application).tools.all_tools,
+                    tools.all_tools,
                     search_filter
                 ),
                 search_sorter
@@ -98,6 +110,23 @@ namespace TextPieces {
                 search_list,
                 build_list_row
             );
+
+            tools.delete_tool.connect_after ((tool) => {
+                if (tool == selected_tool) {
+                    selected_tool = null;
+                    ((SimpleAction) lookup_action ("apply")).set_enabled (false);
+
+                    tool_icon.icon_name = DEFAULT_TOOL_ICON;
+                    tool_label.label = DEFAULT_TOOL_LABEL;
+
+                    var children = arguments_box.observe_children ();
+                    for (uint i = 0; i < children.get_n_items (); i++)
+                        arguments_box.remove ((Gtk.Widget) children.get_item (i));
+
+                    arguments_revealer.set_reveal_child (false);
+                }
+            });
+
             return Source.REMOVE;
         }
 
@@ -359,7 +388,6 @@ namespace TextPieces {
 
             if (selected_tool.arguments.length == 0) {
                 arguments_revealer.set_reveal_child (false);
-                editor.top_margin = 0;
             } else {
                 arguments_revealer.set_reveal_child (true);
                 for (var i = 0; i < selected_tool.arguments.length; i++) {

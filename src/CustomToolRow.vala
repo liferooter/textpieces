@@ -81,8 +81,8 @@ namespace TextPieces {
             dialog.response.connect ((res) => {
                 if (res == Gtk.ResponseType.YES) {
                     set_expanded (false);
-                    tools.custom_tools.remove (get_index ());
-                    tools.dump_custom_tools ();
+
+                    tools.delete_tool (tool);
 
                     ((Gtk.ListBox) parent).remove (this);
                 }

@@ -19,7 +19,7 @@
  */
 
 namespace TextPieces {
-    public class ToolsController : Object {
+    class ToolsController : Object {
 
         static string CONFIG_DIR;
 
@@ -200,6 +200,13 @@ namespace TextPieces {
             }
 
             update_all_tools ();
+        }
+
+        public signal void delete_tool (Tool tool) {
+            uint pos;
+            custom_tools.find (tool, out pos);
+            custom_tools.remove (pos);
+            dump_custom_tools ();
         }
     }
 }
