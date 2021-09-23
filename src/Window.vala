@@ -438,7 +438,10 @@ namespace TextPieces {
                 Gtk.FileChooserAction.SAVE,
                 null,
                 null
-            );
+            ) {
+                transient_for = this,
+                modal = true
+            };
             file_chooser.response.connect (() => {
                 var location = file_chooser.get_file ();
                 if (location == null)
@@ -484,7 +487,10 @@ namespace TextPieces {
                 Gtk.FileChooserAction.OPEN,
                 null,
                 null
-            );
+            ) {
+                transient_for = this,
+                modal = true
+            };
             file_chooser.response.connect (() => {
                 var location = file_chooser.get_file ();
                 if (location == null)
