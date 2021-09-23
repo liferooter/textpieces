@@ -4,7 +4,7 @@
 
 app-id: com.github.liferooter.textpieces
 runtime: org.gnome.Platform
-runtime-version: '41rc'
+runtime-version: '41'
 sdk: org.gnome.Sdk
 command: textpieces
 finish-args:
