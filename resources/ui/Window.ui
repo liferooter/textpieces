@@ -317,7 +317,7 @@
         <attribute name="action">win.show-help-overlay</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">About Application</attribute>
+        <attribute name="label" translatable="yes">About Text Pieces</attribute>
         <attribute name="action">win.about</attribute>
       </item>
     </section>
