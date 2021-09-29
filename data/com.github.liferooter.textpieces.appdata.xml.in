@@ -13,7 +13,7 @@
       <li>Decode text</li>
       <li>Remove trailing spaces and lines</li>
       <li>Count lines, symbols and words</li>
-      <li>Format JSON</li>
+      <li>Format JSON and XML</li>
       <li>Escape and unescape strings</li>
       <li>Convert JSON to YAML and vice versa</li>
       <li>Filter lines</li>
@@ -57,6 +57,14 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="2.2.1" date="2021-09-29">
+      <description>
+        <ul>
+          <li>Minor UI changes</li>
+          <li>Add XML formatter</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.1.2" date="2021-09-23">
       <description>Some bugfixes and improvements</description>
     </release>
