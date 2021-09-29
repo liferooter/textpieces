@@ -229,6 +229,12 @@
         "Find (regex)",
         "Replace With"
       ]
+    },
+    {
+      "name": "Prettify XML",
+      "description": "Parse XML and prettify it",
+      "icon": "format-justify-left-symbolic",
+      "script": "format-xml.py"
     }
   ]
 }
