@@ -25,11 +25,12 @@ Swiss knife of text processing
 </p>
 
 <p align="center">
-    <img alt="Screenshot" src="screenshots/screenshot1.png"/>
-    <img alt="Screenshot" src="screenshots/screenshot2.png"/>
-    <img alt="Screenshot" src="screenshots/screenshot3.png"/>
-    <img alt="Screenshot" src="screenshots/screenshot4.png"/>
-
+    <img alt="Screenshot" src="screenshots/screenshot1.png" width="40%"/>
+    <img alt="Screenshot" src="screenshots/screenshot2.png" width="40%"/>
+    <img alt="Screenshot" src="screenshots/screenshot3.png" width="40%"/>
+    <img alt="Screenshot" src="screenshots/screenshot4.png" width="40%"/>
+    <img alt="Screenshot" src="screenshots/screenshot5.png" width="40%"/>
+    <img alt="Screenshot" src="screenshots/screenshot6.png" width="40%"/>
 </p>
 
 
