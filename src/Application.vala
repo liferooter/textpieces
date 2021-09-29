@@ -62,7 +62,7 @@ namespace TextPieces {
             Gtk.Sourceinit ();
 
             // Use dark theme
-            Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
+            Adw.StyleManager.get_default ().color_scheme = Adw.ColorScheme.PREFER_DARK;
 
             foreach (var action_accel in ACTION_ACCELS) {
                 set_accels_for_action (
