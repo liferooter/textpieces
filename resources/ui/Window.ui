@@ -161,6 +161,7 @@
                                 <property name="smart-backspace">true</property>
                                 <property name="smart-home-end">before</property>
                                 <property name="tab-width">4</property>
+                                <property name="top-margin">6</property>
                               </object>
                             </child>
                           </object>
