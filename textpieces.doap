@@ -1,0 +1,55 @@
+<Project
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:gnome="http://api.gnome.org/doap-extensions#"
+  xmlns="http://usefulinc.com/ns/doap#"
+>
+  <name>Text Pieces</name>
+  <shortdesc xml:lang="en">Transform text without using random websites</shortdesc>
+  <description xml:lang="en">
+    Calculate hashes, encode text, decode text, remove trailing spaces and lines,
+    count lines, symbols and words, format JSON, escape and unescape strings,
+    convert JSON to YAML and vice versa, filter lines, replace substrings and regular expressions
+    and so on. You can use predefined tools to transform text and even create your own.
+  </description>
+
+  <homepage rdf:resource="https://github.com/liferooter/textpieces/" />
+  <license rdf:resource="http://usefulinc.com/doap/licenses/gpl" />
+  <bug-database rdf:resource="https://github.com/liferooter/textpieces/issues" />
+  <programming-language>Vala</programming-language>
+
+  <repository>
+    <GitRepository>
+      <location rdf:resource="https://github.com/liferooter/textpieces.git" />
+      <browse rdf:resource="https://github.com/liferooter/textpieces" />
+    </GitRepository>
+  </repository>
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Gleb Smirnov</foaf:name>
+      <foaf:mbox rdf:resource="mailto:glebsmirnov0708@gmail.com" />
+      <foaf:account>
+        <foaf:OnlineAccount>
+            <foaf:accountServiceHomepage rdf:resource="https://github.com/" />
+            <foaf:accountName>liferooter</foaf:accountName>
+        </foaf:OnlineAccount>
+      </foaf:account>
+      <foaf:account>
+        <foaf:OnlineAccount>
+            <foaf:accountServiceHomepage rdf:resource="https://gitlab.com/" />
+            <foaf:accountName>liferooter</foaf:accountName>
+        </foaf:OnlineAccount>
+      </foaf:account>
+      <foaf:account>
+        <foaf:OnlineAccount>
+          <foaf:accountServiceHomepage
+            rdf:resource="https://gitlab.gnome.org"
+          />
+          <foaf:accountName>liferooter</foaf:accountName>
+        </foaf:OnlineAccount>
+      </foaf:account>
+    </foaf:Person>
+  </maintainer>
+</Project>
