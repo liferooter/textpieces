@@ -57,6 +57,9 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="2.3.1" date="2021-09-30">
+      Add theme switcher for system which don't support color schemes
+    </release>
     <release version="2.2.1" date="2021-09-29">
       <description>
         <ul>
