@@ -85,7 +85,11 @@
             <child type="end">
               <object class="GtkMenuButton">
                 <property name="icon-name">open-menu-symbolic</property>
-                <property name="menu-model">app-menu</property>
+                <property name="popover">
+                  <object class="GtkPopoverMenu" id="menu_popover">
+                    <property name="menu-model">app-menu</property>
+                  </object>
+                </property>
                 <property name="tooltip-text" translatable="yes">Main Menu</property>
                 <!-- <property name="primary">true</property> -->
               </object>
@@ -308,6 +312,13 @@
     </child>
   </template>
   <menu id="app-menu">
+    <section id="theme_switcher_section">
+      <item>
+        <attribute name="custom">theme-switcher</attribute>
+        <attribute name="hidden-when">action-missing</attribute>
+        <attribute name="action">settings.color-scheme</attribute>
+      </item>
+    </section>
     <section>
       <item>
         <attribute name="label" translatable="yes">Preferences</attribute>

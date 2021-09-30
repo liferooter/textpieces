@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="textpieces">
   <schema id="com.github.liferooter.textpieces" path="/com/github/liferooter/textpieces/">
+    <key name="color-scheme" type="s">
+      <choices>
+        <choice value="light"/>
+        <choice value="dark"/>
+      </choices>
+      <default>"dark"</default>
+      <summary>Color scheme</summary>
+      <description>
+        Which color scheme to use for application interface.
+      </description>
+    </key>
   </schema>
 </schemalist>

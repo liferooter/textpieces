@@ -55,15 +55,42 @@ namespace TextPieces {
             settings = new GLib.Settings ("com.github.liferooter.textpieces");
         }
 
+        public SimpleActionGroup setting_actions = new SimpleActionGroup ();
+
         protected override void activate () {
             tools = new ToolsController ();
 
             // Initialize libs
             Gtk.Sourceinit ();
 
-            // Use dark theme
-            Adw.StyleManager.get_default ().color_scheme = Adw.ColorScheme.PREFER_DARK;
+            // Setup color scheme
 
+            if (style_manager.system_supports_color_schemes) {
+                style_manager.set_color_scheme (Adw.ColorScheme.PREFER_DARK);
+                style_manager.notify["dark"].connect (() => {
+                    settings.set_string (
+                        "color-scheme",
+                        style_manager.dark
+                            ? "dark"
+                            : "light"
+                    );
+                });
+            } else {
+                var action = settings.create_action ("color-scheme");
+                setting_actions.add_action (action);
+
+                settings.changed.connect ((key) => {
+                    if (key == "color-scheme")
+                        style_manager.set_color_scheme (
+                            settings.get_string ("color-scheme") == "dark"
+                                ? Adw.ColorScheme.FORCE_DARK
+                                : Adw.ColorScheme.FORCE_LIGHT
+                        );
+                });
+                settings.changed ("color-scheme");
+            }
+
+            // Setup actions
             foreach (var action_accel in ACTION_ACCELS) {
                 set_accels_for_action (
                     action_accel.action,

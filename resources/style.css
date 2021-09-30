@@ -1,3 +1,5 @@
+/* Custom tool row */
+
 list.nested row {
   border: none;
   background-color: @theme_base_color;
@@ -11,8 +13,36 @@ button.large image {
   -gtk-icon-size: 18px;
 }
 
+/* Argument view */
+
 .argument-view {
   background-color: lighter(@theme_base_color);
   padding: 6px;
   border-radius: 6px 6px 0px 0px;
+}
+
+/* Theme switcher */
+
+checkbutton.theme-selector radio {
+  -gtk-icon-source: none;
+  background: none;
+  box-shadow: none;
+  padding: 15px;
+  min-height: 24px;
+  min-width: 24px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: transparent;
+}
+checkbutton.theme-selector radio:checked {
+  border-color: @theme_selected_bg_color;
+  -gtk-icon-source: -gtk-scaled(-gtk-icontheme("object-select-symbolic"));
+}
+checkbutton.theme-selector.light radio {
+  color: #2e3436;
+  background-color: #fff;
+}
+checkbutton.theme-selector.dark radio {
+  color: #fff;
+  background-color: #2e3436;
 }

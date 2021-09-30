@@ -24,7 +24,7 @@ namespace TextPieces {
     const uint NOTIFICATION_HIDE_TIMEOUT = 2000;
 
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Window.ui")]
-    public class Window : Adw.ApplicationWindow {
+    class Window : Adw.ApplicationWindow {
 
         [GtkChild] unowned Gtk.ListBox search_listbox;
         [GtkChild] unowned Gtk.SearchEntry search_entry;
@@ -38,6 +38,7 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.SourceView editor;
         [GtkChild] unowned Gtk.Viewport search_viewport;
         [GtkChild] unowned Gtk.Box arguments_box;
+        [GtkChild] unowned Gtk.PopoverMenu menu_popover;
 
         string DEFAULT_TOOL_LABEL;
         string DEFAULT_TOOL_ICON;
@@ -50,9 +51,15 @@ namespace TextPieces {
 
         Tool selected_tool = null;
 
+        TextPieces.Application app {
+            get {
+                return (TextPieces.Application) application;
+            }
+        }
+
         ToolsController tools {
             get {
-                return ((TextPieces.Application) application).tools;
+                return app.tools;
             }
         }
 
@@ -71,24 +78,37 @@ namespace TextPieces {
         };
 
         construct {
-            // Load actions
-            add_action_entries (ACTION_ENTRIES, this);
-
-            ((SimpleAction) lookup_action ("apply")).set_enabled (false);
-
             tool_button.notify["active"].connect(() => {
                 if (!tool_button.active)
                     editor.grab_focus ();
                 else
                     search_viewport.vadjustment.set_value (0);
             });
-            Idle.add (setup_tools);
+
+            // Run part of constuctor after application initialization
+            Idle.add (late_construct);
             arguments_revealer.notify["child-revealed"].connect (() => {
                 editor.bottom_margin = arguments_revealer.get_allocated_height ();
             });
 
+            // Setup theme switcher
+            menu_popover.add_child (new ThemeSwitcher (), "theme-switcher");
+
             DEFAULT_TOOL_ICON = tool_icon.icon_name;
             DEFAULT_TOOL_LABEL = tool_label.label;
+        }
+
+        private bool late_construct () {
+            setup_tools ();
+
+            // Setup actions
+
+            add_action_entries (ACTION_ENTRIES, this);
+            insert_action_group ("settings", app.setting_actions);
+
+            ((SimpleAction) lookup_action ("apply")).set_enabled (false);
+
+            return Source.REMOVE;
         }
 
         public bool setup_tools () {
