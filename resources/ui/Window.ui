@@ -91,7 +91,7 @@
                   </object>
                 </property>
                 <property name="tooltip-text" translatable="yes">Main Menu</property>
-                <!-- <property name="primary">true</property> -->
+                <property name="primary">true</property>
               </object>
             </child>
             <child type="end">
