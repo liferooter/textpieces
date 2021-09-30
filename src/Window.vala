@@ -51,9 +51,11 @@ namespace TextPieces {
 
         Tool selected_tool = null;
 
-        TextPieces.Application app {
+        public TextPieces.Application app {
             get {
                 return (TextPieces.Application) application;
+            } construct set {
+                this.application = value;
             }
         }
 
@@ -77,7 +79,14 @@ namespace TextPieces {
             { "jump-to-args", action_jump_to_args }
         };
 
+        public Window (Application application) {
+            Object (
+                app: application
+            );
+        }
+
         construct {
+
             tool_button.notify["active"].connect(() => {
                 if (!tool_button.active)
                     editor.grab_focus ();
@@ -85,8 +94,14 @@ namespace TextPieces {
                     search_viewport.vadjustment.set_value (0);
             });
 
-            // Run part of constuctor after application initialization
-            Idle.add (late_construct);
+            // Setup actions
+
+            add_action_entries (ACTION_ENTRIES, this);
+
+            ((SimpleAction) lookup_action ("apply")).set_enabled (false);
+
+            setup_tools ();
+
             arguments_revealer.notify["child-revealed"].connect (() => {
                 editor.bottom_margin = arguments_revealer.get_allocated_height ();
             });
@@ -96,19 +111,6 @@ namespace TextPieces {
 
             DEFAULT_TOOL_ICON = tool_icon.icon_name;
             DEFAULT_TOOL_LABEL = tool_label.label;
-        }
-
-        private bool late_construct () {
-            setup_tools ();
-
-            // Setup actions
-
-            add_action_entries (ACTION_ENTRIES, this);
-            insert_action_group ("settings", app.setting_actions);
-
-            ((SimpleAction) lookup_action ("apply")).set_enabled (false);
-
-            return Source.REMOVE;
         }
 
         public bool setup_tools () {

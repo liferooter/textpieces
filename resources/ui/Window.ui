@@ -316,10 +316,8 @@
       <item>
         <attribute name="custom">theme-switcher</attribute>
         <attribute name="hidden-when">action-missing</attribute>
-        <attribute name="action">settings.color-scheme</attribute>
+        <attribute name="action">app.color-scheme</attribute>
       </item>
-    </section>
-    <section>
       <item>
         <attribute name="label" translatable="yes">Preferences</attribute>
         <attribute name="action">win.preferences</attribute>

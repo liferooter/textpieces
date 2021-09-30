@@ -55,8 +55,6 @@ namespace TextPieces {
             settings = new GLib.Settings ("com.github.liferooter.textpieces");
         }
 
-        public SimpleActionGroup setting_actions = new SimpleActionGroup ();
-
         protected override void activate () {
             tools = new ToolsController ();
 
@@ -67,27 +65,17 @@ namespace TextPieces {
 
             if (style_manager.system_supports_color_schemes) {
                 style_manager.set_color_scheme (Adw.ColorScheme.PREFER_DARK);
-                style_manager.notify["dark"].connect (() => {
-                    settings.set_string (
-                        "color-scheme",
-                        style_manager.dark
-                            ? "dark"
-                            : "light"
-                    );
-                });
+                style_manager.notify["dark"].connect (dark_changed_cb);
+                dark_changed_cb ();
             } else {
-                var action = settings.create_action ("color-scheme");
-                setting_actions.add_action (action);
+                var color_scheme_action = settings.create_action ("color-scheme");
+                add_action (color_scheme_action);
 
                 settings.changed.connect ((key) => {
                     if (key == "color-scheme")
-                        style_manager.set_color_scheme (
-                            settings.get_string ("color-scheme") == "dark"
-                                ? Adw.ColorScheme.FORCE_DARK
-                                : Adw.ColorScheme.FORCE_LIGHT
-                        );
+                        color_scheme_changed_cb ();
                 });
-                settings.changed ("color-scheme");
+                color_scheme_changed_cb ();
             }
 
             // Setup actions
@@ -99,10 +87,27 @@ namespace TextPieces {
             }
 
             // Create window
-            var win = new TextPieces.Window () {
+            var win = new TextPieces.Window (this) {
                 application = this
             };
             win.present ();
+        }
+
+        void dark_changed_cb () {
+            settings.set_string (
+                "color-scheme",
+                style_manager.dark
+                    ? "dark"
+                    : "light"
+            );
+        }
+
+        void color_scheme_changed_cb () {
+            style_manager.set_color_scheme (
+                settings.get_string ("color-scheme") == "dark"
+                    ? Adw.ColorScheme.FORCE_DARK
+                    : Adw.ColorScheme.FORCE_LIGHT
+            );
         }
 
         public static int main (string[] args) {

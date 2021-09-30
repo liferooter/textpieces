@@ -10,7 +10,7 @@
         <property name="spacing">24</property>
         <child>
           <object class="GtkCheckButton" id="light">
-            <property name="action-name">settings.color-scheme</property>
+            <property name="action-name">app.color-scheme</property>
             <property name="action-target">'light'</property>
             <property name="tooltip-text" translatable="yes">Light style</property>
             <style>
@@ -22,7 +22,7 @@
         <child>
           <object class="GtkCheckButton" id="dark">
             <property name="group">light</property>
-            <property name="action-name">settings.color-scheme</property>
+            <property name="action-name">app.color-scheme</property>
             <property name="action-target">'dark'</property>
             <property name="tooltip-text" translatable="yes">Dark style</property>
             <style>
