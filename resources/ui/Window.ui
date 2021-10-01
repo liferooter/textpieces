@@ -317,6 +317,8 @@
         <attribute name="custom">theme-switcher</attribute>
         <attribute name="hidden-when">action-missing</attribute>
         <attribute name="action">app.color-scheme</attribute>
+        <!-- Dummy target used because GTK checks equality between target type and action parameter -->
+        <attribute name="target">'dark'</attribute>
       </item>
       <item>
         <attribute name="label" translatable="yes">Preferences</attribute>
