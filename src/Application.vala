@@ -46,7 +46,7 @@ namespace TextPieces {
 
         public Application () {
             Object (
-                flags: ApplicationFlags.NON_UNIQUE,
+                flags: ApplicationFlags.FLAGS_NONE,
                 application_id: "com.github.liferooter.textpieces"
             );
         }
@@ -87,9 +87,11 @@ namespace TextPieces {
             }
 
             // Create window
-            var win = new TextPieces.Window (this) {
-                application = this
-            };
+            var win = get_active_window ();
+            if (win == null)
+                win = new TextPieces.Window (this) {
+                    application = this
+                };
             win.present ();
         }
 
