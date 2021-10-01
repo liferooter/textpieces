@@ -6,7 +6,7 @@
         <choice value="light"/>
         <choice value="dark"/>
       </choices>
-      <default>"dark"</default>
+      <default>'dark'</default>
       <summary>Color scheme</summary>
       <description>
         Which color scheme to use for application interface.
