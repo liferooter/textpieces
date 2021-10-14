@@ -236,7 +236,7 @@ namespace TextPieces {
                 "comments", _("Swiss knife of text transformations"),
                 "version", Config.VERSION,
                 "license-type", Gtk.License.GPL_3_0,
-                "website", "https://gitlab.com/liferooter/textpieces",
+                "website", "https://github.com/liferooter/textpieces",
                 "artists", ARTISTS,
                 "authors", AUTHORS,
                 "translator-credits", _("translator-credits"),
