@@ -12,6 +12,9 @@
         <child>
           <object class="GtkEntry" id="name_entry" />
         </child>
+        <style>
+          <class name="form-row"/>
+        </style>
       </object>
     </child>
     <child>
@@ -21,6 +24,9 @@
         <child>
           <object class="GtkEntry" id="description_entry" />
         </child>
+        <style>
+          <class name="form-row"/>
+        </style>
       </object>
     </child>
     <child>
@@ -67,6 +73,9 @@
             </child>
           </object>
         </child>
+        <style>
+          <class name="form-row"/>
+        </style>
       </object>
     </child>
   </template>

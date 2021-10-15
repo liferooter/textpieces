@@ -1,8 +1,7 @@
 /* Custom tool row */
 
-list.nested row {
+row.form-row:not(:last-child) {
   border: none;
-  background-color: @theme_base_color;
 }
 
 button.large {
