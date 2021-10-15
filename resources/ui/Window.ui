@@ -320,6 +320,8 @@
         <!-- Dummy target used because GTK checks equality between target type and action parameter -->
         <attribute name="target">'dark'</attribute>
       </item>
+    </section>
+    <section>
       <item>
         <attribute name="label" translatable="yes">Preferences</attribute>
         <attribute name="action">win.preferences</attribute>
