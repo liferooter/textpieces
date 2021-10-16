@@ -233,7 +233,7 @@ namespace TextPieces {
                 this,
                 "program-name", _("Text Pieces"),
                 "logo-icon-name", "com.github.liferooter.textpieces",
-                "comments", _("Swiss knife of text transformations"),
+                "comments", _("Transform text without using random websites"),
                 "version", Config.VERSION,
                 "license-type", Gtk.License.GPL_3_0,
                 "website", "https://github.com/liferooter/textpieces",
