@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 
 from xml.dom.minidom import parse
-from sys import stdin
+from xml.parsers.expat import ExpatError
+from sys import stdin, stderr
 
-_tree = parse(stdin)
-_pretty_string = _tree.toprettyxml(indent='  ')
+try:
+    dom = parse(stdin)
+except ExpatError as e:
+    stderr.write("Can't parse XML: " + str(e))
+    exit(1)
 
-for s in _pretty_string.splitlines():
-    # Remove extra newlines that appear if the input is already pretty-printed
-    if s.strip():
-        print(s)
+stdout.write(dom.toprettyxml(indent='  '))
+
