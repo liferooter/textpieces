@@ -260,11 +260,6 @@ namespace TextPieces {
             prefs.present ();
         }
 
-        void hide_notification () {
-            clear_notification_hide_timeout ();
-            notification_revealer.set_reveal_child (false);
-        }
-
         int calculate_relevance (Tool tool) {
             var query = search_entry.text;
             var terms = query.split (" ");
@@ -433,6 +428,13 @@ namespace TextPieces {
                 search_listbox.row_activated  (row);
         }
 
+        [GtkCallback]
+        void hide_notification () {
+            clear_notification_hide_timeout ();
+            notification_revealer.set_reveal_child (false);
+        }
+
+        [GtkCallback]
         void clear_notification_hide_timeout () {
             if (notification_hide_source != null) {
                 Source.remove (notification_hide_source);

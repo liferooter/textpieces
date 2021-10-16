@@ -197,6 +197,12 @@
                                 </style>
                               </object>
                             </child>
+                            <child>
+                              <object class="GtkEventControllerMotion">
+                                <signal name="enter" handler="clear_notification_hide_timeout"/>
+                                <signal name="leave" handler="hide_notification"/>
+                              </object>
+                            </child>
                           </object>
                         </property>
                       </object>
