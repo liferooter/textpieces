@@ -246,6 +246,7 @@
                                     <property name="child">
                                       <object class="GtkListBox" id="search_listbox">
                                         <property name="margin-top">24</property>
+                                        <property name="margin-bottom">24</property>
                                         <property name="valign">start</property>
                                         <property name="selection-mode">none</property>
                                         <signal name="row-activated" handler="on_row_activated" />
