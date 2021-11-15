@@ -1,3 +1,13 @@
 data/com.github.liferooter.textpieces.desktop.in
 data/com.github.liferooter.textpieces.appdata.xml.in
 data/com.github.liferooter.textpieces.gschema.xml
+src/CustomToolRow.vala
+src/Preferences.vala
+src/Utils.vala
+src/Window.vala
+resources/ui/CustomToolRow.ui
+resources/ui/NewToolDialog.ui
+resources/ui/Preferences.ui
+resources/ui/ShortcutsWindow.ui
+resources/ui/ThemeSwitcher.ui
+resources/ui/Window.ui
