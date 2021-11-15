@@ -233,7 +233,7 @@ namespace TextPieces {
                 this,
                 "program-name", _("Text Pieces"),
                 "logo-icon-name", "com.github.liferooter.textpieces",
-                "comments", _("Swiss knife of text transformations"),
+                "comments", _("Transform text without using random websites"),
                 "version", Config.VERSION,
                 "license-type", Gtk.License.GPL_3_0,
                 "website", "https://github.com/liferooter/textpieces",
@@ -261,15 +261,23 @@ namespace TextPieces {
         }
 
         int calculate_relevance (Tool tool) {
-            var query = search_entry.text;
+            return int.min (
+                calculate_string_relevance ({
+                    tool.name       .casefold (),
+                    tool.description.casefold ()
+                }),
+                calculate_string_relevance ({
+                    tool.translated_name       .casefold (),
+                    tool.translated_description.casefold ()
+                })
+            );
+        }
+
+        int calculate_string_relevance (string[] fields) {
+            var query = search_entry.text.casefold ();
             var terms = query.split (" ");
 
-            string[] fields = {
-                tool.name.casefold (),
-                tool.description.casefold (),
-            };
-
-            int[] min_match = {0, 0};
+            int[] min_match = {0, 0, 0, 0};
 
             int relevance = 0;
 
@@ -287,9 +295,6 @@ namespace TextPieces {
 
                 min_match[i] = match + term.length;
             }
-
-            if (min_match[0] == 0)
-                relevance += fields[1].length + 1;
 
             return relevance;
         }

@@ -95,7 +95,7 @@ namespace TextPieces {
             try {
                 parser.load_from_file (file);
             } catch (Error e) {
-                critical (_("Can't load tools from \"%s\": %s"), file, e.message);
+                critical ("Can't load tools from \"%s\": %s", file, e.message);
                 return null;
             }
 

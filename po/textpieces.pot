@@ -1,0 +1,658 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021 Gleb Smirnov
+# This file is distributed under the same license as the textpieces package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: textpieces main\n"
+"Report-Msgid-Bugs-To: https://github.com/liferooter/textpieces\n"
+"POT-Creation-Date: 2021-11-15 10:33+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.liferooter.textpieces.desktop.in:3
+#: data/com.github.liferooter.textpieces.appdata.xml.in:4 src/Window.vala:234
+#: resources/ui/Window.ui:7
+msgid "Text Pieces"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:5 src/Window.vala:236
+msgid "Transform text without using random websites"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:9
+msgid "Do a lot of text transformations, such as:"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:11
+msgid "Calculate hashes"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:12
+msgid "Encode text"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:13
+msgid "Decode text"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:14
+msgid "Remove trailing spaces and lines"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:15
+msgid "Count lines, symbols and words"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:16
+msgid "Format JSON and XML"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:17
+msgid "Escape and unescape strings"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:18
+msgid "Convert JSON to YAML and vice versa"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:19
+msgid "Filter lines"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:20
+msgid "Replace substrings and regular expressions"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:22
+msgid "...and so on."
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:27
+msgid "Gleb Smirnov"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:69
+msgid "Minor UI changes"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:70
+msgid "Add XML formatter"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:75
+msgid "Some bugfixes and improvements"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:78
+msgid "Bring back tools with arguments"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:83
+msgid "Redesign the application"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:84
+msgid "Add custom tools support"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:85
+msgid "Improve search"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:86
+msgid "Add ability to text load from file and save to file"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:93
+msgid "Exit by Ctrl+Q"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:94
+msgid "Monospace argument entry"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:95
+msgid "Update new runtime"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:102
+msgid "Sort tools"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:103
+msgid "Filter tools"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:104
+msgid "Minify C-like code"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:111
+msgid "Add more tools"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:112
+msgid "Make tools popover more powerful"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:113
+msgid "Redesign icon"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:114
+msgid "General improvements"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:119
+msgid "Add tools for replacement and removing"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:122
+msgid "Application release"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:10
+msgid "Color scheme"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:11
+msgid "Which color scheme to use for application interface."
+msgstr ""
+
+#: src/CustomToolRow.vala:76
+#, c-format
+msgid "Do you really want to delete \"%s\" tool?"
+msgstr ""
+
+#: src/CustomToolRow.vala:101 resources/ui/CustomToolRow.ui:66
+msgid "Select Script"
+msgstr ""
+
+#: src/Preferences.vala:75 resources/ui/NewToolDialog.ui:9
+msgid "Add new Tool"
+msgstr ""
+
+#: src/Utils.vala:30
+msgid "Oops..."
+msgstr ""
+
+#: src/Utils.vala:31
+msgid "Can't open script file"
+msgstr ""
+
+#: src/Window.vala:242
+msgid "translator-credits"
+msgstr ""
+
+#: src/Window.vala:251
+msgid "Text is copied to clipboard"
+msgstr ""
+
+#: src/Window.vala:460 resources/ui/Window.ui:100
+msgid "Save to File"
+msgstr ""
+
+#: src/Window.vala:495
+#, c-format
+msgid "Can't save to file: %s"
+msgstr ""
+
+#: src/Window.vala:509
+msgid "Load From File"
+msgstr ""
+
+#: src/Window.vala:544
+#, c-format
+msgid "Can't load from file: %s"
+msgstr ""
+
+#: resources/ui/CustomToolRow.ui:11 resources/ui/NewToolDialog.ui:48
+msgid "Name"
+msgstr ""
+
+#: resources/ui/CustomToolRow.ui:23 resources/ui/NewToolDialog.ui:64
+msgid "Description"
+msgstr ""
+
+#: resources/ui/CustomToolRow.ui:43
+msgid "Edit Script"
+msgstr ""
+
+#: resources/ui/CustomToolRow.ui:54
+msgid "Delete Tool"
+msgstr ""
+
+#: resources/ui/NewToolDialog.ui:20
+msgid "Cancel"
+msgstr ""
+
+#: resources/ui/NewToolDialog.ui:26
+msgid "Create and Open"
+msgstr ""
+
+#: resources/ui/Preferences.ui:11
+msgid "Custom Tools"
+msgstr ""
+
+#: resources/ui/Preferences.ui:29
+msgid "Custom tools"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:13
+msgid "General"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:16
+msgid "Keyboard shortcuts"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:22 resources/ui/Window.ui:332
+msgid "Preferences"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:28
+msgid "Quit"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:36
+msgid "Tools"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:39 resources/ui/Window.ui:30
+msgid "Apply"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:45
+msgid "Select tool"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:51
+msgid "Jump to the tool options"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:59
+msgid "Undo and Redo"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:62
+msgid "Undo"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:68
+msgid "Redo"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:76
+msgid "Copy and Paste"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:79 resources/ui/Window.ui:42
+msgid "Copy"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:85
+msgid "Paste"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:91
+msgid "Copy all"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:99
+msgid "Files"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:102
+msgid "Load from file"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.ui:108
+msgid "Save to file"
+msgstr ""
+
+#: resources/ui/ThemeSwitcher.ui:15
+msgid "Light style"
+msgstr ""
+
+#: resources/ui/ThemeSwitcher.ui:27
+msgid "Dark style"
+msgstr ""
+
+#: resources/ui/Window.ui:32
+msgid "Apply Selected Tool"
+msgstr ""
+
+#: resources/ui/Window.ui:67
+msgid "Select Tool"
+msgstr ""
+
+#: resources/ui/Window.ui:93
+msgid "Main Menu"
+msgstr ""
+
+#: resources/ui/Window.ui:107
+msgid "Load from File"
+msgstr ""
+
+#: resources/ui/Window.ui:276
+msgid "No Tools Found"
+msgstr ""
+
+#: resources/ui/Window.ui:297
+msgid "Add Custom Tool"
+msgstr ""
+
+#: resources/ui/Window.ui:336
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: resources/ui/Window.ui:340
+msgid "About Text Pieces"
+msgstr ""
+
+#: data/tools.json:5
+msgid "SHA1 Checksum"
+msgstr ""
+
+#: data/tools.json:6
+msgid "Compute SHA1 hash sum"
+msgstr ""
+
+#: data/tools.json:11
+msgid "SHA256 Checksum"
+msgstr ""
+
+#: data/tools.json:12
+msgid "Compute SHA256 hash sum"
+msgstr ""
+
+#: data/tools.json:17
+msgid "SHA384 Checksum"
+msgstr ""
+
+#: data/tools.json:18
+msgid "Compute SHA384 hash sum"
+msgstr ""
+
+#: data/tools.json:23
+msgid "SHA512 Checksum"
+msgstr ""
+
+#: data/tools.json:24
+msgid "Compute SHA512 hash sum"
+msgstr ""
+
+#: data/tools.json:29
+msgid "MD5 Checksum"
+msgstr ""
+
+#: data/tools.json:3
+msgid "Compute MD5 hash sum"
+msgstr ""
+
+#: data/tools.json:35
+msgid "Base64 Encode"
+msgstr ""
+
+#: data/tools.json:36
+msgid "Encode text to Base64"
+msgstr ""
+
+#: data/tools.json:41
+msgid "Base64 Decode"
+msgstr ""
+
+#: data/tools.json:42
+msgid "Decode text from Base64"
+msgstr ""
+
+#: data/tools.json:47
+msgid "Remove Trailing"
+msgstr ""
+
+#: data/tools.json:48
+msgid "Remove trailing whitespaces and newlines"
+msgstr ""
+
+#: data/tools.json:53
+msgid "Trim Lines"
+msgstr ""
+
+#: data/tools.json:54
+msgid "Remove leading and trailing whitespaces and newlines"
+msgstr ""
+
+#: data/tools.json:59
+msgid "Count Symbols"
+msgstr ""
+
+#: data/tools.json:60
+msgid "Count how many symbols are in text"
+msgstr ""
+
+#: data/tools.json:65
+msgid "Count Lines"
+msgstr ""
+
+#: data/tools.json:66
+msgid "Count how many lines are in text"
+msgstr ""
+
+#: data/tools.json:71
+msgid "Count Words"
+msgstr ""
+
+#: data/tools.json:72
+msgid "Count how many words are in text"
+msgstr ""
+
+#: data/tools.json:77
+msgid "Prettify JSON"
+msgstr ""
+
+#: data/tools.json:78
+msgid "Parse JSON and prettify it"
+msgstr ""
+
+#: data/tools.json:83
+msgid "Minify JSON"
+msgstr ""
+
+#: data/tools.json:84
+msgid "Parse JSON and minify it"
+msgstr ""
+
+#: data/tools.json:89
+msgid "Escape String"
+msgstr ""
+
+#: data/tools.json:90
+msgid "Replace special characters with escape sequences"
+msgstr ""
+
+#: data/tools.json:95
+msgid "Escape HTML"
+msgstr ""
+
+#: data/tools.json:96
+msgid "Replace special characters with HTML-safe sequences"
+msgstr ""
+
+#: data/tools.json:101
+msgid "Escape URL"
+msgstr ""
+
+#: data/tools.json:102
+msgid "Replace special characters with URL-safe sequences"
+msgstr ""
+
+#: data/tools.json:107
+msgid "Unescape String"
+msgstr ""
+
+#: data/tools.json:108
+msgid "Replace escape sequences with characters"
+msgstr ""
+
+#: data/tools.json:113
+msgid "Unescape HTML"
+msgstr ""
+
+#: data/tools.json:114
+msgid "Replace HTML sequences with characters"
+msgstr ""
+
+#: data/tools.json:119
+msgid "Unescape URL"
+msgstr ""
+
+#: data/tools.json:120
+msgid "Replace URL sequences with characters"
+msgstr ""
+
+#: data/tools.json:125
+msgid "Convert JSON to YAML"
+msgstr ""
+
+#: data/tools.json:126
+msgid "Parse JSON and convert it to YAML document"
+msgstr ""
+
+#: data/tools.json:131
+msgid "Convert YAML to JSON"
+msgstr ""
+
+#: data/tools.json:132
+msgid "Parse YAML document and conver it to JSON"
+msgstr ""
+
+#: data/tools.json:137
+msgid "Reverse Lines"
+msgstr ""
+
+#: data/tools.json:138
+msgid "Reoder lines in reverse order"
+msgstr ""
+
+#: data/tools.json:143
+msgid "Reverse Text"
+msgstr ""
+
+#: data/tools.json:144
+msgid "Reorder characters in reverse order"
+msgstr ""
+
+#: data/tools.json:149
+msgid "Sort Lines"
+msgstr ""
+
+#: data/tools.json:150
+msgid "Sort lines in text in alphabetical order"
+msgstr ""
+
+#: data/tools.json:155
+msgid "Reverse Sort Lines"
+msgstr ""
+
+#: data/tools.json:156
+msgid "Sort lines in text in reverse alphabetical order"
+msgstr ""
+
+#: data/tools.json:161
+msgid "Filter Lines by Regex"
+msgstr ""
+
+#: data/tools.json:162
+msgid "Remove all lines which don't match given regular expression"
+msgstr ""
+
+#: data/tools.json:166 data/tools.json:175 data/tools.json:201
+msgid "Regex"
+msgstr ""
+
+#: data/tools.json:170
+msgid "Reverse Filter Lines by Regex"
+msgstr ""
+
+#: data/tools.json:171
+msgid "Remove all lines which match given regular expression"
+msgstr ""
+
+#: data/tools.json:179
+msgid "Filter Lines by Substring"
+msgstr ""
+
+#: data/tools.json:180
+msgid "Remove all lines which don't contain given substring"
+msgstr ""
+
+#: data/tools.json:186 data/tools.json:192 data/tools.json:210
+msgid "Substring"
+msgstr ""
+
+#: data/tools.json:188
+msgid "Reverse Filter Lines by Substring"
+msgstr ""
+
+#: data/tools.json:189
+msgid "Remove all lines which contain given substring"
+msgstr ""
+
+#: data/tools.json:196
+msgid "Remove Regex"
+msgstr ""
+
+#: data/tools.json:197
+msgid "Remove all matches of regular expression"
+msgstr ""
+
+#: data/tools.json:205
+msgid "Remove Substring"
+msgstr ""
+
+#: data/tools.json:206
+msgid "Remove all occurrences of given substring in text"
+msgstr ""
+
+#: data/tools.json:214
+msgid "Replace Substring"
+msgstr ""
+
+#: data/tools.json:215
+msgid "Replace all occurrences of given substring in text with other string"
+msgstr ""
+
+#: data/tools.json:219
+msgid "Find"
+msgstr ""
+
+#: data/tools.json:220 data/tools.json:230
+msgid "Replace With"
+msgstr ""
+
+#: data/tools.json:224
+msgid "Replace Regex"
+msgstr ""
+
+#: data/tools.json:225
+msgid "Replace all given regex matches in text with given string"
+msgstr ""
+
+#: data/tools.json:229
+msgid "Find (regex)"
+msgstr ""
+
+#: data/tools.json:234
+msgid "Prettify XML"
+msgstr ""
+
+#: data/tools.json:235
+msgid "Parse XML and prettify it"
+msgstr ""
