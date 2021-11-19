@@ -165,7 +165,9 @@ namespace TextPieces {
             setup_tools ();
 
             arguments_revealer.notify["child-revealed"].connect (() => {
+                var old_adjustment = editor.vadjustment.value - editor.top_margin;
                 editor.top_margin = arguments_revealer.get_allocated_height ();
+                editor.vadjustment.value = old_adjustment + editor.top_margin;
             });
 
             // Setup theme switcher
