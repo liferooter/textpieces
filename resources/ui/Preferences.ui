@@ -13,7 +13,7 @@
         <property name="icon-name">preferences-symbolic</property>
         <child>
           <object class="AdwPreferencesGroup">
-            <property name="title" translatable="yes">Appearance</property>
+            <property name="title" translatable="yes">Editor</property>
             <child>
               <object class="AdwActionRow">
                 <property name="title" translatable="yes">Editor Font</property>
@@ -30,6 +30,50 @@
                         <property name="icon-name">go-next-symbolic</property>
                       </object>
                     </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Wrap Lines</property>
+                <property name="activatable-widget">wrap_lines_switch</property>
+                <child>
+                  <object class="GtkSwitch" id="wrap_lines_switch">
+                    <property name="valign">center</property>
+                    <property name="action-name">settings.wrap-lines</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Color Scheme</property>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Light</property>
+                <property name="activatable-widget">light_check</property>
+                <child type="prefix">
+                  <object class="GtkCheckButton" id="light_check">
+                    <property name="valign">center</property>
+                    <property name="action-name">settings.color-scheme</property>
+                    <property name="action-target">'light'</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Dark</property>
+                <property name="activatable-widget">dark_check</property>
+                <child type="prefix">
+                  <object class="GtkCheckButton" id="dark_check">
+                    <property name="valign">center</property>
+                    <property name="group">light_check</property>
+                    <property name="action-name">settings.color-scheme</property>
+                    <property name="action-target">'dark'</property>
                   </object>
                 </child>
               </object>

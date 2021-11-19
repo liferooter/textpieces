@@ -92,8 +92,9 @@ namespace TextPieces {
                     application = this
                 };
 
-            // Setup font
+            // Bind settings
             settings.bind ("font-name", win, "editor-font", DEFAULT);
+            settings.bind ("wrap-lines", win, "wrap-lines", DEFAULT);
 
             win.present ();
         }

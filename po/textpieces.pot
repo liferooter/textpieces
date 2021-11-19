@@ -3,26 +3,27 @@
 # This file is distributed under the same license as the textpieces package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: textpieces main\n"
-"Report-Msgid-Bugs-To: https://github.com/liferooter/textpieces\n"
-"POT-Creation-Date: 2021-11-15 10:33+0300\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-19 13:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/com.github.liferooter.textpieces.desktop.in:3
-#: data/com.github.liferooter.textpieces.appdata.xml.in:4 src/Window.vala:234
+#: data/com.github.liferooter.textpieces.appdata.xml.in:4 src/Window.vala:275
 #: resources/ui/Window.ui:7
 msgid "Text Pieces"
 msgstr ""
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:5 src/Window.vala:236
+#: data/com.github.liferooter.textpieces.appdata.xml.in:5 src/Window.vala:277
 msgid "Transform text without using random websites"
 msgstr ""
 
@@ -166,6 +167,22 @@ msgstr ""
 msgid "Which color scheme to use for application interface."
 msgstr ""
 
+#: data/com.github.liferooter.textpieces.gschema.xml:17
+msgid "Font name"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:18
+msgid "Name of font used in editor"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:24
+msgid "Wrap lines"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:25
+msgid "Whether to wrap long lines"
+msgstr ""
+
 #: src/CustomToolRow.vala:76
 #, c-format
 msgid "Do you really want to delete \"%s\" tool?"
@@ -179,6 +196,10 @@ msgstr ""
 msgid "Add new Tool"
 msgstr ""
 
+#: src/Preferences.vala:159
+msgid "Select font"
+msgstr ""
+
 #: src/Utils.vala:30
 msgid "Oops..."
 msgstr ""
@@ -187,28 +208,28 @@ msgstr ""
 msgid "Can't open script file"
 msgstr ""
 
-#: src/Window.vala:242
+#: src/Window.vala:283
 msgid "translator-credits"
 msgstr ""
 
-#: src/Window.vala:251
+#: src/Window.vala:292
 msgid "Text is copied to clipboard"
 msgstr ""
 
-#: src/Window.vala:460 resources/ui/Window.ui:100
+#: src/Window.vala:508 resources/ui/Window.ui:100
 msgid "Save to File"
 msgstr ""
 
-#: src/Window.vala:495
+#: src/Window.vala:543
 #, c-format
 msgid "Can't save to file: %s"
 msgstr ""
 
-#: src/Window.vala:509
+#: src/Window.vala:557
 msgid "Load From File"
 msgstr ""
 
-#: src/Window.vala:544
+#: src/Window.vala:592
 #, c-format
 msgid "Can't load from file: %s"
 msgstr ""
@@ -237,23 +258,47 @@ msgstr ""
 msgid "Create and Open"
 msgstr ""
 
-#: resources/ui/Preferences.ui:11
+#: resources/ui/Preferences.ui:11 resources/ui/ShortcutsWindow.ui:13
+msgid "General"
+msgstr ""
+
+#: resources/ui/Preferences.ui:16
+msgid "Editor"
+msgstr ""
+
+#: resources/ui/Preferences.ui:19
+msgid "Editor Font"
+msgstr ""
+
+#: resources/ui/Preferences.ui:39
+msgid "Wrap Lines"
+msgstr ""
+
+#: resources/ui/Preferences.ui:53
+msgid "Color Scheme"
+msgstr ""
+
+#: resources/ui/Preferences.ui:56
+msgid "Light"
+msgstr ""
+
+#: resources/ui/Preferences.ui:69
+msgid "Dark"
+msgstr ""
+
+#: resources/ui/Preferences.ui:87
 msgid "Custom Tools"
 msgstr ""
 
-#: resources/ui/Preferences.ui:29
+#: resources/ui/Preferences.ui:105
 msgid "Custom tools"
-msgstr ""
-
-#: resources/ui/ShortcutsWindow.ui:13
-msgid "General"
 msgstr ""
 
 #: resources/ui/ShortcutsWindow.ui:16
 msgid "Keyboard shortcuts"
 msgstr ""
 
-#: resources/ui/ShortcutsWindow.ui:22 resources/ui/Window.ui:332
+#: resources/ui/ShortcutsWindow.ui:22 resources/ui/Window.ui:334
 msgid "Preferences"
 msgstr ""
 
@@ -341,19 +386,19 @@ msgstr ""
 msgid "Load from File"
 msgstr ""
 
-#: resources/ui/Window.ui:276
+#: resources/ui/Window.ui:278
 msgid "No Tools Found"
 msgstr ""
 
-#: resources/ui/Window.ui:297
+#: resources/ui/Window.ui:299
 msgid "Add Custom Tool"
 msgstr ""
 
-#: resources/ui/Window.ui:336
+#: resources/ui/Window.ui:338
 msgid "Keyboard Shortcuts"
 msgstr ""
 
-#: resources/ui/Window.ui:340
+#: resources/ui/Window.ui:342
 msgid "About Text Pieces"
 msgstr ""
 

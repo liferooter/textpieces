@@ -19,5 +19,12 @@
         Name of font used in editor
       </description>
     </key>
+    <key name="wrap-lines" type="b">
+      <default>true</default>
+      <summary>Wrap lines</summary>
+      <description>
+        Whether to wrap long lines
+      </description>
+    </key>
   </schema>
 </schemalist>
