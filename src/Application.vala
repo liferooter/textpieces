@@ -62,7 +62,6 @@ namespace TextPieces {
             Gtk.Sourceinit ();
 
             // Setup color scheme
-
             if (style_manager.system_supports_color_schemes) {
                 style_manager.set_color_scheme (Adw.ColorScheme.PREFER_DARK);
                 style_manager.notify["dark"].connect (dark_changed_cb);
@@ -92,6 +91,10 @@ namespace TextPieces {
                 win = new TextPieces.Window (this) {
                     application = this
                 };
+
+            // Setup font
+            settings.bind ("font-name", win, "editor-font", DEFAULT);
+
             win.present ();
         }
 

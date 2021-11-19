@@ -12,5 +12,12 @@
         Which color scheme to use for application interface.
       </description>
     </key>
+    <key name="font-name" type="s">
+      <default>'Monospace'</default>
+      <summary>Font name</summary>
+      <description>
+        Name of font used in editor
+      </description>
+    </key>
   </schema>
 </schemalist>

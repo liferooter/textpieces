@@ -65,6 +65,37 @@ namespace TextPieces {
             }
         }
 
+        string _editor_font = "";
+        Gtk.CssProvider _editor_font_css_provider = null;
+
+        public string editor_font {
+            get {
+                return _editor_font;
+            } set {
+                _editor_font = value;
+
+                if (_editor_font_css_provider != null)
+                    Gtk.StyleContext.remove_provider_for_display (
+                        Gdk.Display.get_default (),
+                        _editor_font_css_provider
+                    );
+
+                var css_provider = new Gtk.CssProvider ();
+
+                css_provider.load_from_data ("""
+                    .monospace {
+                        font-family: %s;
+                    }
+                """.printf (value).data);
+
+                Gtk.StyleContext.add_provider_for_display (
+                    Gdk.Display.get_default (),
+                    css_provider,
+                    Gtk.STYLE_PROVIDER_PRIORITY_USER
+                );
+            }
+        }
+
         private const ActionEntry[] ACTION_ENTRIES = {
             { "apply", action_apply },
             { "preferences", action_preferences },

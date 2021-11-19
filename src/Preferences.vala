@@ -23,8 +23,10 @@ namespace TextPieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Preferences.ui")]
     class Preferences : Adw.PreferencesWindow {
 
-        [GtkChild]
-        unowned Gtk.ListBox custom_tools_listbox;
+        static Settings settings;
+
+        [GtkChild] unowned Gtk.ListBox custom_tools_listbox;
+        [GtkChild] unowned Gtk.Label font_label;
 
         int _expanded_row = -1;
         int expanded_row { get {
@@ -48,8 +50,27 @@ namespace TextPieces {
          */
         public bool focus_add_tool_button = false;
 
+        const ActionEntry[] ACTION_ENTRIES = {
+            { "select-font", action_select_font }
+        };
+
+        static construct {
+            settings = new Settings ("com.github.liferooter.textpieces");
+        }
+
         construct {
             Idle.add (setup_tools);
+
+            var action_group = new SimpleActionGroup ();
+            action_group.add_action_entries (ACTION_ENTRIES, this);
+            insert_action_group ("prefs", action_group);
+
+            settings.bind (
+                "font-name",
+                font_label,
+                "label",
+                DEFAULT
+            );
         }
 
         public bool setup_tools () {
@@ -129,6 +150,25 @@ namespace TextPieces {
             });
 
             return widget;
+        }
+
+        public void action_select_font () {
+            var dialog = new Gtk.FontChooserDialog (_("Select font"), this) {
+                modal = true,
+                transient_for = this,
+                font = settings.get_string ("font-name"),
+                level = FAMILY
+            };
+
+            dialog.response.connect ((res) => {
+                if (res == Gtk.ResponseType.OK) {
+                    settings.set_string ("font-name", dialog.font_desc.get_family ());
+                }
+
+                dialog.close ();
+            });
+
+            dialog.present ();
         }
     }
 }
