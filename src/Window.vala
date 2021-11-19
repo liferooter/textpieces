@@ -21,7 +21,7 @@
 
 namespace TextPieces {
 
-    const uint NOTIFICATION_HIDE_TIMEOUT = 2000;
+    const uint NOTIFICATION_TIMEOUT = 2000;
 
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Window.ui")]
     class Window : Adw.ApplicationWindow {
@@ -29,9 +29,8 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.ListBox search_listbox;
         [GtkChild] unowned Gtk.SearchEntry search_entry;
         [GtkChild] unowned Gtk.Stack search_stack;
-        [GtkChild] unowned Gtk.Revealer notification_revealer;
+        [GtkChild] unowned Adw.ToastOverlay toast_overlay;
         [GtkChild] unowned Gtk.Revealer arguments_revealer;
-        [GtkChild] unowned Gtk.Label notification_label;
         [GtkChild] unowned Gtk.Image tool_icon;
         [GtkChild] unowned Gtk.Label tool_label;
         [GtkChild] unowned Gtk.ToggleButton tool_button;
@@ -47,7 +46,7 @@ namespace TextPieces {
         Gtk.Sorter search_sorter;
         Gtk.Filter search_filter;
 
-        uint? notification_hide_source = null;
+        Adw.Toast? toast = null;
 
         Tool selected_tool = null;
 
@@ -396,16 +395,16 @@ namespace TextPieces {
         }
 
         void send_notification (string text) {
-            clear_notification_hide_timeout ();
-            notification_label.set_label (text);
-            notification_revealer.set_reveal_child (true);
-            notification_hide_source = Timeout.add (
-                NOTIFICATION_HIDE_TIMEOUT,
-                () => {
-                    hide_notification ();
-                    return Source.REMOVE;
-                }
-            );
+            var new_toast = new Adw.Toast (text) {
+                priority = HIGH,
+                timeout = NOTIFICATION_TIMEOUT,
+            };
+            new_toast.dismissed.connect (() => {
+                toast = null;
+            });
+            toast_overlay.add_toast (new_toast);
+            hide_notification ();
+            toast = new_toast;
         }
 
         [GtkCallback]
@@ -499,18 +498,9 @@ namespace TextPieces {
                 search_listbox.row_activated  (row);
         }
 
-        [GtkCallback]
         void hide_notification () {
-            clear_notification_hide_timeout ();
-            notification_revealer.set_reveal_child (false);
-        }
-
-        [GtkCallback]
-        void clear_notification_hide_timeout () {
-            if (notification_hide_source != null) {
-                Source.remove (notification_hide_source);
-                notification_hide_source = null;
-            }
+            toast?.dismiss ();
+            toast = null;
         }
 
         void action_toggle_search () {
@@ -519,7 +509,7 @@ namespace TextPieces {
         }
 
         void action_escape () {
-            if (notification_revealer.reveal_child == true)
+            if (toast != null)
                 hide_notification ();
             else
                 tool_button.set_active (false);

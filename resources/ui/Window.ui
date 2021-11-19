@@ -150,78 +150,47 @@
               <object class="GtkStackPage">
                 <property name="name">editor</property>
                 <property name="child">
-                  <object class="GtkOverlay">
+                  <object class="AdwToastOverlay" id="toast_overlay">
                     <child>
-                      <object class="GtkBox">
-                        <property name="orientation">vertical</property>
+                      <object class="GtkOverlay">
                         <child>
-                          <object class="GtkScrolledWindow">
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
                             <child>
-                              <object class="GtkSourceView" id="editor">
-                                <property name="monospace">true</property>
-                                <property name="auto-indent">true</property>
-                                <property name="vexpand">true</property>
-                                <property name="show-line-numbers">true</property>
-                                <property name="smart-backspace">true</property>
-                                <property name="smart-home-end">before</property>
-                                <property name="tab-width">4</property>
-                                <property name="top-margin">6</property>
-                                <property name="wrap-mode">word-char</property>
+                              <object class="GtkScrolledWindow">
+                                <child>
+                                  <object class="GtkSourceView" id="editor">
+                                    <property name="monospace">true</property>
+                                    <property name="auto-indent">true</property>
+                                    <property name="vexpand">true</property>
+                                    <property name="show-line-numbers">true</property>
+                                    <property name="smart-backspace">true</property>
+                                    <property name="smart-home-end">before</property>
+                                    <property name="tab-width">4</property>
+                                    <property name="top-margin">6</property>
+                                    <property name="wrap-mode">word-char</property>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                           </object>
                         </child>
-                      </object>
-                    </child>
-                    <child type="overlay">
-                      <object class="GtkRevealer" id="notification_revealer">
-                        <property name="valign">start</property>
-                        <property name="halign">center</property>
-                        <property name="transition-type">slide-down</property>
-                        <property name="child">
-                          <object class="GtkBox">
-                            <property name="spacing">12</property>
-                            <style>
-                              <class name="app-notification" />
-                            </style>
-                            <child>
-                              <object class="GtkLabel" id="notification_label">
-                                <property name="label">Notification</property>
-                              </object>
-                            </child>
-                            <child>
-                              <object class="GtkButton">
-                                <property name="icon-name">window-close-symbolic</property>
-                                <property name="action-name">win.hide-notification</property>
+                        <child type="overlay">
+                          <object class="GtkRevealer" id="arguments_revealer">
+                            <property name="valign">start</property>
+                            <property name="halign">end</property>
+                            <property name="margin-end">30</property>
+                            <property name="child">
+                              <object class="GtkBox" id="arguments_box">
+                                <property name="spacing">6</property>
+                                <property name="orientation">vertical</property>
                                 <style>
-                                  <class name="flat" />
+                                  <class name="argument-view" />
                                 </style>
                               </object>
-                            </child>
-                            <child>
-                              <object class="GtkEventControllerMotion">
-                                <signal name="enter" handler="clear_notification_hide_timeout"/>
-                                <signal name="leave" handler="hide_notification"/>
-                              </object>
-                            </child>
+                            </property>
                           </object>
-                        </property>
-                      </object>
-                    </child>
-                    <child type="overlay">
-                      <object class="GtkRevealer" id="arguments_revealer">
-                        <property name="valign">start</property>
-                        <property name="halign">end</property>
-                        <property name="margin-end">30</property>
-                        <property name="child">
-                          <object class="GtkBox" id="arguments_box">
-                            <property name="spacing">6</property>
-                            <property name="orientation">vertical</property>
-                            <style>
-                              <class name="argument-view" />
-                            </style>
-                          </object>
-                        </property>
+                        </child>
                       </object>
                     </child>
                   </object>
