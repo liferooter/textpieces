@@ -445,8 +445,9 @@ namespace TextPieces {
                 arguments_revealer.set_reveal_child (true);
                 for (var i = 0; i < selected_tool.arguments.length; i++) {
                     var entry = new Gtk.Entry () {
-                        placeholder_text = selected_tool.arguments[i]
+                        placeholder_text = selected_tool.arguments[i],
                     };
+                    entry.add_css_class ("monospace");
                     entry.activate.connect (() => {
                         move_focus (Gtk.DirectionType.TAB_FORWARD);
                     });
