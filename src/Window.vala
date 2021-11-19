@@ -165,7 +165,7 @@ namespace TextPieces {
             setup_tools ();
 
             arguments_revealer.notify["child-revealed"].connect (() => {
-                editor.bottom_margin = arguments_revealer.get_allocated_height ();
+                editor.top_margin = arguments_revealer.get_allocated_height ();
             });
 
             // Setup theme switcher
