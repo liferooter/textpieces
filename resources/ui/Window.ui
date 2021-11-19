@@ -210,12 +210,13 @@
                     </child>
                     <child type="overlay">
                       <object class="GtkRevealer" id="arguments_revealer">
-                        <property name="valign">end</property>
-                        <property name="halign">center</property>
-                        <property name="margin-end">10</property>
+                        <property name="valign">start</property>
+                        <property name="halign">end</property>
+                        <property name="margin-end">30</property>
                         <property name="child">
                           <object class="GtkBox" id="arguments_box">
                             <property name="spacing">6</property>
+                            <property name="orientation">vertical</property>
                             <style>
                               <class name="argument-view" />
                             </style>
