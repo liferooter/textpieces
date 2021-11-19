@@ -65,6 +65,37 @@ namespace TextPieces {
             }
         }
 
+        string _editor_font = "";
+        Gtk.CssProvider _editor_font_css_provider = null;
+
+        public string editor_font {
+            get {
+                return _editor_font;
+            } set {
+                _editor_font = value;
+
+                if (_editor_font_css_provider != null)
+                    Gtk.StyleContext.remove_provider_for_display (
+                        Gdk.Display.get_default (),
+                        _editor_font_css_provider
+                    );
+
+                var css_provider = new Gtk.CssProvider ();
+
+                css_provider.load_from_data ("""
+                    .monospace {
+                        font-family: %s;
+                    }
+                """.printf (value).data);
+
+                Gtk.StyleContext.add_provider_for_display (
+                    Gdk.Display.get_default (),
+                    css_provider,
+                    Gtk.STYLE_PROVIDER_PRIORITY_USER
+                );
+            }
+        }
+
         private const ActionEntry[] ACTION_ENTRIES = {
             { "apply", action_apply },
             { "preferences", action_preferences },
@@ -255,9 +286,10 @@ namespace TextPieces {
             var prefs = new Preferences () {
                 transient_for = this,
                 application = application,
-                focus_add_tool_button = true
+                visible_page_name = "custom-tools"
             };
             prefs.present ();
+            Idle.add (prefs.add_tool_row.grab_focus);
         }
 
         int calculate_relevance (Tool tool) {
@@ -414,8 +446,9 @@ namespace TextPieces {
                 arguments_revealer.set_reveal_child (true);
                 for (var i = 0; i < selected_tool.arguments.length; i++) {
                     var entry = new Gtk.Entry () {
-                        placeholder_text = selected_tool.arguments[i]
+                        placeholder_text = selected_tool.arguments[i],
                     };
+                    entry.add_css_class ("monospace");
                     entry.activate.connect (() => {
                         move_focus (Gtk.DirectionType.TAB_FORWARD);
                     });

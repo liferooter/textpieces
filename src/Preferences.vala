@@ -23,8 +23,12 @@ namespace TextPieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Preferences.ui")]
     class Preferences : Adw.PreferencesWindow {
 
-        [GtkChild]
-        unowned Gtk.ListBox custom_tools_listbox;
+        static Settings settings;
+
+        [GtkChild] unowned Gtk.ListBox custom_tools_listbox;
+        [GtkChild] unowned Gtk.Label font_label;
+
+        public Gtk.ListBoxRow add_tool_row;
 
         int _expanded_row = -1;
         int expanded_row { get {
@@ -42,14 +46,46 @@ namespace TextPieces {
             }
         }}
 
-        /*
-         * This field is used to focus "Add tool" button
-         * when open tools settings.
-         */
-        public bool focus_add_tool_button = false;
+        const ActionEntry[] ACTION_ENTRIES = {
+            { "select-font", action_select_font }
+        };
+
+        static construct {
+            settings = new Settings ("com.github.liferooter.textpieces");
+        }
 
         construct {
+            var label_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8) {
+                halign = Gtk.Align.CENTER,
+                margin_top = 12,
+                margin_bottom = 12
+            };
+
+            label_box.append (
+                new Gtk.Image () {
+                    icon_name = "list-add-symbolic"
+                }
+            );
+            label_box.append (
+                new Gtk.Label (_("Add new Tool"))
+            );
+
+            add_tool_row = new Gtk.ListBoxRow () {
+                child = label_box
+            };
+
             Idle.add (setup_tools);
+
+            var action_group = new SimpleActionGroup ();
+            action_group.add_action_entries (ACTION_ENTRIES, this);
+            insert_action_group ("prefs", action_group);
+
+            settings.bind (
+                "font-name",
+                font_label,
+                "label",
+                DEFAULT
+            );
         }
 
         public bool setup_tools () {
@@ -60,27 +96,10 @@ namespace TextPieces {
             for (int i = 0; i < custom_tools.get_n_items (); i++)
                 custom_tools_listbox.append (build_custom_tool_row (custom_tools.get_item (i)));
 
-
-            var label_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8) {
-                halign = Gtk.Align.CENTER,
-                margin_top = 12,
-                margin_bottom = 12
-            };
-            label_box.append (
-                new Gtk.Image () {
-                    icon_name = "list-add-symbolic"
-                }
-            );
-            label_box.append (
-                new Gtk.Label (_("Add new Tool"))
-            );
-
-            var row = new Gtk.ListBoxRow () {
-                child = label_box
-            };
+            custom_tools_listbox.append (add_tool_row);
 
             custom_tools_listbox.row_activated.connect ((activated_row) => {
-                if (activated_row != row)
+                if (activated_row != add_tool_row)
                     return;
 
                 var dialog = new NewToolDialog () {
@@ -91,13 +110,6 @@ namespace TextPieces {
 
                 dialog.present ();
             });
-
-            custom_tools_listbox.append (row);
-
-            if (focus_add_tool_button) {
-                focus_add_tool_button = false;
-                row.grab_focus ();
-            }
 
             return Source.REMOVE;
         }
@@ -129,6 +141,25 @@ namespace TextPieces {
             });
 
             return widget;
+        }
+
+        public void action_select_font () {
+            var dialog = new Gtk.FontChooserDialog (_("Select font"), this) {
+                modal = true,
+                transient_for = this,
+                font = settings.get_string ("font-name"),
+                level = FAMILY
+            };
+
+            dialog.response.connect ((res) => {
+                if (res == Gtk.ResponseType.OK) {
+                    settings.set_string ("font-name", dialog.font_desc.get_family ());
+                }
+
+                dialog.close ();
+            });
+
+            dialog.present ();
         }
     }
 }
