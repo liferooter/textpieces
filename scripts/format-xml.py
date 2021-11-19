@@ -2,7 +2,7 @@
 
 from xml.dom.minidom import parse
 from xml.parsers.expat import ExpatError
-from sys import stdin, stderr
+from sys import stdin, stdout, stderr
 
 try:
     dom = parse(stdin)
@@ -11,4 +11,3 @@ except ExpatError as e:
     exit(1)
 
 stdout.write(dom.toprettyxml(indent='  '))
-
