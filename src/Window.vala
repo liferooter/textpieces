@@ -304,7 +304,7 @@ namespace TextPieces {
                 "authors", AUTHORS,
                 "translator-credits", _("translator-credits"),
                 null
-        );
+            );
         }
 
         void action_copy () {
@@ -469,7 +469,7 @@ namespace TextPieces {
             search_entry.stop_search ();
 
             var children = arguments_box.observe_children ();
-            for (uint i = 0; i < children.get_n_items (); i++)
+            for (int i = (int) children.get_n_items () - 1; i >= 0; i--)
                 arguments_box.remove ((Gtk.Widget) children.get_item (i));
 
             if (selected_tool.arguments.length == 0) {
