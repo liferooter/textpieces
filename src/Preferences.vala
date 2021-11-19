@@ -50,8 +50,13 @@ namespace TextPieces {
             { "select-font", action_select_font }
         };
 
+        const string[] SETTINGS_ACTIONS = {
+            "wrap-lines",
+            "color-scheme"
+        };
+
         static construct {
-            settings = new Settings ("com.github.liferooter.textpieces");
+            settings = new GLib.Settings ("com.github.liferooter.textpieces");
         }
 
         construct {
@@ -79,6 +84,13 @@ namespace TextPieces {
             var action_group = new SimpleActionGroup ();
             action_group.add_action_entries (ACTION_ENTRIES, this);
             insert_action_group ("prefs", action_group);
+
+            var settings_group = new SimpleActionGroup ();
+            foreach (var setting in SETTINGS_ACTIONS) {
+                var action = settings.create_action (setting);
+                settings_group.add_action (action);
+            }
+            insert_action_group ("settings", settings_group);
 
             settings.bind (
                 "font-name",

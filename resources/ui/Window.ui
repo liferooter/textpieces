@@ -166,6 +166,7 @@
                                 <property name="smart-home-end">before</property>
                                 <property name="tab-width">4</property>
                                 <property name="top-margin">6</property>
+                                <property name="wrap-mode">word-char</property>
                               </object>
                             </child>
                           </object>

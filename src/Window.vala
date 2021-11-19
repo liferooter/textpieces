@@ -96,6 +96,16 @@ namespace TextPieces {
             }
         }
 
+        public bool wrap_lines {
+            get {
+                return editor.wrap_mode == Gtk.WrapMode.WORD_CHAR;
+            } set {
+                editor.wrap_mode = value
+                    ? Gtk.WrapMode.WORD_CHAR
+                    : Gtk.WrapMode.NONE;
+            }
+        }
+
         private const ActionEntry[] ACTION_ENTRIES = {
             { "apply", action_apply },
             { "preferences", action_preferences },
