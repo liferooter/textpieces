@@ -286,9 +286,10 @@ namespace TextPieces {
             var prefs = new Preferences () {
                 transient_for = this,
                 application = application,
-                focus_add_tool_button = true
+                visible_page_name = "custom-tools"
             };
             prefs.present ();
+            Idle.add (prefs.add_tool_row.grab_focus);
         }
 
         int calculate_relevance (Tool tool) {
