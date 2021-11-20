@@ -277,6 +277,7 @@ namespace TextPieces {
             } else {
                 buffer.get_start_iter (out start);
                 buffer.place_cursor (start);
+                editor.vadjustment.value = editor.top_margin;
             }
         }
 
