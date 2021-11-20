@@ -2,4 +2,4 @@
 
 from sys import stdin, stdout
 
-stdout.write(repr(stdin.read())[1:-1])
+stdout.write(repr(stdin.read())[1:-1].replace('"', r'\"'))
