@@ -169,9 +169,6 @@ namespace TextPieces {
                 editor.vadjustment.value = old_adjustment + editor.top_margin;
             });
 
-            // Setup theme switcher
-            menu_popover.add_child (new ThemeSwitcher (), "theme-switcher");
-
             DEFAULT_TOOL_ICON = tool_icon.icon_name;
             DEFAULT_TOOL_LABEL = tool_label.label;
         }

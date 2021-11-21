@@ -78,6 +78,19 @@
                 </child>
               </object>
             </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">System Default</property>
+                <property name="activatable-widget">default_theme_check</property>
+                <child type="prefix">
+                  <object class="GtkCheckButton" id="default_theme_check">
+                    <property name="valign">center</property>
+                    <property name="action-name">settings.color-scheme</property>
+                    <property name="action-target">'system-default'</property>
+                  </object>
+                </child>
+              </object>
+            </child>
           </object>
         </child>
       </object>
