@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2021 Gleb Smirnov
-# This file is distributed under the same license as the textpieces package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-19 13:50+0300\n"
+"POT-Creation-Date: 2021-11-21 15:09+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/com.github.liferooter.textpieces.desktop.in:3
-#: data/com.github.liferooter.textpieces.appdata.xml.in:4 src/Window.vala:275
+#: data/com.github.liferooter.textpieces.appdata.xml.in:4 src/Window.vala:310
 #: resources/ui/Window.ui:7
 msgid "Text Pieces"
 msgstr ""
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:5 src/Window.vala:277
+#: data/com.github.liferooter.textpieces.appdata.xml.in:5 src/Window.vala:312
 msgid "Transform text without using random websites"
 msgstr ""
 
@@ -159,28 +159,44 @@ msgstr ""
 msgid "Application release"
 msgstr ""
 
-#: data/com.github.liferooter.textpieces.gschema.xml:10
+#: data/com.github.liferooter.textpieces.gschema.xml:11
 msgid "Color scheme"
 msgstr ""
 
-#: data/com.github.liferooter.textpieces.gschema.xml:11
+#: data/com.github.liferooter.textpieces.gschema.xml:12
 msgid "Which color scheme to use for application interface."
 msgstr ""
 
-#: data/com.github.liferooter.textpieces.gschema.xml:17
+#: data/com.github.liferooter.textpieces.gschema.xml:18
 msgid "Font name"
 msgstr ""
 
-#: data/com.github.liferooter.textpieces.gschema.xml:18
+#: data/com.github.liferooter.textpieces.gschema.xml:19
 msgid "Name of font used in editor"
 msgstr ""
 
-#: data/com.github.liferooter.textpieces.gschema.xml:24
+#: data/com.github.liferooter.textpieces.gschema.xml:25
 msgid "Wrap lines"
 msgstr ""
 
-#: data/com.github.liferooter.textpieces.gschema.xml:25
+#: data/com.github.liferooter.textpieces.gschema.xml:26
 msgid "Whether to wrap long lines"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:32
+msgid "Tabs to spaces"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:33
+msgid "Whether to insert spaces instead of tab"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:39
+msgid "Spaces in tab"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:40
+msgid "Tab width in spaces"
 msgstr ""
 
 #: src/CustomToolRow.vala:76
@@ -192,11 +208,11 @@ msgstr ""
 msgid "Select Script"
 msgstr ""
 
-#: src/Preferences.vala:75 resources/ui/NewToolDialog.ui:9
+#: src/Preferences.vala:77 resources/ui/NewToolDialog.ui:9
 msgid "Add new Tool"
 msgstr ""
 
-#: src/Preferences.vala:159
+#: src/Preferences.vala:177
 msgid "Select font"
 msgstr ""
 
@@ -208,28 +224,28 @@ msgstr ""
 msgid "Can't open script file"
 msgstr ""
 
-#: src/Window.vala:283
+#: src/Window.vala:318
 msgid "translator-credits"
 msgstr ""
 
-#: src/Window.vala:292
+#: src/Window.vala:327
 msgid "Text is copied to clipboard"
 msgstr ""
 
-#: src/Window.vala:508 resources/ui/Window.ui:100
+#: src/Window.vala:534 resources/ui/Window.ui:96
 msgid "Save to File"
 msgstr ""
 
-#: src/Window.vala:543
+#: src/Window.vala:569
 #, c-format
 msgid "Can't save to file: %s"
 msgstr ""
 
-#: src/Window.vala:557
+#: src/Window.vala:583
 msgid "Load From File"
 msgstr ""
 
-#: src/Window.vala:592
+#: src/Window.vala:618
 #, c-format
 msgid "Can't load from file: %s"
 msgstr ""
@@ -274,23 +290,35 @@ msgstr ""
 msgid "Wrap Lines"
 msgstr ""
 
-#: resources/ui/Preferences.ui:53
+#: resources/ui/Preferences.ui:51
+msgid "Tabs to Spaces"
+msgstr ""
+
+#: resources/ui/Preferences.ui:63
+msgid "Tab Width in Spaces"
+msgstr ""
+
+#: resources/ui/Preferences.ui:77
 msgid "Color Scheme"
 msgstr ""
 
-#: resources/ui/Preferences.ui:56
+#: resources/ui/Preferences.ui:80
 msgid "Light"
 msgstr ""
 
-#: resources/ui/Preferences.ui:69
+#: resources/ui/Preferences.ui:93
 msgid "Dark"
 msgstr ""
 
-#: resources/ui/Preferences.ui:87
+#: resources/ui/Preferences.ui:107
+msgid "System Default"
+msgstr ""
+
+#: resources/ui/Preferences.ui:124
 msgid "Custom Tools"
 msgstr ""
 
-#: resources/ui/Preferences.ui:105
+#: resources/ui/Preferences.ui:142
 msgid "Custom tools"
 msgstr ""
 
@@ -298,7 +326,7 @@ msgstr ""
 msgid "Keyboard shortcuts"
 msgstr ""
 
-#: resources/ui/ShortcutsWindow.ui:22 resources/ui/Window.ui:334
+#: resources/ui/ShortcutsWindow.ui:22 resources/ui/Window.ui:291
 msgid "Preferences"
 msgstr ""
 
@@ -362,14 +390,6 @@ msgstr ""
 msgid "Save to file"
 msgstr ""
 
-#: resources/ui/ThemeSwitcher.ui:15
-msgid "Light style"
-msgstr ""
-
-#: resources/ui/ThemeSwitcher.ui:27
-msgid "Dark style"
-msgstr ""
-
 #: resources/ui/Window.ui:32
 msgid "Apply Selected Tool"
 msgstr ""
@@ -378,26 +398,26 @@ msgstr ""
 msgid "Select Tool"
 msgstr ""
 
-#: resources/ui/Window.ui:93
+#: resources/ui/Window.ui:89
 msgid "Main Menu"
 msgstr ""
 
-#: resources/ui/Window.ui:107
+#: resources/ui/Window.ui:103
 msgid "Load from File"
 msgstr ""
 
-#: resources/ui/Window.ui:278
+#: resources/ui/Window.ui:244
 msgid "No Tools Found"
 msgstr ""
 
-#: resources/ui/Window.ui:299
+#: resources/ui/Window.ui:265
 msgid "Add Custom Tool"
 msgstr ""
 
-#: resources/ui/Window.ui:338
+#: resources/ui/Window.ui:295
 msgid "Keyboard Shortcuts"
 msgstr ""
 
-#: resources/ui/Window.ui:342
+#: resources/ui/Window.ui:299
 msgid "About Text Pieces"
 msgstr ""
