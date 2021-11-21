@@ -31,9 +31,8 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.Stack search_stack;
         [GtkChild] unowned Adw.ToastOverlay toast_overlay;
         [GtkChild] unowned Gtk.Revealer arguments_revealer;
-        [GtkChild] unowned Gtk.Image tool_icon;
-        [GtkChild] unowned Gtk.Label tool_label;
         [GtkChild] unowned Gtk.ToggleButton tool_button;
+        [GtkChild] unowned Adw.ButtonContent tool_button_content;
         [GtkChild] unowned Gtk.SourceView editor;
         [GtkChild] unowned Gtk.Viewport search_viewport;
         [GtkChild] unowned Gtk.Box arguments_box;
@@ -161,7 +160,7 @@ namespace TextPieces {
                 SYNC_CREATE
             );
 
-            tool_button.notify["active"].connect(() => {
+            tool_button_content.notify["active"].connect(() => {
                 if (!tool_button.active)
                     editor.grab_focus ();
                 else
@@ -182,8 +181,8 @@ namespace TextPieces {
                 editor.vadjustment.value = old_adjustment + editor.top_margin;
             });
 
-            DEFAULT_TOOL_ICON = tool_icon.icon_name;
-            DEFAULT_TOOL_LABEL = tool_label.label;
+            DEFAULT_TOOL_ICON = tool_button_content.icon_name;
+            DEFAULT_TOOL_LABEL = tool_button_content.label;
         }
 
         public bool setup_tools () {
@@ -211,14 +210,26 @@ namespace TextPieces {
                     selected_tool = null;
                     ((SimpleAction) lookup_action ("apply")).set_enabled (false);
 
-                    tool_icon.icon_name = DEFAULT_TOOL_ICON;
-                    tool_label.label = DEFAULT_TOOL_LABEL;
+                    tool_button_content.icon_name = DEFAULT_TOOL_ICON;
+                    tool_button_content.label = DEFAULT_TOOL_LABEL;
 
                     var children = arguments_box.observe_children ();
                     for (uint i = 0; i < children.get_n_items (); i++)
                         arguments_box.remove ((Gtk.Widget) children.get_item (i));
 
                     arguments_revealer.set_reveal_child (false);
+                }
+            });
+
+            notify["mnemonics-visible"].connect (() => {
+                if (mnemonics_visible) {
+                    tool_button_content.icon_name = DEFAULT_TOOL_ICON;
+                    tool_button_content.label = DEFAULT_TOOL_LABEL;
+                } else {
+                    tool_button_content.icon_name = selected_tool?.icon
+                        ?? DEFAULT_TOOL_ICON;
+                    tool_button_content.label = selected_tool?.translated_name
+                        ?? DEFAULT_TOOL_LABEL;
                 }
             });
 
@@ -477,8 +488,8 @@ namespace TextPieces {
 
             selected_tool = tool;
 
-            tool_icon.icon_name = tool.icon;
-            tool_label.label = tool.name;
+            tool_button_content.icon_name = tool.icon;
+            tool_button_content.label = tool.name;
             search_entry.stop_search ();
 
             var children = arguments_box.observe_children ();

@@ -17,13 +17,15 @@
             <property name="show-end-title-buttons">false</property>
             <child type="start">
               <object class="GtkButton">
-                <property name="label" translatable="yes">Cancel</property>
+                <property name="label" translatable="yes">_Cancel</property>
+                <property name="use-underline">true</property>
                 <property name="action-name">window.close</property>
               </object>
             </child>
             <child type="end">
               <object class="GtkButton" id="create_button">
-                <property name="label" translatable="yes">Create and Open</property>
+                <property name="label" translatable="yes">Create and _Open</property>
+                <property name="use-underline">true</property>
                 <property name="sensitive">false</property>
                 <signal name="clicked" handler="create" />
                 <style>

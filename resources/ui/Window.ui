@@ -27,7 +27,8 @@
                     </style>
                     <child>
                       <object class="GtkButton">
-                        <property name="label" translatable="yes">Apply</property>
+                        <property name="label" translatable="yes">_Apply</property>
+                        <property name="use-underline">true</property>
                         <property name="action-name">win.apply</property>
                         <property name="tooltip-text" translatable="yes">Apply Selected Tool</property>
                         <style>
@@ -51,32 +52,17 @@
             </child>
             <child type="title">
               <object class="GtkToggleButton" id="tool_button">
-                <style>
-                  <class name="flat" />
-                </style>
                 <property name="child">
-                  <object class="GtkBox">
-                    <property name="spacing">6</property>
-                    <child>
-                      <object class="GtkImage" id="tool_icon">
-                        <property name="icon-name">applications-utilities-symbolic</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="tool_label">
-                        <property name="label" translatable="yes">Select Tool</property>
-                        <style>
-                          <class name="heading" />
-                        </style>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="icon-name">pan-down-symbolic</property>
-                      </object>
-                    </child>
+                  <object class="AdwButtonContent" id="tool_button_content">
+                    <property name="icon-name">applications-utilities-symbolic</property>
+                    <property name="label" translatable="yes">_Select Tool</property>
+                    <property name="use-underline">true</property>
                   </object>
                 </property>
+                <style>
+                  <class name="flat" />
+                  <class name="heading" />
+                </style>
               </object>
             </child>
 
@@ -288,16 +274,19 @@
   <menu id="app-menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">Preferences</attribute>
+        <attribute name="label" translatable="yes">_Preferences</attribute>
         <attribute name="action">win.preferences</attribute>
+        <attribute name="use-underline">true</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">Keyboard Shortcuts</attribute>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
         <attribute name="action">win.show-help-overlay</attribute>
+        <attribute name="use-underline">true</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">About Text Pieces</attribute>
+        <attribute name="label" translatable="yes">_About Text Pieces</attribute>
         <attribute name="action">win.about</attribute>
+        <attribute name="use-underline">true</attribute>
       </item>
     </section>
   </menu>

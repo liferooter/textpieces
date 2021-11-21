@@ -62,23 +62,11 @@ namespace TextPieces {
         }
 
         construct {
-            var label_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8) {
-                halign = Gtk.Align.CENTER,
-                margin_top = 12,
-                margin_bottom = 12
-            };
-
-            label_box.append (
-                new Gtk.Image () {
-                    icon_name = "list-add-symbolic"
-                }
-            );
-            label_box.append (
-                new Gtk.Label (_("Add new Tool"))
-            );
-
-            add_tool_row = new Gtk.ListBoxRow () {
-                child = label_box
+            add_tool_row = new Adw.ActionRow () {
+                icon_name = "list-add-symbolic",
+                title = _("_Add new Tool"),
+                use_underline = true,
+                activatable = true
             };
 
             Idle.add (setup_tools);
