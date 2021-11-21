@@ -31,17 +31,22 @@ namespace TextPieces {
 
         public ToolsController tools;
 
+        private static ActionEntry[] ACTION_ENTRIES = {
+            { "quit", quit }
+        };
+
         private static ActionAccel[] ACTION_ACCELS = {
-            { "win.escape", { "Escape" } },
-            { "win.apply", { "<Alt>a" } },
-            { "win.copy", { "<Alt>c" } },
-            { "win.preferences", { "<Control>comma" } },
-            { "win.show-help-overlay", { "<Control>question" } },
-            { "win.load-file", { "<Control>o" } },
-            { "win.save-as", { "<Control>s" } },
-            { "win.toggle-search", { "<Alt>s" } },
-            { "win.jump-to-args", { "<Alt>Return" } },
-            { "window.close", { "<Control>q", "<Control>w" } },
+            { "win.escape", {"Escape"} },
+            { "win.apply", {"<Control>Return"} },
+            { "win.copy", {"<Control><Shift>c"} },
+            { "win.preferences", {"<Control>comma"} },
+            { "win.show-help-overlay", {"<Control>question"} },
+            { "win.load-file", {"<Control>o"} },
+            { "win.save-as", {"<Control>s"} },
+            { "win.toggle-search", {"<Control>f"} },
+            { "win.jump-to-args", {"<Control>e"} },
+            { "window.close", {"<Control>w"} },
+            { "app.quit", {"<Control>q"} }
         };
 
         public Application () {
@@ -62,7 +67,6 @@ namespace TextPieces {
             Gtk.Sourceinit ();
 
             // Setup color scheme
-
             settings.changed.connect ((key) => {
                 if (key == "color-scheme")
                     color_scheme_changed_cb ();
@@ -70,6 +74,7 @@ namespace TextPieces {
             color_scheme_changed_cb ();
 
             // Setup actions
+            add_action_entries (ACTION_ENTRIES, this);
             foreach (var action_accel in ACTION_ACCELS) {
                 set_accels_for_action (
                     action_accel.action,
