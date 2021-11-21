@@ -27,5 +27,19 @@
         Whether to wrap long lines
       </description>
     </key>
+    <key name="tabs-to-spaces" type="b">
+      <default>false</default>
+      <summary>Tabs to spaces</summary>
+      <description>
+        Whether to insert spaces instead of tab
+      </description>
+    </key>
+    <key name="spaces-in-tab" type="i">
+      <default>4</default>
+      <summary>Spaces in tab</summary>
+      <description>
+        Tab width in spaces
+      </description>
+    </key>
   </schema>
 </schemalist>

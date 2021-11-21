@@ -140,6 +140,20 @@ namespace TextPieces {
 
         construct {
 
+            Application.settings.bind (
+                "tabs-to-spaces",
+                editor,
+                "insert-spaces-instead-of-tabs",
+                DEFAULT
+            );
+
+            Application.settings.bind (
+                "spaces-in-tab",
+                editor,
+                "tab-width",
+                DEFAULT
+            );
+
             app.style_manager.bind_property (
                 "dark",
                 this,

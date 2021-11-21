@@ -27,6 +27,7 @@ namespace TextPieces {
 
         [GtkChild] unowned Gtk.ListBox custom_tools_listbox;
         [GtkChild] unowned Gtk.Label font_label;
+        [GtkChild] unowned Gtk.SpinButton spaces_in_tab;
 
         public Gtk.ListBoxRow add_tool_row;
 
@@ -52,6 +53,7 @@ namespace TextPieces {
 
         const string[] SETTINGS_ACTIONS = {
             "wrap-lines",
+            "tabs-to-spaces",
             "color-scheme"
         };
 
@@ -96,6 +98,22 @@ namespace TextPieces {
                 "font-name",
                 font_label,
                 "label",
+                DEFAULT
+            );
+
+            spaces_in_tab.adjustment = new Gtk.Adjustment (
+                1,  // Value
+                1,  // Floor
+                21, // Ceil
+                1,  // Step
+                0,  // Nothing
+                0   // Nothing
+            );
+
+            settings.bind (
+                "spaces-in-tab",
+                spaces_in_tab,
+                "value",
                 DEFAULT
             );
         }
