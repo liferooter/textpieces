@@ -37,7 +37,6 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.SourceView editor;
         [GtkChild] unowned Gtk.Viewport search_viewport;
         [GtkChild] unowned Gtk.Box arguments_box;
-        [GtkChild] unowned Gtk.PopoverMenu menu_popover;
 
         string DEFAULT_TOOL_LABEL;
         string DEFAULT_TOOL_ICON;
