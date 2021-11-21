@@ -6,8 +6,7 @@ textpieces_sources += [
   'ToolsController.vala',
   'CustomToolRow.vala',
   'NewToolDialog.vala',
-  'Utils.vala',
-  'ThemeSwitcher.vala'
+  'Utils.vala'
 ]
 
 c_args = [

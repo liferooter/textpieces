@@ -9,5 +9,4 @@ resources/ui/CustomToolRow.ui
 resources/ui/NewToolDialog.ui
 resources/ui/Preferences.ui
 resources/ui/ShortcutsWindow.ui
-resources/ui/ThemeSwitcher.ui
 resources/ui/Window.ui

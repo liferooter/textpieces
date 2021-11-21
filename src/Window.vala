@@ -21,7 +21,7 @@
 
 namespace TextPieces {
 
-    const uint NOTIFICATION_HIDE_TIMEOUT = 2000;
+    const uint NOTIFICATION_TIMEOUT = 2000;
 
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Window.ui")]
     class Window : Adw.ApplicationWindow {
@@ -29,16 +29,13 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.ListBox search_listbox;
         [GtkChild] unowned Gtk.SearchEntry search_entry;
         [GtkChild] unowned Gtk.Stack search_stack;
-        [GtkChild] unowned Gtk.Revealer notification_revealer;
+        [GtkChild] unowned Adw.ToastOverlay toast_overlay;
         [GtkChild] unowned Gtk.Revealer arguments_revealer;
-        [GtkChild] unowned Gtk.Label notification_label;
-        [GtkChild] unowned Gtk.Image tool_icon;
-        [GtkChild] unowned Gtk.Label tool_label;
         [GtkChild] unowned Gtk.ToggleButton tool_button;
+        [GtkChild] unowned Adw.ButtonContent tool_button_content;
         [GtkChild] unowned Gtk.SourceView editor;
         [GtkChild] unowned Gtk.Viewport search_viewport;
         [GtkChild] unowned Gtk.Box arguments_box;
-        [GtkChild] unowned Gtk.PopoverMenu menu_popover;
 
         string DEFAULT_TOOL_LABEL;
         string DEFAULT_TOOL_ICON;
@@ -47,7 +44,7 @@ namespace TextPieces {
         Gtk.Sorter search_sorter;
         Gtk.Filter search_filter;
 
-        uint? notification_hide_source = null;
+        Adw.Toast? toast = null;
 
         Tool selected_tool = null;
 
@@ -142,6 +139,20 @@ namespace TextPieces {
 
         construct {
 
+            Application.settings.bind (
+                "tabs-to-spaces",
+                editor,
+                "insert-spaces-instead-of-tabs",
+                DEFAULT
+            );
+
+            Application.settings.bind (
+                "spaces-in-tab",
+                editor,
+                "tab-width",
+                DEFAULT
+            );
+
             app.style_manager.bind_property (
                 "dark",
                 this,
@@ -149,7 +160,7 @@ namespace TextPieces {
                 SYNC_CREATE
             );
 
-            tool_button.notify["active"].connect(() => {
+            tool_button_content.notify["active"].connect(() => {
                 if (!tool_button.active)
                     editor.grab_focus ();
                 else
@@ -165,14 +176,13 @@ namespace TextPieces {
             setup_tools ();
 
             arguments_revealer.notify["child-revealed"].connect (() => {
+                var old_adjustment = editor.vadjustment.value - editor.top_margin;
                 editor.top_margin = arguments_revealer.get_allocated_height ();
+                editor.vadjustment.value = old_adjustment + editor.top_margin;
             });
 
-            // Setup theme switcher
-            menu_popover.add_child (new ThemeSwitcher (), "theme-switcher");
-
-            DEFAULT_TOOL_ICON = tool_icon.icon_name;
-            DEFAULT_TOOL_LABEL = tool_label.label;
+            DEFAULT_TOOL_ICON = tool_button_content.icon_name;
+            DEFAULT_TOOL_LABEL = tool_button_content.label;
         }
 
         public bool setup_tools () {
@@ -200,14 +210,26 @@ namespace TextPieces {
                     selected_tool = null;
                     ((SimpleAction) lookup_action ("apply")).set_enabled (false);
 
-                    tool_icon.icon_name = DEFAULT_TOOL_ICON;
-                    tool_label.label = DEFAULT_TOOL_LABEL;
+                    tool_button_content.icon_name = DEFAULT_TOOL_ICON;
+                    tool_button_content.label = DEFAULT_TOOL_LABEL;
 
                     var children = arguments_box.observe_children ();
                     for (uint i = 0; i < children.get_n_items (); i++)
                         arguments_box.remove ((Gtk.Widget) children.get_item (i));
 
                     arguments_revealer.set_reveal_child (false);
+                }
+            });
+
+            notify["mnemonics-visible"].connect (() => {
+                if (mnemonics_visible) {
+                    tool_button_content.icon_name = DEFAULT_TOOL_ICON;
+                    tool_button_content.label = DEFAULT_TOOL_LABEL;
+                } else {
+                    tool_button_content.icon_name = selected_tool?.icon
+                        ?? DEFAULT_TOOL_ICON;
+                    tool_button_content.label = selected_tool?.translated_name
+                        ?? DEFAULT_TOOL_LABEL;
                 }
             });
 
@@ -276,6 +298,7 @@ namespace TextPieces {
             } else {
                 buffer.get_start_iter (out start);
                 buffer.place_cursor (start);
+                editor.vadjustment.value = editor.top_margin;
             }
         }
 
@@ -289,7 +312,9 @@ namespace TextPieces {
 
         void action_about () {
             string[] AUTHORS = {"Gleb Smirnov <glebsmirnov0708@gmail.com>"};
-            string[] ARTISTS = {"Tobias Bernard https://tobiasbernard.com"};
+
+            string[] ARTISTS = {"Tobias Bernard https://tobiasbernard.com",
+                                "Gleb Smirnov <glebsmirnov0708@gmail.com>"};
 
             Gtk.show_about_dialog (
                 this,
@@ -303,7 +328,7 @@ namespace TextPieces {
                 "authors", AUTHORS,
                 "translator-credits", _("translator-credits"),
                 null
-        );
+            );
         }
 
         void action_copy () {
@@ -394,16 +419,16 @@ namespace TextPieces {
         }
 
         void send_notification (string text) {
-            clear_notification_hide_timeout ();
-            notification_label.set_label (text);
-            notification_revealer.set_reveal_child (true);
-            notification_hide_source = Timeout.add (
-                NOTIFICATION_HIDE_TIMEOUT,
-                () => {
-                    hide_notification ();
-                    return Source.REMOVE;
-                }
-            );
+            var new_toast = new Adw.Toast (text) {
+                priority = HIGH,
+                timeout = NOTIFICATION_TIMEOUT,
+            };
+            new_toast.dismissed.connect (() => {
+                toast = null;
+            });
+            toast_overlay.add_toast (new_toast);
+            hide_notification ();
+            toast = new_toast;
         }
 
         [GtkCallback]
@@ -463,12 +488,12 @@ namespace TextPieces {
 
             selected_tool = tool;
 
-            tool_icon.icon_name = tool.icon;
-            tool_label.label = tool.name;
+            tool_button_content.icon_name = tool.icon;
+            tool_button_content.label = tool.name;
             search_entry.stop_search ();
 
             var children = arguments_box.observe_children ();
-            for (uint i = 0; i < children.get_n_items (); i++)
+            for (int i = (int) children.get_n_items () - 1; i >= 0; i--)
                 arguments_box.remove ((Gtk.Widget) children.get_item (i));
 
             if (selected_tool.arguments.length == 0) {
@@ -497,18 +522,9 @@ namespace TextPieces {
                 search_listbox.row_activated  (row);
         }
 
-        [GtkCallback]
         void hide_notification () {
-            clear_notification_hide_timeout ();
-            notification_revealer.set_reveal_child (false);
-        }
-
-        [GtkCallback]
-        void clear_notification_hide_timeout () {
-            if (notification_hide_source != null) {
-                Source.remove (notification_hide_source);
-                notification_hide_source = null;
-            }
+            toast?.dismiss ();
+            toast = null;
         }
 
         void action_toggle_search () {
@@ -517,7 +533,7 @@ namespace TextPieces {
         }
 
         void action_escape () {
-            if (notification_revealer.reveal_child == true)
+            if (toast != null)
                 hide_notification ();
             else
                 tool_button.set_active (false);

@@ -8,7 +8,8 @@
     <property name="search-enabled">false</property>
     <child>
       <object class="AdwPreferencesPage">
-        <property name="title" translatable="yes">General</property>
+        <property name="title" translatable="yes">_General</property>
+        <property name="use-underline">true</property>
         <property name="name">general-settings</property>
         <property name="icon-name">preferences-symbolic</property>
         <child>
@@ -16,7 +17,8 @@
             <property name="title" translatable="yes">Editor</property>
             <child>
               <object class="AdwActionRow">
-                <property name="title" translatable="yes">Editor Font</property>
+                <property name="title" translatable="yes">Editor _Font</property>
+                <property name="use-underline">true</property>
                 <property name="activatable">True</property>
                 <property name="action-name">prefs.select-font</property>
                 <child>
@@ -36,12 +38,39 @@
             </child>
             <child>
               <object class="AdwActionRow">
-                <property name="title" translatable="yes">Wrap Lines</property>
+                <property name="title" translatable="yes">_Wrap Lines</property>
+                <property name="use-underline">true</property>
                 <property name="activatable-widget">wrap_lines_switch</property>
                 <child>
                   <object class="GtkSwitch" id="wrap_lines_switch">
                     <property name="valign">center</property>
                     <property name="action-name">settings.wrap-lines</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Tabs to _Spaces</property>
+                <property name="use-underline">true</property>
+                <property name="activatable-widget">tabs_to_spaces</property>
+                <child>
+                  <object class="GtkSwitch" id="tabs_to_spaces">
+                    <property name="valign">center</property>
+                    <property name="action-name">settings.tabs-to-spaces</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">_Tab Width in Spaces</property>
+                <property name="use-underline">true</property>
+                <property name="activatable-widget">spaces_in_tab</property>
+                <child>
+                  <object class="GtkSpinButton" id="spaces_in_tab">
+                    <property name="valign">center</property>
+                    <property name="climb-rate">1</property>
                   </object>
                 </child>
               </object>
@@ -53,7 +82,8 @@
             <property name="title" translatable="yes">Color Scheme</property>
             <child>
               <object class="AdwActionRow">
-                <property name="title" translatable="yes">Light</property>
+                <property name="title" translatable="yes">_Light</property>
+                <property name="use-underline">true</property>
                 <property name="activatable-widget">light_check</property>
                 <child type="prefix">
                   <object class="GtkCheckButton" id="light_check">
@@ -66,7 +96,8 @@
             </child>
             <child>
               <object class="AdwActionRow">
-                <property name="title" translatable="yes">Dark</property>
+                <property name="title" translatable="yes">_Dark</property>
+                <property name="use-underline">true</property>
                 <property name="activatable-widget">dark_check</property>
                 <child type="prefix">
                   <object class="GtkCheckButton" id="dark_check">
@@ -78,13 +109,28 @@
                 </child>
               </object>
             </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">S_ystem Default</property>
+                <property name="use-underline">true</property>
+                <property name="activatable-widget">default_theme_check</property>
+                <child type="prefix">
+                  <object class="GtkCheckButton" id="default_theme_check">
+                    <property name="valign">center</property>
+                    <property name="action-name">settings.color-scheme</property>
+                    <property name="action-target">'system-default'</property>
+                  </object>
+                </child>
+              </object>
+            </child>
           </object>
         </child>
       </object>
     </child>
     <child>
       <object class="AdwPreferencesPage">
-        <property name="title" translatable="yes">Custom Tools</property>
+        <property name="title" translatable="yes">_Custom Tools</property>
+        <property name="use-underline">true</property>
         <property name="name">custom-tools</property>
         <property name="icon-name">applications-utilities-symbolic</property>
         <child>

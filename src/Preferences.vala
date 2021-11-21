@@ -27,6 +27,7 @@ namespace TextPieces {
 
         [GtkChild] unowned Gtk.ListBox custom_tools_listbox;
         [GtkChild] unowned Gtk.Label font_label;
+        [GtkChild] unowned Gtk.SpinButton spaces_in_tab;
 
         public Gtk.ListBoxRow add_tool_row;
 
@@ -52,6 +53,7 @@ namespace TextPieces {
 
         const string[] SETTINGS_ACTIONS = {
             "wrap-lines",
+            "tabs-to-spaces",
             "color-scheme"
         };
 
@@ -60,23 +62,11 @@ namespace TextPieces {
         }
 
         construct {
-            var label_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8) {
-                halign = Gtk.Align.CENTER,
-                margin_top = 12,
-                margin_bottom = 12
-            };
-
-            label_box.append (
-                new Gtk.Image () {
-                    icon_name = "list-add-symbolic"
-                }
-            );
-            label_box.append (
-                new Gtk.Label (_("Add new Tool"))
-            );
-
-            add_tool_row = new Gtk.ListBoxRow () {
-                child = label_box
+            add_tool_row = new Adw.ActionRow () {
+                icon_name = "list-add-symbolic",
+                title = _("_Add new Tool"),
+                use_underline = true,
+                activatable = true
             };
 
             Idle.add (setup_tools);
@@ -96,6 +86,22 @@ namespace TextPieces {
                 "font-name",
                 font_label,
                 "label",
+                DEFAULT
+            );
+
+            spaces_in_tab.adjustment = new Gtk.Adjustment (
+                1,  // Value
+                1,  // Floor
+                21, // Ceil
+                1,  // Step
+                0,  // Nothing
+                0   // Nothing
+            );
+
+            settings.bind (
+                "spaces-in-tab",
+                spaces_in_tab,
+                "value",
                 DEFAULT
             );
         }

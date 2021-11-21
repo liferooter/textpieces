@@ -8,4 +8,9 @@ try:
 except json.JSONDecodeError:
     stderr.write("Invalid JSON")
     exit(1)
-json.dump(_dict, stdout, separators=(',', ':'))
+json.dump(
+    _dict,
+    stdout,
+    separators=(',', ':'),
+    ensure_ascii=False
+)

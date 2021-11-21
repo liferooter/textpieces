@@ -23,7 +23,7 @@ namespace TextPieces {
 
     struct ActionAccel {
         string action;
-        string accel;
+        string[] accels;
     }
 
     class Application : Adw.Application {
@@ -31,17 +31,22 @@ namespace TextPieces {
 
         public ToolsController tools;
 
-        private const ActionAccel[] ACTION_ACCELS = {
-            { "win.escape", "Escape" },
-            { "win.apply", "<Alt>a" },
-            { "win.copy", "<Alt>c" },
-            { "win.preferences", "<Control>comma" },
-            { "win.show-help-overlay", "<Control>question" },
-            { "win.load-file", "<Control>o" },
-            { "win.save-as", "<Control>s" },
-            { "win.toggle-search", "<Alt>s" },
-            { "win.jump-to-args", "<Alt>Return" },
-            { "window.close", "<Control>q / <Control>w" },
+        private static ActionEntry[] ACTION_ENTRIES = {
+            { "quit", quit }
+        };
+
+        private static ActionAccel[] ACTION_ACCELS = {
+            { "win.escape", {"Escape"} },
+            { "win.apply", {"<Control>Return"} },
+            { "win.copy", {"<Control><Shift>c"} },
+            { "win.preferences", {"<Control>comma"} },
+            { "win.show-help-overlay", {"<Control>question"} },
+            { "win.load-file", {"<Control>o"} },
+            { "win.save-as", {"<Control>s"} },
+            { "win.toggle-search", {"<Control>f"} },
+            { "win.jump-to-args", {"<Control>e"} },
+            { "window.close", {"<Control>w"} },
+            { "app.quit", {"<Control>q"} }
         };
 
         public Application () {
@@ -62,26 +67,18 @@ namespace TextPieces {
             Gtk.Sourceinit ();
 
             // Setup color scheme
-            if (style_manager.system_supports_color_schemes) {
-                style_manager.set_color_scheme (Adw.ColorScheme.PREFER_DARK);
-                style_manager.notify["dark"].connect (dark_changed_cb);
-                dark_changed_cb ();
-            } else {
-                var color_scheme_action = settings.create_action ("color-scheme");
-                add_action (color_scheme_action);
-
-                settings.changed.connect ((key) => {
-                    if (key == "color-scheme")
-                        color_scheme_changed_cb ();
-                });
-                color_scheme_changed_cb ();
-            }
+            settings.changed.connect ((key) => {
+                if (key == "color-scheme")
+                    color_scheme_changed_cb ();
+            });
+            color_scheme_changed_cb ();
 
             // Setup actions
+            add_action_entries (ACTION_ENTRIES, this);
             foreach (var action_accel in ACTION_ACCELS) {
                 set_accels_for_action (
                     action_accel.action,
-                    action_accel.accel.split (" / ")
+                    action_accel.accels
                 );
             }
 
@@ -99,21 +96,18 @@ namespace TextPieces {
             win.present ();
         }
 
-        void dark_changed_cb () {
-            settings.set_string (
-                "color-scheme",
-                style_manager.dark
-                    ? "dark"
-                    : "light"
-            );
-        }
-
         void color_scheme_changed_cb () {
-            style_manager.set_color_scheme (
-                settings.get_string ("color-scheme") == "dark"
-                    ? Adw.ColorScheme.FORCE_DARK
-                    : Adw.ColorScheme.FORCE_LIGHT
-            );
+            switch (settings.get_string ("color-scheme")) {
+            case "dark":
+                style_manager.color_scheme = FORCE_DARK;
+                break;
+            case "light":
+                style_manager.color_scheme = FORCE_LIGHT;
+                break;
+            case "system-default":
+                style_manager.color_scheme = PREFER_LIGHT;
+                break;
+            }
         }
 
         public static int main (string[] args) {

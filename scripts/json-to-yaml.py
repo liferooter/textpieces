@@ -14,5 +14,6 @@ except json.JSONDecodeError:
 yaml.dump(
     _dict,
     stdout,
-    sort_keys=False
+    sort_keys=False,
+    allow_unicode=True
 )

@@ -5,8 +5,9 @@
       <choices>
         <choice value="light"/>
         <choice value="dark"/>
+        <choice value="system-default"/>
       </choices>
-      <default>'dark'</default>
+      <default>'system-default'</default>
       <summary>Color scheme</summary>
       <description>
         Which color scheme to use for application interface.
@@ -24,6 +25,20 @@
       <summary>Wrap lines</summary>
       <description>
         Whether to wrap long lines
+      </description>
+    </key>
+    <key name="tabs-to-spaces" type="b">
+      <default>false</default>
+      <summary>Tabs to spaces</summary>
+      <description>
+        Whether to insert spaces instead of tab
+      </description>
+    </key>
+    <key name="spaces-in-tab" type="i">
+      <default>4</default>
+      <summary>Spaces in tab</summary>
+      <description>
+        Tab width in spaces
       </description>
     </key>
   </schema>
