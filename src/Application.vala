@@ -23,7 +23,7 @@ namespace TextPieces {
 
     struct ActionAccel {
         string action;
-        string accel;
+        string[] accels;
     }
 
     class Application : Adw.Application {
@@ -31,17 +31,17 @@ namespace TextPieces {
 
         public ToolsController tools;
 
-        private const ActionAccel[] ACTION_ACCELS = {
-            { "win.escape", "Escape" },
-            { "win.apply", "<Alt>a" },
-            { "win.copy", "<Alt>c" },
-            { "win.preferences", "<Control>comma" },
-            { "win.show-help-overlay", "<Control>question" },
-            { "win.load-file", "<Control>o" },
-            { "win.save-as", "<Control>s" },
-            { "win.toggle-search", "<Alt>s" },
-            { "win.jump-to-args", "<Alt>Return" },
-            { "window.close", "<Control>q / <Control>w" },
+        private static ActionAccel[] ACTION_ACCELS = {
+            { "win.escape", { "Escape" } },
+            { "win.apply", { "<Alt>a" } },
+            { "win.copy", { "<Alt>c" } },
+            { "win.preferences", { "<Control>comma" } },
+            { "win.show-help-overlay", { "<Control>question" } },
+            { "win.load-file", { "<Control>o" } },
+            { "win.save-as", { "<Control>s" } },
+            { "win.toggle-search", { "<Alt>s" } },
+            { "win.jump-to-args", { "<Alt>Return" } },
+            { "window.close", { "<Control>q", "<Control>w" } },
         };
 
         public Application () {
@@ -73,7 +73,7 @@ namespace TextPieces {
             foreach (var action_accel in ACTION_ACCELS) {
                 set_accels_for_action (
                     action_accel.action,
-                    action_accel.accel.split (" / ")
+                    action_accel.accels
                 );
             }
 
