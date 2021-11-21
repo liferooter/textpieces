@@ -9,7 +9,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 pattern = argv[1]
 
 try:
-    regex = re.compile(pattern)
+    regex = re.compile(pattern, flags=re.MULTILINE)
 except re.error as err:
     stderr.write(f"Invalid regex: {err.msg}")
     exit(1)

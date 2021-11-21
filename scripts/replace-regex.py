@@ -7,7 +7,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 try:
-    stdout.write(re.sub(argv[1], argv[2], stdin.read()))
+    stdout.write(re.sub(argv[1], argv[2], stdin.read(), flags=re.MULTILINE))
 except re.error as err:
     stderr.write(
         f"Error: {err.msg}"
