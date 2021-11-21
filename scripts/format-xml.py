@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 
-from xml.dom.minidom import parse
-from xml.parsers.expat import ExpatError
+import xml.etree.ElementTree as xml
 from sys import stdin, stdout, stderr
 
+etree = xml.ElementTree()
 try:
-    dom = parse(stdin)
-except ExpatError as e:
-    stderr.write("Can't parse XML: " + str(e))
+    etree.parse(stdin)
+except xml.ParseError as err:
+    stderr.write(f"Can't parse XML: {err.msg}")
     exit(1)
-
-stdout.write(dom.toprettyxml(indent='  '))
+xml.indent(etree)
+etree.write(
+    stdout,
+    xml_declaration=True,
+    encoding='unicode'
+)
