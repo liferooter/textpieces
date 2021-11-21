@@ -1,0 +1,224 @@
+msgid "SHA1 Checksum"
+msgstr ""
+
+msgid "Compute SHA1 hash sum"
+msgstr ""
+
+msgid "SHA256 Checksum"
+msgstr ""
+
+msgid "Compute SHA256 hash sum"
+msgstr ""
+
+msgid "SHA384 Checksum"
+msgstr ""
+
+msgid "Compute SHA384 hash sum"
+msgstr ""
+
+msgid "SHA512 Checksum"
+msgstr ""
+
+msgid "Compute SHA512 hash sum"
+msgstr ""
+
+msgid "MD5 Checksum"
+msgstr ""
+
+msgid "Compute MD5 hash sum"
+msgstr ""
+
+msgid "Base64 Encode"
+msgstr ""
+
+msgid "Encode text to Base64"
+msgstr ""
+
+msgid "Base64 Decode"
+msgstr ""
+
+msgid "Decode text from Base64"
+msgstr ""
+
+msgid "Remove Trailing"
+msgstr ""
+
+msgid "Remove trailing whitespaces and newlines"
+msgstr ""
+
+msgid "Trim Lines"
+msgstr ""
+
+msgid "Remove leading and trailing whitespaces and newlines"
+msgstr ""
+
+msgid "Count Symbols"
+msgstr ""
+
+msgid "Count how many symbols are in text"
+msgstr ""
+
+msgid "Count Lines"
+msgstr ""
+
+msgid "Count how many lines are in text"
+msgstr ""
+
+msgid "Count Words"
+msgstr ""
+
+msgid "Count how many words are in text"
+msgstr ""
+
+msgid "Prettify JSON"
+msgstr ""
+
+msgid "Parse JSON and prettify it"
+msgstr ""
+
+msgid "Minify JSON"
+msgstr ""
+
+msgid "Parse JSON and minify it"
+msgstr ""
+
+msgid "Escape String"
+msgstr ""
+
+msgid "Replace special characters with escape sequences"
+msgstr ""
+
+msgid "Escape HTML"
+msgstr ""
+
+msgid "Replace special characters with HTML-safe sequences"
+msgstr ""
+
+msgid "Escape URL"
+msgstr ""
+
+msgid "Replace special characters with URL-safe sequences"
+msgstr ""
+
+msgid "Unescape String"
+msgstr ""
+
+msgid "Replace escape sequences with characters"
+msgstr ""
+
+msgid "Unescape HTML"
+msgstr ""
+
+msgid "Replace HTML sequences with characters"
+msgstr ""
+
+msgid "Unescape URL"
+msgstr ""
+
+msgid "Replace URL sequences with characters"
+msgstr ""
+
+msgid "Convert JSON to YAML"
+msgstr ""
+
+msgid "Parse JSON and convert it to YAML document"
+msgstr ""
+
+msgid "Convert YAML to JSON"
+msgstr ""
+
+msgid "Parse YAML document and conver it to JSON"
+msgstr ""
+
+msgid "Reverse Lines"
+msgstr ""
+
+msgid "Reoder lines in reverse order"
+msgstr ""
+
+msgid "Reverse Text"
+msgstr ""
+
+msgid "Reorder characters in reverse order"
+msgstr ""
+
+msgid "Sort Lines"
+msgstr ""
+
+msgid "Sort lines in text in alphabetical order"
+msgstr ""
+
+msgid "Reverse Sort Lines"
+msgstr ""
+
+msgid "Sort lines in text in reverse alphabetical order"
+msgstr ""
+
+msgid "Filter Lines by Regex"
+msgstr ""
+
+msgid "Remove all lines which don't match given regular expression"
+msgstr ""
+
+msgid "Regex"
+msgstr ""
+
+msgid "Reverse Filter Lines by Regex"
+msgstr ""
+
+msgid "Remove all lines which match given regular expression"
+msgstr ""
+
+msgid "Filter Lines by Substring"
+msgstr ""
+
+msgid "Remove all lines which don't contain given substring"
+msgstr ""
+
+msgid "Substring"
+msgstr ""
+
+msgid "Reverse Filter Lines by Substring"
+msgstr ""
+
+msgid "Remove all lines which contain given substring"
+msgstr ""
+
+msgid "Remove Regex"
+msgstr ""
+
+msgid "Remove all matches of regular expression"
+msgstr ""
+
+msgid "Remove Substring"
+msgstr ""
+
+msgid "Remove all occurrences of given substring in text"
+msgstr ""
+
+msgid "Replace Substring"
+msgstr ""
+
+msgid "Replace all occurrences of given substring in text with other string"
+msgstr ""
+
+msgid "Find"
+msgstr ""
+
+msgid "Replace With"
+msgstr ""
+
+msgid "Replace Regex"
+msgstr ""
+
+msgid "Replace all given regex matches in text with given string"
+msgstr ""
+
+msgid "Find (regex)"
+msgstr ""
+
+msgid "Prettify XML"
+msgstr ""
+
+msgid "Parse XML and prettify it"
+msgstr ""
