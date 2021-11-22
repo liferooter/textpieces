@@ -5,7 +5,6 @@
   <requires lib="libadwaita" version="1.0" />
 
   <template class="TextPiecesPreferences" parent="AdwPreferencesWindow">
-    <property name="search-enabled">false</property>
     <child>
       <object class="AdwPreferencesPage">
         <property name="title" translatable="yes">_General</property>
