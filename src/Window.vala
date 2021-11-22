@@ -350,24 +350,26 @@ namespace TextPieces {
 
         int calculate_relevance (Tool tool) {
             return int.min (
-                calculate_string_relevance ({
+                calculate_string_irrelevance ({
                     tool.name       .casefold (),
                     tool.description.casefold ()
                 }),
-                calculate_string_relevance ({
+                calculate_string_irrelevance ({
                     tool.translated_name       .casefold (),
                     tool.translated_description.casefold ()
                 })
             );
         }
 
-        int calculate_string_relevance (string[] fields) {
+        int calculate_string_irrelevance (string[] fields) {
             var query = search_entry.text.casefold ();
             var terms = query.split (" ");
 
-            int[] min_match = {0, 0, 0, 0};
+            int[] min_match = {};
+            for (var i = 0; i < fields.length; i++)
+                min_match += 0;
 
-            int relevance = 0;
+            int irrelevance = 0;
 
             foreach (var term in terms) {
                 int i = 0;
@@ -377,20 +379,23 @@ namespace TextPieces {
                     i++;
                 }
                 if (i == fields.length)
-                    return -1;
+                    return int.MAX;
 
-                relevance += match - min_match[i];
+                irrelevance += match - min_match[i];
 
                 min_match[i] = match + term.length;
             }
 
-            return relevance;
+            for (var i = 0; i < min_match.length && min_match[i] == 0; i++)
+                irrelevance += fields[i].length;
+
+            return irrelevance;
         }
 
         bool tool_filter_func (Object item) {
             var tool = (Tool) item;
 
-            return calculate_relevance (tool) != -1;
+            return calculate_relevance (tool) != int.MAX;
         }
 
         int tool_compare_func (Tool? a, Tool? b) {
