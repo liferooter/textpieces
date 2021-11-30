@@ -172,18 +172,31 @@ namespace TextPieces {
             for (var i = 0; i < custom_tools.get_n_items (); i++) {
                 Tool tool = (Tool) custom_tools.get_item (i);
 
-                builder.begin_object ();
+                builder
+                    .begin_object ()
 
-                builder.set_member_name ("name");
-                builder.add_string_value (tool.name);
+                    .set_member_name ("name")
+                    .add_string_value (tool.name)
 
-                builder.set_member_name ("description");
-                builder.add_string_value (tool.description);
+                    .set_member_name ("description")
+                    .add_string_value (tool.description)
 
-                builder.set_member_name ("script");
-                builder.add_string_value (tool.script);
+                    .set_member_name ("script")
+                    .add_string_value (tool.script)
 
-                builder.end_object ();
+                    .set_member_name ("args")
+                    .begin_array ();
+
+                foreach (var arg in tool.arguments) {
+                    builder
+                    .add_string_value (arg);
+                }
+
+                builder
+                    .end_array ();
+
+                builder
+                    .end_object ();
             }
 
             builder.end_array ();
