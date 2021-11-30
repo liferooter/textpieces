@@ -120,7 +120,7 @@ namespace TextPieces {
                 string[] arguments = {};
                 if (tool.has_member ("args"))
                     tool.get_array_member ("args").foreach_element ((a, i, node) => {
-                        if (node.get_node_type () == Json.NodeType.VALUE
+                        if (node.get_node_type () == VALUE
                             && node.get_value_type () == typeof (string)) {
                             arguments += node.get_string ();
                         } else {

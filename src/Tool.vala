@@ -63,9 +63,9 @@ namespace TextPieces {
             try {
                 var process = new Subprocess.newv (
                     cmdline,
-                    SubprocessFlags.STDIN_PIPE |
-                    SubprocessFlags.STDOUT_PIPE |
-                    SubprocessFlags.STDERR_PIPE
+                    STDIN_PIPE  |
+                    STDOUT_PIPE |
+                    STDERR_PIPE
                 );
 
                 string stdout;
@@ -105,7 +105,7 @@ namespace TextPieces {
         public static string generate_filename (string name) {
             /* Generate salt */
             var salt = Checksum.compute_for_string (
-                ChecksumType.SHA256,
+                SHA256,
                 Random.next_int  ()
                       .to_string ()
             ).slice (0, 8);

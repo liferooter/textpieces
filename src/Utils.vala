@@ -22,9 +22,9 @@ namespace TextPieces.Utils {
         if (window != null) {
             var dialog = new Gtk.MessageDialog (
                 window,
-                Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-                Gtk.MessageType.ERROR,
-                Gtk.ButtonsType.CLOSE,
+                MODAL | DESTROY_WITH_PARENT,
+                ERROR,
+                CLOSE,
                 ""
             ) {
                 text = _("Oops..."),

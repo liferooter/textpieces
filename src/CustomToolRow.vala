@@ -41,11 +41,11 @@ namespace TextPieces {
         construct {
             tool.bind_property (
                 "name", this,
-                "title", BindingFlags.SYNC_CREATE
+                "title", SYNC_CREATE
             );
             tool.bind_property (
                 "description", this,
-                "subtitle", BindingFlags.SYNC_CREATE
+                "subtitle", SYNC_CREATE
             );
 
             name_entry.text = tool.name;
@@ -70,9 +70,9 @@ namespace TextPieces {
         void delete_tool () {
             var dialog = new Gtk.MessageDialog (
                 window,
-                Gtk.DialogFlags.MODAL,
-                Gtk.MessageType.QUESTION,
-                Gtk.ButtonsType.YES_NO,
+                MODAL,
+                QUESTION,
+                YES_NO,
                 _("Do you really want to delete \"%s\" tool?"),
                 tool.name
             );
@@ -100,7 +100,7 @@ namespace TextPieces {
             var file_chooser = new Gtk.FileChooserNative (
                 _("Select Script"),
                 window,
-                Gtk.FileChooserAction.OPEN,
+                OPEN,
                 null,
                 null
             ){
@@ -122,7 +122,7 @@ namespace TextPieces {
 
                     old_file.copy_async.begin (
                         new_file,
-                        FileCopyFlags.OVERWRITE,
+                        OVERWRITE,
                         Priority.HIGH_IDLE,
                         null,
                         null,
