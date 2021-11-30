@@ -9,16 +9,16 @@ namespace TextPieces.Utils {
                 null,
                 null
             );
-        } catch (Error _) {
-            show_error_dialog (window);
+        } catch (Error e) {
+            show_error_dialog (e.message, window);
         }
 
         if (!is_successful)
-            show_error_dialog (window);
-
+            show_error_dialog ("unknown error", window);
     }
 
-    void show_error_dialog (Gtk.Window? window) {
+    void show_error_dialog (string msg, Gtk.Window? window) {
+        critical (@"Can't open file: $msg");
         if (window != null) {
             var dialog = new Gtk.MessageDialog (
                 window,
