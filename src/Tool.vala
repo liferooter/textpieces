@@ -27,25 +27,6 @@ namespace TextPieces {
         public string icon = "applications-utilities-symbolic";
         public string script;
         public bool   is_system;
-        public string preferred_filename {
-            owned get {
-                var hash = Checksum.compute_for_string (
-                    ChecksumType.SHA256,
-                    name
-                    + description
-                    + Random
-                        .int_range (1000000, 10000000)
-                        .to_string (),
-                    -1
-                ).slice (0, 8);
-                return name
-                        .down ()
-                        .replace (" ", "_")
-                        .replace ("?", "x")
-                        + "-"
-                        + hash;
-            }
-        }
 
         static construct {
             CUSTOM_TOOLS_DIR = Path.build_filename (
@@ -118,6 +99,25 @@ namespace TextPieces {
                     Tool.CUSTOM_TOOLS_DIR, this.script
                 ),
                 window
+            );
+        }
+
+        public static string generate_filename (string name) {
+            /* Generate salt */
+            var salt = Checksum.compute_for_string (
+                ChecksumType.SHA256,
+                Random.next_int  ()
+                      .to_string ()
+            ).slice (0, 8);
+
+            /* Generate filename in form:
+               "filename-salt", where salt
+               is eight random characters */
+            return "%s-%s".printf (
+                name.down ()
+                    .replace (" ", "_")
+                    .replace ("?", "x"),
+                salt
             );
         }
     }

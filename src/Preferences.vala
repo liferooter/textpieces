@@ -29,8 +29,6 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.Label font_label;
         [GtkChild] unowned Gtk.SpinButton spaces_in_tab;
 
-        public Gtk.ListBoxRow add_tool_row;
-
         int _expanded_row = -1;
         int expanded_row { get {
             return _expanded_row;
@@ -62,12 +60,6 @@ namespace TextPieces {
         }
 
         construct {
-            add_tool_row = new Adw.ActionRow () {
-                icon_name = "list-add-symbolic",
-                title = _("_Add new Tool"),
-                use_underline = true,
-                activatable = true
-            };
 
             Idle.add (setup_tools);
 
@@ -114,49 +106,15 @@ namespace TextPieces {
             for (int i = 0; i < custom_tools.get_n_items (); i++)
                 custom_tools_listbox.append (build_custom_tool_row (custom_tools.get_item (i)));
 
-            custom_tools_listbox.append (add_tool_row);
-
-            custom_tools_listbox.row_activated.connect ((activated_row) => {
-                if (activated_row != add_tool_row)
-                    return;
-
-                var dialog = new NewToolDialog () {
-                    transient_for = this,
-                    preferences = this,
-                    tools = tools
-                };
-
-                dialog.present ();
-            });
-
             return Source.REMOVE;
-        }
-
-        public void add_tool (Tool tool) {
-            custom_tools_listbox.insert (
-                build_custom_tool_row (tool),
-                (int) custom_tools_listbox
-                        .observe_children ()
-                        .get_n_items ()
-                        - 1
-            );
         }
 
         Gtk.Widget build_custom_tool_row (Object item) {
             Tool tool = (Tool) item;
-            var widget = new CustomToolRow (
-                tool,
-                ((TextPieces.Application) application).tools
-            ) {
-                window = this
+            var widget = new Adw.ActionRow () {
+                title = tool.name,
+                subtitle = tool.description
             };
-
-            widget.notify["expanded"].connect (() => {
-                if (widget.expanded == true)
-                    expanded_row = widget.get_index ();
-                else if (expanded_row == widget.get_index ())
-                    expanded_row = -1;
-            });
 
             return widget;
         }
@@ -178,6 +136,14 @@ namespace TextPieces {
             });
 
             dialog.present ();
+        }
+
+        [GtkCallback]
+        public void add_new_tool () {
+            var page = new NewToolPage () {
+                window = this
+            };
+            present_subpage (page);
         }
     }
 }

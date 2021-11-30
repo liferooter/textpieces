@@ -117,7 +117,7 @@ namespace TextPieces {
 
                     var new_file = File.new_build_filename (
                         Tool.CUSTOM_TOOLS_DIR,
-                        tool.preferred_filename
+                        Tool.generate_filename (tool.name)
                     );
 
                     old_file.copy_async.begin (

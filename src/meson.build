@@ -5,7 +5,7 @@ textpieces_sources += [
   'Tool.vala',
   'ToolsController.vala',
   'CustomToolRow.vala',
-  'NewToolDialog.vala',
+  'NewToolPage.vala',
   'Utils.vala'
 ]
 

@@ -345,7 +345,6 @@ namespace TextPieces {
                 visible_page_name = "custom-tools"
             };
             prefs.present ();
-            Idle.add (prefs.add_tool_row.grab_focus);
         }
 
         int calculate_relevance (Tool tool) {
