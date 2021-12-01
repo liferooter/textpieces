@@ -189,7 +189,7 @@ namespace TextPieces {
 
                 foreach (var arg in tool.arguments) {
                     builder
-                    .add_string_value (arg);
+                    .add_string_value (arg ?? "");
                 }
 
                 builder
