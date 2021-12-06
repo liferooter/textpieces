@@ -22,38 +22,38 @@
 
 <interface>
 
-  <requires lib="gtk" version="4.2" />
-  <requires lib="libadwaita" version="1.0" />
+<requires lib="gtk" version="4.2" />
+<requires lib="libadwaita" version="1.0" />
 
-  <template class="TextPiecesCustomToolPage" parent="GtkBox">
-    <property name="orientation">vertical</property>
-    <child>
-      <object class="AdwHeaderBar">
-        <property name="show-start-title-buttons">false</property>
-        <property name="show-end-title-buttons">false</property>
-        <child>
-          <object class="GtkButton">
-            <property name="icon-name">go-previous-symbolic</property>
-            <signal name="clicked" handler="go_back"/>
-          </object>
-        </child>
-        <child type="end">
-          <object class="GtkButton">
-            <property name="label" translatable="yes">D_elete</property>
-            <property name="use-underline">true</property>
-            <signal name="clicked" handler="delete_tool"/>
-            <style>
-              <class name="destructive-action"/>
-            </style>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="TextPiecesToolSettings" id="tool_settings">
-        <property name="can-edit-script">true</property>
-      </object>
-    </child>
+<template class="TextPiecesCustomToolPage" parent="GtkBox">
+  <property name="orientation">vertical</property>
+  <child>
+    <object class="AdwHeaderBar">
+      <property name="show-start-title-buttons">false</property>
+      <property name="show-end-title-buttons">false</property>
+      <child>
+        <object class="GtkButton">
+          <property name="icon-name">go-previous-symbolic</property>
+          <signal name="clicked" handler="go_back"/>
+        </object>
+      </child>
+      <child type="end">
+        <object class="GtkButton">
+          <property name="label" translatable="yes">D_elete</property>
+          <property name="use-underline">true</property>
+          <signal name="clicked" handler="delete_tool"/>
+          <style>
+            <class name="destructive-action"/>
+          </style>
+        </object>
+      </child>
+    </object>
+  </child>
+  <child>
+    <object class="TextPiecesToolSettings" id="tool_settings">
+      <property name="can-edit-script">true</property>
+    </object>
+  </child>
   </template>
 
 </interface>
