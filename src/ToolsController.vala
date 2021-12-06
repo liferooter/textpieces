@@ -18,6 +18,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+
 namespace TextPieces {
     class ToolsController : Object {
 
