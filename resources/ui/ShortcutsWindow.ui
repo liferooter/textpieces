@@ -29,6 +29,7 @@
   <child>
     <object class="GtkShortcutsSection">
       <property name="section-name">shortcuts</property>
+
       <child>
         <object class="GtkShortcutsGroup">
           <property name="title" translatable="yes">General</property>
@@ -52,6 +53,7 @@
           </child>
         </object>
       </child>
+
       <child>
         <object class="GtkShortcutsGroup">
           <property name="title" translatable="yes">Tools</property>
@@ -75,6 +77,7 @@
           </child>
         </object>
       </child>
+
       <child>
         <object class="GtkShortcutsGroup">
           <property name="title" translatable="yes">Undo and Redo</property>
@@ -92,6 +95,7 @@
           </child>
         </object>
       </child>
+
       <child>
         <object class="GtkShortcutsGroup">
           <property name="title" translatable="yes">Copy and Paste</property>
@@ -115,6 +119,7 @@
           </child>
         </object>
       </child>
+
       <child>
         <object class="GtkShortcutsGroup">
           <property name="title" translatable="yes">Files</property>
@@ -132,6 +137,7 @@
           </child>
         </object>
       </child>
+
     </object>
   </child>
 </object>

@@ -41,6 +41,7 @@
                   <property name="margin-bottom">20</property>
                   <property name="spacing">20</property>
                   <property name="orientation">vertical</property>
+
                   <child>
                     <object class="GtkListBox">
                       <property name="selection-mode">none</property>
@@ -94,6 +95,7 @@
                       </child>
                     </object>
                   </child>
+
                   <child>
                     <object class="GtkListBox" id="edit_script_list">
                       <property name="selection-mode">none</property>
@@ -116,6 +118,7 @@
                       </child>
                     </object>
                   </child>
+
                   <child>
                     <object class="GtkListBox" id="argument_list">
                       <property name="selection-mode">none</property>
@@ -125,6 +128,7 @@
                       </style>
                     </object>
                   </child>
+
                 </object>
               </child>
             </object>

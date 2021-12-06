@@ -27,6 +27,7 @@
 
 <template class="TextPiecesPreferences" parent="AdwPreferencesWindow">
   <property name="can-navigate-back">true</property>
+
   <child>
     <object class="AdwPreferencesPage">
       <property name="title" translatable="yes">_General</property>
@@ -148,6 +149,7 @@
       </child>
     </object>
   </child>
+
   <child>
     <object class="AdwPreferencesPage">
       <property name="title" translatable="yes">T_ools</property>
@@ -184,6 +186,7 @@
       </child>
     </object>
   </child>
+
 </template>
 
 </interface>

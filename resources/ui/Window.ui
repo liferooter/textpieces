@@ -39,10 +39,16 @@
         <object class="AdwHeaderBar">
           <property name="show-start-title-buttons">true</property>
           <property name="show-end-title-buttons">true</property>
-          <child type="start">
+
+          <!-- Left buttons -->
+          <child>
             <object class="GtkRevealer">
               <property name="transition-type">crossfade</property>
-              <property name="reveal-child" bind-source="search_bar" bind-property="search-mode-enabled" bind-flags="invert-boolean">true</property>
+              <property
+                name="reveal-child"
+                bind-source="search_bar"
+                bind-property="search-mode-enabled"
+                bind-flags="invert-boolean | sync-create"/>
               <property name="child">
                 <object class="GtkBox">
                   <style>
@@ -73,6 +79,8 @@
               </property>
             </object>
           </child>
+
+          <!-- Title widget -->
           <child type="title">
             <object class="GtkToggleButton" id="tool_button">
               <property name="child">
@@ -89,8 +97,8 @@
             </object>
           </child>
 
+          <!--                  Right buttons                  -->
           <!-- Don't forget that end childs have reverse order -->
-
           <child type="end">
             <object class="GtkMenuButton">
               <property name="icon-name">open-menu-symbolic</property>
@@ -113,6 +121,7 @@
               <property name="action-name">win.load-file</property>
             </object>
           </child>
+
         </object>
       </child>
 
@@ -143,6 +152,7 @@
           </property>
         </object>
       </child>
+
       <child>
         <object class="GtkStack" id="content_stack">
           <property name="vexpand">true</property>
@@ -152,6 +162,7 @@
               <lookup name="search-mode-enabled">search_bar</lookup>
             </closure>
           </binding>
+
           <child>
             <object class="GtkStackPage">
               <property name="name">editor</property>
@@ -203,6 +214,7 @@
               </property>
             </object>
           </child>
+
           <child>
             <object class="GtkStackPage">
               <property name="name">search</property>
@@ -290,6 +302,7 @@
               </property>
             </object>
           </child>
+
         </object>
       </child>
     </object>
