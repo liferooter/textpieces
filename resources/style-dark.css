@@ -18,12 +18,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-/* Argument view */
-
+/* Argument view in dark mode */
 .argument-view {
-  padding: 6px;
-  border-radius: 0px 0px 6px 6px;
-
-  /* Argument view in light mode */
-  background-color: shade(@theme_base_color, 0.9);
+    background-color: shade(@theme_base_color, 1.3);
 }

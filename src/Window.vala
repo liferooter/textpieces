@@ -93,20 +93,6 @@ namespace TextPieces {
             }
         }
 
-        public bool dark {
-            get {
-                return app.style_manager.dark;
-            } set {
-                if (value) {
-                    remove_css_class ("light-theme");
-                    add_css_class ("dark-theme");
-                } else {
-                    remove_css_class ("dark-theme");
-                    add_css_class ("light-theme");
-                }
-            }
-        }
-
         public bool wrap_lines {
             get {
                 return editor.wrap_mode == WORD_CHAR;
@@ -151,13 +137,6 @@ namespace TextPieces {
                 editor,
                 "tab-width",
                 DEFAULT
-            );
-
-            app.style_manager.bind_property (
-                "dark",
-                this,
-                "dark",
-                SYNC_CREATE
             );
 
             tool_button_content.notify["active"].connect(() => {

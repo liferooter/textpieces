@@ -13,6 +13,7 @@
 
     <!-- Style CSS -->
     <file>style.css</file>
+    <file>style-dark.css</file>
 
     <!-- Bundled icons -->
     <file preprocess="xml-stripblanks">icons/scalable/status/fingerprint-symbolic.svg</file>
