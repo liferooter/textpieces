@@ -27,6 +27,7 @@
 
 <template class="TextPiecesNewToolPage" parent="GtkBox">
   <property name="orientation">vertical</property>
+
   <child>
     <object class="AdwHeaderBar">
       <property name="show-start-title-buttons">false</property>
@@ -57,9 +58,11 @@
       </child>
     </object>
   </child>
+
   <child>
     <object class="TextPiecesToolSettings" id="tool_settings"/>
   </child>
+
 </template>
 
 </interface>

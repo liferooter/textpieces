@@ -34,6 +34,7 @@
   <child>
     <object class="GtkBox">
       <property name="orientation">vertical</property>
+
       <child>
         <object class="AdwHeaderBar">
           <property name="show-start-title-buttons">true</property>
@@ -114,6 +115,7 @@
           </child>
         </object>
       </child>
+
       <child>
         <object class="GtkSearchBar" id="search_bar">
           <property name="search-mode-enabled" bind-property="active" bind-source="tool_button" bind-flags="bidirectional" />
@@ -292,6 +294,7 @@
       </child>
     </object>
   </child>
+
 </template>
 
 <menu id="app-menu">
