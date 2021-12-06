@@ -29,22 +29,6 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.Label font_label;
         [GtkChild] unowned Gtk.SpinButton spaces_in_tab;
 
-        int _expanded_row = -1;
-        int expanded_row { get {
-            return _expanded_row;
-        } set {
-            var last_expanded = _expanded_row;
-            _expanded_row = value;
-            if (last_expanded != -1) {
-                (
-                    (Adw.ExpanderRow)
-                    custom_tools_listbox
-                        .observe_children ()
-                        .get_item (last_expanded)
-                ).set_expanded (false);
-            }
-        }}
-
         const ActionEntry[] ACTION_ENTRIES = {
             { "select-font", action_select_font }
         };
@@ -99,24 +83,38 @@ namespace TextPieces {
         }
 
         public bool setup_tools () {
+            /* Bind list of custom tools to `custom_tools_listbox` */
+            var tools = ((TextPieces.Application) application).tools.custom_tools;
+            custom_tools_listbox.bind_model (
+                tools,
+                (obj) => {
+                    var item = (Tool) obj;
+                    var row = new Adw.ActionRow () {
+                        title = item.name,
+                        subtitle = item.description,
+                        activatable = true
+                    };
+                    row.add_suffix (new Gtk.Image () {
+                        icon_name = "go-next-symbolic"
+                    });
 
-            var tools = ((TextPieces.Application) application).tools;
-            var custom_tools = tools.custom_tools;
+                    return row;
+                }
+            );
 
-            for (int i = 0; i < custom_tools.get_n_items (); i++)
-                custom_tools_listbox.append (build_custom_tool_row (custom_tools.get_item (i)));
+            /* Open tool subpage when tool is selected */
+            custom_tools_listbox.row_activated.connect ((row) => {
+                var tool = (Tool) tools.get_item (row.get_index ());
+                present_subpage (new CustomToolPage (this, tool));
+            });
+
+            /* Don't show empty list */
+            custom_tools_listbox.visible = tools.get_n_items () > 0;
+            tools.items_changed.connect (() => {
+                custom_tools_listbox.visible = tools.get_n_items () > 0;
+            });
 
             return Source.REMOVE;
-        }
-
-        Gtk.Widget build_custom_tool_row (Object item) {
-            Tool tool = (Tool) item;
-            var widget = new Adw.ActionRow () {
-                title = tool.name,
-                subtitle = tool.description
-            };
-
-            return widget;
         }
 
         public void action_select_font () {
@@ -140,9 +138,7 @@ namespace TextPieces {
 
         [GtkCallback]
         public void add_new_tool () {
-            var page = new NewToolPage () {
-                window = this
-            };
+            var page = new NewToolPage (this);
             present_subpage (page);
         }
     }

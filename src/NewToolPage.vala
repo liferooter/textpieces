@@ -21,100 +21,38 @@
 namespace TextPieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/NewToolPage.ui")]
     class NewToolPage : Gtk.Box {
+        [GtkChild] unowned ToolSettings tool_settings;
 
-        class Argument : Object {
-            public int    index { get; construct; }
-            public string name  { get; set;       }
+        public Preferences prefs { get; construct; }
 
-            public Argument (int index) {
-                Object (
-                    index: index
-                );
-            }
+        private Tool new_tool;
+
+        public NewToolPage (Preferences prefs) {
+            Object (
+                prefs: prefs
+            );
         }
-
-        [GtkChild] unowned Gtk.ListBox    argument_list;
-        [GtkChild] unowned Gtk.SpinButton arguments_number;
-        [GtkChild] unowned Gtk.Entry      name_entry;
-        [GtkChild] unowned Gtk.Entry      description_entry;
-
-        public Adw.PreferencesWindow window = null;
-
-        private ListStore arguments_model;
 
         construct {
-            /* Bind arguments model */
-            var model = new ListStore (typeof (Argument));
-            arguments_number.notify["value"].connect (() => {
-                var value = arguments_number.value;
-                while (value > model.get_n_items ())
-                    model.append (new Argument ((int) model.get_n_items ()));
-                while (value < model.get_n_items ())
-                    model.remove (model.get_n_items () - 1);
-
-                argument_list.visible = value > 0;
-            });
-            argument_list.bind_model (model, create_argument_row_func);
-            arguments_model = model;
-        }
-
-        Gtk.Widget create_argument_row_func (Object item) {
-            /* Get argument object */
-            var argument = item as Argument;
-
-            /* Create entry for argument name,
-               align it to the center to don't
-               stretch to the full height of row */
-            var entry = new Gtk.Entry () {
-                valign = CENTER
+            new_tool = new Tool () {
+                name = "",
+                description = "",
+                arguments = {},
+                script = "",
+                is_system = false
             };
 
-            /* Create row itself,
-               set title "Argument N",
-               make entry activatable
-               by click on row */
-            var row = new Adw.ActionRow () {
-                title = @"Argument $(argument.index + 1)",
-                activatable_widget = entry
-            };
-
-            /* Add entry to row */
-            row.add_suffix (entry);
-
-            /* Bind entry text to
-               argument name */
-            entry.bind_property (
-                "text",
-                argument,
-                "name"
-            );
-
-            return row;
+            tool_settings.set_tool (new_tool);
+            tool_settings.window = prefs;
         }
 
         [GtkCallback]
         void go_back () {
-            window?.close_subpage ();
-        }
-
-        [GtkCallback]
-        bool nonempty (string str) {
-            return str != "";
+            prefs?.close_subpage ();
         }
 
         [GtkCallback]
         void create () {
-            /* Get tool name and description */
-            var name        = name_entry.text;
-            var description = description_entry.text;
-
-            /* Get tool arguments */
-            string[] arguments = {};
-            for (int i = 0; i < arguments_model.get_n_items (); ++i) {
-                var argument = (Argument) arguments_model.get_item (i);
-                arguments += argument.name;
-            }
-
             /* Create tool directory if not exists */
             var dir = File.new_for_path (Tool.CUSTOM_TOOLS_DIR);
             if (!dir.query_exists ()) {
@@ -153,25 +91,19 @@ namespace TextPieces {
             /* Change file permissions */
             FileUtils.chmod (script_file.get_path (), 0750); // rwxr-x---
 
-            /* Create tool object */
-            var tool = new Tool () {
-                name = name,
-                description = description,
-                arguments = arguments,
-                script = filename,
-                is_system = false
-            };
+            /* Set script filename to the tool */
+            new_tool.script = filename;
 
             /* Add new tool to tools */
-            var tools = ((TextPieces.Application) window.application)
+            var tools = ((TextPieces.Application) prefs.application)
                             .tools;
-            tools.custom_tools.append (tool);
+            tools.custom_tools.append (new_tool);
             tools.dump_custom_tools ();
 
             /* Close subpage and open
                editor with script file */
             go_back ();
-            tool.open (window);
+            new_tool.open (prefs);
         }
     }
 }

@@ -4,8 +4,9 @@
     <file preprocess="xml-stripblanks">ui/Preferences.ui</file>
     <file preprocess="xml-stripblanks" alias="gtk/help-overlay.ui">ui/ShortcutsWindow.ui</file>
     <file preprocess="xml-stripblanks">ui/Window.ui</file>
-    <file preprocess="xml-stripblanks">ui/CustomToolRow.ui</file>
+    <file preprocess="xml-stripblanks">ui/CustomToolPage.ui</file>
     <file preprocess="xml-stripblanks">ui/NewToolPage.ui</file>
+    <file preprocess="xml-stripblanks">ui/ToolSettings.ui</file>
     <file preprocess="xml-stripblanks">icons/scalable/status/fingerprint-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/status/preferences-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/status/lock-symbolic.svg</file>

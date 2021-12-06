@@ -14,7 +14,7 @@ namespace TextPieces.Utils {
         }
 
         if (!is_successful)
-            show_error_dialog ("unknown error", window);
+            show_error_dialog ("Unknown error", window);
     }
 
     void show_error_dialog (string msg, Gtk.Window? window) {
