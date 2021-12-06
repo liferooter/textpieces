@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+
+  <requires lib="gtk" version="4.2" />
+  <requires lib="libadwaita" version="1.0" />
+
+  <template class="TextPiecesToolSettings" parent="AdwBin">
+    <child>
+      <object class="GtkScrolledWindow">
+        <child>
+          <object class="GtkViewport">
+            <property name="vexpand">true</property>
+            <property name="scroll-to-focus">true</property>
+            <child>
+              <object class="AdwClamp">
+                <property name="maximum-size">400</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="margin-top">20</property>
+                    <property name="margin-bottom">20</property>
+                    <property name="spacing">20</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkListBox">
+                        <property name="selection-mode">none</property>
+                        <style>
+                          <class name="content"/>
+                        </style>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">_Name</property>
+                            <property name="use-underline">true</property>
+                            <property name="activatable-widget">name_entry</property>
+                            <child>
+                              <object class="GtkEntry" id="name_entry">
+                                <property name="valign">center</property>
+                                <signal name="activate" handler="gtk_widget_grab_focus" object="description_entry"/>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">_Description</property>
+                            <property name="use-underline">true</property>
+                            <property name="activatable-widget">description_entry</property>
+                            <child>
+                              <object class="GtkEntry" id="description_entry">
+                                <property name="valign">center</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="yes">_Arguments</property>
+                            <property name="use-underline">true</property>
+                            <property name="activatable-widget">arguments_number</property>
+                            <child>
+                              <object class="GtkSpinButton" id="arguments_number">
+                                <property name="valign">center</property>
+                                <property name="adjustment">
+                                  <object class="GtkAdjustment">
+                                    <property name="lower">0</property>
+                                    <property name="upper">100</property>
+                                    <property name="step-increment">1</property>
+                                    <property name="value">0</property>
+                                  </object>
+                                </property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkListBox" id="edit_script_list">
+                        <property name="selection-mode">none</property>
+                        <style>
+                          <class name="content"/>
+                        </style>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title" translatable="true">Edit _Script</property>
+                            <property name="use-underline">true</property>
+                            <property name="activatable">true</property>
+                            <signal name="activated" handler="edit_script"/>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="valign">center</property>
+                                <property name="icon-name">document-edit-symbolic</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkListBox" id="argument_list">
+                        <property name="selection-mode">none</property>
+                        <property name="visible">false</property>
+                        <style>
+                          <class name="content"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

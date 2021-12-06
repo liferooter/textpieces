@@ -109,7 +109,7 @@ namespace TextPieces {
 
         public bool wrap_lines {
             get {
-                return editor.wrap_mode == Gtk.WrapMode.WORD_CHAR;
+                return editor.wrap_mode == WORD_CHAR;
             } set {
                 editor.wrap_mode = value
                     ? Gtk.WrapMode.WORD_CHAR
@@ -345,7 +345,6 @@ namespace TextPieces {
                 visible_page_name = "custom-tools"
             };
             prefs.present ();
-            Idle.add (prefs.add_tool_row.grab_focus);
         }
 
         int calculate_relevance (Tool tool) {
@@ -398,29 +397,29 @@ namespace TextPieces {
             return calculate_relevance (tool) != int.MAX;
         }
 
-        int tool_compare_func (Tool? a, Tool? b) {
+        Gtk.Ordering tool_compare_func (Tool? a, Tool? b) {
             // Null-test
             if (a == null) {
                 if (b == null)
-                    return Gtk.Ordering.EQUAL;
+                    return EQUAL;
                 else
-                    return Gtk.Ordering.SMALLER;
+                    return SMALLER;
             } if (b == null) {
                 if (a == null)
-                    return Gtk.Ordering.EQUAL;
+                    return EQUAL;
                 else
-                    return Gtk.Ordering.LARGER;
+                    return LARGER;
             }
 
             var a_rel = calculate_relevance (a);
             var b_rel = calculate_relevance (b);
 
             if (a_rel > b_rel)
-                return Gtk.Ordering.LARGER;
+                return LARGER;
             else if (a_rel < b_rel)
-                return Gtk.Ordering.SMALLER;
+                return SMALLER;
             else // a_rel == b_rel
-                return strcmp (a.name, b.name);
+                return (Gtk.Ordering) strcmp (a.name, b.name);
         }
 
         void send_notification (string text) {
@@ -447,8 +446,8 @@ namespace TextPieces {
 
         [GtkCallback]
         void on_search_changed () {
-            search_sorter.changed (Gtk.SorterChange.DIFFERENT);
-            search_filter.changed (Gtk.FilterChange.DIFFERENT);
+            search_sorter.changed (DIFFERENT);
+            search_filter.changed (DIFFERENT);
 
             search_stack.set_visible_child_name (
                 search_list.get_n_items () == 0
@@ -511,7 +510,7 @@ namespace TextPieces {
                     };
                     entry.add_css_class ("monospace");
                     entry.activate.connect (() => {
-                        move_focus (Gtk.DirectionType.TAB_FORWARD);
+                        move_focus (TAB_FORWARD);
                     });
                     arguments_box.append (entry);
                 }
@@ -549,7 +548,7 @@ namespace TextPieces {
             var file_chooser = new Gtk.FileChooserNative (
                 _("Save to File"),
                 this,
-                Gtk.FileChooserAction.SAVE,
+                SAVE,
                 null,
                 null
             ) {
@@ -578,10 +577,9 @@ namespace TextPieces {
                         } catch (Error e) {
                             var dialog = new Gtk.MessageDialog (
                                 this,
-                                Gtk.DialogFlags.MODAL
-                                | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-                                Gtk.MessageType.WARNING,
-                                Gtk.ButtonsType.CLOSE,
+                                MODAL | DESTROY_WITH_PARENT,
+                                WARNING,
+                                CLOSE,
                                 _("Can't save to file: %s"),
                                 e.message
                             );
@@ -598,7 +596,7 @@ namespace TextPieces {
             var file_chooser = new Gtk.FileChooserNative (
                 _("Load From File"),
                 this,
-                Gtk.FileChooserAction.OPEN,
+                OPEN,
                 null,
                 null
             ) {
@@ -627,10 +625,9 @@ namespace TextPieces {
                         } catch (Error e) {
                             var dialog = new Gtk.MessageDialog (
                                 this,
-                                Gtk.DialogFlags.MODAL
-                                | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-                                Gtk.MessageType.WARNING,
-                                Gtk.ButtonsType.CLOSE,
+                                MODAL | DESTROY_WITH_PARENT,
+                                WARNING,
+                                CLOSE,
                                 _("Can't load from file: %s"),
                                 e.message
                             );

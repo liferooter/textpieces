@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+
+  <requires lib="gtk" version="4.2" />
+  <requires lib="libadwaita" version="1.0" />
+
+  <template class="TextPiecesNewToolPage" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="AdwHeaderBar">
+        <property name="show-start-title-buttons">false</property>
+        <property name="show-end-title-buttons">false</property>
+        <child>
+          <object class="GtkButton">
+            <property name="icon-name">go-previous-symbolic</property>
+            <signal name="clicked" handler="go_back"/>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkRevealer" id="create_button_revealer">
+            <property name="transition-type">crossfade</property>
+            <binding name="reveal-child">
+              <lookup name="is-valid">tool_settings</lookup>
+            </binding>
+            <property name="child">
+              <object class="GtkButton">
+                <property name="label" translatable="yes">_Create</property>
+                <property name="use-underline">true</property>
+                <signal name="clicked" handler="create"/>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="TextPiecesToolSettings" id="tool_settings"/>
+    </child>
+  </template>
+</interface>

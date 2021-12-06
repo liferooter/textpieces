@@ -5,6 +5,7 @@
   <requires lib="libadwaita" version="1.0" />
 
   <template class="TextPiecesPreferences" parent="AdwPreferencesWindow">
+    <property name="can-navigate-back">true</property>
     <child>
       <object class="AdwPreferencesPage">
         <property name="title" translatable="yes">_General</property>
@@ -128,45 +129,34 @@
     </child>
     <child>
       <object class="AdwPreferencesPage">
-        <property name="title" translatable="yes">_Custom Tools</property>
+        <property name="title" translatable="yes">T_ools</property>
         <property name="use-underline">true</property>
         <property name="name">custom-tools</property>
         <property name="icon-name">applications-utilities-symbolic</property>
         <child>
-          <object class="GtkScrolledWindow">
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Custom tools</property>
             <child>
-              <object class="GtkViewport">
+              <object class="AdwActionRow">
+                <property name="title">_Add custom tool</property>
+                <property name="use-underline">true</property>
+                <property name="activatable">true</property>
+                <signal name="activated" handler="add_new_tool"/>
                 <child>
-                  <object class="AdwClamp">
-                    <property name="maximum-size">600</property>
-                    <property name="margin-start">8</property>
-                    <property name="margin-end">8</property>
-                    <property name="valign">start</property>
-                    <child>
-                      <object class="GtkBox">
-                        <property name="orientation">vertical</property>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="label" translatable="yes">Custom tools</property>
-                            <property name="halign">start</property>
-                            <style>
-                              <class name="heading"/>
-                            </style>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkListBox" id="custom_tools_listbox">
-                            <property name="valign">start</property>
-                            <property name="selection-mode">none</property>
-                            <style>
-                              <class name="content" />
-                            </style>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
+                  <object class="GtkImage">
+                    <property name="icon-name">go-next-symbolic</property>
                   </object>
                 </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBox" id="custom_tools_listbox">
+                <property name="margin-top">20</property>
+                <property name="margin-bottom">20</property>
+                <property name="selection-mode">none</property>
+                <style>
+                  <class name="content"/>
+                </style>
               </object>
             </child>
           </object>
