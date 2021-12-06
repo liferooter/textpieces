@@ -155,7 +155,7 @@
                 <property name="margin-bottom">20</property>
                 <property name="selection-mode">none</property>
                 <style>
-                  <class name="content"/>
+                  <class name="boxed-list"/>
                 </style>
               </object>
             </child>

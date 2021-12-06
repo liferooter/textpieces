@@ -24,7 +24,7 @@
                       <object class="GtkListBox">
                         <property name="selection-mode">none</property>
                         <style>
-                          <class name="content"/>
+                          <class name="boxed-list"/>
                         </style>
                         <child>
                           <object class="AdwActionRow">
@@ -77,7 +77,7 @@
                       <object class="GtkListBox" id="edit_script_list">
                         <property name="selection-mode">none</property>
                         <style>
-                          <class name="content"/>
+                          <class name="boxed-list"/>
                         </style>
                         <child>
                           <object class="AdwActionRow">
@@ -100,7 +100,7 @@
                         <property name="selection-mode">none</property>
                         <property name="visible">false</property>
                         <style>
-                          <class name="content"/>
+                          <class name="boxed-list"/>
                         </style>
                       </object>
                     </child>

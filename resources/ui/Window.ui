@@ -204,7 +204,7 @@
                                         <property name="selection-mode">none</property>
                                         <signal name="row-activated" handler="on_row_activated" />
                                         <style>
-                                          <class name="content" />
+                                          <class name="boxed-list" />
                                         </style>
                                         <child>
                                           <object class="GtkEventControllerKey">
