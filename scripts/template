@@ -1,22 +1,40 @@
 #!/usr/bin/env python3
 
 # Hey, this is the script of your new tool.
-# It's easy. Read string from stdin, return result to stdout.
 
-# You can use your favourite language,
-# not only Python. Just replace comand in first line
-# (https://en.wikipedia.org/wiki/Shebang_(Unix))
+# It's easy to create tool.
 
-# IMPORTANT: trailing newline isn't ignored, so you shouldn't
-# print it if you don't really want it to be in result string.
+# - Get selected text from stdin
+# - Write result to stdout
+# - Write errors to stderr
+# - Exit with non-zero exit code to prevent applying on error
+# - Get arguments from command line
 
-from sys import stdin, stdout
+# Here is example:
+
+from sys import stdin, stdout, stderr, argv
 
 # Read from stdin...
 input_string = stdin.read()
 
 # ...process string...
-output_string = '...'
+output_string = 'You said "' + input_string + '"'
 
-# And write it to stdout
+# IMPORTANT: trailing newline isn't ignored, so you shouldn't
+# print it if you don't really want it to be in result string.
+
+# ...handle errors...
+if len(output_string) > 30:
+    stderr.write("The message is too long")
+    exit(1)
+
+# ...and write result to stdout
 stdout.write(output_string)
+
+# You can use any language, not only Python.
+# Just replace comand in first line with
+# other the interpreter. (https://en.wikipedia.org/wiki/Shebang_(Unix))
+
+# Compiled languages is not supported, but
+# if you *really* want, you can put any
+# binary to this script location
