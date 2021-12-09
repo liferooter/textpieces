@@ -18,104 +18,174 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-namespace TextPieces {
-    class ToolsController : Object {
 
+namespace TextPieces {
+    /**
+     * Tools controller
+     */
+    class ToolsController : Object {
+        /**
+         * Configuration directory
+         */
         static string CONFIG_DIR;
 
-        static string SYSTEM_TOOLS_PATH;
-        static string CUSTOM_TOOLS_PATH;
+        /**
+         * Path to file containing
+         * pre-installed tools metadata
+         */
+        static string SYSTEM_TOOLS_FILE;
+
+        /**
+         * Path to file containing
+         * custom tools metadata
+         */
+        static string CUSTOM_TOOLS_FILE;
 
         static construct {
             CONFIG_DIR = Path.build_filename (
                 Environment.get_user_config_dir (), "textpieces"
             );
 
-            CUSTOM_TOOLS_PATH = Path.build_filename (
+            CUSTOM_TOOLS_FILE = Path.build_filename (
                 CONFIG_DIR, "tools.json"
             );
 
-            SYSTEM_TOOLS_PATH = Path.build_filename (
+            SYSTEM_TOOLS_FILE = Path.build_filename (
                 Config.PKGDATADIR, "tools.json"
             );
         }
 
+        /**
+         * List model of pre-installed tools
+         */
         public ListStore system_tools = new ListStore (typeof (Tool));
+
+        /**
+         * List model of custom tools
+         */
         public ListStore custom_tools = new ListStore (typeof (Tool));
 
+        /**
+         * List model of all tools
+         */
         public ListStore all_tools {
             get; private set; default = new ListStore (typeof (Tool));
         }
+
+        /**
+         * Queue of deleted tools
+         * pending script removal
+         */
+        private Queue<Tool> removed_tools = new Queue<Tool> ();
 
         construct {
             update_tools ();
         }
 
+        /**
+         * Update tools
+         */
         public void update_tools () {
-
-            // Update system tools
+            /* Remove and load pre-installed tools */
             system_tools.remove_all ();
-            var new_system_tools = load_tools_from_file (SYSTEM_TOOLS_PATH)
+            var new_system_tools = load_tools_from_file (File.new_for_path (SYSTEM_TOOLS_FILE))
                 ?? new ListStore (typeof (Tool));
             for (var i = 0; i < new_system_tools.get_n_items (); i++)
                 system_tools.append (new_system_tools.get_item (i));
 
-            // Update custom tools
+            /* Remove and load custom tools */
             custom_tools.remove_all ();
-            var new_custom_tools = load_tools_from_file (CUSTOM_TOOLS_PATH)
+            var new_custom_tools = load_tools_from_file (File.new_for_path (CUSTOM_TOOLS_FILE))
                 ?? new ListStore (typeof (Tool));
             for (var i = 0; i < new_custom_tools.get_n_items (); i++)
                 custom_tools.append (new_custom_tools.get_item (i));
 
+            /* Update model containing all tools */
             update_all_tools ();
         }
 
+        /**
+         * Update list model of all tools
+         */
         void update_all_tools () {
+            /* Remove all tools */
             all_tools.remove_all ();
 
+            /* Append pre-installed tools */
             for (var i = 0; i < system_tools.get_n_items (); i++)
                 all_tools.append (system_tools.get_item (i));
 
+            /* Append custom tools */
             for (var i = 0; i < custom_tools.get_n_items (); i++)
                 all_tools.append (custom_tools.get_item (i));
-
-            all_tools.sort (
-                (a, b) => {
-                    if (((Tool) a).name > ((Tool) b).name) return 1;
-                    else return -1;
-                }
-            );
         }
 
-        private static ListStore? load_tools_from_file (string file) {
-            if (!File.new_for_path (file).query_exists ())
-                return null;
+        /**
+         * Load tools from JSON file with tools metadata
+         *
+         * @param file metadata file
+         *
+         * @return list model containing loaded tools
+         */
+        private static ListStore load_tools_from_file (File file) {
+            var tools = new ListStore (typeof (Tool));
 
-            var parser = new Json.Parser ();
-            try {
-                parser.load_from_file (file);
-            } catch (Error e) {
-                critical ("Can't load tools from \"%s\": %s", file, e.message);
-                return null;
+            /* Return empty list model
+               if file doesn't exist */
+            if (!file.query_exists ()) {
+                critical ("Can't load tools from non-existing file \"%s\"", file.get_path ());
+                return tools;
             }
 
-            var root = parser.get_root (); if (root == null) return null;
-            var obj = root.get_object (); if (obj == null) return null;
+            /* Load JSON to parser */
+            var parser = new Json.Parser ();
+            try {
+                parser.load_from_file (file.get_path ());
+            } catch (Error e) {
+                critical ("Can't load tools from \"%s\": %s", file.get_path (), e.message);
+                return tools;
+            }
+
+            /* Get root object */
+            var root = parser.get_root ();
+            var obj = root?.get_object ();
+
+            /* Return empty list if
+               there are no root object */
+            if (obj == null) {
+                critical ("Can't load tools: file doesn't contain valid JSON object");
+                return tools;
+            }
+
+            /* Get whether file contains
+               pre-installed tools metadata */
             var is_system = obj.get_boolean_member_with_default (
                 "is_system", false
             );
 
+            /* Get tools array */
             var json_tools = obj.get_array_member ("tools");
-            if (json_tools == null) return null;
 
-            var tools = new ListStore (typeof (Tool));
+            /* Return empty list model
+               if there are no tools list */
+            if (json_tools == null) {
+                critical ("Can't load tools: file doesn't contain list of tools");
+                return tools;
+            }
 
             foreach (var json_tool in json_tools.get_elements ()) {
+                /* Get tool object */
                 var tool = json_tool.get_object ();
-                if (tool == null) return null;
 
-                if (!tool.has_member ("script"))
+                if (tool == null) {
+                    critical ("Error write loading tools: tool is not JSON object");
                     continue;
+                }
+
+                if (!tool.has_member ("script")) {
+                    critical ("Error write loading tools: tool has no script");
+                    continue;
+                }
 
                 string[] arguments = {};
                 if (tool.has_member ("args"))
@@ -149,77 +219,117 @@ namespace TextPieces {
             return tools;
         }
 
-        public void dump_custom_tools () {
+        /**
+         * Save custom tools' metadata
+         */
+        async void save_custom_tools ()
+                throws Error {
+            /* Ensure configuration directory exists */
+            yield Utils.ensure_directory_exists (File.new_for_path (CONFIG_DIR));
 
-            {
-                var dir = File.new_for_path (CONFIG_DIR);
-                if (!dir.query_exists ()) {
-                    try {
-                        dir.make_directory_with_parents ();
-                    } catch (Error e) {
-                        error ("Can't create directory for tool scripts: %s", e.message);
-                    }
-                }
-            }
-
+            /* Create JSON builder */
             var builder = new Json.Builder ();
 
+            // {
             builder.begin_object ();
+            // "tools":
             builder.set_member_name ("tools");
+            // [
             builder.begin_array ();
 
-            // Load tools
+            /* Dump tools */
             for (var i = 0; i < custom_tools.get_n_items (); i++) {
                 Tool tool = (Tool) custom_tools.get_item (i);
 
+                // {
                 builder
                     .begin_object ()
-
+                // "name": `tool.name`,
                     .set_member_name ("name")
                     .add_string_value (tool.name)
-
+                // "description": `tool.description`,
                     .set_member_name ("description")
                     .add_string_value (tool.description)
-
+                // "script": `tool.script`,
                     .set_member_name ("script")
                     .add_string_value (tool.script)
-
+                // "args": [
                     .set_member_name ("args")
                     .begin_array ();
 
                 foreach (var arg in tool.arguments) {
+                    // `arg`,
                     builder
                     .add_string_value (arg ?? "");
                 }
 
+                // ]
                 builder
                     .end_array ();
-
+                // },
                 builder
                     .end_object ();
             }
 
+            // ]
             builder.end_array ();
+            // }
             builder.end_object ();
 
+            /* Convert JSON builder to string... */
             var generator = new Json.Generator ();
             var node = builder.get_root ();
             generator.set_root (node);
 
+            /* ...and save to file */
             try {
-                generator.to_file (CUSTOM_TOOLS_PATH);
+                generator.to_file (CUSTOM_TOOLS_FILE);
             } catch (Error e) {
-                error ("Can't dump custom tools: %s", e.message);
+                error ("Can't save custom tools: %s", e.message);
             }
+        }
 
+        /**
+         * Commit changed in custom tools
+         */
+        public async void commit ()
+                throws Error {
+            /* Save metadata on disk */
+            yield save_custom_tools ();
+
+            /* Update model of all tools */
             update_all_tools ();
+
+            /* Delete scripts of removed tools */
+            while (!removed_tools.is_empty ()) {
+                var tool = removed_tools.pop_head ();
+                /* Delete tool script */
+                FileUtils.remove (
+                    Path.build_filename (
+                        Tool.CUSTOM_TOOLS_DIR,
+                        tool.script
+                    )
+                );
+            }
+        }
+
+        /**
+         * Add and save tool
+         *
+         * @param tool custom tool to add
+         */
+        public signal void add_tool (Tool tool) {
+            /* Append tool to model */
+            custom_tools.append (tool);
         }
 
         public signal void delete_tool (Tool tool) {
+            /* Remove tool from tools */
             uint pos;
-            custom_tools.find (tool, out pos);
-            custom_tools.remove (pos);
-            dump_custom_tools ();
+            if (custom_tools.find (tool, out pos))
+                custom_tools.remove (pos);
+
+            removed_tools.push_tail (tool);
         }
     }
 }

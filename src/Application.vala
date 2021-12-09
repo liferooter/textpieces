@@ -21,33 +21,71 @@
 
 namespace TextPieces {
 
+    /**
+     * Action accelerator
+     */
     struct ActionAccel {
         string action;
-        string[] accels;
+        string accel;
     }
 
+    /**
+     * Text Pieces application
+     */
     class Application : Adw.Application {
+        /**
+         * Text Pieces settings
+         */
         public static GLib.Settings settings;
 
-        public ToolsController tools;
+        /**
+         * Tools controller
+         */
+        public static ToolsController tools;
 
-        private static ActionEntry[] ACTION_ENTRIES = {
+        /**
+         * Application actions
+         *
+         * Every entry has this form:
+         * {{{
+         *   { "application-name", action_callback }
+         * }}}
+         */
+        private static ActionEntry[] ACTIONS = {
             { "quit", quit }
         };
 
+        /**
+         * Shortcuts for actions
+         *
+         * Every entry has this form:
+         * {{{
+         *   { "prefix.action", "shortcut" }
+         * }}}
+         */
         private static ActionAccel[] ACTION_ACCELS = {
-            { "win.escape", {"Escape"} },
-            { "win.apply", {"<Control>Return"} },
-            { "win.copy", {"<Control><Shift>c"} },
-            { "win.preferences", {"<Control>comma"} },
-            { "win.show-help-overlay", {"<Control>question"} },
-            { "win.load-file", {"<Control>o"} },
-            { "win.save-as", {"<Control>s"} },
-            { "win.toggle-search", {"<Control>f"} },
-            { "win.jump-to-args", {"<Control>e"} },
-            { "window.close", {"<Control>w"} },
-            { "app.quit", {"<Control>q"} }
+            /* Window actions */
+            { "win.apply"            , "<Control>Return" },
+            { "win.copy"             , "<Control><Shift>c" },
+            { "win.open-preferences" , "<Control>comma" },
+            { "win.show-help-overlay", "<Control>question" },
+            { "win.load-file"        , "<Control>o" },
+            { "win.save-as"          , "<Control>s" },
+            { "win.toggle-search"    , "<Alt>s" },
+            { "win.jump-to-args"     , "<Control>e" },
+            { "window.close"         , "<Control>w" },
+
+            /* Application actions */
+            { "app.quit"             , "<Control>q" }
         };
+
+        static construct {
+            /* Load settingse */
+            settings = new GLib.Settings ("com.github.liferooter.textpieces");
+
+            /* Load tools */
+            tools = new ToolsController ();
+        }
 
         public Application () {
             Object (
@@ -56,46 +94,68 @@ namespace TextPieces {
             );
         }
 
-        static construct {
-            settings = new GLib.Settings ("com.github.liferooter.textpieces");
-        }
+        /**
+         * Startup method
+         *
+         * This method is called once at application
+         * startup. Do here everything that have to be
+         * done only once. Think of it as another `main`.
+         */
+        protected override void startup () {
+            base.startup ();
 
-        protected override void activate () {
-            tools = new ToolsController ();
-
-            // Initialize libs
+            /* Initialize libs */
             Gtk.Sourceinit ();
 
-            // Setup color scheme
+            /* Initialize localization */
+            Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.GNOMELOCALEDIR);
+            Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
+
+            /* Initialize libs */
+            Gtk.Sourceinit ();
+
+            /* Setup color scheme */
             settings.changed.connect ((key) => {
                 if (key == "color-scheme")
                     color_scheme_changed_cb ();
             });
             color_scheme_changed_cb ();
 
-            // Setup actions
-            add_action_entries (ACTION_ENTRIES, this);
+            /* Setup actions */
+            add_action_entries (ACTIONS, this);
+
+            /* Setup accels */
             foreach (var action_accel in ACTION_ACCELS) {
                 set_accels_for_action (
                     action_accel.action,
-                    action_accel.accels
+                    { action_accel.accel }
                 );
             }
+        }
 
-            // Create window
+        /**
+         * Activate method
+         *
+         * This method is called every time
+         * when application is activated.
+         * Depending on system it may be done
+         * once or many times. Think of it as
+         * an application entry point.
+         */
+        protected override void activate () {
+            /* Get active window */
             var win = get_active_window ();
             if (win == null)
-                win = new TextPieces.Window (this) {
-                    application = this
-                };
+                /* Create window if it doesn't exist */
+                win = new TextPieces.Window (this);
 
-            // Bind settings
-            settings.bind ("font-name", win, "editor-font", DEFAULT);
-            settings.bind ("wrap-lines", win, "wrap-lines", DEFAULT);
-
+            /* Present it to user */
             win.present ();
         }
 
+        /**
+         * Update color scheme from settings
+         */
         void color_scheme_changed_cb () {
             switch (settings.get_string ("color-scheme")) {
             case "dark":
@@ -110,11 +170,15 @@ namespace TextPieces {
             }
         }
 
+        /**
+         * Program entry point
+         *
+         * Do nothing here except creating
+         * application instance. For everything
+         * else use `Application::startup` and
+         * `Application::activate`.
+         */
         public static int main (string[] args) {
-            Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.GNOMELOCALEDIR);
-            Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
-            Intl.textdomain (Config.GETTEXT_PACKAGE);
-
             var app = new TextPieces.Application ();
             return app.run (args);
         }

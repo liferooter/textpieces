@@ -20,71 +20,67 @@
 
 
 namespace TextPieces {
+    /**
+     * Preferences window
+     */
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Preferences.ui")]
     class Preferences : Adw.PreferencesWindow {
-
-        static Settings settings;
-
         [GtkChild] unowned Gtk.ListBox custom_tools_listbox;
         [GtkChild] unowned Gtk.Label font_label;
         [GtkChild] unowned Gtk.SpinButton spaces_in_tab;
 
+        /**
+         * Preferences window actions
+         */
         const ActionEntry[] ACTION_ENTRIES = {
             { "select-font", action_select_font }
         };
 
+        /**
+         * List of settings keys
+         * binded to the actions
+         */
         const string[] SETTINGS_ACTIONS = {
             "wrap-lines",
             "tabs-to-spaces",
             "color-scheme"
         };
 
-        static construct {
-            settings = new GLib.Settings ("com.github.liferooter.textpieces");
-        }
-
         construct {
-
-            Idle.add (setup_tools);
-
+            /* Create actions from entries */
             var action_group = new SimpleActionGroup ();
             action_group.add_action_entries (ACTION_ENTRIES, this);
+
             insert_action_group ("prefs", action_group);
 
+            /* Create settings actions */
             var settings_group = new SimpleActionGroup ();
             foreach (var setting in SETTINGS_ACTIONS) {
-                var action = settings.create_action (setting);
+                var action = Application.settings
+                    .create_action (setting);
                 settings_group.add_action (action);
             }
+
             insert_action_group ("settings", settings_group);
 
-            settings.bind (
-                "font-name",
-                font_label,
-                "label",
-                DEFAULT
-            );
+            /* Bind settings to corresponding widgets */
+            with (Application.settings) {
+                bind (
+                    "font-name",
+                    font_label,
+                    "label",
+                    DEFAULT
+                );
+                bind (
+                    "spaces-in-tab",
+                    spaces_in_tab,
+                    "value",
+                    DEFAULT
+                );
+            }
 
-            spaces_in_tab.adjustment = new Gtk.Adjustment (
-                1,  // Value
-                1,  // Floor
-                21, // Ceil
-                1,  // Step
-                0,  // Nothing
-                0   // Nothing
-            );
-
-            settings.bind (
-                "spaces-in-tab",
-                spaces_in_tab,
-                "value",
-                DEFAULT
-            );
-        }
-
-        public bool setup_tools () {
             /* Bind list of custom tools to `custom_tools_listbox` */
-            var tools = ((TextPieces.Application) application).tools.custom_tools;
+            var tools = Application.tools.custom_tools;
             custom_tools_listbox.bind_model (
                 tools,
                 (obj) => {
@@ -102,44 +98,78 @@ namespace TextPieces {
                 }
             );
 
-            /* Open tool subpage when tool is selected */
-            custom_tools_listbox.row_activated.connect ((row) => {
-                var tool = (Tool) tools.get_item (row.get_index ());
-                present_subpage (new CustomToolPage (this, tool));
-            });
-
             /* Don't show empty list */
-            custom_tools_listbox.visible = tools.get_n_items () > 0;
-            tools.items_changed.connect (() => {
-                custom_tools_listbox.visible = tools.get_n_items () > 0;
-            });
-
-            return Source.REMOVE;
+            update_tools_visibility ();
+            tools.items_changed.connect (update_tools_visibility);
         }
 
-        public void action_select_font () {
+        ~Preferences () {
+            /* Unbind list visibility */
+            Application
+                .tools
+                .custom_tools
+                .items_changed
+                .disconnect (update_tools_visibility);
+        }
+
+        /**
+         * Update tools listbox visibility
+         *
+         * Hide if there are no custom tools,
+         * show if there are any custom tools
+         */
+        void update_tools_visibility () {
+            custom_tools_listbox.visible
+                = Application.tools.custom_tools.get_n_items () > 0;
+        }
+
+        /**
+         * Select font action
+         *
+         * Show dialog to select
+         * font for editor and
+         * argument entries
+         */
+        void action_select_font () {
+            /* Create dialog */
             var dialog = new Gtk.FontChooserDialog (_("Select font"), this) {
                 modal = true,
                 transient_for = this,
-                font = settings.get_string ("font-name"),
+                font = Application.settings.get_string ("font-name"),
                 level = FAMILY
             };
 
+            /* Set font and close dialog on response */
             dialog.response.connect ((res) => {
                 if (res == Gtk.ResponseType.OK) {
-                    settings.set_string ("font-name", dialog.font_desc.get_family ());
+                    Application.settings.set_string ("font-name", dialog.font_desc.get_family ());
                 }
 
                 dialog.close ();
             });
 
+            /* Show dialog */
             dialog.present ();
         }
 
+        /**
+         * Open tool creating page
+         */
         [GtkCallback]
-        public void add_new_tool () {
-            var page = new NewToolPage (this);
-            present_subpage (page);
+        void add_new_tool () {
+            present_subpage (new NewToolPage (this));
+        }
+
+        /**
+         * Open tool settings page
+         */
+        [GtkCallback]
+        void edit_tool (Gtk.ListBoxRow row) {
+            var tool = (Tool) Application
+                .tools
+                .custom_tools
+                .get_item (row.get_index ());
+            present_subpage (new CustomToolPage (this, tool));
         }
     }
 }

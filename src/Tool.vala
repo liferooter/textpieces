@@ -1,20 +1,62 @@
-namespace TextPieces {
+/* Tool.vala
+ *
+ * Copyright 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
 
-    struct ScriptResult {
-        string stdout;
-        string stderr;
+
+namespace TextPieces {
+    /**
+     * Script result
+     */
+    public struct ScriptResult {
+        string? output;
+        string? error;
     }
 
-    class Tool : Object {
+    /**
+     * Tool object class
+     */
+    public class Tool : Object {
+        /**
+         * Path to the directory containing
+         * custom tool scripts
+         */
         public static string CUSTOM_TOOLS_DIR;
+
+        /**
+         * Whether the application
+         * is running in Flatpak
+         */
         public static bool   in_flatpak;
 
+        /**
+         * Name of the tool
+         */
         public string name { get; set; }
         public string translated_name {
             get {
                 return _(name);
             }
         }
+
+        /**
+         * Description of the tool
+         */
         public string description { get; set; }
         public string translated_description {
             get {
@@ -22,45 +64,76 @@ namespace TextPieces {
             }
         }
 
+        /**
+         * Tool script's command
+         * line aguments
+         */
         public string[] arguments;
 
+        /**
+         * The icon of the tool
+         */
         public string icon = "applications-utilities-symbolic";
+
+        /**
+         * Tool script filename
+         */
         public string script;
-        public bool   is_system;
+
+        /**
+         * Whether the tool is pre-installed
+         */
+        public bool is_system;
 
         static construct {
+            /* Custom tools are stored in ~/.local/share/textpieces/scripts.
+               They are there even in Flatpak because Flatpak-ed apps can't
+               write to files from other apps' directories even through portals */
             CUSTOM_TOOLS_DIR = Path.build_filename (
                 Environment.get_home_dir (), ".local", "share", "textpieces", "scripts"
             );
 
             var tools_dir = File.new_for_path (CUSTOM_TOOLS_DIR);
 
-            try {
-                if (!tools_dir.query_exists ())
-                    tools_dir.make_directory_with_parents ();
-            } catch (Error e) {
-                critical ("Can't create script directory: %s", e.message);
-            }
+            /* Create tools directory */
+            Utils.ensure_directory_exists.begin (tools_dir);
 
+            /* Check whether the application is running in Flatpak */
             in_flatpak = File.new_for_path ("/.flatpak-info").query_exists (null);
         }
 
+        /**
+         * Apply tool on text
+         *
+         * @param input input text
+         * @param args  command line args tool script
+         *
+         * @return result of script executing
+         */
         public ScriptResult apply (string input, string[] args) {
+            /* Get directory containing script */
             var scriptdir = is_system
                 ? Config.SCRIPTDIR
                 : CUSTOM_TOOLS_DIR;
 
+            /* Build script command line */
+
             string[] cmdline = {};
+            /* Run script on host via
+               `flatpak-spawn --host`
+               if running in Flatpak */
             if (!is_system && in_flatpak) {
                 cmdline += "flatpak-spawn";
                 cmdline += "--host";
             }
             cmdline += Path.build_filename (scriptdir, script);
 
+            /* Append args to command line */
             foreach (var arg in args)
                 cmdline += arg;
 
             try {
+                /* Run script */
                 var process = new Subprocess.newv (
                     cmdline,
                     STDIN_PIPE  |
@@ -70,20 +143,25 @@ namespace TextPieces {
 
                 string stdout;
                 string stderr;
+                /* Send input to script, catch stdout and stderr */
                 process.communicate_utf8 (input, null, out stdout, out stderr);
 
                 bool success = process.get_successful ();
 
                 return {
+                    /* Return output if
+                       script successed */
                     success
                         ? stdout
                         : null,
+                    /* Return error if stderr
+                       is not empty */
                     (stderr ?? "") != ""
                         ? stderr
                         : null
                 };
             } catch (Error e) {
-                message ("INTERNAL ERROR");
+                critical ("Internal error: %s", e.message);
                 return {
                     e.message,
                     null
@@ -91,17 +169,23 @@ namespace TextPieces {
             }
         }
 
-        public void open (Gtk.Window? window = null)
-            requires (!this.is_system)
-        {
-            Utils.open_file.begin (
+        /**
+         * Edit tool script with external editor
+         */
+        public void open (Gtk.Window? window)
+                requires (!this.is_system) {
+            Gtk.show_uri (
+                window,
                 File.new_build_filename (
                     Tool.CUSTOM_TOOLS_DIR, this.script
-                ),
-                window
+                ).get_uri (),
+                Gdk.CURRENT_TIME
             );
         }
 
+        /**
+         * Generate filename for tool script
+         */
         public static string generate_filename (string name) {
             /* Generate salt */
             var salt = Checksum.compute_for_string (
@@ -122,6 +206,9 @@ namespace TextPieces {
         }
     }
 
+    /**
+     * Build tool row
+     */
     Gtk.Widget build_list_row (Object item) {
         var tool = (Tool) item;
 

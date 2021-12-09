@@ -1,28 +1,29 @@
-/* Custom tool row */
-
-row.form-row:not(:last-child) {
-  border: none;
-}
-
-button.large {
-  padding: 4px;
-}
-
-button.large image {
-  -gtk-icon-size: 18px;
-}
+/* style.css
+ *
+ * Copyright 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
 
 /* Argument view */
 
 .argument-view {
   padding: 6px;
   border-radius: 0px 0px 6px 6px;
-}
 
-.light-theme .argument-view {
+  /* Argument view in light mode */
   background-color: shade(@theme_base_color, 0.9);
-}
-
-.dark-theme .argument-view {
-  background-color: shade(@theme_base_color, 1.3);
 }
