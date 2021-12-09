@@ -20,7 +20,6 @@
 
 
 namespace TextPieces {
-
     /**
      * Error toast timeout, in seconds
      */
