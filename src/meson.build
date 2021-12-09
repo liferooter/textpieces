@@ -11,21 +11,14 @@ textpieces_sources += [
   'Utils.vala'
 ]
 
-c_args = [
-  '-DVERSION="' + meson.project_version() + '"',
-  '-DPKGDATADIR="' + pkgdata_dir + '"',
-  '-DSCRIPTDIR="' +  pkgdata_dir / 'scripts' + '"',
-  '-DGETTEXT_PACKAGE="' + meson.project_name() + '"',
-  '-DGNOMELOCALEDIR="' + get_option('prefix') / get_option('localedir') + '"',
-]
-
-vala_args = [
-  '--target-glib=2.50',
-  '--vapidir', vapi_dir,
-]
-
 executable('textpieces', textpieces_sources,
-  vala_args: vala_args, c_args: c_args,
+  c_args: [
+    '-DVERSION="' + meson.project_version() + '"',
+    '-DPKGDATADIR="' + pkgdata_dir + '"',
+    '-DSCRIPTDIR="' +  pkgdata_dir / 'scripts' + '"',
+    '-DGETTEXT_PACKAGE="' + meson.project_name() + '"',
+    '-DGNOMELOCALEDIR="' + get_option('prefix') / get_option('localedir') + '"',
+  ],
   dependencies: textpieces_deps,
   install: true,
 )

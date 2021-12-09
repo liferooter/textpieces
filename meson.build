@@ -5,12 +5,22 @@ project('textpieces', ['c', 'vala'],
                    ],
 )
 
+# Get package data directory (usually /usr/share/textpieces)
 pkgdata_dir = get_option('prefix') / get_option('datadir') / meson.project_name()
 
 textpieces_sources = []
 
 valac = meson.get_compiler('vala')
 vapi_dir = join_paths (meson.source_root(), 'src', 'vapi')
+
+add_project_arguments(
+  [
+    '--target-glib=2.50',
+    '--enable-experimental',
+    '--vapidir', vapi_dir,
+  ],
+  language: 'vala'
+)
 
 # Dependencies {
 
@@ -81,6 +91,7 @@ textpieces_deps = [
 # }
 
 i18n = import('i18n')
+gnome = import('gnome')
 
 subdir('data')
 subdir('resources')
@@ -89,4 +100,8 @@ subdir('po')
 
 install_subdir('scripts', install_dir: pkgdata_dir)
 
-meson.add_install_script('build-aux/meson/postinstall.py')
+gnome.post_install(
+  glib_compile_schemas: true,
+  gtk_update_icon_cache: true,
+  update_desktop_database: true
+)
