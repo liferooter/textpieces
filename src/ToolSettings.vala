@@ -195,7 +195,7 @@ namespace TextPieces {
                        make entry focusable
                        by click on row */
                     var row = new Adw.ActionRow () {
-                        title = @"Argument $(arg.index + 1)",
+                        title = _("Argument %d").printf (arg.index + 1),
                         activatable_widget = entry
                     };
 
@@ -244,7 +244,7 @@ namespace TextPieces {
         }
 
         [GtkCallback]
-        void edit_script () {
+        async void edit_script () {
             tool.open (window);
         }
     }

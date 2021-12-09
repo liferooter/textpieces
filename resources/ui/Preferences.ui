@@ -27,6 +27,7 @@
 
 <template class="TextPiecesPreferences" parent="AdwPreferencesWindow">
   <property name="can-navigate-back">true</property>
+  <property name="modal">true</property>
 
   <child>
     <object class="AdwPreferencesPage">
@@ -93,6 +94,13 @@
                 <object class="GtkSpinButton" id="spaces_in_tab">
                   <property name="valign">center</property>
                   <property name="climb-rate">1</property>
+                  <property name="adjustment">
+                    <object class="GtkAdjustment">
+                      <property name="lower">1</property>
+                      <property name="upper">21</property>
+                      <property name="step-increment">1</property>
+                    </object>
+                  </property>
                 </object>
               </child>
             </object>
@@ -164,7 +172,9 @@
               <property name="title">_Add custom tool</property>
               <property name="use-underline">true</property>
               <property name="activatable">true</property>
-              <signal name="activated" handler="add_new_tool"/>
+              <signal
+                name="activated"
+                handler="add_new_tool"/>
               <child>
                 <object class="GtkImage">
                   <property name="icon-name">go-next-symbolic</property>
@@ -177,6 +187,9 @@
               <property name="margin-top">20</property>
               <property name="margin-bottom">20</property>
               <property name="selection-mode">none</property>
+              <signal
+                name="row-activated"
+                handler="edit_tool"/>
               <style>
                 <class name="boxed-list"/>
               </style>

@@ -21,97 +21,122 @@
 
 namespace TextPieces {
 
-    const uint NOTIFICATION_TIMEOUT = 2000;
+    /**
+     * Error toast timeout, in seconds
+     */
+    const uint TOAST_TIMEOUT = 2;
 
+    /**
+     * Main window class
+     */
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Window.ui")]
     class Window : Adw.ApplicationWindow {
-
-        [GtkChild] unowned Gtk.ListBox search_listbox;
-        [GtkChild] unowned Gtk.SearchEntry search_entry;
-        [GtkChild] unowned Gtk.Stack search_stack;
-        [GtkChild] unowned Adw.ToastOverlay toast_overlay;
-        [GtkChild] unowned Gtk.Revealer arguments_revealer;
-        [GtkChild] unowned Gtk.ToggleButton tool_button;
         [GtkChild] unowned Adw.ButtonContent tool_button_content;
-        [GtkChild] unowned Gtk.SourceView editor;
-        [GtkChild] unowned Gtk.Viewport search_viewport;
+        [GtkChild] unowned Adw.ToastOverlay toast_overlay;
         [GtkChild] unowned Gtk.Box arguments_box;
+        [GtkChild] unowned Gtk.EventControllerKey search_event_controller;
+        [GtkChild] unowned Gtk.ListBox search_listbox;
+        [GtkChild] unowned Gtk.Revealer arguments_revealer;
+        [GtkChild] unowned Gtk.SearchEntry search_entry;
+        [GtkChild] unowned Gtk.SourceView editor;
+        [GtkChild] unowned Gtk.Stack content_stack;
+        [GtkChild] unowned Gtk.Stack search_stack;
+        [GtkChild] unowned Gtk.ToggleButton tool_button;
+        [GtkChild] unowned Gtk.Viewport search_viewport;
 
-        string DEFAULT_TOOL_LABEL;
-        string DEFAULT_TOOL_ICON;
+        /**
+         * Text used instead of tool name
+         * when where is no tool selected
+         */
+        const string NO_TOOL_LABEL = _("Select tool");
 
-        Gtk.SortListModel search_list;
+        /**
+         * Name of icon used
+         * instead of tool icon
+         * where is no tool selected
+         */
+        const string NO_TOOL_ICON = "applications-utilities-symbolic";
+
+        /**
+         * Tool search model
+         */
+        Gtk.SortListModel search_model;
+
+        /**
+         * Sorter for search results
+         */
         Gtk.Sorter search_sorter;
+
+        /**
+         * Filter for search results
+         */
         Gtk.Filter search_filter;
 
-        Adw.Toast? toast = null;
-
-        Tool selected_tool = null;
-
-        public TextPieces.Application app {
+        /**
+         * Selected tool
+         */
+        private Tool? _selected_tool;
+        public Tool? selected_tool {
             get {
-                return (TextPieces.Application) application;
-            } construct set {
-                this.application = value;
-            }
-        }
-
-        ToolsController tools {
-            get {
-                return app.tools;
-            }
-        }
-
-        string _editor_font = "";
-        Gtk.CssProvider _editor_font_css_provider = null;
-
-        public string editor_font {
-            get {
-                return _editor_font;
+                return _selected_tool;
             } set {
-                _editor_font = value;
+                /* Disconnect callback frow old tool */
+                if (_selected_tool != null)
+                    _selected_tool.notify
+                        .disconnect (tool_changed_cb);
 
-                if (_editor_font_css_provider != null)
-                    Gtk.StyleContext.remove_provider_for_display (
-                        Gdk.Display.get_default (),
-                        _editor_font_css_provider
-                    );
+                /* Save new tool */
+                _selected_tool = value;
 
-                var css_provider = new Gtk.CssProvider ();
+                /* Connect callback to tool changes */
+                if (_selected_tool != null)
+                    _selected_tool.notify
+                        .connect (tool_changed_cb);
 
-                css_provider.load_from_data ("""
+                /* Trigger tool change callback */
+                tool_changed_cb ();
+            }
+        }
+
+        /**
+         * CSS provider used to set editor font
+         */
+        Gtk.CssProvider? editor_font_css_provider = new Gtk.CssProvider ();
+
+        /**
+         * Editor font
+         */
+        public string editor_font {
+            set {
+                editor_font_css_provider.load_from_data ("""
                     .monospace {
                         font-family: %s;
                     }
                 """.printf (value).data);
-
-                Gtk.StyleContext.add_provider_for_display (
-                    Gdk.Display.get_default (),
-                    css_provider,
-                    Gtk.STYLE_PROVIDER_PRIORITY_USER
-                );
             }
         }
 
+        /**
+         * Whether to wrap lines
+         */
         public bool wrap_lines {
-            get {
-                return editor.wrap_mode == WORD_CHAR;
-            } set {
+            set {
                 editor.wrap_mode = value
                     ? Gtk.WrapMode.WORD_CHAR
                     : Gtk.WrapMode.NONE;
             }
         }
 
+        /**
+         * Window actions
+         */
         private const ActionEntry[] ACTION_ENTRIES = {
             { "apply", action_apply },
-            { "preferences", action_preferences },
+            { "open-preferences", action_open_preferences },
             { "about", action_about },
             { "copy", action_copy },
             { "tools-settings", action_tools_settings },
-            { "hide-notification", hide_notification },
             { "toggle-search", action_toggle_search },
-            { "escape", action_escape },
             { "save-as", action_save_as },
             { "load-file", action_load_file },
             { "jump-to-args", action_jump_to_args }
@@ -119,40 +144,28 @@ namespace TextPieces {
 
         public Window (Application application) {
             Object (
-                app: application
+                application: application
             );
         }
 
         construct {
+            /* Bind some values to settings */
+            with (Application.settings) {
+                bind ("tabs-to-spaces", editor, "insert-spaces-instead-of-tabs", GET);
+                bind ("spaces-in-tab",  editor, "tab-width",                     GET);
+                bind ("font-name",      this,   "editor-font",                   GET);
+                bind ("wrap-lines",     this,   "wrap-lines",                    GET);
+            }
 
-            Application.settings.bind (
-                "tabs-to-spaces",
-                editor,
-                "insert-spaces-instead-of-tabs",
-                DEFAULT
+            /* Add style provider with editor font */
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (),
+                editor_font_css_provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_USER
             );
 
-            Application.settings.bind (
-                "spaces-in-tab",
-                editor,
-                "tab-width",
-                DEFAULT
-            );
-
-            tool_button_content.notify["active"].connect(() => {
-                if (!tool_button.active)
-                    editor.grab_focus ();
-                else
-                    search_viewport.vadjustment.set_value (0);
-            });
-
-            // Setup actions
-
+            /* Load actions */
             add_action_entries (ACTION_ENTRIES, this);
-
-            ((SimpleAction) lookup_action ("apply")).set_enabled (false);
-
-            setup_tools ();
 
             arguments_revealer.notify["child-revealed"].connect (() => {
                 var old_adjustment = editor.vadjustment.value - editor.top_margin;
@@ -160,84 +173,73 @@ namespace TextPieces {
                 editor.vadjustment.value = old_adjustment + editor.top_margin;
             });
 
-            DEFAULT_TOOL_ICON = tool_button_content.icon_name;
-            DEFAULT_TOOL_LABEL = tool_button_content.label;
-        }
-
-        public bool setup_tools () {
-
+            /* Create sorter for search results */
             search_sorter = new Gtk.CustomSorter (
-                (a, b) => tool_compare_func (a as Tool, b as Tool)
+                (a, b) => Search.tool_sort_func ((Tool) a, (Tool) b, search_entry.text)
             );
-            search_filter = new Gtk.CustomFilter (tool_filter_func);
 
-            search_list = new Gtk.SortListModel (
+            /* Create filter for search results */
+            search_filter = new Gtk.CustomFilter (
+                (tool) => Search.tool_filter_func ((Tool) tool, search_entry.text)
+            );
+
+            /* Create model for search results */
+            search_model = new Gtk.SortListModel (
                 new Gtk.FilterListModel (
-                    tools.all_tools,
+                    Application.tools.all_tools,
                     search_filter
                 ),
                 search_sorter
             );
 
+            /* Bind the model to list box */
             search_listbox.bind_model (
-                search_list,
+                search_model,
                 build_list_row
             );
 
-            tools.delete_tool.connect_after ((tool) => {
-                if (tool == selected_tool) {
+            /* Unselect tool if it's deleted */
+            Application.tools.delete_tool.connect ((tool) => {
+                if (tool == selected_tool)
                     selected_tool = null;
-                    ((SimpleAction) lookup_action ("apply")).set_enabled (false);
-
-                    tool_button_content.icon_name = DEFAULT_TOOL_ICON;
-                    tool_button_content.label = DEFAULT_TOOL_LABEL;
-
-                    var children = arguments_box.observe_children ();
-                    for (uint i = 0; i < children.get_n_items (); i++)
-                        arguments_box.remove ((Gtk.Widget) children.get_item (i));
-
-                    arguments_revealer.set_reveal_child (false);
-                }
             });
 
-            notify["mnemonics-visible"].connect (() => {
-                if (mnemonics_visible) {
-                    tool_button_content.icon_name = DEFAULT_TOOL_ICON;
-                    tool_button_content.label = DEFAULT_TOOL_LABEL;
-                } else {
-                    tool_button_content.icon_name = selected_tool?.icon
-                        ?? DEFAULT_TOOL_ICON;
-                    tool_button_content.label = selected_tool?.translated_name
-                        ?? DEFAULT_TOOL_LABEL;
-                }
-            });
-
-            return Source.REMOVE;
+            /* Initialize selected
+               tool property and run
+               its callback */
+            selected_tool = null;
         }
 
+        /**
+         * Apply tool
+         */
         void action_apply () {
+            /* Don't apply non-existing tool */
             if (selected_tool == null)
                 return;
-            if (!editor.has_focus)
-                editor.grab_focus ();
 
             var buffer = editor.buffer;
             var has_selection = buffer.has_selection;
-
             Gtk.TextIter start, end;
 
+            /* If some text selected, get selection,
+               otherwise get all text */
             if (has_selection)
                 buffer.get_selection_bounds (out start, out end);
             else
                 buffer.get_bounds (out start, out end);
 
+            /* Save selection start */
             var start_offset = start.get_offset ();
 
+            /* Get arguments from
+               argument entries */
             string[] args = {};
             var children = arguments_box.observe_children ();
             for (uint i = 0; i < children.get_n_items (); i++)
-                args += ((Gtk.Entry) children.get_item (i)).get_text ();
+                args += ((Gtk.Entry) children.get_item (i)).text;
 
+            /* Apply tool on text */
             var result = selected_tool.apply (
                 buffer.get_text (start, end, false),
                 args
@@ -245,12 +247,16 @@ namespace TextPieces {
 
             string result_text;
 
-            if (result.stderr != null) {
-                send_notification (result.stderr);
+            /* Send error notification
+               if stderr is not null */
+            if (result.error != null) {
+                show_toast (result.error);
             }
 
-            if (result.stdout != null) {
-                result_text = result.stdout;
+            /* Set new text if stdout
+               is not null */
+            if (result.output != null) {
+                result_text = result.output;
             } else {
                 return;
             }
@@ -259,12 +265,14 @@ namespace TextPieces {
 
             buffer.begin_user_action ();
 
+            /* Replace old text with new text */
             buffer.@delete (ref start, ref end);
             buffer.insert (ref start, result_text, -1);
 
             buffer.end_user_action ();
 
             if (has_selection) {
+                /* Restore selection */
                 buffer.get_iter_at_offset (
                     out start,
                     start_offset
@@ -275,25 +283,47 @@ namespace TextPieces {
                 );
                 buffer.select_range (start, end);
             } else {
+                /* Place cursor to the start */
                 buffer.get_start_iter (out start);
                 buffer.place_cursor (start);
                 editor.vadjustment.value = editor.top_margin;
             }
         }
 
-        void action_preferences () {
+        /**
+         * Open preferences
+         */
+        void action_open_preferences () {
+            /* Create preferences window */
             var prefs = new Preferences () {
                 transient_for = this,
+                /* Pass application to the window
+                   to get application's shortcuts */
                 application = application
             };
             prefs.present ();
         }
 
-        void action_about () {
-            string[] AUTHORS = {"Gleb Smirnov <glebsmirnov0708@gmail.com>"};
+        /**
+         * Open custom tools settings
+         */
+         void action_tools_settings () {
+            var prefs = new Preferences () {
+                transient_for = this,
+                application = application,
+                visible_page_name = "custom-tools"
+            };
+            prefs.present ();
+        }
 
-            string[] ARTISTS = {"Tobias Bernard https://tobiasbernard.com",
-                                "Gleb Smirnov <glebsmirnov0708@gmail.com>"};
+        /**
+         * Show about dialog
+         */
+        void action_about () {
+            string[] AUTHORS = {_("Gleb Smirnov <glebsmirnov0708@gmail.com>")};
+
+            string[] ARTISTS = {_("Tobias Bernard https://tobiasbernard.com"),
+                                _("Gleb Smirnov <glebsmirnov0708@gmail.com>")};
 
             Gtk.show_about_dialog (
                 this,
@@ -310,220 +340,29 @@ namespace TextPieces {
             );
         }
 
+        /**
+         * Toggle search
+         */
+         void action_toggle_search () {
+            tool_button.active = !tool_button.active;
+        }
+
+        /**
+         * Copy all text from the
+         * editor to clipboard
+         */
         void action_copy () {
             Gdk.Display.get_default ()
                        .get_clipboard ()
                        .set_text (editor.buffer.text);
-            send_notification (_("Text is copied to clipboard"));
+            show_toast (_("Text is copied to clipboard"));
         }
 
-        void action_tools_settings () {
-            var prefs = new Preferences () {
-                transient_for = this,
-                application = application,
-                visible_page_name = "custom-tools"
-            };
-            prefs.present ();
-        }
-
-        int calculate_relevance (Tool tool) {
-            return int.min (
-                calculate_string_irrelevance ({
-                    tool.name       .casefold (),
-                    tool.description.casefold ()
-                }),
-                calculate_string_irrelevance ({
-                    tool.translated_name       .casefold (),
-                    tool.translated_description.casefold ()
-                })
-            );
-        }
-
-        int calculate_string_irrelevance (string[] fields) {
-            var query = search_entry.text.casefold ();
-            var terms = query.split (" ");
-
-            int[] min_match = {};
-            for (var i = 0; i < fields.length; i++)
-                min_match += 0;
-
-            int irrelevance = 0;
-
-            foreach (var term in terms) {
-                int i = 0;
-                int match = 0;
-                while (i < fields.length
-                       && (match = fields[i].index_of (term, min_match[i])) == -1) {
-                    i++;
-                }
-                if (i == fields.length)
-                    return int.MAX;
-
-                irrelevance += match - min_match[i];
-
-                min_match[i] = match + term.length;
-            }
-
-            for (var i = 0; i < min_match.length && min_match[i] == 0; i++)
-                irrelevance += fields[i].length;
-
-            return irrelevance;
-        }
-
-        bool tool_filter_func (Object item) {
-            var tool = (Tool) item;
-
-            return calculate_relevance (tool) != int.MAX;
-        }
-
-        Gtk.Ordering tool_compare_func (Tool? a, Tool? b) {
-            // Null-test
-            if (a == null) {
-                if (b == null)
-                    return EQUAL;
-                else
-                    return SMALLER;
-            } if (b == null) {
-                if (a == null)
-                    return EQUAL;
-                else
-                    return LARGER;
-            }
-
-            var a_rel = calculate_relevance (a);
-            var b_rel = calculate_relevance (b);
-
-            if (a_rel > b_rel)
-                return LARGER;
-            else if (a_rel < b_rel)
-                return SMALLER;
-            else // a_rel == b_rel
-                return (Gtk.Ordering) strcmp (a.name, b.name);
-        }
-
-        void send_notification (string text) {
-            var new_toast = new Adw.Toast (text) {
-                priority = HIGH,
-                timeout = NOTIFICATION_TIMEOUT,
-            };
-            new_toast.dismissed.connect (() => {
-                toast = null;
-            });
-            toast_overlay.add_toast (new_toast);
-            hide_notification ();
-            toast = new_toast;
-        }
-
-        [GtkCallback]
-        string get_page_name (bool search_enabled) {
-            if (search_enabled) {
-                return "search";
-            } else {
-                return "editor";
-            }
-        }
-
-        [GtkCallback]
-        void on_search_changed () {
-            search_sorter.changed (DIFFERENT);
-            search_filter.changed (DIFFERENT);
-
-            search_stack.set_visible_child_name (
-                search_list.get_n_items () == 0
-                    ? "placeholder"
-                    : "search"
-            );
-        }
-
-        [GtkCallback]
-        bool on_search_entry_key (uint keyval,
-                                  uint keycode,
-                                  Gdk.ModifierType state) {
-            if (keyval == Gdk.Key.Down) {
-                var first_row = search_listbox.get_row_at_index (0);
-                if (first_row != null) {
-                    first_row.grab_focus ();
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        [GtkCallback]
-        bool on_search_listbox_key (uint keyval,
-                                    uint keycode,
-                                    Gdk.ModifierType state) {
-            if (keyval == Gdk.Key.Up) {
-                var focus = this.focus_widget;
-                if (focus.get_type () == typeof (Adw.ActionRow) &&
-                    ((Adw.ActionRow) focus).get_index () == 0)
-                {
-                    search_entry.grab_focus ();
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        [GtkCallback]
-        void on_row_activated (Gtk.ListBoxRow row) {
-            var tool = (Tool) search_list.get_item (row.get_index ());
-
-            selected_tool = tool;
-
-            tool_button_content.icon_name = tool.icon;
-            tool_button_content.label = tool.name;
-            search_entry.stop_search ();
-
-            var children = arguments_box.observe_children ();
-            for (int i = (int) children.get_n_items () - 1; i >= 0; i--)
-                arguments_box.remove ((Gtk.Widget) children.get_item (i));
-
-            if (selected_tool.arguments.length == 0) {
-                arguments_revealer.set_reveal_child (false);
-            } else {
-                arguments_revealer.set_reveal_child (true);
-                for (var i = 0; i < selected_tool.arguments.length; i++) {
-                    var entry = new Gtk.Entry () {
-                        placeholder_text = selected_tool.arguments[i],
-                    };
-                    entry.add_css_class ("monospace");
-                    entry.activate.connect (() => {
-                        move_focus (TAB_FORWARD);
-                    });
-                    arguments_box.append (entry);
-                }
-            }
-
-            ((SimpleAction) lookup_action ("apply")).set_enabled (true);
-        }
-
-        [GtkCallback]
-        void on_search_activated () {
-            var row = search_listbox.get_row_at_index (0);
-            if (row != null)
-                search_listbox.row_activated  (row);
-        }
-
-        void hide_notification () {
-            toast?.dismiss ();
-            toast = null;
-        }
-
-        void action_toggle_search () {
-            tool_button.active = !tool_button.active;
-            hide_notification ();
-        }
-
-        void action_escape () {
-            if (toast != null)
-                hide_notification ();
-            else
-                tool_button.set_active (false);
-            editor.grab_focus ();
-        }
-
+        /**
+         * Save editor content to file
+         */
         void action_save_as () {
+            /* Create file chooser dialog */
             var file_chooser = new Gtk.FileChooserNative (
                 _("Save to File"),
                 this,
@@ -534,94 +373,246 @@ namespace TextPieces {
                 transient_for = this,
                 modal = true
             };
+
             file_chooser.response.connect (() => {
-                var location = file_chooser.get_file ();
-                if (location == null)
+                /* Get selected file */
+                var file = file_chooser.get_file ();
+                if (file == null)
                     return;
 
-                var file = new Gtk.SourceFile ();
-                file.set_location (location);
-
-                var saver = new Gtk.SourceFileSaver (
-                    (Gtk.SourceBuffer) editor.buffer,
-                    file
-                );
-                saver.save_async.begin (
-                    Priority.HIGH,
-                    null,
-                    null,
-                    (obj, res) => {
-                        try {
-                            saver.save_async.end (res);
-                        } catch (Error e) {
-                            var dialog = new Gtk.MessageDialog (
-                                this,
-                                MODAL | DESTROY_WITH_PARENT,
-                                WARNING,
-                                CLOSE,
-                                _("Can't save to file: %s"),
-                                e.message
-                            );
-                            dialog.response.connect (dialog.destroy);
-                            dialog.show ();
-                        }
-                    }
-                );
+                try {
+                    /* Try to save text to file */
+                    FileUtils.set_contents (
+                        file.get_path (),
+                        editor.buffer.text
+                    );
+                } catch (FileError e) {
+                    /* Show error dialog if error occurs */
+                    var dialog = new Gtk.MessageDialog (
+                        this,
+                        MODAL | DESTROY_WITH_PARENT,
+                        WARNING,
+                        CLOSE,
+                        _("Can't save to file: %s"),
+                        e.message
+                    );
+                    dialog.response.connect (dialog.destroy);
+                    dialog.show ();
+                }
             });
             file_chooser.show ();
         }
 
+        /**
+         * Load editor content from file
+         */
         void action_load_file () {
+            /* Create file chooser dialog */
             var file_chooser = new Gtk.FileChooserNative (
-                _("Load From File"),
+                _("Load from File"),
                 this,
-                OPEN,
+                SAVE,
                 null,
                 null
             ) {
                 transient_for = this,
                 modal = true
             };
+
             file_chooser.response.connect (() => {
-                var location = file_chooser.get_file ();
-                if (location == null)
+                /* Get selected file */
+                var file = file_chooser.get_file ();
+                if (file == null)
                     return;
 
-                var file = new Gtk.SourceFile ();
-                file.set_location (location);
+                try {
+                    /* Try to load text from file */
+                    string text;
 
-                var loader = new Gtk.SourceFileLoader (
-                    (Gtk.SourceBuffer) editor.buffer,
-                    file
-                );
-                loader.load_async.begin (
-                    Priority.HIGH,
-                    null,
-                    null,
-                    (obj, res) => {
-                        try {
-                            loader.load_async.end (res);
-                        } catch (Error e) {
-                            var dialog = new Gtk.MessageDialog (
-                                this,
-                                MODAL | DESTROY_WITH_PARENT,
-                                WARNING,
-                                CLOSE,
-                                _("Can't load from file: %s"),
-                                e.message
-                            );
-                            dialog.response.connect (dialog.destroy);
-                            dialog.show ();
-                        }
-                    }
-                );
+                    FileUtils.get_contents (
+                        file.get_path (),
+                        out text
+                    );
+
+                    editor.buffer.text = text;
+                } catch (FileError e) {
+                    /* Show error dialog if error occurs */
+                    var dialog = new Gtk.MessageDialog (
+                        this,
+                        MODAL | DESTROY_WITH_PARENT,
+                        WARNING,
+                        CLOSE,
+                        _("Can't load from file: %s"),
+                        e.message
+                    );
+                    dialog.response.connect (dialog.destroy);
+                    dialog.show ();
+                }
             });
             file_chooser.show ();
         }
 
+        /**
+         * Move focus to the first arguments entry
+         */
         void action_jump_to_args () {
             if (arguments_revealer.reveal_child)
-                ((Gtk.Widget) arguments_box.observe_children ().get_item (0)).grab_focus ();
+                ((Gtk.Widget) arguments_box.observe_children ().get_item (0))
+                    .grab_focus ();
+        }
+
+        /**
+         * Tool change callback
+         *
+         * Set tool button's
+         * label and icon
+         */
+        void tool_changed_cb () {
+            /* Update tool button */
+            with (tool_button_content) {
+                label = selected_tool?.name
+                    ?? NO_TOOL_LABEL;
+                icon_name = selected_tool?.icon
+                    ?? NO_TOOL_ICON;
+            }
+
+            /* Disable applying if there are no tool */
+            ((SimpleAction) lookup_action ("apply"))
+                .set_enabled (selected_tool != null);
+
+            /* Remove old tool arguments */
+            var children = arguments_box.observe_children ();
+            for (int i = (int) children.get_n_items () - 1; i >= 0; i--)
+                arguments_box.remove ((Gtk.Widget) children.get_item (i));
+
+            /* Get arguments number */
+            var n_args = selected_tool?.arguments?.length ?? 0;
+
+            /* Don't show arguments box
+               if there are no arguments */
+            arguments_revealer.reveal_child = n_args > 0;
+
+            /* Add argument entries */
+            for (var i = 0; i < n_args; i++) {
+                /* Create argument entry */
+                var entry = new Gtk.Entry () {
+                    placeholder_text = selected_tool.arguments[i],
+                };
+
+                /* Make it monospace */
+                entry.add_css_class ("monospace");
+
+                /* Select next on press Return */
+                entry.activate.connect (() => {
+                    move_focus (TAB_FORWARD);
+                });
+
+                /* Add entry to the box */
+                arguments_box.append (entry);
+            }
+        }
+
+        /**
+         * Show message in toast
+         */
+        void show_toast (string text) {
+            toast_overlay.add_toast (new Adw.Toast (text) {
+                priority = HIGH,
+                timeout = TOAST_TIMEOUT,
+            });
+        }
+
+        /**
+         * Update search state
+         */
+        [GtkCallback]
+        void update_search_results () {
+            /* Invalidate search sorter and filter */
+            search_sorter.changed (DIFFERENT);
+            search_filter.changed (DIFFERENT);
+
+            /* Show placeholder if
+               there are no tools found */
+            search_stack.set_visible_child_name (
+                search_model.get_n_items () == 0
+                    ? "placeholder"
+                    : "search"
+            );
+        }
+
+        /**
+         * Process key pressed in search entry
+         *
+         * Move focus to the first search result
+         * if `Gdk.Key.Down` is pressed
+         *
+         * @param keyval    pressed key value
+         * @param keycode   pressed key code
+         * @param modifiers pressed modifiers
+         *
+         * @returnif whether the key press was handled
+         */
+        [GtkCallback]
+        bool on_search_entry_key (uint keyval,
+                                  uint keycode,
+                                  Gdk.ModifierType modifiers) {
+            switch (keyval) {
+                case (Gdk.Key.Down):
+                case (Gdk.Key.Up):
+                    /* Move focus to listbox */
+                    search_entry.move_focus (TAB_FORWARD);
+                    /* Forward event to listbox */
+                    search_event_controller.forward (search_listbox);
+                    /* Grab focus back when done */
+                    search_entry.grab_focus ();
+
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        /**
+         * Activate selected tool row
+         */
+        [GtkCallback]
+        void on_search_activated () {
+            var row = search_listbox.get_selected_row ()
+                   ?? search_listbox.get_row_at_index (0);
+            if (row != null)
+                search_listbox.row_activated  (row);
+        }
+
+        /**
+         * Select tool from row and stop search
+         *
+         * @param row activated row
+         */
+        [GtkCallback]
+        void on_row_activated (Gtk.ListBoxRow row) {
+            var tool = (Tool) search_model.get_item (row.get_index ());
+            selected_tool = tool;
+            search_entry.stop_search ();
+        }
+
+        /**
+         * Change application state
+         * according to new search state
+         */
+        [GtkCallback]
+        void on_search_toggled () {
+            if (tool_button.active) {
+                /* Show search */
+                content_stack.visible_child_name = "search";
+                /* Scroll search to the top */
+                search_viewport.vadjustment.set_value (0);
+                /* Select the first row */
+                var row = search_listbox.get_row_at_index (0);
+                search_listbox.select_row (row);
+            } else {
+                /* Show editor */
+                content_stack.visible_child_name = "editor";
+            }
         }
     }
 }

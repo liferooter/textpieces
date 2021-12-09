@@ -37,7 +37,9 @@
       <child>
         <object class="GtkButton">
           <property name="icon-name">go-previous-symbolic</property>
-          <signal name="clicked" handler="go_back"/>
+          <signal
+            name="clicked"
+            handler="go_back"/>
         </object>
       </child>
 
@@ -46,7 +48,13 @@
         <object class="GtkButton">
           <property name="label" translatable="yes">D_elete</property>
           <property name="use-underline">true</property>
-          <signal name="clicked" handler="delete_tool"/>
+          <signal
+            name="clicked"
+            handler="delete_tool"/>
+          <signal
+            name="clicked"
+            handler="go_back"
+            after="yes"/>
           <style>
             <class name="destructive-action"/>
           </style>

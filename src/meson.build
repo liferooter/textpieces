@@ -7,6 +7,7 @@ textpieces_sources += [
   'ToolSettings.vala',
   'CustomToolPage.vala',
   'NewToolPage.vala',
+  'Search.vala',
   'Utils.vala'
 ]
 
