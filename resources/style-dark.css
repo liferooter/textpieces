@@ -17,8 +17,3 @@
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
-
-/* Argument view in dark mode */
-.argument-view {
-    background-color: shade(@theme_base_color, 1.3);
-}
