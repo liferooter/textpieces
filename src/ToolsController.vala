@@ -30,27 +30,27 @@ namespace TextPieces {
         static string CONFIG_DIR;
 
         /**
-         * Path to file containing
+         * File containing
          * pre-installed tools metadata
          */
-        static string SYSTEM_TOOLS_FILE;
+        static File SYSTEM_TOOLS_FILE;
 
         /**
-         * Path to file containing
+         * File containing
          * custom tools metadata
          */
-        static string CUSTOM_TOOLS_FILE;
+        static File CUSTOM_TOOLS_FILE;
 
         static construct {
             CONFIG_DIR = Path.build_filename (
                 Environment.get_user_config_dir (), "textpieces"
             );
 
-            CUSTOM_TOOLS_FILE = Path.build_filename (
+            CUSTOM_TOOLS_FILE = File.new_build_filename (
                 CONFIG_DIR, "tools.json"
             );
 
-            SYSTEM_TOOLS_FILE = Path.build_filename (
+            SYSTEM_TOOLS_FILE = File.new_build_filename (
                 Config.PKGDATADIR, "tools.json"
             );
         }
@@ -79,23 +79,39 @@ namespace TextPieces {
         private Queue<Tool> removed_tools = new Queue<Tool> ();
 
         construct {
-            update_tools ();
+            async_construct.begin ();
+        }
+
+        /**
+         * Async construct
+         */
+        async void async_construct () {
+            /* Create custom tools index if not exists */
+            if (CUSTOM_TOOLS_FILE.query_exists ()) {
+                try {
+                    yield save_custom_tools ();
+                } catch (Error e) {
+                    critical ("Can't create custom tools index: %s", e.message);
+                }
+            }
+
+            yield update_tools ();
         }
 
         /**
          * Update tools
          */
-        public void update_tools () {
+        public async void update_tools () {
             /* Remove and load pre-installed tools */
             system_tools.remove_all ();
-            var new_system_tools = load_tools_from_file (File.new_for_path (SYSTEM_TOOLS_FILE))
+            var new_system_tools = load_tools_from_file (SYSTEM_TOOLS_FILE)
                 ?? new ListStore (typeof (Tool));
             for (var i = 0; i < new_system_tools.get_n_items (); i++)
                 system_tools.append (new_system_tools.get_item (i));
 
             /* Remove and load custom tools */
             custom_tools.remove_all ();
-            var new_custom_tools = load_tools_from_file (File.new_for_path (CUSTOM_TOOLS_FILE))
+            var new_custom_tools = load_tools_from_file (CUSTOM_TOOLS_FILE)
                 ?? new ListStore (typeof (Tool));
             for (var i = 0; i < new_custom_tools.get_n_items (); i++)
                 custom_tools.append (new_custom_tools.get_item (i));
@@ -283,7 +299,9 @@ namespace TextPieces {
 
             /* ...and save to file */
             try {
-                generator.to_file (CUSTOM_TOOLS_FILE);
+                var stream
+                    = yield CUSTOM_TOOLS_FILE.create_readwrite_async (REPLACE_DESTINATION);
+                generator.to_stream (stream.output_stream);
             } catch (Error e) {
                 error ("Can't save custom tools: %s", e.message);
             }
