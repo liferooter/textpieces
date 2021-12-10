@@ -299,8 +299,11 @@ namespace TextPieces {
 
             /* ...and save to file */
             try {
-                var stream
-                    = yield CUSTOM_TOOLS_FILE.create_readwrite_async (REPLACE_DESTINATION);
+                IOStream stream;
+                if (CUSTOM_TOOLS_FILE.query_exists ())
+                    stream = yield CUSTOM_TOOLS_FILE.open_readwrite_async ();
+                else
+                    stream = yield CUSTOM_TOOLS_FILE.create_readwrite_async (NONE);
                 generator.to_stream (stream.output_stream);
             } catch (Error e) {
                 error ("Can't save custom tools: %s", e.message);
