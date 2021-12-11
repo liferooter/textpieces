@@ -87,7 +87,7 @@ namespace TextPieces {
          */
         async void async_construct () {
             /* Create custom tools index if not exists */
-            if (CUSTOM_TOOLS_FILE.query_exists ()) {
+            if (!CUSTOM_TOOLS_FILE.query_exists ()) {
                 try {
                     yield save_custom_tools ();
                 } catch (Error e) {
@@ -299,12 +299,7 @@ namespace TextPieces {
 
             /* ...and save to file */
             try {
-                IOStream stream;
-                if (CUSTOM_TOOLS_FILE.query_exists ())
-                    stream = yield CUSTOM_TOOLS_FILE.open_readwrite_async ();
-                else
-                    stream = yield CUSTOM_TOOLS_FILE.create_readwrite_async (NONE);
-                generator.to_stream (stream.output_stream);
+                generator.to_file (CUSTOM_TOOLS_FILE.get_path ());
             } catch (Error e) {
                 error ("Can't save custom tools: %s", e.message);
             }
