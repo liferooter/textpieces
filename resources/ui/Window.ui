@@ -174,9 +174,7 @@
                                   <property name="show-line-numbers">true</property>
                                   <property name="smart-backspace">true</property>
                                   <property name="smart-home-end">before</property>
-                                  <property name="tab-width">4</property>
                                   <property name="top-margin">6</property>
-                                  <property name="wrap-mode">word-char</property>
                                 </object>
                               </child>
                             </object>
@@ -185,6 +183,10 @@
                       </child>
                       <child type="overlay">
                         <object class="GtkRevealer" id="arguments_revealer">
+                          <signal
+                            name="notify::child-revealed"
+                            handler="update_editor_margin"
+                            after="yes"/>
                           <property name="valign">start</property>
                           <property name="halign">end</property>
                           <property name="child">
