@@ -82,7 +82,7 @@ namespace TextPieces {
                 /* Disconnect callback frow old tool */
                 if (_selected_tool != null)
                     _selected_tool.notify
-                        .disconnect (tool_changed_cb);
+                        .disconnect (tool_changed);
 
                 /* Save new tool */
                 _selected_tool = value;
@@ -90,10 +90,10 @@ namespace TextPieces {
                 /* Connect callback to tool changes */
                 if (_selected_tool != null)
                     _selected_tool.notify
-                        .connect (tool_changed_cb);
+                        .connect (tool_changed);
 
                 /* Trigger tool change callback */
-                tool_changed_cb ();
+                tool_changed ();
             }
         }
 
@@ -466,7 +466,7 @@ namespace TextPieces {
          * Set tool button's
          * label and icon
          */
-        void tool_changed_cb () {
+        void tool_changed () {
             /* Update tool button */
             with (tool_button_content) {
                 label = selected_tool?.name
@@ -478,6 +478,8 @@ namespace TextPieces {
             /* Disable applying if there are no tool */
             ((SimpleAction) lookup_action ("apply"))
                 .set_enabled (selected_tool != null);
+
+            var old_has_args = arguments_revealer.reveal_child;
 
             /* Remove old tool arguments */
             var children = arguments_box.observe_children ();
@@ -509,6 +511,11 @@ namespace TextPieces {
                 /* Add entry to the box */
                 arguments_box.append (entry);
             }
+
+            /* Update editor's top margin
+               if no need for show/hide transition */
+            if (old_has_args == arguments_revealer.reveal_child)
+                update_editor_margin.begin ();
         }
 
         /**
@@ -519,6 +526,44 @@ namespace TextPieces {
                 priority = HIGH,
                 timeout = TOAST_TIMEOUT,
             });
+        }
+
+        /**
+         * Window resize callback
+         *
+         * Used to make editor always
+         * have bottom margin with
+         * a size of the editor
+         */
+        public override void size_allocate (int width, int height, int baseline) {
+            base.size_allocate (width, height, baseline);
+
+            /* Set editor's bottom margin */
+            editor.bottom_margin = editor.get_allocated_height ();
+        }
+
+        /**
+         * Update editor's top margin
+         */
+        [GtkCallback]
+        async void update_editor_margin () {
+            /* Calculate new margin */
+            var old_margin = editor.top_margin;
+            var new_margin = arguments_revealer.reveal_child
+                ? arguments_box.get_allocated_height () + 20
+                : 6;
+
+            /* Set margin */
+            editor.top_margin = new_margin;
+
+            /* Wait until changes are applied */
+            Idle.add (update_editor_margin.callback);
+            yield;
+
+            /* Restore scroll position */
+            message ("VADJUST BEFORE: %lf", editor.vadjustment.value);
+            editor.vadjustment.value = double.max(editor.vadjustment.value - old_margin + new_margin, 0);
+            message ("VADJUST AFTER: %lf", editor.vadjustment.value);
         }
 
         /**
