@@ -561,9 +561,7 @@ namespace TextPieces {
             yield;
 
             /* Restore scroll position */
-            message ("VADJUST BEFORE: %lf", editor.vadjustment.value);
             editor.vadjustment.value = double.max(editor.vadjustment.value - old_margin + new_margin, 0);
-            message ("VADJUST AFTER: %lf", editor.vadjustment.value);
         }
 
         /**
