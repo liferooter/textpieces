@@ -182,24 +182,16 @@
                         </object>
                       </child>
                       <child type="overlay">
-                        <object class="GtkRevealer" id="arguments_revealer">
-                          <signal
-                            name="notify::child-revealed"
-                            handler="update_editor_margin"
-                            after="yes"/>
+                        <object class="GtkBox" id="arguments_box">
                           <property name="valign">start</property>
                           <property name="halign">end</property>
-                          <property name="child">
-                            <object class="GtkBox" id="arguments_box">
-                              <property name="spacing">3</property>
-                              <property name="orientation">vertical</property>
-                              <style>
-                                <class name="card"/>
-                                <class name="linked"/>
-                                <class name="argument-view"/>
-                              </style>
-                            </object>
-                          </property>
+                          <property name="spacing">3</property>
+                          <property name="orientation">vertical</property>
+                          <style>
+                            <class name="card"/>
+                            <class name="linked"/>
+                            <class name="argument-view"/>
+                          </style>
                         </object>
                       </child>
                     </object>
