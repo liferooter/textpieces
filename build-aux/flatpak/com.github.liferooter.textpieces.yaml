@@ -4,7 +4,7 @@
 
 app-id: com.github.liferooter.textpieces
 runtime: org.gnome.Platform
-runtime-version: master
+runtime-version: '41'
 sdk: org.gnome.Sdk
 command: textpieces
 finish-args:
@@ -52,7 +52,7 @@ modules:
   sources:
   - type: git
     url: https://gitlab.gnome.org/GNOME/libadwaita.git
-    branch: main
+    commit: 12a10b320300ec32d480c29f26ae55c1d4b2a8b7
 
 - name: gtksourceview
   buildsystem: meson
