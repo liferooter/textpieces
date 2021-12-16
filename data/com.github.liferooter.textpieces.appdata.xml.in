@@ -54,6 +54,9 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="3.0.2" date="2021-12-16">
+      <description>Bug fix</description>
+    </release>
     <release version="3.0.1" date="2021-12-16">
       <description>
         <ul>
