@@ -403,7 +403,7 @@ namespace TextPieces {
             var file_chooser = new Gtk.FileChooserNative (
                 _("Load from File"),
                 this,
-                SAVE,
+                OPEN,
                 null,
                 null
             ) {
