@@ -35,7 +35,6 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.Box arguments_box;
         [GtkChild] unowned Gtk.EventControllerKey search_event_controller;
         [GtkChild] unowned Gtk.ListBox search_listbox;
-        [GtkChild] unowned Gtk.Revealer arguments_revealer;
         [GtkChild] unowned Gtk.SearchEntry search_entry;
         [GtkChild] unowned Gtk.SourceView editor;
         [GtkChild] unowned Gtk.Stack content_stack;
@@ -165,12 +164,6 @@ namespace TextPieces {
 
             /* Load actions */
             add_action_entries (ACTION_ENTRIES, this);
-
-            arguments_revealer.notify["child-revealed"].connect (() => {
-                var old_adjustment = editor.vadjustment.value - editor.top_margin;
-                editor.top_margin = arguments_revealer.get_allocated_height ();
-                editor.vadjustment.value = old_adjustment + editor.top_margin;
-            });
 
             /* Create sorter for search results */
             search_sorter = new Gtk.CustomSorter (
@@ -455,7 +448,7 @@ namespace TextPieces {
          * Move focus to the first arguments entry
          */
         void action_jump_to_args () {
-            if (arguments_revealer.reveal_child)
+            if (arguments_box.visible)
                 ((Gtk.Widget) arguments_box.observe_children ().get_item (0))
                     .grab_focus ();
         }
@@ -479,8 +472,6 @@ namespace TextPieces {
             ((SimpleAction) lookup_action ("apply"))
                 .set_enabled (selected_tool != null);
 
-            var old_has_args = arguments_revealer.reveal_child;
-
             /* Remove old tool arguments */
             var children = arguments_box.observe_children ();
             for (int i = (int) children.get_n_items () - 1; i >= 0; i--)
@@ -491,7 +482,7 @@ namespace TextPieces {
 
             /* Don't show arguments box
                if there are no arguments */
-            arguments_revealer.reveal_child = n_args > 0;
+            arguments_box.visible = n_args > 0;
 
             /* Add argument entries */
             for (var i = 0; i < n_args; i++) {
@@ -512,10 +503,12 @@ namespace TextPieces {
                 arguments_box.append (entry);
             }
 
-            /* Update editor's top margin
-               if no need for show/hide transition */
-            if (old_has_args == arguments_revealer.reveal_child)
-                update_editor_margin.begin ();
+            /* Update editor's top margin */
+            Idle.add (() => {
+                update_editor_margin ();
+
+                return Source.REMOVE;
+            });
         }
 
         /**
@@ -529,41 +522,25 @@ namespace TextPieces {
         }
 
         /**
-         * Window resize callback
-         *
-         * Used to make editor always
-         * have bottom margin with
-         * a size of the editor
-         */
-        public override void size_allocate (int width, int height, int baseline) {
-            base.size_allocate (width, height, baseline);
-
-            /* Set editor's bottom margin */
-            editor.bottom_margin = editor.get_allocated_height ();
-        }
-
-        /**
          * Update editor's top margin
          */
-        [GtkCallback]
-        async void update_editor_margin () {
+        bool update_editor_margin () {
             /* Calculate new margin */
+            Graphene.Rect bounds;
+            assert (arguments_box.compute_bounds (this, out bounds));
+
             var old_margin = editor.top_margin;
-            var new_margin = arguments_revealer.reveal_child
-                ? arguments_box.get_allocated_height () + 20
+            var new_margin = arguments_box.visible
+                ? (int) Math.ceil (bounds.get_height ())
                 : 6;
 
             /* Set margin */
             editor.top_margin = new_margin;
 
-            /* Wait until changes are applied */
-            Idle.add (update_editor_margin.callback);
-            yield;
-
             /* Restore scroll position */
-            message ("VADJUST BEFORE: %lf", editor.vadjustment.value);
             editor.vadjustment.value = double.max(editor.vadjustment.value - old_margin + new_margin, 0);
-            message ("VADJUST AFTER: %lf", editor.vadjustment.value);
+
+            return Source.REMOVE;
         }
 
         /**

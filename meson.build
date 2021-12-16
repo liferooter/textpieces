@@ -1,6 +1,6 @@
 project('textpieces', ['c', 'vala'],
-          version: '3.0.0',
-    meson_version: '>= 0.50.0',
+          version: '3.0.1',
+    meson_version: '>= 0.59.0',
   default_options: [ 'warning_level=2',
                    ],
 )
@@ -11,7 +11,7 @@ pkgdata_dir = get_option('prefix') / get_option('datadir') / meson.project_name(
 textpieces_sources = []
 
 valac = meson.get_compiler('vala')
-vapi_dir = join_paths (meson.source_root(), 'src', 'vapi')
+vapi_dir = join_paths (meson.project_source_root(), 'src', 'vapi')
 
 add_project_arguments(
   [

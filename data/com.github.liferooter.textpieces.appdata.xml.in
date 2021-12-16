@@ -57,6 +57,18 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="3.0.1" date="2021-12-16">
+      <description>
+        <ul>
+          <li>Refresh UI</li>
+          <li>Fix a lot of bugs</li>
+          <li>Add powerful settings</li>
+          <li>Add arguments support for custom tools</li>
+          <li>Add translation support</li>
+          <li>Improve search</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.3.2" date="2021-09-30">
       Fix theme switcher
     </release>
