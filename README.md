@@ -72,7 +72,7 @@ Next, it can be installed by `meson install`.
 If you use GNOME Builder or Flatpak, dependencies will be installed automatically. If you use pure Meson, dependencies will be:
 - vala >= 0.52
 - gtk >= 4.2
-- gtksourceview >= 5.0
+- gtksourceview >= 5.2
 - gio >= 2.50
 - json-glib >= 1.6
 - libadwaita >= 1.0
