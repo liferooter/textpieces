@@ -314,7 +314,7 @@ namespace TextPieces {
         void action_about () {
             string[] AUTHORS = {_("Gleb Smirnov <glebsmirnov0708@gmail.com>")};
 
-            string[] ARTISTS = {_("Tobias Bernard https://tobiasbernard.com"),
+            string[] ARTISTS = {"Tobias Bernard https://tobiasbernard.com",
                                 _("Gleb Smirnov <glebsmirnov0708@gmail.com>")};
 
             Gtk.show_about_dialog (
