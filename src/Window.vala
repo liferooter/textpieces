@@ -270,7 +270,7 @@ namespace TextPieces {
          */
         void action_open_preferences () {
             /* Create preferences window */
-            var prefs = new Preferences () {
+            var prefs = new Preferences (editor.buffer as GtkSource.Buffer) {
                 transient_for = this,
                 /* Pass application to the window
                    to get application's shortcuts */
@@ -283,7 +283,7 @@ namespace TextPieces {
          * Open custom tools settings
          */
          void action_tools_settings () {
-            var prefs = new Preferences () {
+            var prefs = new Preferences (editor.buffer as GtkSource.Buffer) {
                 transient_for = this,
                 application = application,
                 visible_page_name = "custom-tools"

@@ -12,6 +12,7 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.ListBox custom_tools_listbox;
         [GtkChild] unowned Gtk.Label font_label;
         [GtkChild] unowned Gtk.SpinButton spaces_in_tab;
+        [GtkChild] unowned GtkSource.StyleSchemeChooserWidget style_scheme_chooser;
 
         /**
          * Preferences window actions
@@ -29,6 +30,15 @@ namespace TextPieces {
             "tabs-to-spaces",
             "color-scheme"
         };
+
+        public Preferences (GtkSource.Buffer source_buffer) {
+            source_buffer.bind_property (
+                "style-scheme",
+                style_scheme_chooser,
+                "style-scheme",
+                SYNC_CREATE | BIDIRECTIONAL
+            );
+        }
 
         construct {
             /* Create actions from entries */

@@ -109,49 +109,10 @@
       </child>
       <child>
         <object class="AdwPreferencesGroup">
-          <property name="title" translatable="yes">Color Scheme</property>
+          <property name="title" translatable="yes">Appearance</property>
+
           <child>
-            <object class="AdwActionRow">
-              <property name="title" translatable="yes">_Light</property>
-              <property name="use-underline">true</property>
-              <property name="activatable-widget">light_check</property>
-              <child type="prefix">
-                <object class="GtkCheckButton" id="light_check">
-                  <property name="valign">center</property>
-                  <property name="action-name">settings.color-scheme</property>
-                  <property name="action-target">'light'</property>
-                </object>
-              </child>
-            </object>
-          </child>
-          <child>
-            <object class="AdwActionRow">
-              <property name="title" translatable="yes">_Dark</property>
-              <property name="use-underline">true</property>
-              <property name="activatable-widget">dark_check</property>
-              <child type="prefix">
-                <object class="GtkCheckButton" id="dark_check">
-                  <property name="valign">center</property>
-                  <property name="group">light_check</property>
-                  <property name="action-name">settings.color-scheme</property>
-                  <property name="action-target">'dark'</property>
-                </object>
-              </child>
-            </object>
-          </child>
-          <child>
-            <object class="AdwActionRow">
-              <property name="title" translatable="yes">S_ystem Default</property>
-              <property name="use-underline">true</property>
-              <property name="activatable-widget">default_theme_check</property>
-              <child type="prefix">
-                <object class="GtkCheckButton" id="default_theme_check">
-                  <property name="valign">center</property>
-                  <property name="action-name">settings.color-scheme</property>
-                  <property name="action-target">'system-default'</property>
-                </object>
-              </child>
-            </object>
+            <object class="GtkSourceStyleSchemeChooserWidget" id="style_scheme_chooser"/>
           </child>
         </object>
       </child>
