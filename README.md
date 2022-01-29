@@ -31,7 +31,7 @@ Swiss knife of text processing
 </p>
 
 <p align="center">
-    <img alt="Screenshot" src="screenshots/screenshot.png" width="50%"/>
+    <img alt="Screenshot" src="screenshots/screenshot.png"/>
 </p>
 
 
