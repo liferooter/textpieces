@@ -3,5 +3,5 @@
 .flatpak-builder
 _build
 .vscode
-*sass*
 /subprojects/*/
+/.fenv
