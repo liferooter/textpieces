@@ -87,15 +87,12 @@ namespace TextPieces {
         protected override void startup () {
             base.startup ();
 
-            /* Initialize libs */
-            Gtk.Sourceinit ();
-
             /* Initialize localization */
             Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.GNOMELOCALEDIR);
             Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
 
             /* Initialize libs */
-            Gtk.Sourceinit ();
+            GtkSource.init ();
 
             /* Setup color scheme */
             settings.changed.connect ((key) => {

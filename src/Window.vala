@@ -19,7 +19,7 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.EventControllerKey search_event_controller;
         [GtkChild] unowned Gtk.ListBox search_listbox;
         [GtkChild] unowned Gtk.SearchEntry search_entry;
-        [GtkChild] unowned Gtk.SourceView editor;
+        [GtkChild] unowned GtkSource.View editor;
         [GtkChild] unowned Gtk.Stack content_stack;
         [GtkChild] unowned Gtk.Stack search_stack;
         [GtkChild] unowned Gtk.ToggleButton tool_button;
