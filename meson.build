@@ -10,7 +10,9 @@ pkgdata_dir = get_option('prefix') / get_option('datadir') / meson.project_name(
 
 textpieces_sources = []
 
+cc = meson.get_compiler('c')
 valac = meson.get_compiler('vala')
+
 vapi_dir = join_paths (meson.project_source_root(), 'src', 'vapi')
 
 add_project_arguments(
@@ -78,6 +80,8 @@ if not gtksourceview_dep.found()
   )
 endif
 
+libm_dep = cc.find_library('m')
+
 textpieces_deps = [
   dependency('gio-2.0', version: '>= 2.50'),
   dependency('gio-unix-2.0', version: '>= 2.50'),
@@ -85,6 +89,8 @@ textpieces_deps = [
   json_glib_dep,
   gtksourceview_dep,
   libadwaita_dep,
+  libm_dep,
+
   valac.find_library('config', dirs: vapi_dir),
 ]
 
