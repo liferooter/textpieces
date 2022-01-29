@@ -4,7 +4,7 @@
 
 app-id: com.github.liferooter.textpieces
 runtime: org.gnome.Platform
-runtime-version: '41'
+runtime-version: master
 sdk: org.gnome.Sdk
 command: textpieces
 finish-args:
@@ -33,41 +33,6 @@ modules:
     - type: dir
       path: ../..
   modules:
-
-  - name: libadwaita
-    buildsystem: meson
-    config-opts:
-    - -Dexamples=false
-    - -Dtests=false
-    sources:
-    - type: git
-      url: https://gitlab.gnome.org/GNOME/libadwaita.git
-      commit: 12a10b320300ec32d480c29f26ae55c1d4b2a8b7
-    modules:
-    - name: libsass
-      buildsystem: meson
-      sources:
-      - type: git
-        url: https://github.com/lazka/libsass.git
-        branch: meson
-
-    - name: sassc
-      buildsystem: meson
-      sources:
-      - type: git
-        url: https://github.com/lazka/sassc.git
-        branch: meson
-
-  - name: gtksourceview
-    buildsystem: meson
-    config-opts:
-    - -Dtests=false
-    - -Dexamples=false
-    sources:
-    - type: archive
-      url: https://download.gnome.org/sources/gtksourceview/5.2/gtksourceview-5.2.0.tar.xz
-      sha256: c9b34fa02654f56ce22fa08827d89db4ba81631b2e6d7d31ea65d13c729430e9
-
   - name: python3-pyyaml
     buildsystem: simple
     build-commands:
