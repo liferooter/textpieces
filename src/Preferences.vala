@@ -27,12 +27,11 @@ namespace TextPieces {
          */
         const string[] SETTINGS_ACTIONS = {
             "wrap-lines",
-            "tabs-to-spaces",
-            "color-scheme"
+            "tabs-to-spaces"
         };
 
-        public Preferences (GtkSource.Buffer source_buffer) {
-            source_buffer.bind_property (
+        public Preferences (TextPieces.Window win) {
+            win.bind_property (
                 "style-scheme",
                 style_scheme_chooser,
                 "style-scheme",

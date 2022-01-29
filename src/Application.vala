@@ -94,13 +94,6 @@ namespace TextPieces {
             /* Initialize libs */
             GtkSource.init ();
 
-            /* Setup color scheme */
-            settings.changed.connect ((key) => {
-                if (key == "color-scheme")
-                    color_scheme_changed_cb ();
-            });
-            color_scheme_changed_cb ();
-
             /* Setup actions */
             add_action_entries (ACTIONS, this);
 
@@ -131,23 +124,6 @@ namespace TextPieces {
 
             /* Present it to user */
             win.present ();
-        }
-
-        /**
-         * Update color scheme from settings
-         */
-        void color_scheme_changed_cb () {
-            switch (settings.get_string ("color-scheme")) {
-            case "dark":
-                style_manager.color_scheme = FORCE_DARK;
-                break;
-            case "light":
-                style_manager.color_scheme = FORCE_LIGHT;
-                break;
-            case "system-default":
-                style_manager.color_scheme = PREFER_LIGHT;
-                break;
-            }
         }
 
         /**

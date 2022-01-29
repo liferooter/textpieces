@@ -98,6 +98,19 @@ namespace TextPieces {
         }
 
         /**
+         * Style scheme
+         */
+        public GtkSource.StyleScheme style_scheme {
+            set {
+                Application.settings.set_string ("style-scheme", value.id);
+            } get {
+                var id = Application.settings.get_string ("style-scheme");
+                return GtkSource.StyleSchemeManager.get_default ()
+                    .get_scheme (id);
+            }
+        }
+
+        /**
          * Whether to wrap lines
          */
         public bool wrap_lines {
@@ -143,6 +156,14 @@ namespace TextPieces {
                 Gdk.Display.get_default (),
                 editor_font_css_provider,
                 Gtk.STYLE_PROVIDER_PRIORITY_USER
+            );
+
+            /* Bind editor style scheme */
+            this.bind_property (
+                "style-scheme",
+                editor.buffer,
+                "style-scheme",
+                SYNC_CREATE
             );
 
             /* Load actions */
@@ -270,7 +291,7 @@ namespace TextPieces {
          */
         void action_open_preferences () {
             /* Create preferences window */
-            var prefs = new Preferences (editor.buffer as GtkSource.Buffer) {
+            var prefs = new Preferences (this) {
                 transient_for = this,
                 /* Pass application to the window
                    to get application's shortcuts */
@@ -283,7 +304,7 @@ namespace TextPieces {
          * Open custom tools settings
          */
          void action_tools_settings () {
-            var prefs = new Preferences (editor.buffer as GtkSource.Buffer) {
+            var prefs = new Preferences (this) {
                 transient_for = this,
                 application = application,
                 visible_page_name = "custom-tools"
