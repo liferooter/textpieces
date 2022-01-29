@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+
 <schemalist gettext-domain="textpieces">
   <schema id="com.github.liferooter.textpieces" path="/com/github/liferooter/textpieces/">
     <key name="color-scheme" type="s">

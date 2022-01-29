@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 <h1 align="center">
 <img
     src="data/icons/com.github.liferooter.textpieces.svg" alt="Text Pieces"

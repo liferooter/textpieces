@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 project('textpieces', ['c', 'vala'],
           version: '3.0.2',
     meson_version: '>= 0.59.0',

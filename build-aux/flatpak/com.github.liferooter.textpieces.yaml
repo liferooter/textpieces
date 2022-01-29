@@ -1,6 +1,6 @@
-# This is the main version of Flatpak manifest.
-# Please, create JSON version for GNOME Builder users.
-# You can do it by Text Pieces itself :)
+# SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 app-id: com.github.liferooter.textpieces
 runtime: org.gnome.Platform

@@ -1,1 +1,5 @@
+# SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 i18n.gettext(meson.project_name(), preset: 'glib')

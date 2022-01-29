@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 desktop_file = i18n.merge_file(
   input: 'com.github.liferooter.textpieces.desktop.in',
   output: 'com.github.liferooter.textpieces.desktop',
