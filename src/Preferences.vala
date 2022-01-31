@@ -12,6 +12,7 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.ListBox custom_tools_listbox;
         [GtkChild] unowned Gtk.Label font_label;
         [GtkChild] unowned Gtk.SpinButton spaces_in_tab;
+        [GtkChild] unowned GtkSource.StyleSchemeChooserWidget style_scheme_chooser;
 
         /**
          * Preferences window actions
@@ -26,9 +27,17 @@ namespace TextPieces {
          */
         const string[] SETTINGS_ACTIONS = {
             "wrap-lines",
-            "tabs-to-spaces",
-            "color-scheme"
+            "tabs-to-spaces"
         };
+
+        public Preferences (TextPieces.Window win) {
+            win.bind_property (
+                "style-scheme",
+                style_scheme_chooser,
+                "style-scheme",
+                SYNC_CREATE | BIDIRECTIONAL
+            );
+        }
 
         construct {
             /* Create actions from entries */

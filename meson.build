@@ -48,7 +48,7 @@ if not libadwaita_dep.found()
   )
 endif
 
-gtksourceview_dep = dependency('gtksourceview-5', version: '>= 5.0.0', required: false)
+gtksourceview_dep = dependency('gtksourceview-5', version: '>= 5.3.0', required: false)
 if not gtksourceview_dep.found()
   gtksourceview = subproject(
     'gtksourceview',

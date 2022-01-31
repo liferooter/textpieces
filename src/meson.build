@@ -12,7 +12,8 @@ textpieces_sources += [
   'CustomToolPage.vala',
   'NewToolPage.vala',
   'Search.vala',
-  'Utils.vala'
+  'Utils.vala',
+  'Recoloring.vala'
 ]
 
 executable('textpieces', textpieces_sources,

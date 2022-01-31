@@ -19,7 +19,7 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.EventControllerKey search_event_controller;
         [GtkChild] unowned Gtk.ListBox search_listbox;
         [GtkChild] unowned Gtk.SearchEntry search_entry;
-        [GtkChild] unowned Gtk.SourceView editor;
+        [GtkChild] unowned GtkSource.View editor;
         [GtkChild] unowned Gtk.Stack content_stack;
         [GtkChild] unowned Gtk.Stack search_stack;
         [GtkChild] unowned Gtk.ToggleButton tool_button;
@@ -82,7 +82,7 @@ namespace TextPieces {
         /**
          * CSS provider used to set editor font
          */
-        Gtk.CssProvider? editor_font_css_provider = new Gtk.CssProvider ();
+        Gtk.CssProvider editor_font_css_provider = new Gtk.CssProvider ();
 
         /**
          * Editor font
@@ -94,6 +94,49 @@ namespace TextPieces {
                         font-family: %s;
                     }
                 """.printf (value).data);
+            }
+        }
+
+        /**
+         * CSS provider used to set style scheme
+         */
+        Gtk.CssProvider style_scheme_css_provider = new Gtk.CssProvider ();
+
+        /**
+         * Style scheme
+         */
+        public GtkSource.StyleScheme style_scheme {
+            set {
+                _style_scheme = value;
+
+                /* Apply style scheme to the app */
+                var is_dark = Recoloring.is_scheme_dark (value);
+                Adw.StyleManager.get_default ()
+                    .color_scheme = is_dark
+                        ? Adw.ColorScheme.FORCE_DARK
+                        : Adw.ColorScheme.FORCE_LIGHT;
+                style_scheme_css_provider.load_from_data (
+                    Recoloring.generate_css (value).data
+                );
+
+                notify_property ("style-scheme-id");
+            } get {
+                return _style_scheme;
+            }
+        }
+        private GtkSource.StyleScheme _style_scheme;
+
+
+        /**
+         * Style scheme id
+         */
+        public string style_scheme_id {
+            get {
+                return style_scheme.id;
+            } set {
+                style_scheme = GtkSource.StyleSchemeManager
+                    .get_default ()
+                    .get_scheme (value);
             }
         }
 
@@ -143,6 +186,27 @@ namespace TextPieces {
                 Gdk.Display.get_default (),
                 editor_font_css_provider,
                 Gtk.STYLE_PROVIDER_PRIORITY_USER
+            );
+
+            /* Setup style scheme */
+            Application.settings.bind (
+                "style-scheme",
+                this,
+                "style-scheme-id",
+                DEFAULT
+            );
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (),
+                style_scheme_css_provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_USER
+            );
+
+            /* Bind editor style scheme */
+            this.bind_property (
+                "style-scheme",
+                editor.buffer,
+                "style-scheme",
+                SYNC_CREATE
             );
 
             /* Load actions */
@@ -270,7 +334,7 @@ namespace TextPieces {
          */
         void action_open_preferences () {
             /* Create preferences window */
-            var prefs = new Preferences () {
+            var prefs = new Preferences (this) {
                 transient_for = this,
                 /* Pass application to the window
                    to get application's shortcuts */
@@ -283,7 +347,7 @@ namespace TextPieces {
          * Open custom tools settings
          */
          void action_tools_settings () {
-            var prefs = new Preferences () {
+            var prefs = new Preferences (this) {
                 transient_for = this,
                 application = application,
                 visible_page_name = "custom-tools"

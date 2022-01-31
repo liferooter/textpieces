@@ -87,22 +87,12 @@ namespace TextPieces {
         protected override void startup () {
             base.startup ();
 
-            /* Initialize libs */
-            Gtk.Sourceinit ();
-
             /* Initialize localization */
             Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.GNOMELOCALEDIR);
             Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
 
             /* Initialize libs */
-            Gtk.Sourceinit ();
-
-            /* Setup color scheme */
-            settings.changed.connect ((key) => {
-                if (key == "color-scheme")
-                    color_scheme_changed_cb ();
-            });
-            color_scheme_changed_cb ();
+            GtkSource.init ();
 
             /* Setup actions */
             add_action_entries (ACTIONS, this);
@@ -134,23 +124,6 @@ namespace TextPieces {
 
             /* Present it to user */
             win.present ();
-        }
-
-        /**
-         * Update color scheme from settings
-         */
-        void color_scheme_changed_cb () {
-            switch (settings.get_string ("color-scheme")) {
-            case "dark":
-                style_manager.color_scheme = FORCE_DARK;
-                break;
-            case "light":
-                style_manager.color_scheme = FORCE_LIGHT;
-                break;
-            case "system-default":
-                style_manager.color_scheme = PREFER_LIGHT;
-                break;
-            }
         }
 
         /**
