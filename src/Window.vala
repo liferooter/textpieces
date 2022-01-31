@@ -82,7 +82,7 @@ namespace TextPieces {
         /**
          * CSS provider used to set editor font
          */
-        Gtk.CssProvider? editor_font_css_provider = new Gtk.CssProvider ();
+        Gtk.CssProvider editor_font_css_provider = new Gtk.CssProvider ();
 
         /**
          * Editor font
@@ -98,15 +98,45 @@ namespace TextPieces {
         }
 
         /**
+         * CSS provider used to set style scheme
+         */
+        Gtk.CssProvider style_scheme_css_provider = new Gtk.CssProvider ();
+
+        /**
          * Style scheme
          */
         public GtkSource.StyleScheme style_scheme {
             set {
-                Application.settings.set_string ("style-scheme", value.id);
+                _style_scheme = value;
+
+                /* Apply style scheme to the app */
+                var is_dark = Recoloring.is_scheme_dark (value);
+                Adw.StyleManager.get_default ()
+                    .color_scheme = is_dark
+                        ? Adw.ColorScheme.FORCE_DARK
+                        : Adw.ColorScheme.FORCE_LIGHT;
+                style_scheme_css_provider.load_from_data (
+                    Recoloring.generate_css (value).data
+                );
+
+                notify_property ("style-scheme-id");
             } get {
-                var id = Application.settings.get_string ("style-scheme");
-                return GtkSource.StyleSchemeManager.get_default ()
-                    .get_scheme (id);
+                return _style_scheme;
+            }
+        }
+        private GtkSource.StyleScheme _style_scheme;
+
+
+        /**
+         * Style scheme id
+         */
+        public string style_scheme_id {
+            get {
+                return style_scheme.id;
+            } set {
+                style_scheme = GtkSource.StyleSchemeManager
+                    .get_default ()
+                    .get_scheme (value);
             }
         }
 
@@ -155,6 +185,19 @@ namespace TextPieces {
             Gtk.StyleContext.add_provider_for_display (
                 Gdk.Display.get_default (),
                 editor_font_css_provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_USER
+            );
+
+            /* Setup style scheme */
+            Application.settings.bind (
+                "style-scheme",
+                this,
+                "style-scheme-id",
+                DEFAULT
+            );
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (),
+                style_scheme_css_provider,
                 Gtk.STYLE_PROVIDER_PRIORITY_USER
             );
 
