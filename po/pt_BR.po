@@ -1,10 +1,8 @@
-# Portuguese translations for textpieces package
-# Traduções em português brasileiro para o pacote textpieces.
 # Copyright (C) 2022 THE textpieces'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the textpieces package.
-# Automatically generated, 2022.
-# Éden Alencar <eden.alencar@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022 Éden Alencar <eden.alencar@gmail.com>
 #
+# SPDX-License-Identifier: CC0-1.0
+
 msgid ""
 msgstr ""
 "Project-Id-Version: textpieces\n"
