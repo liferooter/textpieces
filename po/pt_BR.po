@@ -1,0 +1,435 @@
+# Copyright (C) 2022 THE textpieces'S COPYRIGHT HOLDER
+# SPDX-FileCopyrightText: 2022 Éden Alencar <eden.alencar@gmail.com>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+msgid ""
+msgstr ""
+"Project-Id-Version: textpieces\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-03 12:45-0300\n"
+"PO-Revision-Date: 2022-02-03 14:21-0300\n"
+"Last-Translator: Éden Alencar <eden.alencar@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <eden.alencar@gmail.com>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 41.0\n"
+
+#: data/com.github.liferooter.textpieces.desktop.in:7
+#: data/com.github.liferooter.textpieces.appdata.xml.in:11 src/Window.vala:369
+#: resources/ui/Window.ui:29
+msgid "Text Pieces"
+msgstr "Text Pieces"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:12 src/Window.vala:371
+msgid "Transform text without using random websites"
+msgstr "Transforme texto sem usar sites aleatórios"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:16
+msgid "Do a lot of text transformations, such as:"
+msgstr "Faça muitas transformações de texto, como:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:18
+msgid "Calculate hashes"
+msgstr "Calcular hashes"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:19
+msgid "Encode text"
+msgstr "Codificar texto"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:20
+msgid "Decode text"
+msgstr "Decodificar texto"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:21
+msgid "Remove trailing spaces and lines"
+msgstr "Remova espaços e linhas à direita"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:22
+msgid "Count lines, symbols and words"
+msgstr "Contar linhas, símbolos e palavras"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:23
+msgid "Format JSON and XML"
+msgstr "Formate JSON e XML"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:24
+msgid "Escape and unescape strings"
+msgstr "Escape e não escape de strings"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:25
+msgid "Convert JSON to YAML and vice versa"
+msgstr "Converter JSON para YAML e vice-versa"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:26
+msgid "Filter lines"
+msgstr "Filtrar linhas"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:27
+msgid "Replace substrings and regular expressions"
+msgstr "Substituir substrings e expressões regulares"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:29
+msgid "...and so on."
+msgstr "...e assim por diante."
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:34
+msgid "Gleb Smirnov"
+msgstr "Gleb Smirnov"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:65
+msgid "Bug fix"
+msgstr "Correção de bug"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:70
+msgid "Refresh UI"
+msgstr "Atualizar interface do usuário"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:71
+msgid "Fix a lot of bugs"
+msgstr "Corrija muitos bugs"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:72
+msgid "Add powerful settings"
+msgstr "Adicione configurações poderosas"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:73
+msgid "Add arguments support for custom tools"
+msgstr "Adicionar suporte a argumentos para ferramentas personalizadas"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:74
+msgid "Add translation support"
+msgstr "Adicionar suporte de tradução"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:75
+#: data/com.github.liferooter.textpieces.appdata.xml.in:104
+msgid "Improve search"
+msgstr "Melhorar a pesquisa"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:88
+msgid "Minor UI changes"
+msgstr "Pequenas alterações na interface do usuário"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:89
+msgid "Add XML formatter"
+msgstr "Adicionar formatador XML"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:94
+msgid "Some bugfixes and improvements"
+msgstr "Algumas correções de bugs e melhorias"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:97
+msgid "Bring back tools with arguments"
+msgstr "Traga de volta ferramentas com argumentos"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:102
+msgid "Redesign the application"
+msgstr "Redesenhe o aplicativo"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:103
+msgid "Add custom tools support"
+msgstr "Adicionar suporte a ferramentas personalizadas"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:105
+msgid "Add ability to text load from file and save to file"
+msgstr "Adicione a capacidade de carregar texto do arquivo e salvar no arquivo"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:112
+msgid "Exit by Ctrl+Q"
+msgstr "Sair com Ctrl+Q"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:113
+msgid "Monospace argument entry"
+msgstr "Entrada de argumento monoespaçado"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:114
+msgid "Update new runtime"
+msgstr "Atualizar novo tempo de execução"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:121
+msgid "Sort tools"
+msgstr "Ferramentas de classificação"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:122
+msgid "Filter tools"
+msgstr "Ferramentas de filtro"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:123
+msgid "Minify C-like code"
+msgstr "Minificar código semelhante a C"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:130
+msgid "Add more tools"
+msgstr "Adicionar mais ferramentas"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:131
+msgid "Make tools popover more powerful"
+msgstr "Torne as ferramentas popover mais poderosas"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:132
+msgid "Redesign icon"
+msgstr "Ícone de redesenho"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:133
+msgid "General improvements"
+msgstr "Melhorias gerais"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:138
+msgid "Add tools for replacement and removing"
+msgstr "Adicione ferramentas para substituição e remoção"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:141
+msgid "Application release"
+msgstr "Versão do aplicativo"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:13
+msgid "Style scheme"
+msgstr "Esquema de estilo"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:14
+msgid "Which style scheme to use for application interface and editor."
+msgstr "Qual esquema de estilo usar para a interface e o editor do aplicativo."
+
+#: data/com.github.liferooter.textpieces.gschema.xml:20
+msgid "Font name"
+msgstr "Nome da fonte"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:21
+msgid "Name of font used in editor"
+msgstr "Nome da fonte usada no editor"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:27
+msgid "Wrap lines"
+msgstr "Quebra de linhas"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:28
+msgid "Whether to wrap long lines"
+msgstr "Se deve envolver linhas longas"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:34
+msgid "Tabs to spaces"
+msgstr "Guias para _Espaços"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:35
+msgid "Whether to insert spaces instead of tab"
+msgstr "Se deseja inserir espaços em vez de tabulação"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:41
+msgid "Spaces in tab"
+msgstr "Espaços na guia"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:42
+msgid "Tab width in spaces"
+msgstr "Largura da guia em espaços"
+
+#: src/NewToolPage.vala:113
+#, c-format
+msgid "Error occured: %s"
+msgstr "Ocorreu um erro: %s"
+
+#. Create dialog
+#: src/Preferences.vala:128
+msgid "Select font"
+msgstr "Selecionar fonte"
+
+#: src/ToolSettings.vala:182
+#, c-format
+msgid "Argument %d"
+msgstr "Argumento %d"
+
+#. *
+#. * Text used instead of tool name
+#. * when where is no tool selected
+#.
+#: src/Window.vala:32 resources/ui/ShortcutsWindow.ui:68
+msgid "Select tool"
+msgstr "Selecionar ferramenta"
+
+#: src/Window.vala:362 src/Window.vala:365
+msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+msgstr "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+
+#: src/Window.vala:377
+msgid "translator-credits"
+msgstr "créditos do tradutor"
+
+#: src/Window.vala:397
+msgid "Text is copied to clipboard"
+msgstr "O texto é copiado para a área de transferência"
+
+#: src/Window.vala:406 resources/ui/Window.ui:114
+msgid "Save to File"
+msgstr "Salvar em arquivo"
+
+#: src/Window.vala:435
+#, c-format
+msgid "Can't save to file: %s"
+msgstr "Não é possível salvar no arquivo: %s"
+
+#: src/Window.vala:451 resources/ui/Window.ui:121
+msgid "Load from File"
+msgstr "Carregar do arquivo"
+
+#: src/Window.vala:484
+#, c-format
+msgid "Can't load from file: %s"
+msgstr "Não é possível carregar do arquivo: %s"
+
+#: resources/ui/CustomToolPage.ui:49
+msgid "D_elete"
+msgstr "E_xcluir"
+
+#: resources/ui/NewToolPage.ui:55
+msgid "_Create"
+msgstr "_Criar"
+
+#: resources/ui/Preferences.ui:34
+msgid "_General"
+msgstr "_Geral"
+
+#: resources/ui/Preferences.ui:40
+msgid "Editor"
+msgstr "Editor"
+
+#: resources/ui/Preferences.ui:43
+msgid "Editor _Font"
+msgstr "Editor _Fonte"
+
+#: resources/ui/Preferences.ui:64
+msgid "_Wrap Lines"
+msgstr "_Linhas de quebra"
+
+#: resources/ui/Preferences.ui:77
+msgid "Tabs to _Spaces"
+msgstr "Guias para _Espaços"
+
+#: resources/ui/Preferences.ui:90
+msgid "_Tab Width in Spaces"
+msgstr "_Largura da Tabulação nos Espaços"
+
+#: resources/ui/Preferences.ui:112
+msgid "Appearance"
+msgstr "Aparência"
+
+#: resources/ui/Preferences.ui:124
+msgid "T_ools"
+msgstr "F_erramentas"
+
+#: resources/ui/Preferences.ui:130
+msgid "Custom tools"
+msgstr "Ferramentas personalizadas"
+
+#: resources/ui/ShortcutsWindow.ui:35
+msgid "General"
+msgstr "Geral"
+
+#: resources/ui/ShortcutsWindow.ui:38
+msgid "Keyboard shortcuts"
+msgstr "Atalhos do teclado"
+
+#: resources/ui/ShortcutsWindow.ui:44
+msgid "Preferences"
+msgstr "Preferências"
+
+#: resources/ui/ShortcutsWindow.ui:50
+msgid "Quit"
+msgstr "Sair"
+
+#: resources/ui/ShortcutsWindow.ui:59
+msgid "Tools"
+msgstr "Ferramentas"
+
+#: resources/ui/ShortcutsWindow.ui:62
+msgid "Apply"
+msgstr "Aplicar"
+
+#: resources/ui/ShortcutsWindow.ui:74
+msgid "Jump to the tool options"
+msgstr "Ir para as opções da ferramenta"
+
+#: resources/ui/ShortcutsWindow.ui:83
+msgid "Undo and Redo"
+msgstr "Desfazer e refazer"
+
+#: resources/ui/ShortcutsWindow.ui:86
+msgid "Undo"
+msgstr "Desfazer"
+
+#: resources/ui/ShortcutsWindow.ui:92
+msgid "Redo"
+msgstr "Refazer"
+
+#: resources/ui/ShortcutsWindow.ui:101
+msgid "Copy and Paste"
+msgstr "Copiar e colar"
+
+#: resources/ui/ShortcutsWindow.ui:104 resources/ui/Window.ui:72
+msgid "Copy"
+msgstr "Copiar"
+
+#: resources/ui/ShortcutsWindow.ui:110
+msgid "Paste"
+msgstr "Colar"
+
+#: resources/ui/ShortcutsWindow.ui:116
+msgid "Copy all"
+msgstr "Copiar tudo"
+
+#: resources/ui/ShortcutsWindow.ui:125
+msgid "Files"
+msgstr "Arquivos"
+
+#: resources/ui/ShortcutsWindow.ui:128
+msgid "Load from file"
+msgstr "Carregar do arquivo"
+
+#: resources/ui/ShortcutsWindow.ui:134
+msgid "Save to file"
+msgstr "Salvar em arquivo"
+
+#: resources/ui/ToolSettings.ui:53
+msgid "_Name"
+msgstr "_Nome"
+
+#: resources/ui/ToolSettings.ui:69
+msgid "_Description"
+msgstr "_Descrição"
+
+#: resources/ui/ToolSettings.ui:81
+msgid "_Arguments"
+msgstr "_Argumentos"
+
+#: resources/ui/Window.ui:59
+msgid "_Apply"
+msgstr "_Aplicar"
+
+#: resources/ui/Window.ui:62
+msgid "Apply Selected Tool"
+msgstr "Aplicar ferramenta selecionada"
+
+#: resources/ui/Window.ui:107
+msgid "Main Menu"
+msgstr "Menu principal"
+
+#: resources/ui/Window.ui:249
+msgid "No Tools Found"
+msgstr "Nenhuma ferramenta encontrada"
+
+#: resources/ui/Window.ui:270
+msgid "Add Custom Tool"
+msgstr "Adicionar ferramenta personalizada"
+
+#: resources/ui/Window.ui:299
+msgid "_Preferences"
+msgstr "_Preferências"
+
+#: resources/ui/Window.ui:304
+msgid "_Keyboard Shortcuts"
+msgstr "_Atalhos do teclado"
+
+#: resources/ui/Window.ui:309
+msgid "_About Text Pieces"
+msgstr "_Sobre Text Pieces"
