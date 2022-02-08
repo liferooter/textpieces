@@ -288,7 +288,7 @@ msgstr "_Criar"
 
 #: resources/ui/Preferences.ui:34
 msgid "_General"
-msgstr "_Em geral"
+msgstr "_Geral"
 
 #: resources/ui/Preferences.ui:40
 msgid "Editor"
@@ -324,7 +324,7 @@ msgstr "Ferramentas personalizadas"
 
 #: resources/ui/ShortcutsWindow.ui:35
 msgid "General"
-msgstr "Em geral"
+msgstr "Geral"
 
 #: resources/ui/ShortcutsWindow.ui:38
 msgid "Keyboard shortcuts"
