@@ -3,6 +3,13 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+/*
+ FIXME: there are some lines of code in this file
+        which uses unstable API from gtksourceview-5.4.
+        These lines are commented. Uncomment them after
+        gtksourceview-5.4 release.
+ */
+
 const string SHARED_CSS = """
 @define-color card_fg_color @window_fg_color;
 @define-color headerbar_fg_color @window_fg_color;
