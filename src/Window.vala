@@ -209,6 +209,26 @@ namespace TextPieces {
                 SYNC_CREATE
             );
 
+            /* Save window size between launches */
+            Application.settings.bind (
+                "window-width",
+                this,
+                "default-width",
+                DEFAULT
+            );
+            Application.settings.bind (
+                "window-height",
+                this,
+                "default-height",
+                DEFAULT
+            );
+            Application.settings.bind (
+                "is-maximized",
+                this,
+                "is-maximized",
+                DEFAULT
+            );
+
             /* Load actions */
             add_action_entries (ACTION_ENTRIES, this);
 

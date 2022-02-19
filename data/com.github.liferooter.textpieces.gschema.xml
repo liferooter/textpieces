@@ -43,5 +43,26 @@ SPDX-License-Identifier: GPL-3.0-or-later
         Tab width in spaces
       </description>
     </key>
+    <key name="window-width" type="i">
+      <default>800</default>
+      <summary>Window width</summary>
+      <description>
+        Saved width of application window
+      </description>
+    </key>
+    <key name="window-height" type="i">
+      <default>500</default>
+      <summary>Window height</summary>
+      <description>
+        Saved height of the window
+      </description>
+    </key>
+    <key name="is-maximized" type="b">
+      <default>false</default>
+      <summary>Is maximized</summary>
+      <description>
+        Whether the application window is maximized
+      </description>
+    </key>
   </schema>
 </schemalist>
