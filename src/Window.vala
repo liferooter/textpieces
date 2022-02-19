@@ -225,7 +225,7 @@ namespace TextPieces {
             Application.settings.bind (
                 "is-maximized",
                 this,
-                "is-maximized",
+                "maximized",
                 DEFAULT
             );
 

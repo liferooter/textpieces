@@ -128,25 +128,25 @@
       <child>
         <object class="AdwPreferencesGroup">
           <property name="title" translatable="yes">Custom tools</property>
-          <child>
-            <object class="AdwActionRow">
-              <property name="title">_Add custom tool</property>
-              <property name="use-underline">true</property>
-              <property name="activatable">true</property>
-              <signal
-                name="activated"
-                handler="add_new_tool"/>
+          <child type="header-suffix">
+            <object class="GtkButton">
               <child>
-                <object class="GtkImage">
-                  <property name="icon-name">go-next-symbolic</property>
+                <object class="AdwButtonContent">
+                  <property name="icon-name">list-add-symbolic</property>
+                  <property name="label" translatable="yes">_Add custom tool</property>
+                  <property name="use-underline">true</property>
                 </object>
               </child>
+              <style>
+                <class name="flat"/>
+              </style>
+              <signal
+                name="clicked"
+                handler="add_new_tool"/>
             </object>
           </child>
           <child>
             <object class="GtkListBox" id="custom_tools_listbox">
-              <property name="margin-top">20</property>
-              <property name="margin-bottom">20</property>
               <property name="selection-mode">none</property>
               <signal
                 name="row-activated"
