@@ -209,25 +209,12 @@ namespace TextPieces {
                 SYNC_CREATE
             );
 
-            /* Save window size between launches */
-            Application.settings.bind (
-                "window-width",
-                this,
-                "default-width",
-                DEFAULT
-            );
-            Application.settings.bind (
-                "window-height",
-                this,
-                "default-height",
-                DEFAULT
-            );
-            Application.settings.bind (
-                "is-maximized",
-                this,
-                "maximized",
-                DEFAULT
-            );
+            /* Restore window geometry from settings */
+            with (Application.settings) {
+                default_width = get_int ("window-width");
+                default_height = get_int ("window-height");
+                maximized = get_boolean ("is-maximized");
+            }
 
             /* Load actions */
             add_action_entries (ACTION_ENTRIES, this);
@@ -267,6 +254,28 @@ namespace TextPieces {
                tool property and run
                its callback */
             selected_tool = null;
+        }
+
+        /**
+         * Close request callback
+         *
+         * Saves window geometry.
+         */
+        protected override bool close_request () {
+            save_window_size ();
+
+            return false;
+        }
+
+        /**
+         * Save window size
+         */
+        public void save_window_size () {
+            with (Application.settings) {
+                set_int ("window-width", default_width);
+                set_int ("window-height", default_height);
+                set_boolean ("is-maximized", maximized);
+            }
         }
 
         /**

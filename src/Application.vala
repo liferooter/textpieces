@@ -123,6 +123,20 @@ namespace TextPieces {
         }
 
         /**
+         * Shutdown method
+         *
+         * This method is called when app
+         * is being terminated.
+         */
+        protected override void shutdown () {
+            /* Save window geometry if can */
+            var win = (TextPieces.Window?) get_active_window ();
+            win?.save_window_size ();
+
+            base.shutdown ();
+        }
+
+        /**
          * New window action
          */
         public void new_window () {
