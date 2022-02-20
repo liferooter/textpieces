@@ -47,11 +47,11 @@ const string DARK_CSS_SUFFIX = """
 """;
 
 /**
- * Implementation of application-wide style schemes.
+ * Implementation of application-wide style schemes
  */
 namespace Recoloring {
     /**
-     * Color kind.
+     * Color kind
      *
      * Can be background or foreground.
      */
@@ -61,7 +61,7 @@ namespace Recoloring {
     }
 
     /**
-     * Try to parse color string.
+     * Try to parse color string
      *
      * Returns `null` if string is invalid.
      *
@@ -79,7 +79,7 @@ namespace Recoloring {
     }
 
     /**
-     * Get color from style scheme.
+     * Get color from style scheme
      *
      * @param scheme style scheme
      * @param style_name style name that color is belong to
@@ -114,7 +114,7 @@ namespace Recoloring {
     }
 
     /**
-     * Get color from style scheme metadata.
+     * Get color from style scheme metadata
      *
      * @param scheme style scheme
      * @param key color key
@@ -132,7 +132,7 @@ namespace Recoloring {
     }
 
     /**
-     * Define color in CSS string builder.
+     * Define color in CSS string builder
      *
      * @param str CSS string builder
      * @param name color name
@@ -150,7 +150,7 @@ namespace Recoloring {
     }
 
     /**
-     * Define mixed color in CSS string builder.
+     * Define mixed color in CSS string builder
      *
      * @param str CSS string builder
      * @param name color name
@@ -177,7 +177,7 @@ namespace Recoloring {
     }
 
     /**
-     * Get whether style scheme is dark.
+     * Get whether style scheme is dark
      *
      * @param scheme style scheme
      *
@@ -212,7 +212,7 @@ namespace Recoloring {
     }
 
     /**
-     * Generate CSS for style scheme.
+     * Generate CSS for style scheme
      *
      * This function is used to apply `gtksourceview`'s
      * style schemes to whole application.
