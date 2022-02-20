@@ -35,7 +35,8 @@ namespace TextPieces {
          * }}}
          */
         private static ActionEntry[] ACTIONS = {
-            { "quit", quit }
+            { "quit", quit },
+            { "new-window", new_window }
         };
 
         /**
@@ -48,18 +49,19 @@ namespace TextPieces {
          */
         private static ActionAccel[] ACTION_ACCELS = {
             /* Window actions */
-            { "win.apply"            , "<Control>Return" },
+            { "win.apply"            , "<Control>Return"   },
             { "win.copy"             , "<Control><Shift>c" },
-            { "win.open-preferences" , "<Control>comma" },
+            { "win.open-preferences" , "<Control>comma"    },
             { "win.show-help-overlay", "<Control>question" },
-            { "win.load-file"        , "<Control>o" },
-            { "win.save-as"          , "<Control>s" },
-            { "win.toggle-search"    , "<Alt>s" },
-            { "win.jump-to-args"     , "<Control>e" },
-            { "window.close"         , "<Control>w" },
+            { "win.load-file"        , "<Control>o"        },
+            { "win.save-as"          , "<Control>s"        },
+            { "win.toggle-search"    , "<Alt>s"            },
+            { "win.jump-to-args"     , "<Control>e"        },
+            { "window.close"         , "<Control>w"        },
 
             /* Application actions */
-            { "app.quit"             , "<Control>q" }
+            { "app.quit"             , "<Control>q" },
+            { "app.new-window"       , "<Control>n" }
         };
 
         static construct {
@@ -116,13 +118,16 @@ namespace TextPieces {
          * an application entry point.
          */
         protected override void activate () {
-            /* Get active window */
-            var win = get_active_window ();
-            if (win == null)
-                /* Create window if it doesn't exist */
-                win = new TextPieces.Window (this);
+            /* Create window window */
+            new_window ();
+        }
 
-            /* Present it to user */
+        /**
+         * New window action
+         */
+        public void new_window () {
+            var win = new TextPieces.Window (this);
+
             win.present ();
         }
 

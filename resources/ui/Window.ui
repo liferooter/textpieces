@@ -308,6 +308,11 @@
       <attribute name="action">win.about</attribute>
       <attribute name="use-underline">true</attribute>
     </item>
+    <item>
+      <attribute name="label" translatable="yes">_New window</attribute>
+      <attribute name="action">app.new-window</attribute>
+      <attribute name="use-underline">true</attribute>
+    </item>
   </section>
 </menu>
 
