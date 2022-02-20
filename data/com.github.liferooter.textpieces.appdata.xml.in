@@ -66,6 +66,7 @@ SPDX-License-Identifier: CC0-1.0
     </release>
     <release version="3.0.1" date="2021-12-16">
       <description>
+        <p>New features and improvements:</p>
         <ul>
           <li>Refresh UI</li>
           <li>Fix a lot of bugs</li>
@@ -84,6 +85,7 @@ SPDX-License-Identifier: CC0-1.0
     </release>
     <release version="2.2.1" date="2021-09-29">
       <description>
+        <p>New features and improvements:</p>
         <ul>
           <li>Minor UI changes</li>
           <li>Add XML formatter</li>
@@ -98,6 +100,7 @@ SPDX-License-Identifier: CC0-1.0
     </release>
     <release version="2.0.1" date="2021-08-18">
       <description>
+        <p>New features and improvements:</p>
         <ul>
           <li>Redesign the application</li>
           <li>Add custom tools support</li>
@@ -108,6 +111,7 @@ SPDX-License-Identifier: CC0-1.0
     </release>
     <release version="1.3.0" date="2021-04-25">
       <description>
+        <p>New features and improvements:</p>
         <ul>
           <li>Exit by Ctrl+Q</li>
           <li>Monospace argument entry</li>
@@ -117,6 +121,7 @@ SPDX-License-Identifier: CC0-1.0
     </release>
     <release version="1.2.0" date="2021-04-03">
       <description>
+        <p>New features and improvements:</p>
         <ul>
           <li>Sort tools</li>
           <li>Filter tools</li>
@@ -126,6 +131,7 @@ SPDX-License-Identifier: CC0-1.0
     </release>
     <release version="1.1.0" date="2021-04-01">
       <description>
+        <p>New features and improvements:</p>
         <ul>
           <li>Add more tools</li>
           <li>Make tools popover more powerful</li>

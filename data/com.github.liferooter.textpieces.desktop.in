@@ -10,6 +10,7 @@ Terminal=false
 Type=Application
 Categories=Utility;TextTools;GTK;GNOME;
 StartupNotify=true
+Actions=new-window;
 
 [Desktop Action new-window]
 Name=New Window
