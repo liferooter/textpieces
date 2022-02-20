@@ -258,7 +258,7 @@ namespace Recoloring {
             define_color_mixed (str, "headerbar_bg_color", text_bg, alt, 0.05);
         } else {
             define_color_mixed (str, "window_bg_color", text_bg, white, 0.1);
-            define_color_mixed (str, "headerbar_bg_color", text_bg, alt, 0.025);
+            define_color_mixed (str, "headerbar_bg_color", text_bg, alt, 0.05);
         }
 
         define_color_mixed (str, "window_fg_color", text_fg, alt, 0.1);
