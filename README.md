@@ -42,7 +42,7 @@ Small tool for quick text transformations such as checksums, encoding, decoding 
 - SHA1, SHA2 and MD5 checksums
 - Prettify and minify JSON
 - Covert JSON to YAML and vice versa
-- Count lines, symmbols and words
+- Count lines, symbols and words
 - Escape and unescape string, URL and HTML
 - Remove leading and trailing whitespaces
 - Sort and reverse sort lines
