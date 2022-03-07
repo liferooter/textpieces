@@ -3,10 +3,14 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 app-id: com.github.liferooter.textpieces
+command: textpieces
+
 runtime: org.gnome.Platform
 runtime-version: master
 sdk: org.gnome.Sdk
-command: textpieces
+sdk-extensions:
+- org.freedesktop.Sdk.Extension.vala
+
 finish-args:
   - --share=ipc
   - --socket=fallback-x11
@@ -24,6 +28,7 @@ cleanup:
   - /share/vala
   - '*.la'
   - '*.a'
+
 modules:
 
 - name: textpieces
