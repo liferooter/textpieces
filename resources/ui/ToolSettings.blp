@@ -1,0 +1,103 @@
+// SPDX-FileCopyrightText: 2022 Gleb Smirnov <glebsmirnov0708@gmail.com>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+using Gtk 4.0;
+
+using Adw 1;
+
+template TextPiecesToolSettings : Adw.Bin {
+    ScrolledWindow {
+        Viewport {
+            vexpand: true;
+            scroll-to-focus: true;
+
+            Adw.Clamp {
+                maximum-size: 400;
+
+                Box {
+                    orientation: vertical;
+                    margin-top: 20;
+                    margin-bottom: 20;
+                    spacing: 20;
+
+                    ListBox {
+                        styles [
+                            'boxed-list'
+                        ]
+
+                        selection-mode: none;
+
+                        Adw.ActionRow {
+                            title: _('_Name');
+                            use-underline: true;
+                            activatable-widget: name_entry;
+
+                            Entry name_entry {
+                                activate => gtk_widget_grab_focus(description_entry);
+
+                                valign: center;
+                            }
+                        }
+
+                        Adw.ActionRow {
+                            title: _('_Description');
+                            use-underline: true;
+                            activatable-widget: description_entry;
+
+                            Entry description_entry {
+                                valign: center;
+                            }
+                        }
+
+                        Adw.ActionRow {
+                            title: _('_Arguments');
+                            use-underline: true;
+                            activatable-widget: arguments_number;
+
+                            SpinButton arguments_number {
+                                valign: center;
+                                adjustment: Adjustment {
+                                    lower: 0;
+                                    upper: 100;
+                                    step-increment: 1;
+                                    value: 0;
+                                };
+                            }
+                        }
+                    }
+
+                    ListBox edit_script_list {
+                        styles [
+                            'boxed-list'
+                        ]
+
+                        selection-mode: none;
+
+                        Adw.ActionRow {
+                            activated => edit_script();
+
+                            title: _('Edit _Script');
+                            use-underline: true;
+                            activatable: true;
+
+                            Image {
+                                valign: center;
+                                icon-name: 'document-edit-symbolic';
+                            }
+                        }
+                    }
+
+                    ListBox argument_list {
+                        styles [
+                            'boxed-list'
+                        ]
+
+                        visible: false;
+                        selection-mode: none;
+                    }
+                }
+            }
+        }
+    }
+}

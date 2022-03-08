@@ -23,7 +23,6 @@ cleanup:
   - /lib/pkgconfig
   - /man
   - /share/doc
-  - are/gt
   - /share/pkgconfig
   - /share/vala
   - '*.la'
@@ -31,12 +30,19 @@ cleanup:
 
 modules:
 
+- name: blueprint
+  buildsystem: meson
+  sources:
+  - type: git
+    url: https://gitlab.gnome.org/jwestman/blueprint-compiler
+    branch: main
+
 - name: textpieces
   builddir: true
   buildsystem: meson
   sources:
-    - type: dir
-      path: ../..
+  - type: dir
+    path: ../..
   modules:
   - name: python3-pyyaml
     buildsystem: simple
