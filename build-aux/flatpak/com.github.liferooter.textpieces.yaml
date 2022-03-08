@@ -25,6 +25,7 @@ cleanup:
   - /share/doc
   - /share/pkgconfig
   - /share/vala
+  - '*blueprint*'
   - '*.la'
   - '*.a'
 
