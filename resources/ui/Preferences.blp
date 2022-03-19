@@ -12,16 +12,16 @@ template TextPiecesPreferences : Adw.PreferencesWindow {
     modal: true;
 
     Adw.PreferencesPage {
-        title: _('_General');
+        title: _("_General");
         use-underline: true;
         name: 'general-settings';
         icon-name: 'preferences-symbolic';
 
         Adw.PreferencesGroup {
-            title: _('Editor');
+            title: _("Editor");
 
             Adw.ActionRow {
-                title: _('Editor _Font');
+                title: _("Editor _Font");
                 use-underline: true;
                 activatable: true;
                 action-name: 'prefs.select-font';
@@ -38,7 +38,7 @@ template TextPiecesPreferences : Adw.PreferencesWindow {
             }
 
             Adw.ActionRow {
-                title: _('_Wrap Lines');
+                title: _("_Wrap Lines");
                 use-underline: true;
                 activatable-widget: wrap_lines_switch;
 
@@ -49,7 +49,7 @@ template TextPiecesPreferences : Adw.PreferencesWindow {
             }
 
             Adw.ActionRow {
-                title: _('Tabs to _Spaces');
+                title: _("Tabs to _Spaces");
                 use-underline: true;
                 activatable-widget: tabs_to_spaces;
 
@@ -60,7 +60,7 @@ template TextPiecesPreferences : Adw.PreferencesWindow {
             }
 
             Adw.ActionRow {
-                title: _('_Tab Width in Spaces');
+                title: _("_Tab Width in Spaces");
                 use-underline: true;
                 activatable-widget: spaces_in_tab;
 
@@ -77,20 +77,20 @@ template TextPiecesPreferences : Adw.PreferencesWindow {
         }
 
         Adw.PreferencesGroup {
-            title: _('Appearance');
+            title: _("Appearance");
 
             GtkSource.StyleSchemeChooserWidget style_scheme_chooser { }
         }
     }
 
     Adw.PreferencesPage {
-        title: _('T_ools');
+        title: _("T_ools");
         use-underline: true;
         name: 'custom-tools';
         icon-name: 'applications-utilities-symbolic';
 
         Adw.PreferencesGroup {
-            title: _('Custom tools');
+            title: _("Custom tools");
 
             [header-suffix]
             Button {
@@ -102,7 +102,7 @@ template TextPiecesPreferences : Adw.PreferencesWindow {
 
                 Adw.ButtonContent {
                     icon-name: 'list-add-symbolic';
-                    label: _('_Add custom tool');
+                    label: _("_Add custom tool");
                     use-underline: true;
                 }
             }

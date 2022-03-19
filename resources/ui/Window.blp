@@ -8,7 +8,7 @@ using Adw 1;
 using GtkSource 5;
 
 template TextPiecesWindow : Adw.ApplicationWindow {
-    title: _('Text Pieces');
+    title: _("Text Pieces");
     focus-widget: editor;
     icon-name: 'com.github.liferooter.textpieces';
 
@@ -32,10 +32,10 @@ template TextPiecesWindow : Adw.ApplicationWindow {
                             'suggested-action'
                         ]
 
-                        label: _('_Apply');
+                        label: _("_Apply");
                         use-underline: true;
                         action-name: 'win.apply';
-                        tooltip-text: _('Apply Selected Tool');
+                        tooltip-text: _("Apply Selected Tool");
                     }
 
                     Button {
@@ -45,7 +45,7 @@ template TextPiecesWindow : Adw.ApplicationWindow {
 
                         icon-name: 'edit-copy-symbolic';
                         action-name: 'win.copy';
-                        tooltip-text: _('Copy');
+                        tooltip-text: _("Copy");
                     }
                 };
             }
@@ -71,21 +71,21 @@ template TextPiecesWindow : Adw.ApplicationWindow {
             MenuButton {
                 icon-name: 'open-menu-symbolic';
                 menu-model: app-menu;
-                tooltip-text: _('Main Menu');
+                tooltip-text: _("Main Menu");
                 primary: true;
             }
 
             [end]
             Button {
                 icon-name: 'document-save-symbolic';
-                tooltip-text: _('Save to File');
+                tooltip-text: _("Save to File");
                 action-name: 'win.save-as';
             }
 
             [end]
             Button {
                 icon-name: 'document-open-symbolic';
-                tooltip-text: _('Load from File');
+                tooltip-text: _("Load from File");
                 action-name: 'win.load-file';
             }
         }
@@ -180,7 +180,7 @@ template TextPiecesWindow : Adw.ApplicationWindow {
 
                         child: Adw.StatusPage {
                             icon-name: 'application-utilities-symbolic';
-                            title: _('No Tools Found');
+                            title: _("No Tools Found");
 
                             Button {
                                 styles [
@@ -205,7 +205,7 @@ template TextPiecesWindow : Adw.ApplicationWindow {
                                             'dim-label'
                                         ]
 
-                                        label: _('Add Custom Tool');
+                                        label: _("Add Custom Tool");
                                     }
                                 };
                             }
@@ -221,25 +221,25 @@ template TextPiecesWindow : Adw.ApplicationWindow {
 menu app-menu {
     section {
         item {
-            label: _('_Preferences');
+            label: _("_Preferences");
             action: 'win.open-preferences';
             use-underline: true;
         }
 
         item {
-            label: _('_Keyboard Shortcuts');
+            label: _("_Keyboard Shortcuts");
             action: 'win.show-help-overlay';
             use-underline: true;
         }
 
         item {
-            label: _('_About Text Pieces');
+            label: _("_About Text Pieces");
             action: 'win.about';
             use-underline: true;
         }
 
         item {
-            label: _('_New Window');
+            label: _("_New Window");
             action: 'app.new-window';
             use-underline: true;
         }

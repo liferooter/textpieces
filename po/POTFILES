@@ -11,9 +11,9 @@ src/Preferences.vala
 src/Tool.vala
 src/ToolSettings.vala
 src/Window.vala
-resources/ui/CustomToolPage.ui
-resources/ui/NewToolPage.ui
-resources/ui/Preferences.ui
-resources/ui/ShortcutsWindow.ui
-resources/ui/ToolSettings.ui
-resources/ui/Window.ui
+resources/ui/CustomToolPage.blp
+resources/ui/NewToolPage.blp
+resources/ui/Preferences.blp
+resources/ui/ShortcutsWindow.blp
+resources/ui/ToolSettings.blp
+resources/ui/Window.blp
