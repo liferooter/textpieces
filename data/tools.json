@@ -2,238 +2,238 @@
   "is_system": true,
   "tools": [
     {
-      "name": "SHA1 Checksum",
-      "description": "Compute SHA1 hash sum",
+      "name": _("SHA1 Checksum"),
+      "description": _("Compute SHA1 hash sum"),
       "icon": "fingerprint-symbolic",
       "script": "sha1.py"
     },
     {
-      "name": "SHA256 Checksum",
-      "description": "Compute SHA256 hash sum",
+      "name": _("SHA256 Checksum"),
+      "description": _("Compute SHA256 hash sum"),
       "icon": "fingerprint-symbolic",
       "script": "sha256.py"
     },
     {
-      "name": "SHA384 Checksum",
-      "description": "Compute SHA384 hash sum",
+      "name": _("SHA384 Checksum"),
+      "description": _("Compute SHA384 hash sum"),
       "icon": "fingerprint-symbolic",
       "script": "sha384.py"
     },
     {
-      "name": "SHA512 Checksum",
-      "description": "Compute SHA512 hash sum",
+      "name": _("SHA512 Checksum"),
+      "description": _("Compute SHA512 hash sum"),
       "icon": "fingerprint-symbolic",
       "script": "sha512.py"
     },
     {
-      "name": "MD5 Checksum",
-      "description": "Compute MD5 hash sum",
+      "name": _("MD5 Checksum"),
+      "description": _("Compute MD5 hash sum"),
       "icon": "fingerprint-symbolic",
       "script": "md5.py"
     },
     {
-      "name": "Base64 Encode",
-      "description": "Encode text to Base64",
+      "name": _("Base64 Encode"),
+      "description": _("Encode text to Base64"),
       "icon": "lock-symbolic",
       "script": "base64-encode.sh"
     },
     {
-      "name": "Base64 Decode",
-      "description": "Decode text from Base64",
+      "name": _("Base64 Decode"),
+      "description": _("Decode text from Base64"),
       "icon": "unlock-symbolic",
       "script": "base64-decode.py"
     },
     {
-      "name": "Remove Trailing",
-      "description": "Remove trailing whitespaces and newlines",
+      "name": _("Remove Trailing"),
+      "description": _("Remove trailing whitespaces and newlines"),
       "icon": "edit-cut-symbolic",
       "script": "remove-trailing.py"
     },
     {
-      "name": "Trim Lines",
-      "description": "Remove leading and trailing whitespaces and newlines",
+      "name": _("Trim Lines"),
+      "description": _("Remove leading and trailing whitespaces and newlines"),
       "icon": "edit-cut-symbolic",
       "script": "trim.py"
     },
     {
-      "name": "Count Symbols",
-      "description": "Count how many symbols are in text",
+      "name": _("Count Symbols"),
+      "description": _("Count how many symbols are in text"),
       "icon": "view-list-ordered-symbolic",
       "script": "count-symbols.py"
     },
     {
-      "name": "Count Lines",
-      "description": "Count how many lines are in text",
+      "name": _("Count Lines"),
+      "description": _("Count how many lines are in text"),
       "icon": "view-list-ordered-symbolic",
       "script": "count-lines.py"
     },
     {
-      "name": "Count Words",
-      "description": "Count how many words are in text",
+      "name": _("Count Words"),
+      "description": _("Count how many words are in text"),
       "icon": "view-list-ordered-symbolic",
       "script": "count-words.py"
     },
     {
-      "name": "Prettify JSON",
-      "description": "Parse JSON and prettify it",
+      "name": _("Prettify JSON"),
+      "description": _("Parse JSON and prettify it"),
       "icon": "format-justify-left-symbolic",
       "script": "format-json.py"
     },
     {
-      "name": "Minify JSON",
-      "description": "Parse JSON and minify it",
+      "name": _("Minify JSON"),
+      "description": _("Parse JSON and minify it"),
       "icon": "format-justify-fill-symbolic",
       "script": "minify-json.py"
     },
     {
-      "name": "Escape String",
-      "description": "Replace special characters with escape sequences",
+      "name": _("Escape String"),
+      "description": _("Replace special characters with escape sequences"),
       "icon": "security-high-symbolic",
       "script": "escape-string.py"
     },
     {
-      "name": "Escape HTML",
-      "description": "Replace special characters with HTML-safe sequences",
+      "name": _("Escape HTML"),
+      "description": _("Replace special characters with HTML-safe sequences"),
       "icon": "security-high-symbolic",
       "script": "escape-html.py"
     },
     {
-      "name": "Escape URL",
-      "description": "Replace special characters with URL-safe sequences",
+      "name": _("Escape URL"),
+      "description": _("Replace special characters with URL-safe sequences"),
       "icon": "security-high-symbolic",
       "script": "escape-url.py"
     },
     {
-      "name": "Unescape String",
-      "description": "Replace escape sequences with characters",
+      "name": _("Unescape String"),
+      "description": _("Replace escape sequences with characters"),
       "icon": "security-low-symbolic",
       "script": "unescape-string.py"
     },
     {
-      "name": "Unescape HTML",
-      "description": "Replace HTML sequences with characters",
+      "name": _("Unescape HTML"),
+      "description": _("Replace HTML sequences with characters"),
       "icon": "security-low-symbolic",
       "script": "unescape-html.py"
     },
     {
-      "name": "Unescape URL",
-      "description": "Replace URL sequences with characters",
+      "name": _("Unescape URL"),
+      "description": _("Replace URL sequences with characters"),
       "icon": "security-low-symbolic",
       "script": "unescape-url.py"
     },
     {
-      "name": "Convert JSON to YAML",
-      "description": "Parse JSON and convert it to YAML document",
+      "name": _("Convert JSON to YAML"),
+      "description": _("Parse JSON and convert it to YAML document"),
       "icon": "network-transmit-symbolic",
       "script": "json-to-yaml.py"
     },
     {
-      "name": "Convert YAML to JSON",
-      "description": "Parse YAML document and conver it to JSON",
+      "name": _("Convert YAML to JSON"),
+      "description": _("Parse YAML document and conver it to JSON"),
       "icon": "network-transmit-symbolic",
       "script": "yaml-to-json.py"
     },
     {
-      "name": "Reverse Lines",
-      "description": "Reoder lines in reverse order",
+      "name": _("Reverse Lines"),
+      "description": _("Reoder lines in reverse order"),
       "icon": "object-flip-vertical-symbolic",
       "script": "reverse-lines.py"
     },
     {
-      "name": "Reverse Text",
-      "description": "Reorder characters in reverse order",
+      "name": _("Reverse Text"),
+      "description": _("Reorder characters in reverse order"),
       "icon": "object-flip-horizontal-symbolic",
       "script": "reverse-string.py"
     },
     {
-      "name": "Sort Lines",
-      "description": "Sort lines in text in alphabetical order",
+      "name": _("Sort Lines"),
+      "description": _("Sort lines in text in alphabetical order"),
       "icon": "view-sort-ascending-symbolic",
       "script": "sort-lines.py"
     },
     {
-      "name": "Reverse Sort Lines",
-      "description": "Sort lines in text in reverse alphabetical order",
+      "name": _("Reverse Sort Lines"),
+      "description": _("Sort lines in text in reverse alphabetical order"),
       "icon": "view-sort-descending-symbolic",
       "script": "sort-lines-reverse.py"
     },
     {
-      "name": "Filter Lines by Regex",
-      "description": "Remove all lines which don't match given regular expression",
+      "name": _("Filter Lines by Regex"),
+      "description": _("Remove all lines which don't match given regular expression"),
       "icon": "funnel-symbolic",
       "script": "filter-regex.py",
       "args": [
-        "Regex"
+        _("Regex")
       ]
     },
     {
-      "name": "Filter Lines by Substring",
-      "description": "Remove all lines which don't contain given substring",
+      "name": _("Filter Lines by Substring"),
+      "description": _("Remove all lines which don't contain given substring"),
       "icon": "funnel-symbolic",
       "script": "filter-substring.py",
       "args": [
-        "Substring"
+        _("Substring")
       ]
     },
     {
-      "name": "Reverse Filter Lines by Regex",
-      "description": "Remove all lines which match given regular expression",
+      "name": _("Reverse Filter Lines by Regex"),
+      "description": _("Remove all lines which match given regular expression"),
       "icon": "funnel-symbolic",
       "script": "reverse-filter-regex.py",
       "args": [
-        "Regex"
+        _("Regex")
       ]
     },
     {
-      "name": "Reverse Filter Lines by Substring",
-      "description": "Remove all lines which contain given substring",
+      "name": _("Reverse Filter Lines by Substring"),
+      "description": _("Remove all lines which contain given substring"),
       "icon": "funnel-symbolic",
       "script": "reverse-filter-substring.py",
       "args": [
-        "Substring"
+        _("Substring")
       ]
     },
     {
-      "name": "Remove Regex",
-      "description": "Remove all matches of regular expression",
+      "name": _("Remove Regex"),
+      "description": _("Remove all matches of regular expression"),
       "icon": "edit-cut-symbolic",
       "script": "remove-regex.py",
       "args": [
-        "Regex"
+        _("Regex")
       ]
     },
     {
-      "name": "Remove Substring",
-      "description": "Remove all occurrences of given substring in text",
+      "name": _("Remove Substring"),
+      "description": _("Remove all occurrences of given substring in text"),
       "icon": "edit-cut-symbolic",
       "script": "remove-substring.py",
       "args": [
-        "Substring"
+        _("Substring")
       ]
     },
     {
-      "name": "Replace Substring",
-      "description": "Replace all occurrences of given substring in text with other string",
+      "name": _("Replace Substring"),
+      "description": _("Replace all occurrences of given substring in text with other string"),
       "icon": "edit-find-replace-symbolic",
       "script": "replace-substring.py",
       "args": [
-        "Find",
-        "Replace With"
+        _("Find"),
+        _("Replace With")
       ]
     },
     {
-      "name": "Replace Regex",
-      "description": "Replace all given regex matches in text with given string",
+      "name": _("Replace Regex"),
+      "description": _("Replace all given regex matches in text with given string"),
       "icon": "edit-find-replace-symbolic",
       "script": "replace-regex.py",
       "args": [
-        "Find (regex)",
-        "Replace With"
+        _("Find (regex)"),
+        _("Replace With")
       ]
     },
     {
-      "name": "Prettify XML",
-      "description": "Parse XML and prettify it",
+      "name": _("Prettify XML"),
+      "description": _("Parse XML and prettify it"),
       "icon": "format-justify-left-symbolic",
       "script": "format-xml.py"
     }

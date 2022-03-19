@@ -5,6 +5,7 @@
 data/com.github.liferooter.textpieces.desktop.in
 data/com.github.liferooter.textpieces.appdata.xml.in
 data/com.github.liferooter.textpieces.gschema.xml
+data/tools.json
 src/NewToolPage.vala
 src/Preferences.vala
 src/Tool.vala
