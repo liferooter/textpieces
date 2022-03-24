@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-16 06:35+0300\n"
-"PO-Revision-Date: 2022-03-16 18:10+0100\n"
+"PO-Revision-Date: 2022-03-24 14:33+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -417,3 +417,228 @@ msgstr "_Sneltoetsen"
 #: resources/ui/Window.ui:309
 msgid "_About Text Pieces"
 msgstr "_Over Tekstdelen"
+
+msgid "SHA1 Checksum"
+msgstr "Sha1-controlesom"
+
+msgid "Compute SHA1 hash sum"
+msgstr "Bereken de sha1-controlesom"
+
+msgid "SHA256 Checksum"
+msgstr "Sha256-controlesom"
+
+msgid "Compute SHA256 hash sum"
+msgstr "Bereken de sha256-controlesom"
+
+msgid "SHA384 Checksum"
+msgstr "Sha384-controlesom"
+
+msgid "Compute SHA384 hash sum"
+msgstr "Bereken de sha384-controlesom"
+
+msgid "SHA512 Checksum"
+msgstr "Sha512-controlesom"
+
+msgid "Compute SHA512 hash sum"
+msgstr "Bereken de sha512-controlesom"
+
+msgid "MD5 Checksum"
+msgstr "Md5-controlesom"
+
+msgid "Compute MD5 hash sum"
+msgstr "Bereken de md5-controlesom"
+
+msgid "Base64 Encode"
+msgstr "Base64-versleuteling"
+
+msgid "Encode text to Base64"
+msgstr "Versleutel tekst met Base64"
+
+msgid "Base64 Decode"
+msgstr "Base64-ontsleuteling"
+
+msgid "Decode text from Base64"
+msgstr "Ontsleutel met Base64 versleutelde tekst"
+
+msgid "Remove Trailing"
+msgstr "Witruimtes verwijderen"
+
+msgid "Remove trailing whitespaces and newlines"
+msgstr "Verwijder witruimtes en nieuwe regels"
+
+msgid "Trim Lines"
+msgstr "Regels afbreken"
+
+msgid "Remove leading and trailing whitespaces and newlines"
+msgstr "Verwijder witruimtes voor- en achteraan tekst en nieuwe regels"
+
+msgid "Count Symbols"
+msgstr "Symbolen tellen"
+
+msgid "Count how many symbols are in text"
+msgstr "Tel het aantal symbolen in de tekst"
+
+msgid "Count Lines"
+msgstr "Regels tellen"
+
+msgid "Count how many lines are in text"
+msgstr "Tel het aantal regels in de tekst"
+
+msgid "Count Words"
+msgstr "Woorden tellen"
+
+msgid "Count how many words are in text"
+msgstr "Tel het aantal woorden in de tekst"
+
+msgid "Prettify JSON"
+msgstr "JSON opmaken"
+
+msgid "Parse JSON and prettify it"
+msgstr "Verwerk json en voorzie het van een mooie opmaak"
+
+msgid "Minify JSON"
+msgstr "JSON verkleinen"
+
+msgid "Parse JSON and minify it"
+msgstr "Verwerk json en verklein het"
+
+msgid "Escape String"
+msgstr "Tekenreeks aanpassen"
+
+msgid "Replace special characters with escape sequences"
+msgstr "Vervang speciale tekens door ‘escape’tekens"
+
+msgid "Escape HTML"
+msgstr "Html aanpassen"
+
+msgid "Replace special characters with HTML-safe sequences"
+msgstr "Vervang speciale tekens door html-tekens"
+
+msgid "Escape URL"
+msgstr "Url aanpassen"
+
+msgid "Replace special characters with URL-safe sequences"
+msgstr "Vervang speciale tekens door url-tekens"
+
+msgid "Unescape String"
+msgstr "Tekenreeksen niet aanpassen"
+
+msgid "Replace escape sequences with characters"
+msgstr "Vervang ‘escape’tekens door reguliere tekens"
+
+msgid "Unescape HTML"
+msgstr "Html niet aanpassen"
+
+msgid "Replace HTML sequences with characters"
+msgstr "Vervang html-tekens door reguliere tekens"
+
+msgid "Unescape URL"
+msgstr "Url niet aanpassen"
+
+msgid "Replace URL sequences with characters"
+msgstr "Vervang url-tekens door reguliere tekens"
+
+msgid "Convert JSON to YAML"
+msgstr "JSON naar YAML converteren"
+
+msgid "Parse JSON and convert it to YAML document"
+msgstr "Verwerk json en converteer het naar yaml"
+
+msgid "Convert YAML to JSON"
+msgstr "YAML naar JSON converteren"
+
+msgid "Parse YAML document and conver it to JSON"
+msgstr "Verwerk yaml en converteer het naar json"
+
+msgid "Reverse Lines"
+msgstr "Regels omkeren"
+
+msgid "Reoder lines in reverse order"
+msgstr "Plaats alle regels in omgekeerde volgorde"
+
+msgid "Reverse Text"
+msgstr "Tekst omkeren"
+
+msgid "Reorder characters in reverse order"
+msgstr "Plaats alle tekens in omgekeerde volgorde"
+
+msgid "Sort Lines"
+msgstr "Regels sorteren"
+
+msgid "Sort lines in text in alphabetical order"
+msgstr "Sorteer alle regels op alfabetische volgorde"
+
+msgid "Reverse Sort Lines"
+msgstr "Regels omgekeerd sorteren"
+
+msgid "Sort lines in text in reverse alphabetical order"
+msgstr "Sorteer alle regels op omgekeerde alfabetische volgorde"
+
+msgid "Filter Lines by Regex"
+msgstr "Regels filteren op reguliere uitdrukkingen"
+
+msgid "Remove all lines which don't match given regular expression"
+msgstr "Verwijder alle regels die niet overeenkomen met de opgegeven reguliere uitdrukking"
+
+msgid "Regex"
+msgstr "Reguliere uitdrukking"
+
+msgid "Reverse Filter Lines by Regex"
+msgstr "Regels omgekeerd filteren op reguliere uitdrukkingen"
+
+msgid "Remove all lines which match given regular expression"
+msgstr "Verwijder alle regels die overeenkomen met de opgegeven reguliere uitdrukking"
+
+msgid "Filter Lines by Substring"
+msgstr "Regels filteren op onderliggende tekenreeks"
+
+msgid "Remove all lines which don't contain given substring"
+msgstr "Verwijder alle regels die niet de opgegeven tekenreeks bevatten"
+
+msgid "Substring"
+msgstr "Onderliggende tekenreeks"
+
+msgid "Reverse Filter Lines by Substring"
+msgstr "Regels omgekeerd filteren op onderliggende tekenreeks"
+
+msgid "Remove all lines which contain given substring"
+msgstr "Verwijder alle regels die de opgegeven tekenreeks bevatten"
+
+msgid "Remove Regex"
+msgstr "Reguliere uitdrukking verwijderen"
+
+msgid "Remove all matches of regular expression"
+msgstr "Verwijder alle overeenkomende reguliere uitdrukkingen"
+
+msgid "Remove Substring"
+msgstr "Onderliggende tekenreeks verwijderen"
+
+msgid "Remove all occurrences of given substring in text"
+msgstr "Verwijder alle regels die de opgegeven tekenreeks bevatten"
+
+msgid "Replace Substring"
+msgstr "Onderliggende tekenreeks vervangen"
+
+msgid "Replace all occurrences of given substring in text with other string"
+msgstr "Vervang alle overeenkomende tekenreeksen door een andere"
+
+msgid "Find"
+msgstr "Zoeken"
+
+msgid "Replace With"
+msgstr "Vervangen door"
+
+msgid "Replace Regex"
+msgstr "Reguliere uitdrukking vervangen"
+
+msgid "Replace all given regex matches in text with given string"
+msgstr "Vervang alle overeenkomende reguliere uitdrukkingen door een andere"
+
+msgid "Find (regex)"
+msgstr "Zoeken op reguliere uitdrukking"
+
+msgid "Prettify XML"
+msgstr "XML opmaken"
+
+msgid "Parse XML and prettify it"
+msgstr "Verwerk xml en voorzie het van een mooie opmaak"
