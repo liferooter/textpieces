@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 Gleb Smirnov <glebsmirnov0708@gmail.com>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Contributing tips
 
 This file describes some non-obvious points of this project which needs to be known by contributors.
