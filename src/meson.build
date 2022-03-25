@@ -4,16 +4,17 @@
 
 textpieces_sources += [
   'Application.vala',
-  'Window.vala',
-  'Preferences.vala',
-  'Tool.vala',
-  'ToolsController.vala',
-  'ToolSettings.vala',
   'CustomToolPage.vala',
+  'Editor.vala',
   'NewToolPage.vala',
+  'Preferences.vala',
+  'Recoloring.vala',
   'Search.vala',
+  'Tool.vala',
+  'ToolSettings.vala',
+  'ToolsController.vala',
   'Utils.vala',
-  'Recoloring.vala'
+  'Window.vala',
 ]
 
 executable('textpieces', textpieces_sources,

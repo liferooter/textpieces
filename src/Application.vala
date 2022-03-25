@@ -17,6 +17,11 @@ namespace TextPieces {
      */
     class Application : Adw.Application {
         /**
+         * Application instance
+         */
+        public static TextPieces.Application instance;
+
+        /**
          * Text Pieces settings
          */
         public static GLib.Settings settings;
@@ -72,6 +77,37 @@ namespace TextPieces {
             tools = new ToolsController ();
         }
 
+        /**
+         * CSS provider used to set style scheme
+         */
+        private Gtk.CssProvider style_scheme_css_provider = new Gtk.CssProvider ();
+
+         /**
+          * Style scheme
+          */
+        public GtkSource.StyleScheme style_scheme {
+            set {
+                _style_scheme = value;
+
+                /* Apply style scheme to the application */
+                var is_dark = Recoloring.is_scheme_dark (value);
+                Adw.StyleManager.get_default ()
+                    .color_scheme = is_dark
+                        ? Adw.ColorScheme.FORCE_DARK
+                        : Adw.ColorScheme.FORCE_LIGHT;
+                style_scheme_css_provider.load_from_data (
+                    Recoloring.generate_css (value).data
+                );
+
+                settings.set_string ("style-scheme", value.id);
+            } get {
+                return _style_scheme;
+            }
+        }
+        private GtkSource.StyleScheme _style_scheme = GtkSource.StyleSchemeManager
+            .get_default ()
+            .get_scheme (settings.get_string ("style-scheme"));
+
         public Application () {
             Object (
                 flags: ApplicationFlags.FLAGS_NONE,
@@ -89,9 +125,20 @@ namespace TextPieces {
         protected override void startup () {
             base.startup ();
 
+            /* Place an instance to static field
+               to bring it into global scope */
+            instance = this;
+
             /* Initialize localization */
             Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.GNOMELOCALEDIR);
             Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
+
+            /* Setup style scheme */
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (),
+                style_scheme_css_provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_USER
+            );
 
             /* Initialize libs */
             GtkSource.init ();

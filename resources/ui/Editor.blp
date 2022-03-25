@@ -1,0 +1,36 @@
+// SPDX-FileCopyrightText: 2022 Gleb Smirnov <glebsmirnov0708@gmail.com>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+using Gtk 4.0;
+using GtkSource 5;
+using Adw 1;
+
+template TextPiecesEditor : Adw.Bin {
+    child: Adw.ToastOverlay message_overlay {
+        Overlay {
+            GtkSource.View editor {
+                monospace: true;
+                auto-indent: true;
+                show-line-numbers: true;
+                smart-backspace: true;
+                smart-home-end: before;
+                top-margin: 6;
+            }
+
+            [overlay]
+            Box arguments_box {
+                styles [
+                    'card',
+                    'linked',
+                    'argument-view'
+                ]
+
+                valign: start;
+                halign: end;
+                spacing: 3;
+                orientation: vertical;
+            }
+        }
+    };
+}

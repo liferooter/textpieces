@@ -110,37 +110,8 @@ template TextPiecesWindow : Adw.ApplicationWindow {
             StackPage {
                 name: 'editor';
 
-                child: Adw.ToastOverlay toast_overlay {
-                    Overlay {
-                        Box {
-                            orientation: vertical;
-                            ScrolledWindow {
-                                GtkSource.View editor {
-                                    vexpand: true;
-                                    monospace: true;
-                                    auto-indent: true;
-                                    show-line-numbers: true;
-                                    smart-backspace: true;
-                                    smart-home-end: before;
-                                    top-margin: 6;
-                                }
-                            }
-                        }
-
-                        [overlay]
-                        Box arguments_box {
-                            styles [
-                                'card',
-                                'linked',
-                                'argument-view'
-                            ]
-
-                            valign: start;
-                            halign: end;
-                            spacing: 3;
-                            orientation: vertical;
-                        }
-                    }
+                child: .TextPiecesEditor editor {
+                    vexpand: true;
                 };
             }
 
