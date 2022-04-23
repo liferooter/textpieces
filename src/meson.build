@@ -21,7 +21,7 @@ textpieces_sources += custom_target('blueprint-hack',
     input: blueprints,
     output: 'blueprint.vala',
     command: [find_program('touch'), '@OUTPUT@']
-)`
+)
 
 executable('textpieces', textpieces_sources,
   c_args: [
