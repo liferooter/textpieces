@@ -53,20 +53,21 @@ namespace TextPieces {
          * }}}
          */
         private static ActionAccel[] ACTION_ACCELS = {
-            /* Window actions */
-            { "win.apply"            , "<Control>Return"   },
-            { "win.copy"             , "<Control><Shift>c" },
-            { "win.open-preferences" , "<Control>comma"    },
-            { "win.show-help-overlay", "<Control>question" },
-            { "win.load-file"        , "<Control>o"        },
-            { "win.save-as"          , "<Control>s"        },
-            { "win.toggle-search"    , "<Alt>s"            },
-            { "win.jump-to-args"     , "<Control>e"        },
-            { "window.close"         , "<Control>w"        },
+            /*              Window actions              */
+            { "win.apply"             , "<Ctrl>Return"   },
+            { "win.copy"              , "<Ctrl><Shift>c" },
+            { "win.open-preferences"  , "<Ctrl>comma"    },
+            { "win.show-help-overlay" , "<Ctrl>question" },
+            { "win.load-file"         , "<Ctrl>o"        },
+            { "win.save-as"           , "<Ctrl>s"        },
+            { "win.toggle-search"     , "<Alt>s"         },
+            { "win.jump-to-args"      , "<Ctrl>e"        },
+            { "win.show-search"       , "<Ctrl>f"        },
+            { "window.close"          , "<Ctrl>w"        },
 
-            /* Application actions */
-            { "app.quit"             , "<Control>q" },
-            { "app.new-window"       , "<Control>n" }
+            /*            Application actions           */
+            { "app.quit"              , "<Ctrl>q"        },
+            { "app.new-window"        , "<Ctrl>n"        }
         };
 
         static construct {
@@ -142,6 +143,9 @@ namespace TextPieces {
 
             /* Initialize libs */
             GtkSource.init ();
+
+            /* Initialize recoloring mechanism */
+            style_scheme = style_scheme;
 
             /* Setup actions */
             add_action_entries (ACTIONS, this);

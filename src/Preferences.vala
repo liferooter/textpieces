@@ -31,7 +31,7 @@ namespace TextPieces {
         };
 
         public Preferences (TextPieces.Window win) {
-            win.bind_property (
+            Application.instance.bind_property (
                 "style-scheme",
                 style_scheme_chooser,
                 "style-scheme",

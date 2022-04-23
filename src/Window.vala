@@ -76,15 +76,16 @@ namespace TextPieces {
          * Window actions
          */
         private const ActionEntry[] ACTION_ENTRIES = {
-            { "apply", action_apply },
-            { "open-preferences", action_open_preferences },
-            { "about", action_about },
-            { "copy", action_copy },
-            { "tools-settings", action_tools_settings },
-            { "toggle-search", action_toggle_search },
-            { "save-as", action_save_as },
-            { "load-file", action_load_file },
-            { "jump-to-args", action_jump_to_args }
+            { "apply"            , action_apply            },
+            { "open-preferences" , action_open_preferences },
+            { "about"            , action_about            },
+            { "copy"             , action_copy             },
+            { "tools-settings"   , action_tools_settings   },
+            { "toggle-search"    , action_toggle_search    },
+            { "save-as"          , action_save_as          },
+            { "load-file"        , action_load_file        },
+            { "jump-to-args"     , action_jump_to_args     },
+            { "show-search"      , show_search             }
         };
 
         public Window (Application application) {
@@ -381,6 +382,13 @@ namespace TextPieces {
 
                 return Source.REMOVE;
             });
+        }
+
+        /**
+         * Show search
+         */
+        void show_search () {
+            editor.show_search ();
         }
 
         /**

@@ -192,6 +192,22 @@ template TextPiecesWindow : Adw.ApplicationWindow {
 menu app-menu {
     section {
         item {
+            label: _('_New Window');
+            action: 'app.new-window';
+            use-underline: true;
+        }
+    }
+
+    section {
+        item {
+            label: _('_Find/Replace…');
+            action: 'win.show-search';
+            use-underline: true;
+        }
+    }
+
+    section {
+        item {
             label: _('_Preferences');
             action: 'win.open-preferences';
             use-underline: true;
@@ -206,12 +222,6 @@ menu app-menu {
         item {
             label: _('_About Text Pieces');
             action: 'win.about';
-            use-underline: true;
-        }
-
-        item {
-            label: _('_New Window');
-            action: 'app.new-window';
             use-underline: true;
         }
     }

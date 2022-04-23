@@ -9,27 +9,96 @@ using Adw 1;
 template TextPiecesEditor : Adw.Bin {
     child: Adw.ToastOverlay message_overlay {
         Overlay {
-            GtkSource.View editor {
-                monospace: true;
-                auto-indent: true;
-                show-line-numbers: true;
-                smart-backspace: true;
-                smart-home-end: before;
-                top-margin: 6;
+            ScrolledWindow {
+                GtkSource.View editor {
+                    monospace: true;
+                    auto-indent: true;
+                    show-line-numbers: true;
+                    smart-backspace: true;
+                    smart-home-end: before;
+                    top-margin: 6;
+                }
             }
 
             [overlay]
-            Box arguments_box {
-                styles [
-                    'card',
-                    'linked',
-                    'argument-view'
-                ]
-
+            Box {
                 valign: start;
                 halign: end;
-                spacing: 3;
+                margin-top: 4;
+
                 orientation: vertical;
+                spacing: 6;
+
+                Revealer search_revealer {
+                    transition-type: slide_down;
+
+                    Box {
+                        styles [
+                            'card',
+                            'editor-overlay'
+                        ]
+
+                        orientation: vertical;
+
+                        Box {
+                            spacing: 6;
+
+                            Entry search_entry {
+                                width-request: 300;
+                                primary-icon-name: 'edit-find-symbolic';
+                                primary-icon-activatable: false;
+                            }
+
+                            Box {
+                                styles [
+                                    'linked'
+                                ]
+
+                                Button {
+                                    icon-name: 'go-up-symbolic';
+                                }
+
+                                Button {
+                                    icon-name: 'go-down-symbolic';
+                                }
+                            }
+
+                            Button {
+                                styles [
+                                    'flat',
+                                    'circular'
+                                ]
+
+                                icon-name: 'window-close-symbolic';
+                                action-name: 'editor.hide-search';
+                            }
+                        }
+                    }
+
+                    ShortcutController {
+                        scope: managed;
+
+                        Shortcut {
+                            trigger: 'Escape';
+                            action: 'action(editor.hide-search)';
+                        }
+                    }
+                }
+
+                Box arguments_box {
+                    styles [
+                        'card',
+                        'linked',
+                        'editor-overlay'
+                    ]
+
+                    halign: end;
+                    hexpand: false;
+                    width-request: 300;
+
+                    spacing: 3;
+                    orientation: vertical;
+                }
             }
         }
     };

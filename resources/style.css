@@ -20,10 +20,7 @@
 
 /* Argument view */
 
-.argument-view {
-  margin: 0px 20px 20px 20px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  background-color: @window_bg_color;
+.editor-overlay {
+  margin-right: 20px;
   padding: 6px;
 }
