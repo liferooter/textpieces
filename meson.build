@@ -66,7 +66,7 @@ if not gtksourceview_dep.found()
 endif
 
 json_glib_dep = dependency('json-glib-1.0', version: '>= 1.6.0', required: false)
-if not gtksourceview_dep.found()
+if not json_glib_dep.found()
   json_glib = subproject(
     'json-glib',
     default_options: [
