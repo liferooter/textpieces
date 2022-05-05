@@ -547,7 +547,7 @@ msgstr "Verwerk json en converteer het naar yaml"
 msgid "Convert YAML to JSON"
 msgstr "YAML naar JSON converteren"
 
-msgid "Parse YAML document and conver it to JSON"
+msgid "Parse YAML document and convert it to JSON"
 msgstr "Verwerk yaml en converteer het naar json"
 
 msgid "Reverse Lines"
