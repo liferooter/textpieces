@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+# SPDX-FileCopyrightText: 2022 vikdevelop <https://github.com/vikdevelop>
 #
 # SPDX-License-Identifier: CC0-1.0
 msgid ""
@@ -52,11 +52,11 @@ msgstr "Počítání řádků, symbolů a slov"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:16
 msgid "Format JSON and XML"
-msgstr "Formátování JSON a "
+msgstr "Formátování JSON a XML"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:17
 msgid "Escape and unescape strings"
-msgstr "Únikové a neúnikové řetězců"
+msgstr "Únikové a neúnikové řetězce"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:18
 msgid "Convert JSON to YAML and vice versa"
