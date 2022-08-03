@@ -1,0 +1,703 @@
+# Translation for Text Pieces.
+#
+# SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: CC0-1.0
+msgid ""
+msgstr ""
+"Project-Id-Version: textpieces\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-24 13:41+0100\n"
+"PO-Revision-Date: 2022-08-03 22:40+0200\n"
+"Last-Translator: Davide Ferracin <davide.ferracin@protonmail.com>\n"
+"Language-Team: Italian <tp@lists.linux.it>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.liferooter.textpieces.desktop.in:3
+#: data/com.github.liferooter.textpieces.appdata.xml.in:4 src/Window.vala:322
+#: resources/ui/Window.ui:29
+msgid "Text Pieces"
+msgstr "Frammenti di testo"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:5 src/Window.vala:324
+msgid "Transform text without using random websites"
+msgstr "Trasforma il testo senza usare qualche sito web"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:9
+msgid "Do a lot of text transformations, such as:"
+msgstr "Permette di trasformare il testo in vari modi:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:11
+msgid "Calculate hashes"
+msgstr "Calcolare gli hash"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:12
+msgid "Encode text"
+msgstr "Codificare testi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:13
+msgid "Decode text"
+msgstr "Decodificare testi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:14
+msgid "Remove trailing spaces and lines"
+msgstr "Rimuovere spazi a fine riga e righe vuote a fine testo"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:15
+msgid "Count lines, symbols and words"
+msgstr "Contare righe, simboli e parole"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:16
+msgid "Format JSON and XML"
+msgstr "Formattare JSON e XML"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:17
+msgid "Escape and unescape strings"
+msgstr "Aggiungere o rimuovere sequenze di escape"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:18
+msgid "Convert JSON to YAML and vice versa"
+msgstr "Convertire JSON in YAML e viceversa"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:19
+msgid "Filter lines"
+msgstr "Filtrare righe"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:20
+msgid "Replace substrings and regular expressions"
+msgstr "Sostituire sottostringhe ed espressioni regolari"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:22
+msgid "...and so on."
+msgstr "…e altro ancora."
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:58
+msgid "Bug fix"
+msgstr "Risoluzione di bug"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:63
+msgid "Refresh UI"
+msgstr "Aggiornamento dell'interfaccia utente"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:64
+msgid "Fix a lot of bugs"
+msgstr "Risolti tanti bug"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:65
+msgid "Add powerful settings"
+msgstr "Aggiunte impostazioni potenti"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:66
+msgid "Add arguments support for custom tools"
+msgstr "Aggiunto supporto per gli argomenti a strumenti personalizzati"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:67
+msgid "Add translation support"
+msgstr "Aggiunto supporto per traduzioni"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:68
+#: data/com.github.liferooter.textpieces.appdata.xml.in:97
+msgid "Improve search"
+msgstr "Migliorata la ricerca"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:81
+msgid "Minor UI changes"
+msgstr "Piccoli cambiamenti all'interfaccia utente"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:82
+msgid "Add XML formatter"
+msgstr "Aggiunto formattatore XML"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:87
+msgid "Some bugfixes and improvements"
+msgstr "Risolti alcuni bug, miglioramenti"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:90
+msgid "Bring back tools with arguments"
+msgstr "Riportati in funzione gli strumenti con argomenti"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:95
+msgid "Redesign the application"
+msgstr "Riprogettazione dell'applicazione"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:96
+msgid "Add custom tools support"
+msgstr "Aggiunto supporto per strumenti personalizzati"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:98
+msgid "Add ability to text load from file and save to file"
+msgstr "Aggiunta abilità di caricare il testo da un file, e salvare su file"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:105
+msgid "Exit by Ctrl+Q"
+msgstr "Uscita tramite Ctrl+Q"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:106
+msgid "Monospace argument entry"
+msgstr "Inserimento di argomenti in carattere monospaziato"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:107
+msgid "Update new runtime"
+msgstr "Aggiornato nuovo runtime"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:114
+msgid "Sort tools"
+msgstr "Ordinamento degli strumenti"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:115
+msgid "Filter tools"
+msgstr "Capacità di filtrare gli strumenti"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:116
+msgid "Minify C-like code"
+msgstr "Rimpicciolito codice simil-C"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:123
+msgid "Add more tools"
+msgstr "Aggiunti altri strumenti"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:124
+msgid "Make tools popover more powerful"
+msgstr "Popover degli strumenti reso più potente"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:125
+msgid "Redesign icon"
+msgstr "Icona ridisegnata"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:126
+msgid "General improvements"
+msgstr "Miglioramenti generali"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:131
+msgid "Add tools for replacement and removing"
+msgstr "Aggiunto strumento per sostituzione e rimozione"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:134
+msgid "Application release"
+msgstr "Lancio dell'applicazione"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:11
+msgid "Color scheme"
+msgstr "Schema di colori"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:12
+msgid "Which color scheme to use for application interface."
+msgstr ""
+"Quale schema di colori usare per l'interfaccia dell'applicazione."
+
+#: data/com.github.liferooter.textpieces.gschema.xml:18
+msgid "Font name"
+msgstr "Nome del tipo di carattere"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:19
+msgid "Name of font used in editor"
+msgstr "Nome del tipo di carattere usato nell'editor"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:25
+msgid "Wrap lines"
+msgstr "A capo automatico"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:26
+msgid "Whether to wrap long lines"
+msgstr "Se andare a capo automaticamente quando le righe sono lunghe"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:32
+msgid "Tabs to spaces"
+msgstr "Converti tabulazioni in spazi"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:33
+msgid "Whether to insert spaces instead of tab"
+msgstr "Se inserire spazi al posto delle tabulazioni"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:39
+msgid "Spaces in tab"
+msgstr "Spazi per tabulazione"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:40
+msgid "Tab width in spaces"
+msgstr "Larghezza in spazi di una tabulazione"
+
+#: src/NewToolPage.vala:129
+#, c-format
+msgid "Error occured: %s"
+msgstr "Si è verificato un errore: %s"
+
+#. Create dialog
+#: src/Preferences.vala:135
+msgid "Select font"
+msgstr "Seleziona tipo di carattere"
+
+#: src/ToolSettings.vala:198
+#, c-format
+msgid "Argument %d"
+msgstr "Argomento %d"
+
+#. *
+#. * Text used instead of tool name
+#. * when where is no tool selected
+#.
+#: src/Window.vala:49 resources/ui/ShortcutsWindow.ui:68
+msgid "Select tool"
+msgstr "Seleziona strumento"
+
+#: src/Window.vala:330
+msgid "translator-credits"
+msgstr "Davide Ferracin <davide.ferracin@protonmail.com>, 2022"
+
+#: src/Window.vala:350
+msgid "Text is copied to clipboard"
+msgstr "Testo copiato negli appunti"
+
+#: src/Window.vala:359 resources/ui/Window.ui:114
+msgid "Save to File"
+msgstr "Salva su file"
+
+#: src/Window.vala:388
+#, c-format
+msgid "Can't save to file: %s"
+msgstr "Salvataggio su file non riuscito: %s"
+
+#: src/Window.vala:404 resources/ui/Window.ui:121
+msgid "Load from File"
+msgstr "Carica da file"
+
+#: src/Window.vala:437
+#, c-format
+msgid "Can't load from file: %s"
+msgstr "Caricamento da file non riuscito: %s"
+
+#: resources/ui/CustomToolPage.ui:49
+msgid "D_elete"
+msgstr "_Elimina"
+
+#: resources/ui/NewToolPage.ui:55
+msgid "_Create"
+msgstr "_Crea"
+
+#: resources/ui/Preferences.ui:34
+msgid "_General"
+msgstr "_Generali"
+
+#: resources/ui/Preferences.ui:40
+msgid "Editor"
+msgstr "Editor"
+
+#: resources/ui/Preferences.ui:43
+msgid "Editor _Font"
+msgstr "_Carattere dell'editor"
+
+#: resources/ui/Preferences.ui:64
+msgid "_Wrap Lines"
+msgstr "_A capo automatico"
+
+#: resources/ui/Preferences.ui:77
+msgid "Tabs to _Spaces"
+msgstr "Converti _tabulazioni in spazi"
+
+#: resources/ui/Preferences.ui:90
+msgid "_Tab Width in Spaces"
+msgstr "_Larghezza in spazi di una tabulazione"
+
+#: resources/ui/Preferences.ui:112
+msgid "Color Scheme"
+msgstr "Schema di colori"
+
+#: resources/ui/Preferences.ui:115
+msgid "_Light"
+msgstr "_Chiaro"
+
+#: resources/ui/Preferences.ui:129
+msgid "_Dark"
+msgstr "_Scuro"
+
+#: resources/ui/Preferences.ui:144
+msgid "S_ystem Default"
+msgstr "_Predefinito di sistema"
+
+#: resources/ui/Preferences.ui:163
+msgid "T_ools"
+msgstr "St_rumenti"
+
+#: resources/ui/Preferences.ui:169
+msgid "Custom tools"
+msgstr "Strumenti personalizzati"
+
+#: resources/ui/ShortcutsWindow.ui:35
+msgid "General"
+msgstr "Generali"
+
+#: resources/ui/ShortcutsWindow.ui:38
+msgid "Keyboard shortcuts"
+msgstr "Scorciatoie da tastiera"
+
+#: resources/ui/ShortcutsWindow.ui:44
+msgid "Preferences"
+msgstr "Preferenze"
+
+#: resources/ui/ShortcutsWindow.ui:50
+msgid "Quit"
+msgstr "Esce"
+
+#: resources/ui/ShortcutsWindow.ui:59
+msgid "Tools"
+msgstr "Strumenti"
+
+#: resources/ui/ShortcutsWindow.ui:62
+msgid "Apply"
+msgstr "Applica"
+
+#: resources/ui/ShortcutsWindow.ui:74
+msgid "Jump to the tool options"
+msgstr "Passa alle opzioni dello strumento"
+
+#: resources/ui/ShortcutsWindow.ui:83
+msgid "Undo and Redo"
+msgstr "Annulla e ripeti"
+
+#: resources/ui/ShortcutsWindow.ui:86
+msgid "Undo"
+msgstr "Annulla"
+
+#: resources/ui/ShortcutsWindow.ui:92
+msgid "Redo"
+msgstr "Ripete"
+
+#: resources/ui/ShortcutsWindow.ui:101
+msgid "Copy and Paste"
+msgstr "Copia e incolla"
+
+#: resources/ui/ShortcutsWindow.ui:104 resources/ui/Window.ui:72
+msgid "Copy"
+msgstr "Copia"
+
+#: resources/ui/ShortcutsWindow.ui:110
+msgid "Paste"
+msgstr "Incolla"
+
+#: resources/ui/ShortcutsWindow.ui:116
+msgid "Copy all"
+msgstr "Copia tutto"
+
+#: resources/ui/ShortcutsWindow.ui:125
+msgid "Files"
+msgstr "File"
+
+#: resources/ui/ShortcutsWindow.ui:128
+msgid "Load from file"
+msgstr "Carica da file"
+
+#: resources/ui/ShortcutsWindow.ui:134
+msgid "Save to file"
+msgstr "Salva su file"
+
+#: resources/ui/ToolSettings.ui:53
+msgid "_Name"
+msgstr "_Nome"
+
+#: resources/ui/ToolSettings.ui:69
+msgid "_Description"
+msgstr "_Descrizione"
+
+#: resources/ui/ToolSettings.ui:81
+msgid "_Arguments"
+msgstr "_Argomenti"
+
+#: resources/ui/Window.ui:59
+msgid "_Apply"
+msgstr "A_pplica"
+
+#: resources/ui/Window.ui:62
+msgid "Apply Selected Tool"
+msgstr "Applica lo strumento selezionato"
+
+#: resources/ui/Window.ui:107
+msgid "Main Menu"
+msgstr "Menu principale"
+
+#: resources/ui/Window.ui:249
+msgid "No Tools Found"
+msgstr "Nessuno strumento trovato"
+
+#: resources/ui/Window.ui:270
+msgid "Add Custom Tool"
+msgstr "Aggiungi strumento personalizzato"
+
+#: resources/ui/Window.ui:299
+msgid "_Preferences"
+msgstr "_Preferenze"
+
+#: resources/ui/Window.ui:304
+msgid "_Keyboard Shortcuts"
+msgstr "_Scorciatoie da tastiera"
+
+#: resources/ui/Window.ui:309
+msgid "_About Text Pieces"
+msgstr "_Informazioni su Frammenti di testo"
+
+# SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: CC0-1.0
+msgid "SHA1 Checksum"
+msgstr "Codice di controllo SHA1"
+
+msgid "Compute SHA1 hash sum"
+msgstr "Calcola il codice hash SHA1"
+
+msgid "SHA256 Checksum"
+msgstr "Codice di controllo SHA256"
+
+msgid "Compute SHA256 hash sum"
+msgstr "Calcola il codice hash SHA256"
+
+msgid "SHA384 Checksum"
+msgstr "Codice di controllo SHA384"
+
+msgid "Compute SHA384 hash sum"
+msgstr "Calcola il codice hash SHA384"
+
+msgid "SHA512 Checksum"
+msgstr "Codice di controllo SHA512"
+
+msgid "Compute SHA512 hash sum"
+msgstr "Calcola il codice hash SHA512"
+
+msgid "MD5 Checksum"
+msgstr "Codice di controllo MD5"
+
+msgid "Compute MD5 hash sum"
+msgstr "Calcola il codice hash MD5"
+
+msgid "Base64 Encode"
+msgstr "Codifica in Base64"
+
+msgid "Encode text to Base64"
+msgstr "Codifica il testo in Base64"
+
+msgid "Base64 Decode"
+msgstr "Decodifica da Base64"
+
+msgid "Decode text from Base64"
+msgstr "Decodifica il testo da Base64"
+
+msgid "Remove Trailing"
+msgstr "Rimuovi spazi bianchi in eccesso"
+
+msgid "Remove trailing whitespaces and newlines"
+msgstr "Rimuove spazi a fine riga e righe vuote a fine testo"
+
+msgid "Trim Lines"
+msgstr "Snellisci le righe"
+
+msgid "Remove leading and trailing whitespaces and newlines"
+msgstr ""
+"Rimuove spazi a fine o inizio riga e righe vuote a fine o inizio testo"
+
+msgid "Count Symbols"
+msgstr "Conta simboli"
+
+msgid "Count how many symbols are in text"
+msgstr "Conta il numero di simboli nel testo"
+
+msgid "Count Lines"
+msgstr "Conta righe"
+
+msgid "Count how many lines are in text"
+msgstr "Conta il numero di righe nel testo"
+
+msgid "Count Words"
+msgstr "Conta parole"
+
+msgid "Count how many words are in text"
+msgstr "Conta il numero di parole nel testo"
+
+msgid "Prettify JSON"
+msgstr "Abbellisci JSON"
+
+msgid "Parse JSON and prettify it"
+msgstr "Analizza e abbellisci il codice JSON"
+
+msgid "Minify JSON"
+msgstr "Comprimi JSON"
+
+msgid "Parse JSON and minify it"
+msgstr "Analizza e comprimi il codice JSON"
+
+msgid "Escape String"
+msgstr "Aggiungi sequenze di escape alle stringhe"
+
+msgid "Replace special characters with escape sequences"
+msgstr "Sostituisci i caratteri speciali con sequenze di escape"
+
+msgid "Escape HTML"
+msgstr "Aggiungi sequenze di escape a codice HTML"
+
+msgid "Replace special characters with HTML-safe sequences"
+msgstr "Sostituisci i caratteri speciali con sequenze HTML protette"
+
+msgid "Escape URL"
+msgstr "Aggiungi sequenze di escape a URL"
+
+msgid "Replace special characters with URL-safe sequences"
+msgstr "Sostituisci i caratteri speciali con sequenze protette per gli URL"
+
+msgid "Unescape String"
+msgstr "Rimuovi sequenze di escape"
+
+msgid "Replace escape sequences with characters"
+msgstr "Sostituisci le sequenze di escape con caratteri"
+
+msgid "Unescape HTML"
+msgstr "Rimuovi sequenze di escape da codice HTML"
+
+msgid "Replace HTML sequences with characters"
+msgstr "Sostituisci le sequenze HTML protette con caratteri"
+
+msgid "Unescape URL"
+msgstr "Rimuovi sequenze di escape da URL"
+
+msgid "Replace URL sequences with characters"
+msgstr "Sostituisci le sequenze protette per gli URL con caratteri"
+
+msgid "Convert JSON to YAML"
+msgstr "Converti JSON in YAML"
+
+msgid "Parse JSON and convert it to YAML document"
+msgstr "Analizza JSON e converti in documento YAML"
+
+msgid "Convert YAML to JSON"
+msgstr "Converti YAML in JSON"
+
+msgid "Parse YAML document and conver it to JSON"
+msgstr "Analizza YAML e converti in documento JSON"
+
+msgid "Reverse Lines"
+msgstr "Inverti righe"
+
+msgid "Reoder lines in reverse order"
+msgstr "Riordina al contrario le righe"
+
+msgid "Reverse Text"
+msgstr "Inverti testo"
+
+msgid "Reorder characters in reverse order"
+msgstr "Riordina al contrario i caratteri"
+
+msgid "Sort Lines"
+msgstr "Ordina righe"
+
+msgid "Sort lines in text in alphabetical order"
+msgstr "Riordina le righe in ordine alfabetico"
+
+msgid "Reverse Sort Lines"
+msgstr "Ordina righe (inverso)"
+
+msgid "Sort lines in text in reverse alphabetical order"
+msgstr "Riordina le righe in ordine alfabetico inverso"
+
+msgid "Filter Lines by Regex"
+msgstr "Filtra righe tramite espressioni regolari"
+
+msgid "Remove all lines which don't match given regular expression"
+msgstr ""
+"Rimuovi tutte le righe che non corrispondono alla data espressione regolare"
+
+msgid "Regex"
+msgstr "Espressione regolare"
+
+msgid "Reverse Filter Lines by Regex"
+msgstr "Filtra righe tramite espressioni regolari (inverso)"
+
+msgid "Remove all lines which match given regular expression"
+msgstr ""
+"Rimuovi tutte le righe che corrispondono alla data espressione regolare"
+
+msgid "Filter Lines by Substring"
+msgstr "Filtra righe tramite sottostringhe"
+
+msgid "Remove all lines which don't contain given substring"
+msgstr "Rimuovi tutte le righe che non contengono la sottostringa data"
+
+msgid "Substring"
+msgstr "Sottostringa"
+
+msgid "Reverse Filter Lines by Substring"
+msgstr "Filtra righe tramite sottostringhe (inverso)"
+
+msgid "Remove all lines which contain given substring"
+msgstr "Rimuovi tutte le righe che contengono la sottostringa data"
+
+msgid "Remove Regex"
+msgstr "Rimuovi espressione regolare"
+
+msgid "Remove all matches of regular expression"
+msgstr "Rimuovi tutte le corrispondenze di un'espressione regolare"
+
+msgid "Remove Substring"
+msgstr "Rimuovi sottostringa"
+
+msgid "Remove all occurrences of given substring in text"
+msgstr "Rimuovi tutte le occorrenze nel testo di una data sottostringa"
+
+msgid "Replace Substring"
+msgstr "Sostituisci sottostringa"
+
+msgid "Replace all occurrences of given substring in text with other string"
+msgstr ""
+"Sostituisci tutte le occorrenze nel testo di una data sottostringa con "
+"un'altra stringa"
+
+msgid "Find"
+msgstr "Trova"
+
+msgid "Replace With"
+msgstr "Sostituisci con"
+
+msgid "Replace Regex"
+msgstr "Sostituisci tramite espressione regolare"
+
+msgid "Replace all given regex matches in text with given string"
+msgstr ""
+"Sostituisci tutte le corrispondenze nel testo di un'espressione regolare con "
+"la stringa data"
+
+msgid "Find (regex)"
+msgstr "Trova (espressione regolare)"
+
+msgid "Prettify XML"
+msgstr "Abbellisci XML"
+
+msgid "Parse XML and prettify it"
+msgstr "Analizza e abbellisci il codice XML"
+
+msgid "New Window"
+msgstr "Nuova finestra"
+
+msgid "Gleb Smirnov"
+msgstr "Gleb Smirnov"
+
+msgid "New features and improvements:"
+msgstr "Nuove funzionalità e miglioramenti:"
+
+msgid "Window width"
+msgstr "Larghezza finestra"
+
+msgid "Saved width of application window"
+msgstr "Larghezza salvata della finestra dell'applicazione"
+
+msgid "Window height"
+msgstr "Altezza finestra"
+
+msgid "Saved height of the window"
+msgstr "Altezza salvata della finestra dell'applicazione"
+
+msgid "Is maximized"
+msgstr "È massimizzata"
+
+msgid "Whether the application window is maximized"
+msgstr "Se la finestra dell'applicazione è massimizzata"
+
+msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+msgstr "Gleb Smirnov <glebsmirnov0708@gmail.com>"
