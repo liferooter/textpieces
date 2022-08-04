@@ -61,7 +61,7 @@ namespace TextPieces {
         [GtkCallback]
         async void create () {
             /* Create tool directory if not exists */
-            var dir = File.new_for_path (Tool.CUSTOM_TOOLS_DIR);
+            var dir = File.new_for_path (Tool.CUSTOM_TOOLS_DIR.get ());
             if (!dir.query_exists ()) {
                 try {
                     yield Utils.ensure_directory_exists (dir);
@@ -75,7 +75,7 @@ namespace TextPieces {
 
             /* Get script file */
             var script_file = File.new_build_filename (
-                Tool.CUSTOM_TOOLS_DIR,
+                Tool.CUSTOM_TOOLS_DIR.get (),
                 filename
             );
 

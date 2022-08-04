@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+using Gee;
+
 namespace TextPieces {
     /**
      * Script result
@@ -17,16 +19,25 @@ namespace TextPieces {
      */
     public class Tool : Object {
         /**
-         * Path to the directory containing
-         * custom tool scripts
-         */
-        public static string CUSTOM_TOOLS_DIR;
-
-        /**
          * Whether the application
          * is running in Flatpak
          */
-        public static bool   in_flatpak;
+        public static Lazy<bool> IN_FLATPAK = new Lazy<bool> (
+            () => File.new_for_path ("/.flatpak-info").query_exists (null)
+        );
+
+        /**
+         * Path to the directory containing
+         * custom tool scripts
+         */
+        public static Lazy<string> CUSTOM_TOOLS_DIR = new Lazy<string> (
+            /* Custom tools are stored in ~/.local/share/textpieces/scripts.
+               They are there even in Flatpak because Flatpak-ed apps can't
+               write to files from other apps' directories even through portals */
+            () => Path.build_filename (
+                Environment.get_home_dir (), ".local", "share", "textpieces", "scripts"
+            )
+        );
 
         /**
          * Name of the tool
@@ -70,20 +81,10 @@ namespace TextPieces {
         public bool is_system;
 
         static construct {
-            /* Custom tools are stored in ~/.local/share/textpieces/scripts.
-               They are there even in Flatpak because Flatpak-ed apps can't
-               write to files from other apps' directories even through portals */
-            CUSTOM_TOOLS_DIR = Path.build_filename (
-                Environment.get_home_dir (), ".local", "share", "textpieces", "scripts"
-            );
-
-            var tools_dir = File.new_for_path (CUSTOM_TOOLS_DIR);
+            var tools_dir = File.new_for_path (CUSTOM_TOOLS_DIR.get ());
 
             /* Create tools directory */
             Utils.ensure_directory_exists.begin (tools_dir);
-
-            /* Check whether the application is running in Flatpak */
-            in_flatpak = File.new_for_path ("/.flatpak-info").query_exists (null);
         }
 
         /**
@@ -98,7 +99,7 @@ namespace TextPieces {
             /* Get directory containing script */
             var scriptdir = is_system
                 ? Config.SCRIPTDIR
-                : CUSTOM_TOOLS_DIR;
+                : CUSTOM_TOOLS_DIR.get ();
 
             /* Build script command line */
 
@@ -106,7 +107,7 @@ namespace TextPieces {
             /* Run script on host via
                `flatpak-spawn --host`
                if running in Flatpak */
-            if (!is_system && in_flatpak) {
+            if (!is_system && IN_FLATPAK.get ()) {
                 cmdline += "flatpak-spawn";
                 cmdline += "--host";
             }
@@ -161,7 +162,7 @@ namespace TextPieces {
             Gtk.show_uri (
                 window,
                 File.new_build_filename (
-                    Tool.CUSTOM_TOOLS_DIR, this.script
+                    Tool.CUSTOM_TOOLS_DIR.get (), this.script
                 ).get_uri (),
                 Gdk.CURRENT_TIME
             );

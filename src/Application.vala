@@ -24,12 +24,12 @@ namespace TextPieces {
         /**
          * Text Pieces settings
          */
-        public static GLib.Settings settings;
+        public static GLib.Settings settings = new GLib.Settings ("com.github.liferooter.textpieces");
 
         /**
          * Tools controller
          */
-        public static ToolsController tools;
+        public static ToolsController tools = new ToolsController ();
 
         /**
          * Application actions
@@ -68,14 +68,6 @@ namespace TextPieces {
             { "app.quit"              , "<Ctrl>q"        },
             { "app.new-window"        , "<Ctrl>n"        }
         };
-
-        static construct {
-            /* Load settingse */
-            settings = new GLib.Settings ("com.github.liferooter.textpieces");
-
-            /* Load tools */
-            tools = new ToolsController ();
-        }
 
         /**
          * CSS provider used to set style scheme
@@ -156,6 +148,9 @@ namespace TextPieces {
                     { action_accel.accel }
                 );
             }
+
+            /* Load tools */
+            tools.load.begin ();
         }
 
         /**
