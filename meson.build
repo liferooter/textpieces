@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 project('textpieces', 'vala',
-          version: '3.0.2',
+          version: '3.1.0',
     meson_version: '>= 0.59.0',
   default_options: [ 'warning_level=2',
                    ],
