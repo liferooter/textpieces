@@ -19,13 +19,6 @@ textpieces_sources += [
   'Window.vala',
 ]
 
-textpieces_sources += custom_target('blueprint-hack',
-    input: blueprints,
-    output: 'blueprint.vala',
-    command: [find_program('touch'), '@OUTPUT@'],
-    build_always: true
-)
-
 executable('textpieces', textpieces_sources,
   c_args: [
     '-DVERSION="' + meson.project_version() + '"',
@@ -33,9 +26,6 @@ executable('textpieces', textpieces_sources,
     '-DSCRIPTDIR="' +  pkgdata_dir / 'scripts' + '"',
     '-DGETTEXT_PACKAGE="' + meson.project_name() + '"',
     '-DGNOMELOCALEDIR="' + get_option('prefix') / get_option('localedir') + '"',
-  ],
-  vala_args: [
-    '--gresourcesdir=' + generated_resources_dir
   ],
   dependencies: textpieces_deps,
   install: true,

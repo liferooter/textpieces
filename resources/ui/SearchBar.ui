@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="TextPiecesSearchBar" parent="AdwBin">
+    <child>
+      <object class="GtkRevealer" id="search_revealer">
+        <property name="transition-type">slide-down</property>
+        <child>
+          <object class="GtkGrid">
+            <style>
+              <class name="editor-overlay"/>
+            </style>
+            <property name="margin-top">5</property>
+            <property name="margin-bottom">2.5</property>
+            <property name="margin-start">5</property>
+            <property name="margin-end">10</property>
+            <property name="row-spacing">6</property>
+            <property name="column-spacing">6</property>
+            <child>
+              <object class="TextPiecesSearchEntry" id="search_entry">
+                <layout>
+                  <property name="row">0</property>
+                  <property name="column">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <style>
+                  <class name="linked"/>
+                </style>
+                <property name="homogeneous">true</property>
+                <child>
+                  <object class="GtkButton">
+                    <property name="icon-name">go-up-symbolic</property>
+                    <property name="tooltip-text" translatable="true">Move to revious match</property>
+                    <property name="action-name">search.prev-match</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="icon-name">go-down-symbolic</property>
+                    <property name="tooltip-text" translatable="true">Move to next match</property>
+                    <property name="action-name">search.next-match</property>
+                  </object>
+                </child>
+                <layout>
+                  <property name="row">0</property>
+                  <property name="column">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="search_replace">
+                <property name="icon-name">edit-find-replace-symbolic</property>
+                <property name="tooltip-text" translatable="true">Find and replace</property>
+                <layout>
+                  <property name="row">0</property>
+                  <property name="column">2</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="search_options">
+                <property name="icon-name">preferences-symbolic</property>
+                <property name="tooltip-text" translatable="true">Toggle search options</property>
+                <layout>
+                  <property name="row">0</property>
+                  <property name="column">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <style>
+                  <class name="flat"/>
+                  <class name="circular"/>
+                </style>
+                <property name="icon-name">window-close-symbolic</property>
+                <property name="action-name">search.hide</property>
+                <property name="tooltip-text" translatable="true">Close search</property>
+                <layout>
+                  <property name="row">0</property>
+                  <property name="column">4</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkEntry" id="replace_entry">
+                <property name="primary-icon-name">edit-find-replace-symbolic</property>
+                <property name="primary-icon-activatable">false</property>
+                <property name="placeholder-text" translatable="true">Replace</property>
+                <property name="visible" bind-source="search_replace" bind-property="active" bind-flags="sync-create"/>
+                <signal name="changed" handler="remove_error_style"/>
+                <layout>
+                  <property name="row">1</property>
+                  <property name="column">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="true">_Replace</property>
+                <property name="use-underline">true</property>
+                <property name="visible" bind-source="search_replace" bind-property="active" bind-flags="sync-create"/>
+                <property name="sensitive" bind-source="search_entry" bind-property="occurrence_position" bind-flags="sync-create"/>
+                <property name="action-name">search.replace</property>
+                <layout>
+                  <property name="row">1</property>
+                  <property name="column">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="true">Replace _All</property>
+                <property name="use-underline">true</property>
+                <property name="visible" bind-source="search_replace" bind-property="active" bind-flags="sync-create"/>
+                <property name="sensitive" bind-source="search_entry" bind-property="occurrences_count" bind-flags="sync-create"/>
+                <property name="action-name">search.replace-all</property>
+                <layout>
+                  <property name="row">1</property>
+                  <property name="column">2</property>
+                  <property name="column-span">3</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="spacing">6</property>
+                <property name="visible" bind-source="search_options" bind-property="active" bind-flags="sync-create"/>
+                <child>
+                  <object class="GtkCheckButton">
+                    <property name="use-underline">true</property>
+                    <property name="label" translatable="true">Re_gular expressions</property>
+                    <property name="active" bind-source="TextPiecesSearchBar" bind-property="use-regex" bind-flags="sync-create|bidirectional"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkCheckButton">
+                    <property name="use-underline">true</property>
+                    <property name="label" translatable="true">_Case sensitive</property>
+                    <property name="active" bind-source="TextPiecesSearchBar" bind-property="case-sensitive" bind-flags="sync-create|bidirectional"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkCheckButton">
+                    <property name="use-underline">true</property>
+                    <property name="label" translatable="true">Match whole _word only</property>
+                    <property name="active" bind-source="TextPiecesSearchBar" bind-property="whole-words" bind-flags="sync-create|bidirectional"/>
+                  </object>
+                </child>
+                <layout>
+                  <property name="row">2</property>
+                  <property name="column">0</property>
+                  <property name="column-span">5</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutController">
+            <property name="scope">managed</property>
+            <child>
+              <object class="GtkShortcut">
+                <property name="trigger">Escape</property>
+                <property name="action">action(search.hide)</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkShortcutController">
+        <property name="scope">managed</property>
+        <child>
+          <object class="GtkShortcut">
+            <property name="trigger">&lt;Ctrl&gt;f</property>
+            <property name="action">action(search.show)</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
