@@ -88,7 +88,7 @@ msgstr "Jméno fontu"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:19
 msgid "Name of font used in editor"
-msgstr ""
+msgstr "Název fontu používaný v editoru"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:25
 msgid "Wrap lines"
