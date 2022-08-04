@@ -31,5 +31,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <file preprocess="xml-stripblanks">icons/scalable/status/lock-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/status/preferences-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/status/unlock-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/scalable/status/applications-utilities-symbolic.svg</file>
   </gresource>
 </gresources>

@@ -116,6 +116,16 @@ template TextPiecesPreferences : Adw.PreferencesWindow {
 
                 selection-mode: none;
             }
+
+            Adw.StatusPage {
+                icon-name: 'applications-utilities-symbolic';
+                title: _('No Custom Tools');
+                description: _('You can create one');
+
+                visible: bind custom_tools_listbox.visible inverted;
+                vexpand: true;
+                valign: center;
+            }
         }
     }
 }
