@@ -79,7 +79,11 @@ template TextPiecesPreferences : Adw.PreferencesWindow {
         Adw.PreferencesGroup {
             title: _('Appearance');
 
-            GtkSource.StyleSchemeChooserWidget style_scheme_chooser { }
+            Adw.Clamp {
+                maximum-size: 450;
+
+                GtkSource.StyleSchemeChooserWidget style_scheme_chooser { }
+            }
         }
     }
 
