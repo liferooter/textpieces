@@ -142,7 +142,7 @@ namespace TextPieces {
                     /* Return error if stderr
                        is not empty */
                     (stderr ?? "") != ""
-                        ? stderr
+                        ? Markup.escape_text (stderr, -1)
                         : null
                 };
             } catch (Error e) {
