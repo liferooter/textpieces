@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+#SPDX-License-Identifier: GPL-3.0-or-later
+
 from xml.etree import ElementTree
 from sys import stdin, stdout, stderr, argv
 
