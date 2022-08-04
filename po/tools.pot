@@ -131,7 +131,7 @@ msgstr ""
 msgid "Convert YAML to JSON"
 msgstr ""
 
-msgid "Parse YAML document and conver it to JSON"
+msgid "Parse YAML document and convert it to JSON"
 msgstr ""
 
 msgid "Reverse Lines"

@@ -17,14 +17,19 @@ namespace TextPieces {
      */
     class Application : Adw.Application {
         /**
+         * Application instance
+         */
+        public static TextPieces.Application instance;
+
+        /**
          * Text Pieces settings
          */
-        public static GLib.Settings settings;
+        public static GLib.Settings settings = new GLib.Settings ("com.github.liferooter.textpieces");
 
         /**
          * Tools controller
          */
-        public static ToolsController tools;
+        public static ToolsController tools = new ToolsController ();
 
         /**
          * Application actions
@@ -48,29 +53,52 @@ namespace TextPieces {
          * }}}
          */
         private static ActionAccel[] ACTION_ACCELS = {
-            /* Window actions */
-            { "win.apply"            , "<Control>Return"   },
-            { "win.copy"             , "<Control><Shift>c" },
-            { "win.open-preferences" , "<Control>comma"    },
-            { "win.show-help-overlay", "<Control>question" },
-            { "win.load-file"        , "<Control>o"        },
-            { "win.save-as"          , "<Control>s"        },
-            { "win.toggle-search"    , "<Alt>s"            },
-            { "win.jump-to-args"     , "<Control>e"        },
-            { "window.close"         , "<Control>w"        },
+            /*              Window actions              */
+            { "win.apply"             , "<Ctrl>Return"   },
+            { "win.copy"              , "<Ctrl><Shift>c" },
+            { "win.open-preferences"  , "<Ctrl>comma"    },
+            { "win.show-help-overlay" , "<Ctrl>question" },
+            { "win.load-file"         , "<Ctrl>o"        },
+            { "win.save-as"           , "<Ctrl>s"        },
+            { "win.toggle-search"     , "<Alt>s"         },
+            { "win.jump-to-args"      , "<Ctrl>e"        },
+            { "window.close"          , "<Ctrl>w"        },
 
-            /* Application actions */
-            { "app.quit"             , "<Control>q" },
-            { "app.new-window"       , "<Control>n" }
+            /*            Application actions           */
+            { "app.quit"              , "<Ctrl>q"        },
+            { "app.new-window"        , "<Ctrl>n"        }
         };
 
-        static construct {
-            /* Load settingse */
-            settings = new GLib.Settings ("com.github.liferooter.textpieces");
+        /**
+         * CSS provider used to set style scheme
+         */
+        private Gtk.CssProvider style_scheme_css_provider = new Gtk.CssProvider ();
 
-            /* Load tools */
-            tools = new ToolsController ();
+         /**
+          * Style scheme
+          */
+        public GtkSource.StyleScheme style_scheme {
+            set {
+                _style_scheme = value;
+
+                /* Apply style scheme to the application */
+                var is_dark = Recoloring.is_scheme_dark (value);
+                Adw.StyleManager.get_default ()
+                    .color_scheme = is_dark
+                        ? Adw.ColorScheme.FORCE_DARK
+                        : Adw.ColorScheme.FORCE_LIGHT;
+                style_scheme_css_provider.load_from_data (
+                    Recoloring.generate_css (value).data
+                );
+
+                settings.set_string ("style-scheme", value.id);
+            } get {
+                return _style_scheme;
+            }
         }
+        private GtkSource.StyleScheme _style_scheme = GtkSource.StyleSchemeManager
+            .get_default ()
+            .get_scheme (settings.get_string ("style-scheme"));
 
         public Application () {
             Object (
@@ -89,12 +117,26 @@ namespace TextPieces {
         protected override void startup () {
             base.startup ();
 
+            /* Place an instance to static field
+               to bring it into global scope */
+            instance = this;
+
             /* Initialize localization */
             Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.GNOMELOCALEDIR);
             Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
 
+            /* Setup style scheme */
+            Gtk.StyleContext.add_provider_for_display (
+                Gdk.Display.get_default (),
+                style_scheme_css_provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_USER
+            );
+
             /* Initialize libs */
             GtkSource.init ();
+
+            /* Initialize recoloring mechanism */
+            style_scheme = style_scheme;
 
             /* Setup actions */
             add_action_entries (ACTIONS, this);
@@ -106,6 +148,9 @@ namespace TextPieces {
                     { action_accel.accel }
                 );
             }
+
+            /* Load tools */
+            tools.load.begin ();
         }
 
         /**
@@ -130,8 +175,12 @@ namespace TextPieces {
          */
         protected override void shutdown () {
             /* Save window geometry if can */
-            var win = (TextPieces.Window?) get_active_window ();
-            win?.save_window_size ();
+            var window = get_active_window ();
+            if (window is TextPieces.Window) {
+                ((TextPieces.Window) window).save_window_size ();
+            } else {
+                (window?.get_transient_for () as TextPieces.Window)?.save_window_size ();
+            }
 
             base.shutdown ();
         }
@@ -154,8 +203,17 @@ namespace TextPieces {
          * `Application::activate`.
          */
         public static int main (string[] args) {
+            ensure_types ();
+
             var app = new TextPieces.Application ();
             return app.run (args);
+        }
+
+        /**
+         * Ensure needed types are registered
+         */
+        private static void ensure_types () {
+            typeof (TextPieces.SearchBar).ensure ();
         }
     }
 }

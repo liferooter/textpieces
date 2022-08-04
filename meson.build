@@ -66,7 +66,7 @@ if not gtksourceview_dep.found()
 endif
 
 json_glib_dep = dependency('json-glib-1.0', version: '>= 1.6.0', required: false)
-if not gtksourceview_dep.found()
+if not json_glib_dep.found()
   json_glib = subproject(
     'json-glib',
     default_options: [
@@ -90,6 +90,7 @@ textpieces_deps = [
   dependency('gio-2.0', version: '>= 2.50'),
   dependency('gio-unix-2.0', version: '>= 2.50'),
   dependency('gtk4', version: '>= 4.2'),
+  dependency('gee-0.8', version: '>= 0.8'),
   json_glib_dep,
   gtksourceview_dep,
   libadwaita_dep,

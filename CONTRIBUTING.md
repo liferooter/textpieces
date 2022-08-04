@@ -45,10 +45,6 @@ xgettext -f po/POTFILES -D . -o po/textpieces.pot
 
 If you've changed translatable strings in `data/tools.json`, please add your changes manually to `po/tools.pot`.
 
-### Manual blueprints compilation
-
-Text Pieces uses Blueprint for UI markup, but Meson have a [bug](https://gitlab.gnome.org/jwestman/blueprint-compiler/-/issues/18) that breaks UI files compilation for Vala projects, so there is hacky script that compiles `.blp` files to `.ui` and adds copyright information from original `.blp` file to it. You have to run it manually after any change in any `.blp` file.
-
 ### Licensing checks
 
 As Text Pieces is REUSE-compilant project, you have to copyright headers in any file you create or edit. The simpliest way to do it is:

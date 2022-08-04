@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+using Gee;
+
 namespace TextPieces {
     /**
      * Tools controller
@@ -11,33 +13,31 @@ namespace TextPieces {
         /**
          * Configuration directory
          */
-        static string CONFIG_DIR;
+        static Lazy<string> CONFIG_DIR = new Lazy<string> (
+            () => Path.build_filename (
+                Environment.get_user_config_dir (), "textpieces"
+            )
+        );
 
         /**
          * File containing
          * pre-installed tools metadata
          */
-        static File SYSTEM_TOOLS_FILE;
+        static Lazy<File> SYSTEM_TOOLS_FILE = new Lazy<File> (
+            () => File.new_build_filename (
+                Config.PKGDATADIR, "tools.json"
+            )
+        );
 
         /**
          * File containing
          * custom tools metadata
          */
-        static File CUSTOM_TOOLS_FILE;
-
-        static construct {
-            CONFIG_DIR = Path.build_filename (
-                Environment.get_user_config_dir (), "textpieces"
-            );
-
-            CUSTOM_TOOLS_FILE = File.new_build_filename (
-                CONFIG_DIR, "tools.json"
-            );
-
-            SYSTEM_TOOLS_FILE = File.new_build_filename (
-                Config.PKGDATADIR, "tools.json"
-            );
-        }
+        static Lazy<File> CUSTOM_TOOLS_FILE = new Lazy<File> (
+            () => File.new_build_filename (
+                CONFIG_DIR.get (), "tools.json"
+            )
+        );
 
         /**
          * List model of pre-installed tools
@@ -60,18 +60,11 @@ namespace TextPieces {
          * Queue of deleted tools
          * pending script removal
          */
-        private Queue<Tool> removed_tools = new Queue<Tool> ();
+        private GLib.Queue<Tool> removed_tools = new GLib.Queue<Tool> ();
 
-        construct {
-            async_construct.begin ();
-        }
-
-        /**
-         * Async construct
-         */
-        async void async_construct () {
+        public async void load () {
             /* Create custom tools index if not exists */
-            if (!CUSTOM_TOOLS_FILE.query_exists ()) {
+            if (!CUSTOM_TOOLS_FILE.get ().query_exists ()) {
                 try {
                     yield save_custom_tools ();
                 } catch (Error e) {
@@ -88,14 +81,14 @@ namespace TextPieces {
         public async void update_tools () {
             /* Remove and load pre-installed tools */
             system_tools.remove_all ();
-            var new_system_tools = load_tools_from_file (SYSTEM_TOOLS_FILE)
+            var new_system_tools = load_tools_from_file (SYSTEM_TOOLS_FILE.get ())
                 ?? new ListStore (typeof (Tool));
             for (var i = 0; i < new_system_tools.get_n_items (); i++)
                 system_tools.append (new_system_tools.get_item (i));
 
             /* Remove and load custom tools */
             custom_tools.remove_all ();
-            var new_custom_tools = load_tools_from_file (CUSTOM_TOOLS_FILE)
+            var new_custom_tools = load_tools_from_file (CUSTOM_TOOLS_FILE.get ())
                 ?? new ListStore (typeof (Tool));
             for (var i = 0; i < new_custom_tools.get_n_items (); i++)
                 custom_tools.append (new_custom_tools.get_item (i));
@@ -225,7 +218,7 @@ namespace TextPieces {
         async void save_custom_tools ()
                 throws Error {
             /* Ensure configuration directory exists */
-            yield Utils.ensure_directory_exists (File.new_for_path (CONFIG_DIR));
+            yield Utils.ensure_directory_exists (File.new_for_path (CONFIG_DIR.get ()));
 
             /* Create JSON builder */
             var builder = new Json.Builder ();
@@ -283,7 +276,7 @@ namespace TextPieces {
 
             /* ...and save to file */
             try {
-                generator.to_file (CUSTOM_TOOLS_FILE.get_path ());
+                generator.to_file (CUSTOM_TOOLS_FILE.get ().get_path ());
             } catch (Error e) {
                 error ("Can't save custom tools: %s", e.message);
             }
@@ -306,7 +299,7 @@ namespace TextPieces {
                 /* Delete tool script */
                 FileUtils.remove (
                     Path.build_filename (
-                        Tool.CUSTOM_TOOLS_DIR,
+                        Tool.CUSTOM_TOOLS_DIR.get (),
                         tool.script
                     )
                 );

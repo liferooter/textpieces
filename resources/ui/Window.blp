@@ -110,37 +110,8 @@ template TextPiecesWindow : Adw.ApplicationWindow {
             StackPage {
                 name: 'editor';
 
-                child: Adw.ToastOverlay toast_overlay {
-                    Overlay {
-                        Box {
-                            orientation: vertical;
-                            ScrolledWindow {
-                                GtkSource.View editor {
-                                    vexpand: true;
-                                    monospace: true;
-                                    auto-indent: true;
-                                    show-line-numbers: true;
-                                    smart-backspace: true;
-                                    smart-home-end: before;
-                                    top-margin: 6;
-                                }
-                            }
-                        }
-
-                        [overlay]
-                        Box arguments_box {
-                            styles [
-                                'card',
-                                'linked',
-                                'argument-view'
-                            ]
-
-                            valign: start;
-                            halign: end;
-                            spacing: 3;
-                            orientation: vertical;
-                        }
-                    }
+                child: .TextPiecesEditor editor {
+                    vexpand: true;
                 };
             }
 
@@ -221,6 +192,22 @@ template TextPiecesWindow : Adw.ApplicationWindow {
 menu app-menu {
     section {
         item {
+            label: _('_New Window');
+            action: 'app.new-window';
+            use-underline: true;
+        }
+    }
+
+    section {
+        item {
+            label: _('_Find/Replace…');
+            action: 'win.find';
+            use-underline: true;
+        }
+    }
+
+    section {
+        item {
             label: _('_Preferences');
             action: 'win.open-preferences';
             use-underline: true;
@@ -235,12 +222,6 @@ menu app-menu {
         item {
             label: _('_About Text Pieces');
             action: 'win.about';
-            use-underline: true;
-        }
-
-        item {
-            label: _('_New Window');
-            action: 'app.new-window';
             use-underline: true;
         }
     }
