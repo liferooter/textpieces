@@ -20,7 +20,7 @@ msgstr ""
 #: data/com.github.liferooter.textpieces.appdata.xml.in:4 src/Window.vala:322
 #: resources/ui/Window.ui:29
 msgid "Text Pieces"
-msgstr "Kousky textu"
+msgstr "Kousky Textu"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:5 src/Window.vala:324
 msgid "Transform text without using random websites"
