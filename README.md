@@ -80,6 +80,7 @@ If you use GNOME Builder or Flatpak, dependencies will be installed automaticall
 - gtk >= 4.2
 - gtksourceview >= 5.2
 - gio >= 2.50
+- gee >= 0.8
 - json-glib >= 1.6
 - libadwaita >= 1.0
 - python >= 3.8
