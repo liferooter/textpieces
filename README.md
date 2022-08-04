@@ -39,7 +39,7 @@ Small tool for quick text transformations such as checksums, encoding, decoding 
 
 # Features
 - Base64 encoding and decoding
-- SHA1, SHA2 and MD5 checksums
+- SHA-1, SHA-2 and MD5 checksums
 - Prettify and minify JSON
 - Covert JSON to YAML and vice versa
 - Count lines, symbols and words
