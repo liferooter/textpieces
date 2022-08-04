@@ -62,7 +62,6 @@ namespace TextPieces {
             { "win.save-as"           , "<Ctrl>s"        },
             { "win.toggle-search"     , "<Alt>s"         },
             { "win.jump-to-args"      , "<Ctrl>e"        },
-            { "win.show-search"       , "<Ctrl>f"        },
             { "window.close"          , "<Ctrl>w"        },
 
             /*            Application actions           */
@@ -181,8 +180,12 @@ namespace TextPieces {
          */
         protected override void shutdown () {
             /* Save window geometry if can */
-            var win = (TextPieces.Window?) get_active_window ();
-            win?.save_window_size ();
+            var window = get_active_window ();
+            if (window is TextPieces.Window) {
+                ((TextPieces.Window) window).save_window_size ();
+            } else {
+                (window?.get_transient_for () as TextPieces.Window)?.save_window_size ();
+            }
 
             base.shutdown ();
         }
@@ -205,8 +208,17 @@ namespace TextPieces {
          * `Application::activate`.
          */
         public static int main (string[] args) {
+            ensure_types ();
+
             var app = new TextPieces.Application ();
             return app.run (args);
+        }
+
+        /**
+         * Ensure needed types are registered
+         */
+        private static void ensure_types () {
+            typeof (TextPieces.SearchBar).ensure ();
         }
     }
 }

@@ -12,6 +12,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <file preprocess="xml-stripblanks">ui/CustomToolPage.ui</file>
     <file preprocess="xml-stripblanks">ui/NewToolPage.ui</file>
     <file preprocess="xml-stripblanks">ui/Preferences.ui</file>
+    <file preprocess="xml-stripblanks">ui/SearchBar.ui</file>
+    <file preprocess="xml-stripblanks">ui/SearchEntry.ui</file>
     <file preprocess="xml-stripblanks">ui/ToolSettings.ui</file>
     <file preprocess="xml-stripblanks">ui/Window.ui</file>
     <file preprocess="xml-stripblanks">ui/Editor.ui</file>

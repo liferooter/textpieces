@@ -10,6 +10,8 @@ textpieces_sources += [
   'Preferences.vala',
   'Recoloring.vala',
   'Search.vala',
+  'SearchBar.vala',
+  'SearchEntry.vala',
   'Tool.vala',
   'ToolSettings.vala',
   'ToolsController.vala',
@@ -20,7 +22,8 @@ textpieces_sources += [
 textpieces_sources += custom_target('blueprint-hack',
     input: blueprints,
     output: 'blueprint.vala',
-    command: [find_program('touch'), '@OUTPUT@']
+    command: [find_program('touch'), '@OUTPUT@'],
+    build_always: true
 )
 
 executable('textpieces', textpieces_sources,

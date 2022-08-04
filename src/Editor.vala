@@ -16,14 +16,6 @@ namespace TextPieces {
         [GtkChild] unowned GtkSource.View editor;
         [GtkChild] unowned Gtk.Box arguments_box;
         [GtkChild] unowned Adw.ToastOverlay message_overlay;
-        [GtkChild] unowned Gtk.Revealer search_revealer;
-
-        /**
-         * Editor actions
-         */
-        private const ActionEntry[] ACTION_ENTRIES = {
-            { "hide-search"  , hide_search   }
-        };
 
         /**
          * Whether to wrap lines
@@ -82,17 +74,6 @@ namespace TextPieces {
             style_scheme_binding.unbind ();
         }
 
-        static construct {
-            install_action (
-                "editor.show-search",
-                null,
-                (self) => {
-                    var editor = (TextPieces.Editor) self;
-                    editor.show_search ();
-                }
-            );
-        }
-
         construct {
             /* Bind some values to settings */
             with (Application.settings) {
@@ -116,11 +97,6 @@ namespace TextPieces {
                 "style-scheme",
                 SYNC_CREATE
             );
-
-            /* Setup action entries */
-            var action_group = new SimpleActionGroup ();
-            action_group.add_action_entries (ACTION_ENTRIES, this);
-            insert_action_group ("editor", action_group);
         }
 
         /**
@@ -167,6 +143,8 @@ namespace TextPieces {
                 buffer.get_bounds (out start, out end);
             }
 
+            var start_offset = start.get_offset();
+
             buffer.begin_user_action ();
 
             /* Replace selection by given text */
@@ -177,8 +155,12 @@ namespace TextPieces {
 
             if (has_selection) {
                 buffer.get_iter_at_offset (
+                    out start,
+                    start_offset
+                );
+                buffer.get_iter_at_offset (
                     out end,
-                    start.get_offset () + text.length
+                    start_offset + text.length
                 );
 
                 buffer.select_range (start, end);
@@ -293,20 +275,5 @@ namespace TextPieces {
 
             return Source.REMOVE;
         }
-
-        /**
-         * Show search
-         */
-        public void show_search () {
-            search_revealer.reveal_child = true;
-        }
-
-        /**
-         * Hide search
-         */
-        private void hide_search () {
-            search_revealer.reveal_child = false;
-        }
     }
 }
-

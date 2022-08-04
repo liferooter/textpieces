@@ -84,8 +84,7 @@ namespace TextPieces {
             { "toggle-search"    , action_toggle_search    },
             { "save-as"          , action_save_as          },
             { "load-file"        , action_load_file        },
-            { "jump-to-args"     , action_jump_to_args     },
-            { "show-search"      , show_search             }
+            { "jump-to-args"     , action_jump_to_args     }
         };
 
         public Window (Application application) {
@@ -382,13 +381,6 @@ namespace TextPieces {
 
                 return Source.REMOVE;
             });
-        }
-
-        /**
-         * Show search
-         */
-        void show_search () {
-            editor.show_search ();
         }
 
         /**

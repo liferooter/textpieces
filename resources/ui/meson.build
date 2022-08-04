@@ -8,6 +8,8 @@ blueprint_files = [
   'CustomToolPage.blp',
   'Preferences.blp',
   'ShortcutsWindow.blp',
+  'SearchBar.blp',
+  'SearchEntry.blp',
   'ToolSettings.blp',
   'Window.blp'
 ]
