@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <template class="TextPiecesWindow" parent="AdwApplicationWindow">
-    <property name="title" translatable="true">Text Pieces</property>
+    <property name="title" translatable="yes">Text Pieces</property>
     <property name="focus-widget">editor</property>
     <property name="icon-name">com.github.liferooter.textpieces</property>
     <child>
@@ -24,10 +24,10 @@
                         <style>
                           <class name="suggested-action"/>
                         </style>
-                        <property name="label" translatable="true">_Apply</property>
+                        <property name="label" translatable="yes">_Apply</property>
                         <property name="use-underline">true</property>
                         <property name="action-name">win.apply</property>
-                        <property name="tooltip-text" translatable="true">Apply Selected Tool</property>
+                        <property name="tooltip-text" translatable="yes">Apply Selected Tool</property>
                       </object>
                     </child>
                     <child>
@@ -37,7 +37,7 @@
                         </style>
                         <property name="icon-name">edit-copy-symbolic</property>
                         <property name="action-name">win.copy</property>
-                        <property name="tooltip-text" translatable="true">Copy</property>
+                        <property name="tooltip-text" translatable="yes">Copy</property>
                       </object>
                     </child>
                   </object>
@@ -60,21 +60,21 @@
               <object class="GtkMenuButton">
                 <property name="icon-name">open-menu-symbolic</property>
                 <property name="menu-model">app-menu</property>
-                <property name="tooltip-text" translatable="true">Main Menu</property>
+                <property name="tooltip-text" translatable="yes">Main Menu</property>
                 <property name="primary">true</property>
               </object>
             </child>
             <child type="end">
               <object class="GtkButton">
                 <property name="icon-name">document-save-symbolic</property>
-                <property name="tooltip-text" translatable="true">Save to File</property>
+                <property name="tooltip-text" translatable="yes">Save to File</property>
                 <property name="action-name">win.save-as</property>
               </object>
             </child>
             <child type="end">
               <object class="GtkButton">
                 <property name="icon-name">document-open-symbolic</property>
-                <property name="tooltip-text" translatable="true">Load from File</property>
+                <property name="tooltip-text" translatable="yes">Load from File</property>
                 <property name="action-name">win.load-file</property>
               </object>
             </child>
@@ -153,7 +153,7 @@
                         <property name="child">
                           <object class="AdwStatusPage">
                             <property name="icon-name">applications-utilities-symbolic</property>
-                            <property name="title" translatable="true">No Tools Found</property>
+                            <property name="title" translatable="yes">No Tools Found</property>
                             <child>
                               <object class="GtkButton">
                                 <style>
@@ -177,7 +177,7 @@
                                         <style>
                                           <class name="dim-label"/>
                                         </style>
-                                        <property name="label" translatable="true">Add Custom Tool</property>
+                                        <property name="label" translatable="yes">Add Custom Tool</property>
                                       </object>
                                     </child>
                                   </object>
@@ -200,31 +200,31 @@
   <menu id="app-menu">
     <section>
       <item>
-        <attribute name="label" translatable="true">_New Window</attribute>
+        <attribute name="label" translatable="yes">_New Window</attribute>
         <attribute name="action">app.new-window</attribute>
         <attribute name="use-underline">true</attribute>
       </item>
     </section>
     <section>
       <item>
-        <attribute name="label" translatable="true">_Find/Replace…</attribute>
+        <attribute name="label" translatable="yes">_Find/Replace…</attribute>
         <attribute name="action">win.find</attribute>
         <attribute name="use-underline">true</attribute>
       </item>
     </section>
     <section>
       <item>
-        <attribute name="label" translatable="true">_Preferences</attribute>
+        <attribute name="label" translatable="yes">_Preferences</attribute>
         <attribute name="action">win.open-preferences</attribute>
         <attribute name="use-underline">true</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="true">_Keyboard Shortcuts</attribute>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
         <attribute name="action">win.show-help-overlay</attribute>
         <attribute name="use-underline">true</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="true">_About Text Pieces</attribute>
+        <attribute name="label" translatable="yes">_About Text Pieces</attribute>
         <attribute name="action">win.about</attribute>
         <attribute name="use-underline">true</attribute>
       </item>

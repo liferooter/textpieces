@@ -10,7 +10,7 @@
     </child>
     <child>
       <object class="GtkText" id="text">
-        <property name="placeholder-text" translatable="true">Find</property>
+        <property name="placeholder-text" translatable="yes">Find</property>
         <property name="hexpand">true</property>
         <property name="vexpand">true</property>
         <property name="width-chars">12</property>

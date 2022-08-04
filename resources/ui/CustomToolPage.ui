@@ -18,7 +18,7 @@
             <style>
               <class name="heading"/>
             </style>
-            <property name="label" translatable="true">Edit Tool</property>
+            <property name="label" translatable="yes">Edit Tool</property>
           </object>
         </child>
         <child type="end">
@@ -28,7 +28,7 @@
             </style>
             <signal name="clicked" handler="delete_tool"/>
             <signal name="clicked" handler="go_back"/>
-            <property name="label" translatable="true">D_elete</property>
+            <property name="label" translatable="yes">D_elete</property>
             <property name="use-underline">true</property>
           </object>
         </child>

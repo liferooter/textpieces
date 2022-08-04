@@ -25,7 +25,7 @@
                         <property name="selection-mode">none</property>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title" translatable="true">_Name</property>
+                            <property name="title" translatable="yes">_Name</property>
                             <property name="use-underline">true</property>
                             <property name="activatable-widget">name_entry</property>
                             <child>
@@ -38,7 +38,7 @@
                         </child>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title" translatable="true">_Description</property>
+                            <property name="title" translatable="yes">_Description</property>
                             <property name="use-underline">true</property>
                             <property name="activatable-widget">description_entry</property>
                             <child>
@@ -50,7 +50,7 @@
                         </child>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title" translatable="true">_Arguments</property>
+                            <property name="title" translatable="yes">_Arguments</property>
                             <property name="use-underline">true</property>
                             <property name="activatable-widget">arguments_number</property>
                             <child>
@@ -79,7 +79,7 @@
                         <child>
                           <object class="AdwActionRow">
                             <signal name="activated" handler="edit_script"/>
-                            <property name="title" translatable="true">Edit _Script</property>
+                            <property name="title" translatable="yes">Edit _Script</property>
                             <property name="use-underline">true</property>
                             <property name="activatable">true</property>
                             <child>

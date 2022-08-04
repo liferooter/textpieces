@@ -18,7 +18,7 @@
             <style>
               <class name="heading"/>
             </style>
-            <property name="label" translatable="true">New Tool</property>
+            <property name="label" translatable="yes">New Tool</property>
           </object>
         </child>
         <child type="end">
@@ -32,7 +32,7 @@
                 </style>
                 <signal name="clicked" handler="create"/>
                 <signal name="clicked" handler="go_back"/>
-                <property name="label" translatable="true">_Create</property>
+                <property name="label" translatable="yes">_Create</property>
                 <property name="use-underline">true</property>
               </object>
             </property>
