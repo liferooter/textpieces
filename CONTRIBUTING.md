@@ -40,7 +40,9 @@ There are some things you should do after making changes in project code:
 If you've changed any translatable strings in application, you should regenerate translation template:
 
 ```bash
-xgettext -f po/POTFILES -D . -o po/textpieces.pot
+meson _build
+ninja -C _build textpieces-pot
+ninja -C _build textpieces-update-po
 ```
 
 If you've changed translatable strings in `data/tools.json`, please add your changes manually to `po/tools.pot`.
