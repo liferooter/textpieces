@@ -568,7 +568,7 @@ msgstr "Analizar JSON y convertirlo en un documento YAML"
 msgid "Convert YAML to JSON"
 msgstr "Convertir YAML en JSON"
 
-msgid "Parse YAML document and conver it to JSON"
+msgid "Parse YAML document and convert it to JSON"
 msgstr "Analizar el documento YAML y convertirlo en JSON"
 
 msgid "Reverse Lines"

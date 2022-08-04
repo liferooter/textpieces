@@ -129,7 +129,7 @@
     },
     {
       "name": "Convert YAML to JSON",
-      "description": "Parse YAML document and conver it to JSON",
+      "description": "Parse YAML document and convert it to JSON",
       "icon": "network-transmit-symbolic",
       "script": "yaml-to-json.py"
     },
