@@ -84,7 +84,8 @@ namespace TextPieces {
             { "toggle-search"    , action_toggle_search    },
             { "save-as"          , action_save_as          },
             { "load-file"        , action_load_file        },
-            { "jump-to-args"     , action_jump_to_args     }
+            { "jump-to-args"     , action_jump_to_args     },
+            { "find"             , action_find             },
         };
 
         public Window (Application application) {
@@ -352,6 +353,13 @@ namespace TextPieces {
          */
         void action_jump_to_args () {
             editor.jump_to_args ();
+        }
+
+        /**
+         * Show search overlay
+         */
+        void action_find () {
+            editor.search_bar.show_search ();
         }
 
         /**

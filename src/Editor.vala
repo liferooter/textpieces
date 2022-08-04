@@ -17,6 +17,8 @@ namespace TextPieces {
         [GtkChild] unowned Gtk.Box arguments_box;
         [GtkChild] unowned Adw.ToastOverlay message_overlay;
 
+        [GtkChild] public unowned TextPieces.SearchBar search_bar;
+
         /**
          * Whether to wrap lines
          */
