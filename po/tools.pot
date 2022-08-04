@@ -226,3 +226,6 @@ msgstr ""
 
 msgid "Parse XML and prettify it"
 msgstr ""
+
+msgid "RSS from OPML"
+msgstr ""
