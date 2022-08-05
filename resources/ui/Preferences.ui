@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+SPDX-FileCopyrightText: 2022 Gleb Smirnov <glebsmirnov0708@gmail.com>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="TextPiecesPreferences" parent="AdwPreferencesWindow">
+    <property name="can-navigate-back">true</property>
+    <property name="modal">true</property>
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">_General</property>
+        <property name="use-underline">true</property>
+        <property name="name">general-settings</property>
+        <property name="icon-name">preferences-symbolic</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Editor</property>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Editor _Font</property>
+                <property name="use-underline">true</property>
+                <property name="activatable">true</property>
+                <property name="action-name">prefs.select-font</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="spacing">12</property>
+                    <child>
+                      <object class="GtkLabel" id="font_label"></object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon-name">go-next-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">_Wrap Lines</property>
+                <property name="use-underline">true</property>
+                <property name="activatable-widget">wrap_lines_switch</property>
+                <child>
+                  <object class="GtkSwitch" id="wrap_lines_switch">
+                    <property name="valign">center</property>
+                    <property name="action-name">settings.wrap-lines</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Tabs to _Spaces</property>
+                <property name="use-underline">true</property>
+                <property name="activatable-widget">tabs_to_spaces</property>
+                <child>
+                  <object class="GtkSwitch" id="tabs_to_spaces">
+                    <property name="valign">center</property>
+                    <property name="action-name">settings.tabs-to-spaces</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">_Tab Width in Spaces</property>
+                <property name="use-underline">true</property>
+                <property name="activatable-widget">spaces_in_tab</property>
+                <child>
+                  <object class="GtkSpinButton" id="spaces_in_tab">
+                    <property name="valign">center</property>
+                    <property name="climb-rate">1</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="lower">1</property>
+                        <property name="upper">21</property>
+                        <property name="step-increment">1</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Appearance</property>
+            <child>
+              <object class="AdwClamp">
+                <property name="maximum-size">450</property>
+                <child>
+                  <object class="GtkSourceStyleSchemeChooserWidget" id="style_scheme_chooser"></object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">T_ools</property>
+        <property name="use-underline">true</property>
+        <property name="name">custom-tools</property>
+        <property name="icon-name">applications-utilities-symbolic</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Custom tools</property>
+            <child type="header-suffix">
+              <object class="GtkButton">
+                <style>
+                  <class name="flat"/>
+                </style>
+                <signal name="clicked" handler="add_new_tool"/>
+                <child>
+                  <object class="AdwButtonContent">
+                    <property name="icon-name">list-add-symbolic</property>
+                    <property name="label" translatable="yes">_Add custom tool</property>
+                    <property name="use-underline">true</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBox" id="custom_tools_listbox">
+                <style>
+                  <class name="boxed-list"/>
+                </style>
+                <signal name="row-activated" handler="edit_tool"/>
+                <property name="selection-mode">none</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwStatusPage">
+                <property name="icon-name">applications-utilities-symbolic</property>
+                <property name="title" translatable="yes">No Custom Tools</property>
+                <property name="description" translatable="yes">You can create one</property>
+                <property name="visible" bind-source="custom_tools_listbox" bind-property="visible" bind-flags="sync-create|invert-boolean"/>
+                <property name="vexpand">true</property>
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

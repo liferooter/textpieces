@@ -1,12 +1,11 @@
 # SPDX-FileCopyrightText: 2022 Óscar Fernández Díaz <oscfdezdz@tuta.io>
 #
 # SPDX-License-Identifier: CC0-1.0
-
 msgid ""
 msgstr ""
 "Project-Id-Version: textpieces\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-24 13:41+0100\n"
+"POT-Creation-Date: 2022-08-04 20:40+0300\n"
 "PO-Revision-Date: 2022-01-24 14:00+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,222 +16,284 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: data/com.github.liferooter.textpieces.desktop.in:3
-#: data/com.github.liferooter.textpieces.appdata.xml.in:4 src/Window.vala:322
-#: resources/ui/Window.ui:29
+#: data/com.github.liferooter.textpieces.desktop.in:7
+#: data/com.github.liferooter.textpieces.appdata.xml.in:11 src/Window.vala:241
+#: resources/ui/Window.ui:5
 msgid "Text Pieces"
 msgstr "Text Pieces"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:5 src/Window.vala:324
+#: data/com.github.liferooter.textpieces.desktop.in:17
+msgid "New Window"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:12 src/Window.vala:243
 msgid "Transform text without using random websites"
 msgstr "Transformar el texto sin usar sitios web aleatorios"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:9
+#: data/com.github.liferooter.textpieces.appdata.xml.in:16
 msgid "Do a lot of text transformations, such as:"
 msgstr "Hacer un montón de transformaciones de texto, tales como:"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:11
+#: data/com.github.liferooter.textpieces.appdata.xml.in:18
 msgid "Calculate hashes"
 msgstr "Calcular los hashes"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:12
+#: data/com.github.liferooter.textpieces.appdata.xml.in:19
 msgid "Encode text"
 msgstr "Codificar texto"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:13
+#: data/com.github.liferooter.textpieces.appdata.xml.in:20
 msgid "Decode text"
 msgstr "Decodificar texto"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:14
+#: data/com.github.liferooter.textpieces.appdata.xml.in:21
 msgid "Remove trailing spaces and lines"
 msgstr "Eliminar los espacios y líneas finales"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:15
+#: data/com.github.liferooter.textpieces.appdata.xml.in:22
 msgid "Count lines, symbols and words"
 msgstr "Contar líneas, símbolos y palabras"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:16
+#: data/com.github.liferooter.textpieces.appdata.xml.in:23
 msgid "Format JSON and XML"
 msgstr "Formato JSON y XML"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:17
+#: data/com.github.liferooter.textpieces.appdata.xml.in:24
 msgid "Escape and unescape strings"
 msgstr "Cadenas de escape y desescape"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:18
+#: data/com.github.liferooter.textpieces.appdata.xml.in:25
 msgid "Convert JSON to YAML and vice versa"
 msgstr "Convertir JSON a YAML y viceversa"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:19
+#: data/com.github.liferooter.textpieces.appdata.xml.in:26
 msgid "Filter lines"
 msgstr "Filtrar líneas"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:20
+#: data/com.github.liferooter.textpieces.appdata.xml.in:27
 msgid "Replace substrings and regular expressions"
 msgstr "Reemplazar subcadenas y expresiones regulares"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:22
+#: data/com.github.liferooter.textpieces.appdata.xml.in:29
 msgid "...and so on."
 msgstr "...y más."
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:58
+#: data/com.github.liferooter.textpieces.appdata.xml.in:34
+msgid "Gleb Smirnov"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:66
+#, fuzzy
+msgid "New features and improvement:"
+msgstr "Algunas correcciones de errores y mejoras"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:68
+msgid "Add style schemes"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:69
+msgid "Add search and replace feature to editor"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:70
+#, fuzzy
+msgid "Fix some bugs"
+msgstr "Corrección de un montón de errores"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:75
 msgid "Bug fix"
 msgstr "Corrección de errores"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:63
+#: data/com.github.liferooter.textpieces.appdata.xml.in:79
+#: data/com.github.liferooter.textpieces.appdata.xml.in:98
+#: data/com.github.liferooter.textpieces.appdata.xml.in:113
+#: data/com.github.liferooter.textpieces.appdata.xml.in:124
+#: data/com.github.liferooter.textpieces.appdata.xml.in:134
+#: data/com.github.liferooter.textpieces.appdata.xml.in:144
+#, fuzzy
+msgid "New features and improvements:"
+msgstr "Algunas correcciones de errores y mejoras"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:81
 msgid "Refresh UI"
 msgstr "Actualización de la interfaz de usuario"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:64
+#: data/com.github.liferooter.textpieces.appdata.xml.in:82
 msgid "Fix a lot of bugs"
 msgstr "Corrección de un montón de errores"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:65
+#: data/com.github.liferooter.textpieces.appdata.xml.in:83
 msgid "Add powerful settings"
 msgstr "Añade ajustes potentes"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:66
+#: data/com.github.liferooter.textpieces.appdata.xml.in:84
 msgid "Add arguments support for custom tools"
 msgstr "Añade soporte de argumentos para herramientas personalizadas"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:67
+#: data/com.github.liferooter.textpieces.appdata.xml.in:85
 msgid "Add translation support"
 msgstr "Añade soporte de traducción"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:68
-#: data/com.github.liferooter.textpieces.appdata.xml.in:97
+#: data/com.github.liferooter.textpieces.appdata.xml.in:86
+#: data/com.github.liferooter.textpieces.appdata.xml.in:117
 msgid "Improve search"
 msgstr "Mejora de la búsqueda"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:81
+#: data/com.github.liferooter.textpieces.appdata.xml.in:100
 msgid "Minor UI changes"
 msgstr "Cambios menores en la interfaz de usuario"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:82
+#: data/com.github.liferooter.textpieces.appdata.xml.in:101
 msgid "Add XML formatter"
 msgstr "Añade un formateador XML"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:87
+#: data/com.github.liferooter.textpieces.appdata.xml.in:106
 msgid "Some bugfixes and improvements"
 msgstr "Algunas correcciones de errores y mejoras"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:90
+#: data/com.github.liferooter.textpieces.appdata.xml.in:109
 msgid "Bring back tools with arguments"
 msgstr "Vuelven las herramientas con argumentos"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:95
+#: data/com.github.liferooter.textpieces.appdata.xml.in:115
 msgid "Redesign the application"
 msgstr "Rediseño de la aplicación"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:96
+#: data/com.github.liferooter.textpieces.appdata.xml.in:116
 msgid "Add custom tools support"
 msgstr "Añade soporte para herramientas personalizadas"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:98
+#: data/com.github.liferooter.textpieces.appdata.xml.in:118
 msgid "Add ability to text load from file and save to file"
 msgstr ""
 "Añade la posibilidad de cargar texto desde un archivo y guardarlo en un "
 "archivo"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:105
+#: data/com.github.liferooter.textpieces.appdata.xml.in:126
 msgid "Exit by Ctrl+Q"
 msgstr "Salir con Ctrl+Q"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:106
+#: data/com.github.liferooter.textpieces.appdata.xml.in:127
 msgid "Monospace argument entry"
 msgstr "Entrada de argumentos en monoespaciado"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:107
+#: data/com.github.liferooter.textpieces.appdata.xml.in:128
 msgid "Update new runtime"
 msgstr "Actualizar el nuevo tiempo de ejecución"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:114
+#: data/com.github.liferooter.textpieces.appdata.xml.in:136
 msgid "Sort tools"
 msgstr "Herramientas de clasificación"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:115
+#: data/com.github.liferooter.textpieces.appdata.xml.in:137
 msgid "Filter tools"
 msgstr "Herramientas de filtrado"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:116
+#: data/com.github.liferooter.textpieces.appdata.xml.in:138
 msgid "Minify C-like code"
 msgstr "Reducir el código de tipo C"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:123
+#: data/com.github.liferooter.textpieces.appdata.xml.in:146
 msgid "Add more tools"
 msgstr "Añade más herramientas"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:124
+#: data/com.github.liferooter.textpieces.appdata.xml.in:147
 msgid "Make tools popover more powerful"
 msgstr "Potencia el menú emergente de herramientas"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:125
+#: data/com.github.liferooter.textpieces.appdata.xml.in:148
 msgid "Redesign icon"
 msgstr "Rediseño del icono"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:126
+#: data/com.github.liferooter.textpieces.appdata.xml.in:149
 msgid "General improvements"
 msgstr "Mejoras generales"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:131
+#: data/com.github.liferooter.textpieces.appdata.xml.in:154
 msgid "Add tools for replacement and removing"
 msgstr "Añade herramientas para la sustitución y el desmontaje"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:134
+#: data/com.github.liferooter.textpieces.appdata.xml.in:157
 msgid "Application release"
 msgstr "Publicación de la aplicación"
 
-#: data/com.github.liferooter.textpieces.gschema.xml:11
-msgid "Color scheme"
+#: data/com.github.liferooter.textpieces.gschema.xml:13
+#, fuzzy
+msgid "Style scheme"
 msgstr "Esquema de colores"
 
-#: data/com.github.liferooter.textpieces.gschema.xml:12
-msgid "Which color scheme to use for application interface."
+#: data/com.github.liferooter.textpieces.gschema.xml:14
+#, fuzzy
+msgid "Which style scheme to use for application interface and editor."
 msgstr "Qué combinación de colores usar para la interfaz de la aplicación."
 
-#: data/com.github.liferooter.textpieces.gschema.xml:18
+#: data/com.github.liferooter.textpieces.gschema.xml:20
 msgid "Font name"
 msgstr "Nombre de la fuente"
 
-#: data/com.github.liferooter.textpieces.gschema.xml:19
+#: data/com.github.liferooter.textpieces.gschema.xml:21
 msgid "Name of font used in editor"
 msgstr "Nombre de la fuente usada en el editor"
 
-#: data/com.github.liferooter.textpieces.gschema.xml:25
+#: data/com.github.liferooter.textpieces.gschema.xml:27
 msgid "Wrap lines"
 msgstr "Ajuste de líneas"
 
-#: data/com.github.liferooter.textpieces.gschema.xml:26
+#: data/com.github.liferooter.textpieces.gschema.xml:28
 msgid "Whether to wrap long lines"
 msgstr "Si las líneas largas continúan en la siguiente línea"
 
-#: data/com.github.liferooter.textpieces.gschema.xml:32
+#: data/com.github.liferooter.textpieces.gschema.xml:34
 msgid "Tabs to spaces"
 msgstr "Tabulaciones a espacios"
 
-#: data/com.github.liferooter.textpieces.gschema.xml:33
+#: data/com.github.liferooter.textpieces.gschema.xml:35
 msgid "Whether to insert spaces instead of tab"
 msgstr "Si se insertan espacios en lugar del tabulador"
 
-#: data/com.github.liferooter.textpieces.gschema.xml:39
+#: data/com.github.liferooter.textpieces.gschema.xml:41
 msgid "Spaces in tab"
 msgstr "Espacios en tabulador"
 
-#: data/com.github.liferooter.textpieces.gschema.xml:40
+#: data/com.github.liferooter.textpieces.gschema.xml:42
 msgid "Tab width in spaces"
 msgstr "Ancho de tabulado en espacios"
 
-#: src/NewToolPage.vala:129
+#: data/com.github.liferooter.textpieces.gschema.xml:48
+msgid "Window width"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:49
+msgid "Saved width of application window"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:55
+msgid "Window height"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:56
+msgid "Saved height of the window"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:62
+msgid "Is maximized"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.gschema.xml:63
+msgid "Whether the application window is maximized"
+msgstr ""
+
+#: src/NewToolPage.vala:113
 #, c-format
 msgid "Error occured: %s"
 msgstr "Se ha producido un error: %s"
 
 #. Create dialog
-#: src/Preferences.vala:135
+#: src/Preferences.vala:128
 msgid "Select font"
 msgstr "Seleccionar tipografía"
 
-#: src/ToolSettings.vala:198
+#: src/ToolSettings.vala:182
 #, c-format
 msgid "Argument %d"
 msgstr "Argumento %d"
@@ -241,201 +302,271 @@ msgstr "Argumento %d"
 #. * Text used instead of tool name
 #. * when where is no tool selected
 #.
-#: src/Window.vala:49 resources/ui/ShortcutsWindow.ui:68
+#: src/Window.vala:25 resources/ui/ShortcutsWindow.ui:42
 msgid "Select tool"
 msgstr "Seleccionar herramienta"
 
-#: src/Window.vala:330
+#: src/Window.vala:234 src/Window.vala:237
+msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+msgstr ""
+
+#: src/Window.vala:236
+msgid "Tobias Bernard https://tobiasbernard.com"
+msgstr ""
+
+#: src/Window.vala:249
 msgid "translator-credits"
 msgstr "Óscar Fernández Díaz <oscfdezdz@tuta.io>"
 
-#: src/Window.vala:350
-msgid "Text is copied to clipboard"
-msgstr "Texto copiado al portapapeles"
-
-#: src/Window.vala:359 resources/ui/Window.ui:114
+#: src/Window.vala:275 resources/ui/Window.ui:70
 msgid "Save to File"
 msgstr "Guardar en archivo"
 
-#: src/Window.vala:388
+#: src/Window.vala:300
 #, c-format
 msgid "Can't save to file: %s"
 msgstr "No se puede guardar en el archivo: %s"
 
-#: src/Window.vala:404 resources/ui/Window.ui:121
+#: src/Window.vala:316 resources/ui/Window.ui:77
 msgid "Load from File"
 msgstr "Cargar desde archivo"
 
-#: src/Window.vala:437
+#: src/Window.vala:341
 #, c-format
 msgid "Can't load from file: %s"
 msgstr "No se puede cargar desde el archivo: %s"
 
-#: resources/ui/CustomToolPage.ui:49
+#: resources/ui/CustomToolPage.ui:21
+#, fuzzy
+msgid "Edit Tool"
+msgstr "Editor"
+
+#: resources/ui/CustomToolPage.ui:31
 msgid "D_elete"
 msgstr "_Eliminar"
 
-#: resources/ui/NewToolPage.ui:55
+#: resources/ui/NewToolPage.ui:21
+#, fuzzy
+msgid "New Tool"
+msgstr "Herramientas"
+
+#: resources/ui/NewToolPage.ui:35
 msgid "_Create"
 msgstr "_Crear"
 
-#: resources/ui/Preferences.ui:34
+#: resources/ui/Preferences.ui:9
 msgid "_General"
 msgstr "_General"
 
-#: resources/ui/Preferences.ui:40
+#: resources/ui/Preferences.ui:15
 msgid "Editor"
 msgstr "Editor"
 
-#: resources/ui/Preferences.ui:43
+#: resources/ui/Preferences.ui:18
 msgid "Editor _Font"
 msgstr "_Tipografía del editor"
 
-#: resources/ui/Preferences.ui:64
+#: resources/ui/Preferences.ui:39
 msgid "_Wrap Lines"
 msgstr "Ajustar _líneas"
 
-#: resources/ui/Preferences.ui:77
+#: resources/ui/Preferences.ui:52
 msgid "Tabs to _Spaces"
 msgstr "Tabulaciones a _espacios"
 
-#: resources/ui/Preferences.ui:90
+#: resources/ui/Preferences.ui:65
 msgid "_Tab Width in Spaces"
 msgstr "Ancho del _tabulado en espacios"
 
-#: resources/ui/Preferences.ui:112
-msgid "Color Scheme"
-msgstr "Esquema de colores"
+#: resources/ui/Preferences.ui:87
+msgid "Appearance"
+msgstr ""
 
-#: resources/ui/Preferences.ui:115
-msgid "_Light"
-msgstr "_Claro"
-
-#: resources/ui/Preferences.ui:129
-msgid "_Dark"
-msgstr "_Oscuro"
-
-#: resources/ui/Preferences.ui:144
-msgid "S_ystem Default"
-msgstr "_Predeterminado del sistema"
-
-#: resources/ui/Preferences.ui:163
+#: resources/ui/Preferences.ui:102
 msgid "T_ools"
 msgstr "_Herramientas"
 
-#: resources/ui/Preferences.ui:169
+#: resources/ui/Preferences.ui:108
 msgid "Custom tools"
 msgstr "Herramientas personalizadas"
 
-#: resources/ui/ShortcutsWindow.ui:35
+#: resources/ui/Preferences.ui:118
+#, fuzzy
+msgid "_Add custom tool"
+msgstr "Añadir herramienta personalizada"
+
+#: resources/ui/Preferences.ui:136
+#, fuzzy
+msgid "No Custom Tools"
+msgstr "Herramientas personalizadas"
+
+#: resources/ui/Preferences.ui:137
+msgid "You can create one"
+msgstr ""
+
+#: resources/ui/SearchBar.ui:36
+msgid "Move to revious match"
+msgstr ""
+
+#: resources/ui/SearchBar.ui:43
+msgid "Move to next match"
+msgstr ""
+
+#: resources/ui/SearchBar.ui:56
+msgid "Find and replace"
+msgstr ""
+
+#: resources/ui/SearchBar.ui:66
+msgid "Toggle search options"
+msgstr ""
+
+#: resources/ui/SearchBar.ui:81
+#, fuzzy
+msgid "Close search"
+msgstr "Mejora de la búsqueda"
+
+#: resources/ui/SearchBar.ui:92
+#, fuzzy
+msgid "Replace"
+msgstr "Reemplazar con"
+
+#: resources/ui/SearchBar.ui:103
+#, fuzzy
+msgid "_Replace"
+msgstr "Reemplazar con"
+
+#: resources/ui/SearchBar.ui:116
+#, fuzzy
+msgid "Replace _All"
+msgstr "Reemplazar con"
+
+#: resources/ui/SearchBar.ui:135
+#, fuzzy
+msgid "Re_gular expressions"
+msgstr "Reemplazar subcadenas y expresiones regulares"
+
+#: resources/ui/SearchBar.ui:142
+msgid "_Case sensitive"
+msgstr ""
+
+#: resources/ui/SearchBar.ui:149
+msgid "Match whole _word only"
+msgstr ""
+
+#: resources/ui/SearchEntry.ui:13
+msgid "Find"
+msgstr "Buscar"
+
+#: resources/ui/ShortcutsWindow.ui:10
 msgid "General"
 msgstr "General"
 
-#: resources/ui/ShortcutsWindow.ui:38
+#: resources/ui/ShortcutsWindow.ui:13
 msgid "Keyboard shortcuts"
 msgstr "Atajos del teclado"
 
-#: resources/ui/ShortcutsWindow.ui:44
+#: resources/ui/ShortcutsWindow.ui:19
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: resources/ui/ShortcutsWindow.ui:50
+#: resources/ui/ShortcutsWindow.ui:25
 msgid "Quit"
 msgstr "Salir"
 
-#: resources/ui/ShortcutsWindow.ui:59
+#: resources/ui/ShortcutsWindow.ui:33
 msgid "Tools"
 msgstr "Herramientas"
 
-#: resources/ui/ShortcutsWindow.ui:62
+#: resources/ui/ShortcutsWindow.ui:36
 msgid "Apply"
 msgstr "Aplicar"
 
-#: resources/ui/ShortcutsWindow.ui:74
-msgid "Jump to the tool options"
+#: resources/ui/ShortcutsWindow.ui:48
+#, fuzzy
+msgid "Just to the tool options"
 msgstr "Saltar a las opciones de la herramienta"
 
-#: resources/ui/ShortcutsWindow.ui:83
+#: resources/ui/ShortcutsWindow.ui:56
 msgid "Undo and Redo"
 msgstr "Deshacer y rehacer"
 
-#: resources/ui/ShortcutsWindow.ui:86
+#: resources/ui/ShortcutsWindow.ui:59
 msgid "Undo"
 msgstr "Deshacer"
 
-#: resources/ui/ShortcutsWindow.ui:92
+#: resources/ui/ShortcutsWindow.ui:65
 msgid "Redo"
 msgstr "Rehacer"
 
-#: resources/ui/ShortcutsWindow.ui:101
-msgid "Copy and Paste"
-msgstr "Copiar y pegar"
-
-#: resources/ui/ShortcutsWindow.ui:104 resources/ui/Window.ui:72
-msgid "Copy"
-msgstr "Copiar"
-
-#: resources/ui/ShortcutsWindow.ui:110
-msgid "Paste"
-msgstr "Pegar"
-
-#: resources/ui/ShortcutsWindow.ui:116
-msgid "Copy all"
-msgstr "Pegar todo"
-
-#: resources/ui/ShortcutsWindow.ui:125
+#: resources/ui/ShortcutsWindow.ui:73
 msgid "Files"
 msgstr "Archivos"
 
-#: resources/ui/ShortcutsWindow.ui:128
+#: resources/ui/ShortcutsWindow.ui:76
 msgid "Load from file"
 msgstr "Cargar desde archivo"
 
-#: resources/ui/ShortcutsWindow.ui:134
+#: resources/ui/ShortcutsWindow.ui:82
 msgid "Save to file"
 msgstr "Guardar en archivo"
 
-#: resources/ui/ToolSettings.ui:53
+#: resources/ui/ToolSettings.ui:28
 msgid "_Name"
 msgstr "_Nombre"
 
-#: resources/ui/ToolSettings.ui:69
+#: resources/ui/ToolSettings.ui:41
 msgid "_Description"
 msgstr "_Descripción"
 
-#: resources/ui/ToolSettings.ui:81
+#: resources/ui/ToolSettings.ui:53
 msgid "_Arguments"
 msgstr "_Argumentos"
 
-#: resources/ui/Window.ui:59
+#: resources/ui/ToolSettings.ui:82
+msgid "Edit _Script"
+msgstr ""
+
+#: resources/ui/Window.ui:27
 msgid "_Apply"
 msgstr "_Aplicar"
 
-#: resources/ui/Window.ui:62
+#: resources/ui/Window.ui:30
 msgid "Apply Selected Tool"
 msgstr "Aplicar la herramienta seleccionada"
 
-#: resources/ui/Window.ui:107
+#: resources/ui/Window.ui:40
+msgid "Copy"
+msgstr "Copiar"
+
+#: resources/ui/Window.ui:63
 msgid "Main Menu"
 msgstr "Menú principal"
 
-#: resources/ui/Window.ui:249
+#: resources/ui/Window.ui:156
 msgid "No Tools Found"
 msgstr "No se han encontrado herramientas"
 
-#: resources/ui/Window.ui:270
+#: resources/ui/Window.ui:180
 msgid "Add Custom Tool"
 msgstr "Añadir herramienta personalizada"
 
-#: resources/ui/Window.ui:299
+#: resources/ui/Window.ui:203
+msgid "_New Window"
+msgstr ""
+
+#: resources/ui/Window.ui:210
+msgid "_Find/Replace…"
+msgstr ""
+
+#: resources/ui/Window.ui:217
 msgid "_Preferences"
 msgstr "_Preferencias"
 
-#: resources/ui/Window.ui:304
+#: resources/ui/Window.ui:222
 msgid "_Keyboard Shortcuts"
 msgstr "Atajos del _teclado"
 
-#: resources/ui/Window.ui:309
+#: resources/ui/Window.ui:227
 msgid "_About Text Pieces"
 msgstr "_Acerca de Text Pieces"
 
@@ -539,7 +670,8 @@ msgid "Escape URL"
 msgstr "Escape URL"
 
 msgid "Replace special characters with URL-safe sequences"
-msgstr "Reemplazar los caracteres especiales por secuencias seguras para la URL"
+msgstr ""
+"Reemplazar los caracteres especiales por secuencias seguras para la URL"
 
 msgid "Unescape String"
 msgstr "Cadena de desescape"
@@ -641,10 +773,9 @@ msgid "Replace Substring"
 msgstr "Reemplazar subcadena"
 
 msgid "Replace all occurrences of given substring in text with other string"
-msgstr "Reemplazar todas las ocurrencias de la subcadena dada en el texto con otra cadena"
-
-msgid "Find"
-msgstr "Buscar"
+msgstr ""
+"Reemplazar todas las ocurrencias de la subcadena dada en el texto con otra "
+"cadena"
 
 msgid "Replace With"
 msgstr "Reemplazar con"
@@ -653,7 +784,8 @@ msgid "Replace Regex"
 msgstr "Reemplazar regex"
 
 msgid "Replace all given regex matches in text with given string"
-msgstr "Reemplazar todas las coincidencias regex dadas en el texto con la cadena dada"
+msgstr ""
+"Reemplazar todas las coincidencias regex dadas en el texto con la cadena dada"
 
 msgid "Find (regex)"
 msgstr "Buscar (regex)"
@@ -663,3 +795,27 @@ msgstr "Mejorar XML"
 
 msgid "Parse XML and prettify it"
 msgstr "Analizar XML y mejorarlo"
+
+#~ msgid "Text is copied to clipboard"
+#~ msgstr "Texto copiado al portapapeles"
+
+#~ msgid "Color Scheme"
+#~ msgstr "Esquema de colores"
+
+#~ msgid "_Light"
+#~ msgstr "_Claro"
+
+#~ msgid "_Dark"
+#~ msgstr "_Oscuro"
+
+#~ msgid "S_ystem Default"
+#~ msgstr "_Predeterminado del sistema"
+
+#~ msgid "Copy and Paste"
+#~ msgstr "Copiar y pegar"
+
+#~ msgid "Paste"
+#~ msgstr "Pegar"
+
+#~ msgid "Copy all"
+#~ msgstr "Pegar todo"

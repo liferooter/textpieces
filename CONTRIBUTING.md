@@ -37,10 +37,10 @@ There are some things you should do after making changes in project code:
 
 ### Update translation templates
 
-If you've changed any translatable strings in application, you should regenerate translation template:
+If you've changed any translatable strings in application, you should update translations:
 
 ```bash
-xgettext -f po/POTFILES -D . -o po/textpieces.pot
+./po/update-po.sh
 ```
 
 If you've changed translatable strings in `data/tools.json`, please add your changes manually to `po/tools.pot`.
