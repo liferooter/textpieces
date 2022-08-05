@@ -5,26 +5,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: textpieces\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-04 20:40+0300\n"
-"PO-Revision-Date: 2022-01-24 14:00+0100\n"
-"Last-Translator: Automatically generated\n"
+"POT-Creation-Date: 2022-08-10 20:56+0200\n"
+"PO-Revision-Date: 2022-08-10 21:11+0200\n"
+"Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 42.0\n"
 
 #: data/com.github.liferooter.textpieces.desktop.in:7
 #: data/com.github.liferooter.textpieces.appdata.xml.in:11 src/Window.vala:241
-#: resources/ui/Window.ui:5
+#: resources/ui/Window.ui:12
 msgid "Text Pieces"
 msgstr "Text Pieces"
 
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/com.github.liferooter.textpieces.desktop.in:17
-msgid "New Window"
+msgid ""
+"Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;"
+"Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;"
 msgstr ""
+"Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;"
+"Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;Texto;Contar;Suma;"
+"Verificación;Codificar;Embellecer;Filtrar;Invertir;Recortar;"
+
+#: data/com.github.liferooter.textpieces.desktop.in:20
+msgid "New Window"
+msgstr "Ventana nueva"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:12 src/Window.vala:243
 msgid "Transform text without using random websites"
@@ -80,25 +90,23 @@ msgstr "...y más."
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:34
 msgid "Gleb Smirnov"
-msgstr ""
+msgstr "Gleb Smirnov"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:66
-#, fuzzy
 msgid "New features and improvement:"
-msgstr "Algunas correcciones de errores y mejoras"
+msgstr "Nuevas características y mejoras:"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:68
 msgid "Add style schemes"
-msgstr ""
+msgstr "Añadir esquemas de estilo"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:69
 msgid "Add search and replace feature to editor"
-msgstr ""
+msgstr "Añadir la función de buscar y reemplazar al editor"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:70
-#, fuzzy
 msgid "Fix some bugs"
-msgstr "Corrección de un montón de errores"
+msgstr "Corregir algunos errores"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:75
 msgid "Bug fix"
@@ -110,9 +118,8 @@ msgstr "Corrección de errores"
 #: data/com.github.liferooter.textpieces.appdata.xml.in:124
 #: data/com.github.liferooter.textpieces.appdata.xml.in:134
 #: data/com.github.liferooter.textpieces.appdata.xml.in:144
-#, fuzzy
 msgid "New features and improvements:"
-msgstr "Algunas correcciones de errores y mejoras"
+msgstr "Nuevas características y mejoras:"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:81
 msgid "Refresh UI"
@@ -218,14 +225,13 @@ msgid "Application release"
 msgstr "Publicación de la aplicación"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:13
-#, fuzzy
 msgid "Style scheme"
-msgstr "Esquema de colores"
+msgstr "Esquema de estilo"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:14
-#, fuzzy
 msgid "Which style scheme to use for application interface and editor."
-msgstr "Qué combinación de colores usar para la interfaz de la aplicación."
+msgstr ""
+"Qué esquema de estilo usar para la interfaz de la aplicación y el editor."
 
 #: data/com.github.liferooter.textpieces.gschema.xml:20
 msgid "Font name"
@@ -261,27 +267,27 @@ msgstr "Ancho de tabulado en espacios"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:48
 msgid "Window width"
-msgstr ""
+msgstr "Ancho de la ventana"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:49
 msgid "Saved width of application window"
-msgstr ""
+msgstr "Ancho guardado de la ventana de la aplicación"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:55
 msgid "Window height"
-msgstr ""
+msgstr "Alto de la ventana"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:56
 msgid "Saved height of the window"
-msgstr ""
+msgstr "Alto guardado de la ventana"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:62
 msgid "Is maximized"
-msgstr ""
+msgstr "Está maximizada"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:63
 msgid "Whether the application window is maximized"
-msgstr ""
+msgstr "Si la ventana de la aplicación está maximizada"
 
 #: src/NewToolPage.vala:113
 #, c-format
@@ -302,23 +308,23 @@ msgstr "Argumento %d"
 #. * Text used instead of tool name
 #. * when where is no tool selected
 #.
-#: src/Window.vala:25 resources/ui/ShortcutsWindow.ui:42
+#: src/Window.vala:25 resources/ui/ShortcutsWindow.ui:49
 msgid "Select tool"
 msgstr "Seleccionar herramienta"
 
 #: src/Window.vala:234 src/Window.vala:237
 msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
-msgstr ""
+msgstr "Gleb Smirnov <glebsmirnov0708@gmail.com>"
 
 #: src/Window.vala:236
 msgid "Tobias Bernard https://tobiasbernard.com"
-msgstr ""
+msgstr "Tobias Bernard https://tobiasbernard.com"
 
 #: src/Window.vala:249
 msgid "translator-credits"
 msgstr "Óscar Fernández Díaz <oscfdezdz@tuta.io>"
 
-#: src/Window.vala:275 resources/ui/Window.ui:70
+#: src/Window.vala:275 resources/ui/Window.ui:77
 msgid "Save to File"
 msgstr "Guardar en archivo"
 
@@ -327,7 +333,7 @@ msgstr "Guardar en archivo"
 msgid "Can't save to file: %s"
 msgstr "No se puede guardar en el archivo: %s"
 
-#: src/Window.vala:316 resources/ui/Window.ui:77
+#: src/Window.vala:316 resources/ui/Window.ui:84
 msgid "Load from File"
 msgstr "Cargar desde archivo"
 
@@ -336,237 +342,227 @@ msgstr "Cargar desde archivo"
 msgid "Can't load from file: %s"
 msgstr "No se puede cargar desde el archivo: %s"
 
-#: resources/ui/CustomToolPage.ui:21
-#, fuzzy
+#: resources/ui/CustomToolPage.ui:28
 msgid "Edit Tool"
-msgstr "Editor"
+msgstr "Herramienta de edición"
 
-#: resources/ui/CustomToolPage.ui:31
+#: resources/ui/CustomToolPage.ui:38
 msgid "D_elete"
 msgstr "_Eliminar"
 
-#: resources/ui/NewToolPage.ui:21
-#, fuzzy
+#: resources/ui/NewToolPage.ui:28
 msgid "New Tool"
-msgstr "Herramientas"
+msgstr "Herramienta nueva"
 
-#: resources/ui/NewToolPage.ui:35
+#: resources/ui/NewToolPage.ui:42
 msgid "_Create"
 msgstr "_Crear"
 
-#: resources/ui/Preferences.ui:9
+#: resources/ui/Preferences.ui:16
 msgid "_General"
 msgstr "_General"
 
-#: resources/ui/Preferences.ui:15
+#: resources/ui/Preferences.ui:22
 msgid "Editor"
 msgstr "Editor"
 
-#: resources/ui/Preferences.ui:18
+#: resources/ui/Preferences.ui:25
 msgid "Editor _Font"
 msgstr "_Tipografía del editor"
 
-#: resources/ui/Preferences.ui:39
+#: resources/ui/Preferences.ui:46
 msgid "_Wrap Lines"
 msgstr "Ajustar _líneas"
 
-#: resources/ui/Preferences.ui:52
+#: resources/ui/Preferences.ui:59
 msgid "Tabs to _Spaces"
 msgstr "Tabulaciones a _espacios"
 
-#: resources/ui/Preferences.ui:65
+#: resources/ui/Preferences.ui:72
 msgid "_Tab Width in Spaces"
 msgstr "Ancho del _tabulado en espacios"
 
-#: resources/ui/Preferences.ui:87
+#: resources/ui/Preferences.ui:94
 msgid "Appearance"
-msgstr ""
+msgstr "Apariencia"
 
-#: resources/ui/Preferences.ui:102
+#: resources/ui/Preferences.ui:109
 msgid "T_ools"
 msgstr "_Herramientas"
 
-#: resources/ui/Preferences.ui:108
+#: resources/ui/Preferences.ui:115
 msgid "Custom tools"
 msgstr "Herramientas personalizadas"
 
-#: resources/ui/Preferences.ui:118
-#, fuzzy
+#: resources/ui/Preferences.ui:125
 msgid "_Add custom tool"
-msgstr "Añadir herramienta personalizada"
+msgstr "_Añadir herramienta personalizada"
 
-#: resources/ui/Preferences.ui:136
-#, fuzzy
+#: resources/ui/Preferences.ui:143
 msgid "No Custom Tools"
-msgstr "Herramientas personalizadas"
+msgstr "No hay herramientas personalizadas"
 
-#: resources/ui/Preferences.ui:137
+#: resources/ui/Preferences.ui:144
 msgid "You can create one"
-msgstr ""
-
-#: resources/ui/SearchBar.ui:36
-msgid "Move to revious match"
-msgstr ""
+msgstr "Puede crear una"
 
 #: resources/ui/SearchBar.ui:43
+msgid "Move to revious match"
+msgstr "Mover a la coincidencia anterior"
+
+#: resources/ui/SearchBar.ui:50
 msgid "Move to next match"
-msgstr ""
+msgstr "Mover a la coincidencia siguiente"
 
-#: resources/ui/SearchBar.ui:56
+#: resources/ui/SearchBar.ui:63
 msgid "Find and replace"
-msgstr ""
+msgstr "Buscar y reemplazar"
 
-#: resources/ui/SearchBar.ui:66
+#: resources/ui/SearchBar.ui:73
 msgid "Toggle search options"
-msgstr ""
+msgstr "Conmutar las opciones de búsqueda"
 
-#: resources/ui/SearchBar.ui:81
-#, fuzzy
+#: resources/ui/SearchBar.ui:88
 msgid "Close search"
-msgstr "Mejora de la búsqueda"
+msgstr "Cerrar búsqueda"
 
-#: resources/ui/SearchBar.ui:92
-#, fuzzy
+#: resources/ui/SearchBar.ui:99
 msgid "Replace"
-msgstr "Reemplazar con"
+msgstr "Reemplazar"
 
-#: resources/ui/SearchBar.ui:103
-#, fuzzy
+#: resources/ui/SearchBar.ui:110
 msgid "_Replace"
-msgstr "Reemplazar con"
+msgstr "_Reemplazar"
 
-#: resources/ui/SearchBar.ui:116
-#, fuzzy
+#: resources/ui/SearchBar.ui:123
 msgid "Replace _All"
-msgstr "Reemplazar con"
-
-#: resources/ui/SearchBar.ui:135
-#, fuzzy
-msgid "Re_gular expressions"
-msgstr "Reemplazar subcadenas y expresiones regulares"
+msgstr "Reemplazar _todo"
 
 #: resources/ui/SearchBar.ui:142
-msgid "_Case sensitive"
-msgstr ""
+msgid "Re_gular expressions"
+msgstr "Expresiones re_gulares"
 
 #: resources/ui/SearchBar.ui:149
-msgid "Match whole _word only"
-msgstr ""
+msgid "_Case sensitive"
+msgstr "_Distinguir mayúsculas y minúsculas"
 
-#: resources/ui/SearchEntry.ui:13
+#: resources/ui/SearchBar.ui:156
+msgid "Match whole _word only"
+msgstr "Coincidir sólo con la _palabra completa"
+
+#: resources/ui/SearchEntry.ui:20
 msgid "Find"
 msgstr "Buscar"
 
-#: resources/ui/ShortcutsWindow.ui:10
+#: resources/ui/ShortcutsWindow.ui:17
 msgid "General"
 msgstr "General"
 
-#: resources/ui/ShortcutsWindow.ui:13
+#: resources/ui/ShortcutsWindow.ui:20
 msgid "Keyboard shortcuts"
 msgstr "Atajos del teclado"
 
-#: resources/ui/ShortcutsWindow.ui:19
+#: resources/ui/ShortcutsWindow.ui:26
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: resources/ui/ShortcutsWindow.ui:25
+#: resources/ui/ShortcutsWindow.ui:32
 msgid "Quit"
 msgstr "Salir"
 
-#: resources/ui/ShortcutsWindow.ui:33
+#: resources/ui/ShortcutsWindow.ui:40
 msgid "Tools"
 msgstr "Herramientas"
 
-#: resources/ui/ShortcutsWindow.ui:36
+#: resources/ui/ShortcutsWindow.ui:43
 msgid "Apply"
 msgstr "Aplicar"
 
-#: resources/ui/ShortcutsWindow.ui:48
-#, fuzzy
+#: resources/ui/ShortcutsWindow.ui:55
 msgid "Just to the tool options"
-msgstr "Saltar a las opciones de la herramienta"
+msgstr "Sólo a las opciones de la herramienta"
 
-#: resources/ui/ShortcutsWindow.ui:56
+#: resources/ui/ShortcutsWindow.ui:63
 msgid "Undo and Redo"
 msgstr "Deshacer y rehacer"
 
-#: resources/ui/ShortcutsWindow.ui:59
+#: resources/ui/ShortcutsWindow.ui:66
 msgid "Undo"
 msgstr "Deshacer"
 
-#: resources/ui/ShortcutsWindow.ui:65
+#: resources/ui/ShortcutsWindow.ui:72
 msgid "Redo"
 msgstr "Rehacer"
 
-#: resources/ui/ShortcutsWindow.ui:73
+#: resources/ui/ShortcutsWindow.ui:80
 msgid "Files"
 msgstr "Archivos"
 
-#: resources/ui/ShortcutsWindow.ui:76
+#: resources/ui/ShortcutsWindow.ui:83
 msgid "Load from file"
 msgstr "Cargar desde archivo"
 
-#: resources/ui/ShortcutsWindow.ui:82
+#: resources/ui/ShortcutsWindow.ui:89
 msgid "Save to file"
 msgstr "Guardar en archivo"
 
-#: resources/ui/ToolSettings.ui:28
+#: resources/ui/ToolSettings.ui:35
 msgid "_Name"
 msgstr "_Nombre"
 
-#: resources/ui/ToolSettings.ui:41
+#: resources/ui/ToolSettings.ui:48
 msgid "_Description"
 msgstr "_Descripción"
 
-#: resources/ui/ToolSettings.ui:53
+#: resources/ui/ToolSettings.ui:60
 msgid "_Arguments"
 msgstr "_Argumentos"
 
-#: resources/ui/ToolSettings.ui:82
+#: resources/ui/ToolSettings.ui:89
 msgid "Edit _Script"
-msgstr ""
+msgstr "Editar _script"
 
-#: resources/ui/Window.ui:27
+#: resources/ui/Window.ui:34
 msgid "_Apply"
 msgstr "_Aplicar"
 
-#: resources/ui/Window.ui:30
+#: resources/ui/Window.ui:37
 msgid "Apply Selected Tool"
 msgstr "Aplicar la herramienta seleccionada"
 
-#: resources/ui/Window.ui:40
+#: resources/ui/Window.ui:47
 msgid "Copy"
 msgstr "Copiar"
 
-#: resources/ui/Window.ui:63
+#: resources/ui/Window.ui:70
 msgid "Main Menu"
 msgstr "Menú principal"
 
-#: resources/ui/Window.ui:156
+#: resources/ui/Window.ui:163
 msgid "No Tools Found"
 msgstr "No se han encontrado herramientas"
 
-#: resources/ui/Window.ui:180
+#: resources/ui/Window.ui:187
 msgid "Add Custom Tool"
 msgstr "Añadir herramienta personalizada"
 
-#: resources/ui/Window.ui:203
-msgid "_New Window"
-msgstr ""
-
 #: resources/ui/Window.ui:210
-msgid "_Find/Replace…"
-msgstr ""
+msgid "_New Window"
+msgstr "Ventana _nueva"
 
 #: resources/ui/Window.ui:217
+msgid "_Find/Replace…"
+msgstr "_Buscar/Reemplazar…"
+
+#: resources/ui/Window.ui:224
 msgid "_Preferences"
 msgstr "_Preferencias"
 
-#: resources/ui/Window.ui:222
+#: resources/ui/Window.ui:229
 msgid "_Keyboard Shortcuts"
 msgstr "Atajos del _teclado"
 
-#: resources/ui/Window.ui:227
+#: resources/ui/Window.ui:234
 msgid "_About Text Pieces"
 msgstr "_Acerca de Text Pieces"
 
@@ -574,31 +570,31 @@ msgid "SHA1 Checksum"
 msgstr "Suma de verificación SHA1"
 
 msgid "Compute SHA1 hash sum"
-msgstr "Calcular la suma del hash SHA1"
+msgstr "Calcular suma del hash SHA1"
 
 msgid "SHA256 Checksum"
 msgstr "Suma de verificación SHA256"
 
 msgid "Compute SHA256 hash sum"
-msgstr "Calcular la suma del hash SHA256"
+msgstr "Calcular suma del hash SHA256"
 
 msgid "SHA384 Checksum"
 msgstr "Suma de verificación SHA384"
 
 msgid "Compute SHA384 hash sum"
-msgstr "Calcular la suma del hash SHA384"
+msgstr "Calcular suma del hash SHA384"
 
 msgid "SHA512 Checksum"
 msgstr "Suma de verificación SHA512"
 
 msgid "Compute SHA512 hash sum"
-msgstr "Calcular la suma del hash SHA512"
+msgstr "Calcular suma del hash SHA512"
 
 msgid "MD5 Checksum"
 msgstr "Suma de verificación MD5"
 
 msgid "Compute MD5 hash sum"
-msgstr "Calcular la suma del hash MD5"
+msgstr "Calcular suma del hash MD5"
 
 msgid "Base64 Encode"
 msgstr "Codificación en Base64"
@@ -610,7 +606,7 @@ msgid "Base64 Decode"
 msgstr "Decodificación en Base64"
 
 msgid "Decode text from Base64"
-msgstr "Decodificación de texto en Base64"
+msgstr "Decodificar texto en Base64"
 
 msgid "Remove Trailing"
 msgstr "Quitar los restos"
@@ -795,27 +791,3 @@ msgstr "Mejorar XML"
 
 msgid "Parse XML and prettify it"
 msgstr "Analizar XML y mejorarlo"
-
-#~ msgid "Text is copied to clipboard"
-#~ msgstr "Texto copiado al portapapeles"
-
-#~ msgid "Color Scheme"
-#~ msgstr "Esquema de colores"
-
-#~ msgid "_Light"
-#~ msgstr "_Claro"
-
-#~ msgid "_Dark"
-#~ msgstr "_Oscuro"
-
-#~ msgid "S_ystem Default"
-#~ msgstr "_Predeterminado del sistema"
-
-#~ msgid "Copy and Paste"
-#~ msgstr "Copiar y pegar"
-
-#~ msgid "Paste"
-#~ msgstr "Pegar"
-
-#~ msgid "Copy all"
-#~ msgstr "Pegar todo"
