@@ -37,7 +37,7 @@ msgstr "Vypočet kontrolních součtů"
 #: data/com.github.liferooter.textpieces.appdata.xml.in:12
 msgid "Encode text"
 msgstr "Kódování textu"
-
+This typo has been fixed, it needs to be "Parse YAML document and convert it to JSON" now
 #: data/com.github.liferooter.textpieces.appdata.xml.in:13
 msgid "Decode text"
 msgstr "Dekódování textu"
@@ -463,7 +463,7 @@ msgstr "Zpracovat JSON a převést jej na YAML dokument"
 msgid "Convert YAML to JSON"
 msgstr "Převést YAML na JSON"
 
-msgid "Parse YAML document and conver it to JSON"
+msgid "Parse YAML document and convert it to JSON"
 msgstr "Zpracovat YAML dokument a převést jej na JSON"
 
 msgid "Reverse Lines"
