@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# SPDX-FileCopyrightText: 2022 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 repo="$(git rev-parse --show-toplevel)"
 po="$repo/po"
 
