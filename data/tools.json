@@ -158,6 +158,12 @@
       "script": "sort-lines-reverse.py"
     },
     {
+      "name": "RSS from OPML",
+      "description": "Extract RSS links from OPML",
+      "icon": "view-sort-descending-symbolic",
+      "script": "rss-from-opml.py"
+    },
+    {
       "name": "Filter Lines by Regex",
       "description": "Remove all lines which don't match given regular expression",
       "icon": "funnel-symbolic",
