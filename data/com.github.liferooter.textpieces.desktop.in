@@ -12,6 +12,9 @@ Categories=Utility;TextTools;GTK;GNOME;
 StartupNotify=true
 Actions=new-window;
 
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;
+
 [Desktop Action new-window]
 Name=New Window
 Exec=textpieces
