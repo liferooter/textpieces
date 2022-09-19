@@ -1,0 +1,42 @@
+using Gtk 4.0;
+using Adw 1;
+
+template TextPiecesCustomToolPage : Box {
+  orientation: vertical;
+
+  Adw.HeaderBar {
+    show-start-title-buttons: false;
+    show-end-title-buttons: false;
+
+    [start]
+    Button {
+      clicked => go_back();
+      icon-name: "go-previous-symbolic";
+    }
+
+    [title]
+    Label {
+      styles [
+        "heading",
+      ]
+
+      label: _("Edit Tool");
+    }
+
+    [end]
+    Button {
+      styles [
+        "destructive-action",
+      ]
+
+      clicked => delete_tool();
+      clicked => go_back();
+      label: _("D_elete");
+      use-underline: true;
+    }
+  }
+
+  .TextPiecesToolSettings tool_settings {
+    can-edit-script: "true";
+  }
+}

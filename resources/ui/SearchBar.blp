@@ -1,0 +1,176 @@
+using Gtk 4.0;
+using Adw 1;
+
+template TextPiecesSearchBar : Adw.Bin {
+  Revealer search_revealer {
+    transition-type: slide_down;
+
+    Grid {
+      styles [
+        "editor-overlay",
+      ]
+
+      margin-top: 5;
+      margin-bottom: 2.5;
+      margin-start: 5;
+      margin-end: 10;
+      row-spacing: 6;
+      column-spacing: 6;
+
+      .TextPiecesSearchEntry search_entry {
+        layout {
+          row: "0";
+          column: "0";
+        }
+      }
+
+      Box {
+        styles [
+          "linked",
+        ]
+
+        homogeneous: true;
+
+        Button {
+          icon-name: "go-up-symbolic";
+          tooltip-text: _("Move to revious match");
+          action-name: "search.prev-match";
+        }
+
+        Button {
+          icon-name: "go-down-symbolic";
+          tooltip-text: _("Move to next match");
+          action-name: "search.next-match";
+        }
+
+        layout {
+          row: "0";
+          column: "1";
+        }
+      }
+
+      ToggleButton search_replace {
+        icon-name: "edit-find-replace-symbolic";
+        tooltip-text: _("Find and replace");
+
+        layout {
+          row: "0";
+          column: "2";
+        }
+      }
+
+      ToggleButton search_options {
+        icon-name: "preferences-symbolic";
+        tooltip-text: _("Toggle search options");
+
+        layout {
+          row: "0";
+          column: "3";
+        }
+      }
+
+      Button {
+        styles [
+          "flat",
+          "circular",
+        ]
+
+        icon-name: "window-close-symbolic";
+        action-name: "search.hide";
+        tooltip-text: _("Close search");
+
+        layout {
+          row: "0";
+          column: "4";
+        }
+      }
+
+      Entry replace_entry {
+        primary-icon-name: "edit-find-replace-symbolic";
+        primary-icon-activatable: false;
+        placeholder-text: _("Replace");
+        visible: bind search_replace.active;
+        changed => remove_error_style();
+
+        layout {
+          row: "1";
+          column: "0";
+        }
+      }
+
+      Button {
+        label: _("_Replace");
+        use-underline: true;
+        visible: bind search_replace.active;
+        sensitive: bind search_entry.occurrence_position;
+        action-name: "search.replace";
+
+        layout {
+          row: "1";
+          column: "1";
+        }
+      }
+
+      Button {
+        label: _("Replace _All");
+        use-underline: true;
+        visible: bind search_replace.active;
+        sensitive: bind search_entry.occurrences_count;
+        action-name: "search.replace-all";
+
+        layout {
+          row: "1";
+          column: "2";
+          column-span: "3";
+        }
+      }
+
+      Box {
+        spacing: 6;
+        visible: bind search_options.active;
+
+        CheckButton {
+          use-underline: true;
+          label: _("Re_gular expressions");
+          active: bind TextPiecesSearchBar.use-regex bidirectional;
+        }
+
+        CheckButton {
+          use-underline: true;
+          label: _("_Case sensitive");
+          active: bind TextPiecesSearchBar.case-sensitive bidirectional;
+        }
+
+        CheckButton {
+          use-underline: true;
+          label: _("Match whole _word only");
+          active: bind TextPiecesSearchBar.whole-words bidirectional;
+        }
+
+        layout {
+          row: "2";
+          column: "0";
+          column-span: "5";
+        }
+      }
+    }
+
+    ShortcutController {
+      scope: managed;
+
+      Shortcut {
+        trigger: "Escape";
+        action: "action(search.hide)";
+      }
+    }
+  }
+
+  ShortcutController {
+    scope: managed;
+
+    Shortcut {
+      trigger: "<Ctrl>f";
+      action: "action(search.show)";
+    }
+  }
+}
