@@ -19,13 +19,16 @@ textpieces_sources += [
   'Window.vala',
 ]
 
-executable('textpieces', textpieces_sources,
+executable('textpieces', [blueprint_hack, textpieces_sources],
   c_args: [
     '-DVERSION="' + meson.project_version() + '"',
     '-DPKGDATADIR="' + pkgdata_dir + '"',
     '-DSCRIPTDIR="' +  pkgdata_dir / 'scripts' + '"',
     '-DGETTEXT_PACKAGE="' + meson.project_name() + '"',
     '-DGNOMELOCALEDIR="' + get_option('prefix') / get_option('localedir') + '"',
+  ],
+  vala_args: [
+    '--gresourcesdir=' + blueprints.full_path(),
   ],
   dependencies: textpieces_deps,
   install: true,

@@ -1,0 +1,136 @@
+// SPDX-FileCopyrightText: 2022 Gleb Smirnov <glebsmirnov0708@gmail.com>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+using Gtk 4.0;
+using Adw 1;
+
+template TextPiecesPreferences : Adw.PreferencesWindow {
+  can-navigate-back: true;
+  modal: true;
+
+  Adw.PreferencesPage {
+    title: _("_General");
+    use-underline: true;
+    name: "general-settings";
+    icon-name: "preferences-symbolic";
+
+    Adw.PreferencesGroup {
+      title: _("Editor");
+
+      Adw.ActionRow {
+        title: _("Editor _Font");
+        use-underline: true;
+        activatable: true;
+        action-name: "prefs.select-font";
+
+        Box {
+          spacing: 12;
+
+          Label font_label {
+          }
+
+          Image {
+            icon-name: "go-next-symbolic";
+          }
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("_Wrap Lines");
+        use-underline: true;
+        activatable-widget: wrap_lines_switch;
+
+        Switch wrap_lines_switch {
+          valign: center;
+          action-name: "settings.wrap-lines";
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("Tabs to _Spaces");
+        use-underline: true;
+        activatable-widget: tabs_to_spaces;
+
+        Switch tabs_to_spaces {
+          valign: center;
+          action-name: "settings.tabs-to-spaces";
+        }
+      }
+
+      Adw.ActionRow {
+        title: _("_Tab Width in Spaces");
+        use-underline: true;
+        activatable-widget: spaces_in_tab;
+
+        SpinButton spaces_in_tab {
+          valign: center;
+          climb-rate: 1;
+          adjustment: 
+          Adjustment {
+            lower: 1;
+            upper: 21;
+            step-increment: 1;
+          }
+
+          ;
+        }
+      }
+    }
+
+    Adw.PreferencesGroup {
+      title: _("Appearance");
+
+      Adw.Clamp {
+        maximum-size: 450;
+
+        .GtkSourceStyleSchemeChooserWidget style_scheme_chooser {
+        }
+      }
+    }
+  }
+
+  Adw.PreferencesPage {
+    title: _("T_ools");
+    use-underline: true;
+    name: "custom-tools";
+    icon-name: "applications-utilities-symbolic";
+
+    Adw.PreferencesGroup {
+      title: _("Custom tools");
+
+      [header-suffix]
+      Button {
+        styles [
+          "flat",
+        ]
+
+        clicked => add_new_tool();
+
+        Adw.ButtonContent {
+          icon-name: "list-add-symbolic";
+          label: _("_Add custom tool");
+          use-underline: true;
+        }
+      }
+
+      ListBox custom_tools_listbox {
+        styles [
+          "boxed-list",
+        ]
+
+        row-activated => edit_tool();
+        selection-mode: none;
+      }
+
+      Adw.StatusPage {
+        icon-name: "applications-utilities-symbolic";
+        title: _("No Custom Tools");
+        description: _("You can create one");
+        visible: bind custom_tools_listbox.visible inverted;
+        vexpand: true;
+        valign: center;
+      }
+    }
+  }
+}
