@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: textpieces\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-04 20:40+0300\n"
+"POT-Creation-Date: 2022-09-20 17:16+0000\n"
 "PO-Revision-Date: 2022-02-03 14:21-0300\n"
 "Last-Translator: Éden Alencar <eden.alencar@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <eden.alencar@gmail.com>\n"
@@ -18,11 +18,18 @@ msgstr ""
 
 #: data/com.github.liferooter.textpieces.desktop.in:7
 #: data/com.github.liferooter.textpieces.appdata.xml.in:11 src/Window.vala:241
-#: resources/ui/Window.ui:5
+#: resources/ui/Window.blp:9
 msgid "Text Pieces"
 msgstr "Text Pieces"
 
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/com.github.liferooter.textpieces.desktop.in:17
+msgid ""
+"Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;"
+"Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.desktop.in:20
 msgid "New Window"
 msgstr ""
 
@@ -280,6 +287,11 @@ msgstr ""
 msgid "Whether the application window is maximized"
 msgstr ""
 
+#: src/Editor.vala:129
+#, fuzzy
+msgid "Text is copied"
+msgstr "O texto é copiado para a área de transferência"
+
 #: src/NewToolPage.vala:113
 #, c-format
 msgid "Error occured: %s"
@@ -290,6 +302,11 @@ msgstr "Ocorreu um erro: %s"
 msgid "Select font"
 msgstr "Selecionar fonte"
 
+#: src/SearchEntry.vala:93
+#, c-format
+msgid "%u of %d"
+msgstr ""
+
 #: src/ToolSettings.vala:182
 #, c-format
 msgid "Argument %d"
@@ -299,7 +316,7 @@ msgstr "Argumento %d"
 #. * Text used instead of tool name
 #. * when where is no tool selected
 #.
-#: src/Window.vala:25 resources/ui/ShortcutsWindow.ui:42
+#: src/Window.vala:25 resources/ui/ShortcutsWindow.blp:39
 msgid "Select tool"
 msgstr "Selecionar ferramenta"
 
@@ -315,7 +332,7 @@ msgstr ""
 msgid "translator-credits"
 msgstr "créditos do tradutor"
 
-#: src/Window.vala:275 resources/ui/Window.ui:70
+#: src/Window.vala:275 resources/ui/Window.blp:78
 msgid "Save to File"
 msgstr "Salvar em arquivo"
 
@@ -324,7 +341,7 @@ msgstr "Salvar em arquivo"
 msgid "Can't save to file: %s"
 msgstr "Não é possível salvar no arquivo: %s"
 
-#: src/Window.vala:316 resources/ui/Window.ui:77
+#: src/Window.vala:316 resources/ui/Window.blp:85
 msgid "Load from File"
 msgstr "Carregar do arquivo"
 
@@ -333,475 +350,284 @@ msgstr "Carregar do arquivo"
 msgid "Can't load from file: %s"
 msgstr "Não é possível carregar do arquivo: %s"
 
-#: resources/ui/CustomToolPage.ui:21
+#: resources/ui/CustomToolPage.blp:27
 #, fuzzy
 msgid "Edit Tool"
 msgstr "Editor"
 
-#: resources/ui/CustomToolPage.ui:31
+#: resources/ui/CustomToolPage.blp:38
 msgid "D_elete"
 msgstr "E_xcluir"
 
-#: resources/ui/NewToolPage.ui:21
+#: resources/ui/NewToolPage.blp:27
 #, fuzzy
 msgid "New Tool"
 msgstr "Ferramentas"
 
-#: resources/ui/NewToolPage.ui:35
+#: resources/ui/NewToolPage.blp:42
 msgid "_Create"
 msgstr "_Criar"
 
-#: resources/ui/Preferences.ui:9
+#: resources/ui/Preferences.blp:13
 msgid "_General"
 msgstr "_Geral"
 
-#: resources/ui/Preferences.ui:15
+#: resources/ui/Preferences.blp:19
 msgid "Editor"
 msgstr "Editor"
 
-#: resources/ui/Preferences.ui:18
+#: resources/ui/Preferences.blp:22
 msgid "Editor _Font"
 msgstr "Editor _Fonte"
 
-#: resources/ui/Preferences.ui:39
+#: resources/ui/Preferences.blp:40
 msgid "_Wrap Lines"
 msgstr "_Linhas de quebra"
 
-#: resources/ui/Preferences.ui:52
+#: resources/ui/Preferences.blp:51
 msgid "Tabs to _Spaces"
 msgstr "Guias para _Espaços"
 
-#: resources/ui/Preferences.ui:65
+#: resources/ui/Preferences.blp:62
 msgid "_Tab Width in Spaces"
 msgstr "_Largura da Tabulação nos Espaços"
 
-#: resources/ui/Preferences.ui:87
+#: resources/ui/Preferences.blp:82
 msgid "Appearance"
 msgstr "Aparência"
 
-#: resources/ui/Preferences.ui:102
+#: resources/ui/Preferences.blp:94
 msgid "T_ools"
 msgstr "F_erramentas"
 
-#: resources/ui/Preferences.ui:108
+#: resources/ui/Preferences.blp:100
 msgid "Custom tools"
 msgstr "Ferramentas personalizadas"
 
-#: resources/ui/Preferences.ui:118
+#: resources/ui/Preferences.blp:112
 #, fuzzy
 msgid "_Add custom tool"
 msgstr "Adicionar ferramenta personalizada"
 
-#: resources/ui/Preferences.ui:136
+#: resources/ui/Preferences.blp:128
 #, fuzzy
 msgid "No Custom Tools"
 msgstr "Ferramentas personalizadas"
 
-#: resources/ui/Preferences.ui:137
+#: resources/ui/Preferences.blp:129
 msgid "You can create one"
 msgstr ""
 
-#: resources/ui/SearchBar.ui:36
+#: resources/ui/SearchBar.blp:40
 msgid "Move to revious match"
 msgstr ""
 
-#: resources/ui/SearchBar.ui:43
+#: resources/ui/SearchBar.blp:46
 msgid "Move to next match"
 msgstr ""
 
-#: resources/ui/SearchBar.ui:56
+#: resources/ui/SearchBar.blp:58
 msgid "Find and replace"
 msgstr ""
 
-#: resources/ui/SearchBar.ui:66
+#: resources/ui/SearchBar.blp:68
 msgid "Toggle search options"
 msgstr ""
 
-#: resources/ui/SearchBar.ui:81
+#: resources/ui/SearchBar.blp:84
 #, fuzzy
 msgid "Close search"
 msgstr "Melhorar a pesquisa"
 
-#: resources/ui/SearchBar.ui:92
+#: resources/ui/SearchBar.blp:95
 msgid "Replace"
 msgstr ""
 
-#: resources/ui/SearchBar.ui:103
+#: resources/ui/SearchBar.blp:106
 msgid "_Replace"
 msgstr ""
 
-#: resources/ui/SearchBar.ui:116
+#: resources/ui/SearchBar.blp:119
 msgid "Replace _All"
 msgstr ""
 
-#: resources/ui/SearchBar.ui:135
+#: resources/ui/SearchBar.blp:138
 #, fuzzy
 msgid "Re_gular expressions"
 msgstr "Substituir substrings e expressões regulares"
 
-#: resources/ui/SearchBar.ui:142
+#: resources/ui/SearchBar.blp:144
 msgid "_Case sensitive"
 msgstr ""
 
-#: resources/ui/SearchBar.ui:149
+#: resources/ui/SearchBar.blp:150
 msgid "Match whole _word only"
 msgstr ""
 
-#: resources/ui/SearchEntry.ui:13
+#: resources/ui/SearchEntry.blp:15
 msgid "Find"
 msgstr ""
 
-#: resources/ui/ShortcutsWindow.ui:10
+#: resources/ui/ShortcutsWindow.blp:12
 msgid "General"
 msgstr "Geral"
 
-#: resources/ui/ShortcutsWindow.ui:13
+#: resources/ui/ShortcutsWindow.blp:15
 msgid "Keyboard shortcuts"
 msgstr "Atalhos do teclado"
 
-#: resources/ui/ShortcutsWindow.ui:19
+#: resources/ui/ShortcutsWindow.blp:20
 msgid "Preferences"
 msgstr "Preferências"
 
-#: resources/ui/ShortcutsWindow.ui:25
+#: resources/ui/ShortcutsWindow.blp:25
 msgid "Quit"
 msgstr "Sair"
 
-#: resources/ui/ShortcutsWindow.ui:33
+#: resources/ui/ShortcutsWindow.blp:31
 msgid "Tools"
 msgstr "Ferramentas"
 
-#: resources/ui/ShortcutsWindow.ui:36
+#: resources/ui/ShortcutsWindow.blp:34
 msgid "Apply"
 msgstr "Aplicar"
 
-#: resources/ui/ShortcutsWindow.ui:48
+#: resources/ui/ShortcutsWindow.blp:44
 #, fuzzy
 msgid "Just to the tool options"
 msgstr "Ir para as opções da ferramenta"
 
-#: resources/ui/ShortcutsWindow.ui:56
+#: resources/ui/ShortcutsWindow.blp:50
 msgid "Undo and Redo"
 msgstr "Desfazer e refazer"
 
-#: resources/ui/ShortcutsWindow.ui:59
+#: resources/ui/ShortcutsWindow.blp:53
 msgid "Undo"
 msgstr "Desfazer"
 
-#: resources/ui/ShortcutsWindow.ui:65
+#: resources/ui/ShortcutsWindow.blp:58
 msgid "Redo"
 msgstr "Refazer"
 
-#: resources/ui/ShortcutsWindow.ui:73
+#: resources/ui/ShortcutsWindow.blp:64
 msgid "Files"
 msgstr "Arquivos"
 
-#: resources/ui/ShortcutsWindow.ui:76
+#: resources/ui/ShortcutsWindow.blp:67
 msgid "Load from file"
 msgstr "Carregar do arquivo"
 
-#: resources/ui/ShortcutsWindow.ui:82
+#: resources/ui/ShortcutsWindow.blp:72
 msgid "Save to file"
 msgstr "Salvar em arquivo"
 
-#: resources/ui/ToolSettings.ui:28
+#: resources/ui/ToolSettings.blp:31
 msgid "_Name"
 msgstr "_Nome"
 
-#: resources/ui/ToolSettings.ui:41
+#: resources/ui/ToolSettings.blp:42
 msgid "_Description"
 msgstr "_Descrição"
 
-#: resources/ui/ToolSettings.ui:53
+#: resources/ui/ToolSettings.blp:52
 msgid "_Arguments"
 msgstr "_Argumentos"
 
-#: resources/ui/ToolSettings.ui:82
+#: resources/ui/ToolSettings.blp:80
 msgid "Edit _Script"
 msgstr ""
 
-#: resources/ui/Window.ui:27
+#: resources/ui/Window.blp:32
 msgid "_Apply"
 msgstr "_Aplicar"
 
-#: resources/ui/Window.ui:30
+#: resources/ui/Window.blp:35
 msgid "Apply Selected Tool"
 msgstr "Aplicar ferramenta selecionada"
 
-#: resources/ui/Window.ui:40
+#: resources/ui/Window.blp:45
 msgid "Copy"
 msgstr "Copiar"
 
-#: resources/ui/Window.ui:63
+#: resources/ui/Window.blp:71
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: resources/ui/Window.ui:156
+#: resources/ui/Window.blp:160
 msgid "No Tools Found"
 msgstr "Nenhuma ferramenta encontrada"
 
-#: resources/ui/Window.ui:180
+#: resources/ui/Window.blp:186
 msgid "Add Custom Tool"
 msgstr "Adicionar ferramenta personalizada"
 
-#: resources/ui/Window.ui:203
+#: resources/ui/Window.blp:207
 msgid "_New Window"
 msgstr ""
 
-#: resources/ui/Window.ui:210
+#: resources/ui/Window.blp:215
 msgid "_Find/Replace…"
 msgstr ""
 
-#: resources/ui/Window.ui:217
+#: resources/ui/Window.blp:223
 msgid "_Preferences"
 msgstr "_Preferências"
 
-#: resources/ui/Window.ui:222
+#: resources/ui/Window.blp:229
 msgid "_Keyboard Shortcuts"
 msgstr "_Atalhos do teclado"
 
-#: resources/ui/Window.ui:227
+#: resources/ui/Window.blp:235
 msgid "_About Text Pieces"
 msgstr "_Sobre Text Pieces"
 
-msgid "SHA1 Checksum"
-msgstr ""
-
-msgid "Compute SHA1 hash sum"
-msgstr ""
-
-msgid "SHA256 Checksum"
-msgstr ""
-
-msgid "Compute SHA256 hash sum"
-msgstr ""
-
-msgid "SHA384 Checksum"
-msgstr ""
-
-msgid "Compute SHA384 hash sum"
-msgstr ""
-
-msgid "SHA512 Checksum"
-msgstr ""
-
-msgid "Compute SHA512 hash sum"
-msgstr ""
-
-msgid "MD5 Checksum"
-msgstr ""
-
-msgid "Compute MD5 hash sum"
-msgstr ""
-
-msgid "Base64 Encode"
-msgstr ""
+#, fuzzy
+#~ msgid "Encode text to Base64"
+#~ msgstr "Codificar texto"
 
 #, fuzzy
-msgid "Encode text to Base64"
-msgstr "Codificar texto"
-
-msgid "Base64 Decode"
-msgstr ""
+#~ msgid "Decode text from Base64"
+#~ msgstr "Decodificar texto"
 
 #, fuzzy
-msgid "Decode text from Base64"
-msgstr "Decodificar texto"
-
-msgid "Remove Trailing"
-msgstr ""
+#~ msgid "Remove trailing whitespaces and newlines"
+#~ msgstr "Remova espaços e linhas à direita"
 
 #, fuzzy
-msgid "Remove trailing whitespaces and newlines"
-msgstr "Remova espaços e linhas à direita"
+#~ msgid "Trim Lines"
+#~ msgstr "_Linhas de quebra"
 
 #, fuzzy
-msgid "Trim Lines"
-msgstr "_Linhas de quebra"
+#~ msgid "Remove leading and trailing whitespaces and newlines"
+#~ msgstr "Remova espaços e linhas à direita"
 
 #, fuzzy
-msgid "Remove leading and trailing whitespaces and newlines"
-msgstr "Remova espaços e linhas à direita"
-
-msgid "Count Symbols"
-msgstr ""
-
-msgid "Count how many symbols are in text"
-msgstr ""
-
-msgid "Count Lines"
-msgstr ""
-
-msgid "Count how many lines are in text"
-msgstr ""
-
-msgid "Count Words"
-msgstr ""
-
-msgid "Count how many words are in text"
-msgstr ""
-
-msgid "Prettify JSON"
-msgstr ""
-
-msgid "Parse JSON and prettify it"
-msgstr ""
-
-msgid "Minify JSON"
-msgstr ""
-
-msgid "Parse JSON and minify it"
-msgstr ""
+#~ msgid "Escape String"
+#~ msgstr "Escape e não escape de strings"
 
 #, fuzzy
-msgid "Escape String"
-msgstr "Escape e não escape de strings"
-
-msgid "Replace special characters with escape sequences"
-msgstr ""
-
-msgid "Escape HTML"
-msgstr ""
-
-msgid "Replace special characters with HTML-safe sequences"
-msgstr ""
-
-msgid "Escape URL"
-msgstr ""
-
-msgid "Replace special characters with URL-safe sequences"
-msgstr ""
+#~ msgid "Unescape String"
+#~ msgstr "Escape e não escape de strings"
 
 #, fuzzy
-msgid "Unescape String"
-msgstr "Escape e não escape de strings"
-
-msgid "Replace escape sequences with characters"
-msgstr ""
-
-msgid "Unescape HTML"
-msgstr ""
-
-msgid "Replace HTML sequences with characters"
-msgstr ""
-
-msgid "Unescape URL"
-msgstr ""
-
-msgid "Replace URL sequences with characters"
-msgstr ""
+#~ msgid "Convert JSON to YAML"
+#~ msgstr "Converter JSON para YAML e vice-versa"
 
 #, fuzzy
-msgid "Convert JSON to YAML"
-msgstr "Converter JSON para YAML e vice-versa"
-
-msgid "Parse JSON and convert it to YAML document"
-msgstr ""
-
-msgid "Convert YAML to JSON"
-msgstr ""
-
-msgid "Parse YAML document and convert it to JSON"
-msgstr ""
-
-msgid "Reverse Lines"
-msgstr ""
-
-msgid "Reoder lines in reverse order"
-msgstr ""
-
-msgid "Reverse Text"
-msgstr ""
-
-msgid "Reorder characters in reverse order"
-msgstr ""
+#~ msgid "Sort Lines"
+#~ msgstr "_Linhas de quebra"
 
 #, fuzzy
-msgid "Sort Lines"
-msgstr "_Linhas de quebra"
-
-msgid "Sort lines in text in alphabetical order"
-msgstr ""
-
-msgid "Reverse Sort Lines"
-msgstr ""
-
-msgid "Sort lines in text in reverse alphabetical order"
-msgstr ""
+#~ msgid "Filter Lines by Regex"
+#~ msgstr "Filtrar linhas"
 
 #, fuzzy
-msgid "Filter Lines by Regex"
-msgstr "Filtrar linhas"
-
-msgid "Remove all lines which don't match given regular expression"
-msgstr ""
-
-msgid "Regex"
-msgstr ""
-
-msgid "Reverse Filter Lines by Regex"
-msgstr ""
+#~ msgid "Remove all lines which match given regular expression"
+#~ msgstr "Substituir substrings e expressões regulares"
 
 #, fuzzy
-msgid "Remove all lines which match given regular expression"
-msgstr "Substituir substrings e expressões regulares"
-
-msgid "Filter Lines by Substring"
-msgstr ""
-
-msgid "Remove all lines which don't contain given substring"
-msgstr ""
-
-msgid "Substring"
-msgstr ""
-
-msgid "Reverse Filter Lines by Substring"
-msgstr ""
-
-msgid "Remove all lines which contain given substring"
-msgstr ""
-
-msgid "Remove Regex"
-msgstr ""
-
-#, fuzzy
-msgid "Remove all matches of regular expression"
-msgstr "Substituir substrings e expressões regulares"
-
-msgid "Remove Substring"
-msgstr ""
-
-msgid "Remove all occurrences of given substring in text"
-msgstr ""
-
-msgid "Replace Substring"
-msgstr ""
-
-msgid "Replace all occurrences of given substring in text with other string"
-msgstr ""
-
-# msgid "Find"
-# msgstr ""
-msgid "Replace With"
-msgstr ""
-
-msgid "Replace Regex"
-msgstr ""
-
-msgid "Replace all given regex matches in text with given string"
-msgstr ""
-
-msgid "Find (regex)"
-msgstr ""
-
-msgid "Prettify XML"
-msgstr ""
-
-msgid "Parse XML and prettify it"
-msgstr ""
-
-#~ msgid "Text is copied to clipboard"
-#~ msgstr "O texto é copiado para a área de transferência"
+#~ msgid "Remove all matches of regular expression"
+#~ msgstr "Substituir substrings e expressões regulares"
 
 #~ msgid "Copy and Paste"
 #~ msgstr "Copiar e colar"
