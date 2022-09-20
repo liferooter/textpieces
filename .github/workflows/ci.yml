@@ -39,4 +39,5 @@ jobs:
       image: bilelmoussaoui/flatpak-github-actions:gnome-nightly
     steps:
     - uses: actions/checkout@v3
+    - run: git config --global --add safe.directory $(pwd)
     - run: ci/update-po.sh
