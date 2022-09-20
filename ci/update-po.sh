@@ -6,7 +6,7 @@
 
 cd "$(git rev-parse --show-toplevel)" || exit 1
 
-if [[ -z "$(git diff ^HEAD po/POTFILES "$(grep '^\w' po/POTFILES)")" ]]; then
+if [[ -z "$(git diff ^HEAD po/POTFILES $(grep '^\w' po/POTFILES))" ]]; then
     exit
 fi
 
