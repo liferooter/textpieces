@@ -36,8 +36,36 @@ jobs:
     name: Update translations
     runs-on: ubuntu-latest
     container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-nightly
+      image: bilelmoussaoui/flatpak-github-actions:gnome-42
+      options: --privileged
     steps:
-    - uses: actions/checkout@v3
-    - run: git config --global --add safe.directory $(pwd)
-    - run: ci/update-po.sh
+
+    - name: Checkout source code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Configure Git
+      run: |
+        git --version
+        git config --global --add safe.directory $(pwd)
+        git config user.name 'github-actions'
+        git config user.email 'github-actions@github.com'
+
+    - name: Add Flathub repository
+      run: flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+    - name: Install dependencies
+      run: >
+        xvfb-run -a -s "-screen 0 1024x768x24"
+        flatpak-builder --keep-build-dirs --user --install-deps-from=flathub --disable-rofiles-fuse flatpak_app --stop-at=textpieces build-aux/flatpak/com.github.liferooter.textpieces.yaml
+
+
+    - name: Update translations
+      run: >
+        xvfb-run -a -s "-screen 0 1024x768x24"
+        flatpak-builder --run flatpak_app build-aux/flatpak/com.github.liferooter.textpieces.yaml
+        ci/update-po.sh
+
+    - name: Push changes to GitHub
+      run: git push

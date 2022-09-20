@@ -6,19 +6,23 @@
 
 cd "$(git rev-parse --show-toplevel)" || exit 1
 
-if [[ -z "$(git diff ^HEAD po/POTFILES $(grep '^\w' po/POTFILES))" ]]; then
+echo "Changes in files related to translations:"
+
+changes="$(git diff @~ @ -- ci/update-po.sh po/POTFILES $(grep '^\w' po/POTFILES) || exit 1)"
+echo "$changes"
+
+if [[ -z "$changes" ]]; then
+    echo "No changes"
     exit
 fi
 
-po/generate-tools-po.sh
+ci/generate-tools-po.sh &&
+    meson _build &&
+    ninja -C _build textpieces-pot &&
+    cat po/tools.pot >>po/textpieces.pot &&
+    ninja -C _build textpieces-update-po ||
+    exit 1
 
-meson _build
-ninja -C _build textpieces-pot
-cat po/tools.pot >>po/textpieces.pot
-ninja -C _build textpieces-update-po
-
-git config user.name 'github-actions'
-git config user.email 'github-actions@github.com'
-git add po
-git commit -m 'chore(po): update translations'
-git push
+git add po &&
+    git commit -m 'chore(po): update translations' ||
+    exit 1
