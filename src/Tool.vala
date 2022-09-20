@@ -45,7 +45,7 @@ namespace TextPieces {
         public string name { get; set; }
         public string translated_name {
             get {
-                return C_("tools", name);
+                return dpgettext2(Config.GETTEXT_PACKAGE, "tools", name);
             }
         }
 
@@ -55,7 +55,7 @@ namespace TextPieces {
         public string description { get; set; }
         public string translated_description {
             get {
-                return C_("tools", description);
+                return dpgettext2(Config.GETTEXT_PACKAGE, "tools", description);
             }
         }
 
