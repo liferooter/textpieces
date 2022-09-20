@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2022 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+on:
+  push:
+  pull_request:
+
+name: Test
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: REUSE Compliance Check
+      uses: fsfe/reuse-action@v1.1.1
+
+  flatpak:
+    name: Flatpak
+    runs-on: ubuntu-20.04
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:gnome-nightly
+      options: --privileged
+    steps:
+    - uses: actions/checkout@v2
+    - uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v4
+      with:
+        bundle: textpieces.flatpak
+        manifest-path: build-aux/flatpak/com.github.liferooter.textpieces.yaml
+        run-tests: true
+        cache-key: flatpak-builder-${{ github.sha }}
