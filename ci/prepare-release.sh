@@ -7,7 +7,7 @@
 version=$1
 
 ## Change version in Meson configuration
-sed -i "s/ version: '.*'/ version: '$version'/" ./meson.build
+sed -i "0,/)/{s/ version: '.*'/ version: '$version'/}" ./meson.build
 
 ## Add release to application's metadata
 appdata_changelog="
@@ -19,6 +19,7 @@ appdata_changelog="
 appdata_changelog=${appdata_changelog//\//\\\/}
 appdata_changelog=${appdata_changelog//
 /\\n}
+appdata_changelog=$(echo "$appdata_changelog" | sed 's/<!--/\x0<!--/g;s/-->/-->\x0/g' | grep -zv '^<!--' | tr -d '\0')
 
 appdata_file=data/com.github.liferooter.textpieces.appdata.xml.in
 
