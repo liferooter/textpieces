@@ -5,11 +5,11 @@
 branches: [main]
 
 plugins:
-  - @semantic-release/github
-  - @semantic-release/release-notes-generator
-  - @semantic-release/changelog
+  - '@semantic-release/github'
+  - '@semantic-release/release-notes-generator'
+  - '@semantic-release/changelog'
   -
-    - @semantic-release/commit-analyzer
+    - '@semantic-release/commit-analyzer'
     - preset: angular
       releaseRules:
 
@@ -19,9 +19,9 @@ plugins:
       - type: metainfo
         release: patch
   -
-    - @semantic-release/git
+    - '@semantic-release/git'
     - assets:
       - CHANGELOG.md
   -
-    - @semantic-release/exec
+    - '@semantic-release/exec'
     - prepareCmd: ci/prepare-release.sh ${nextRelease.version}
