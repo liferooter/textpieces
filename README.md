@@ -60,7 +60,7 @@ Small tool for quick text transformations such as checksums, encoding, decoding 
 ### Via GNOME Builder
 Text Pieces can be built with GNOME Builder >= 3.38. Clone this repo and click run button.
 ### Via Flatpak
-Text Pieces has Flatpak manifest to enable it to be <a href="https://docs.flatpak.org/en/latest/building-introduction.html">built with Flatpak</a>.
+Text Pieces has a Flatpak manifest to enable it to be <a href="https://docs.flatpak.org/en/latest/building-introduction.html">built with Flatpak</a>.
 ### Via Meson
 Text Pieces can be built directly via Meson:
 ```bash
