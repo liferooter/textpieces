@@ -22,6 +22,9 @@ plugins:
     - '@semantic-release/git'
     - assets:
       - CHANGELOG.md
+      - meson.build
+      - data/*.appdata.xml.in
+      - NEXT-RELEASE.xml
   -
     - '@semantic-release/exec'
     - prepareCmd: ci/prepare-release.sh ${nextRelease.version}
