@@ -47,7 +47,7 @@ Small tool for quick text transformations such as checksums, encoding, decoding 
 - Remove leading and trailing whitespaces
 - Sort and reverse sort lines
 - Reverse lines and whole text
-- Extendable with users written scripts and create custom tools
+- Extendable with user written scripts and create custom tools
 
 # Installation
 
