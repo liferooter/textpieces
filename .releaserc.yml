@@ -1,0 +1,23 @@
+branches: [main]
+
+plugins:
+  - @semantic-release/github
+  - @semantic-release/release-notes-generator
+  - @semantic-release/changelog
+  -
+    - @semantic-release/commit-analyzer
+    - preset: angular
+      releaseRules:
+
+      - type: po
+        release: patch
+
+      - type: metainfo
+        release: patch
+  -
+    - @semantic-release/git
+    - assets:
+      - CHANGELOG.md
+  -
+    - @semantic-release/exec
+    - prepareCmd: ci/prepare-release.sh ${nextRelease.version}

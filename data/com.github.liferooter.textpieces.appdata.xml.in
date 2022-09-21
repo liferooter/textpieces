@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
 
 SPDX-License-Identifier: CC0-1.0
 -->
-
 <component type="desktop">
   <id>com.github.liferooter.textpieces.desktop</id>
   <name>Text Pieces</name>
@@ -89,10 +87,10 @@ SPDX-License-Identifier: CC0-1.0
     </release>
     <release version="2.3.2" date="2021-09-30">
       Fix theme switcher
-    </release>
+</release>
     <release version="2.3.1" date="2021-09-30">
       Add theme switcher for system which don't support color schemes
-    </release>
+</release>
     <release version="2.2.1" date="2021-09-29">
       <description>
         <p>New features and improvements:</p>
