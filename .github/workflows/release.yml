@@ -22,7 +22,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install dependencies
-      run: sudo apt install -y --no-install-recommends npm libxml2
+      run: sudo apt install -y --no-install-recommends npm libxml2-utils
 
     - name: Install semantic-release tool
       run: npm install -g semantic-release @semantic-release/git @semantic-release/changelog @semantic-release/exec
