@@ -57,8 +57,16 @@ SPDX-License-Identifier: CC0-1.0
       <image>https://raw.githubusercontent.com/liferooter/textpieces/6b766fbb9956175db454c3266ab3d8c2bfa57b07/screenshots/slide5.png</image>
     </screenshot>
   </screenshots>
-  <content_rating type="oars-1.1" />
+  <content_rating type="oars-1.1"/>
   <releases>
+    <release version="3.2.0" date="2022-09-21">
+      <description>
+        <p>New features and improvements:</p>
+        <ul>
+          <li>Add hotkey to open search in replace mode</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.1.1" date="2022-09-21">
       <description>
         <p>New features and improvements:</p>
