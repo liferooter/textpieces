@@ -5,7 +5,6 @@
 branches: [main]
 
 plugins:
-  - '@semantic-release/github'
   - '@semantic-release/release-notes-generator'
   - '@semantic-release/changelog'
   -
@@ -19,12 +18,13 @@ plugins:
       - type: metainfo
         release: patch
   -
+    - '@semantic-release/exec'
+    - prepareCmd: ci/prepare-release.sh ${nextRelease.version}
+  -
     - '@semantic-release/git'
     - assets:
       - CHANGELOG.md
       - meson.build
       - data/*.appdata.xml.in
       - NEXT-RELEASE.xml
-  -
-    - '@semantic-release/exec'
-    - prepareCmd: ci/prepare-release.sh ${nextRelease.version}
+  - '@semantic-release/github'
