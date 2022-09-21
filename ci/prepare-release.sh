@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# SPDX-FileCopyrightText: 2022 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 version=$1
 
 ## Change version in Meson configuration
@@ -22,4 +26,12 @@ sed "s/<releases>/<releases>$appdata_changelog/" $appdata_file
 xmllint --format $appdata_file --output $appdata_file
 
 ## Clear next release notes
-echo "<ul></ul>" >NEXT-RELEASE.xml
+cat >NEXT-RELEASE.xml <<EOF
+<!--
+SPDX-FileCopyrightText: 2022 Gleb Smirnov <glebsmirnov0708@gmail.com>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
+<ul></ul>
+EOF
