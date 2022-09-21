@@ -54,7 +54,7 @@ Small tool for quick text transformations such as checksums, encoding, decoding 
 ## From Flathub
 > **Recommended**
 
-Visit <a href="https://flathub.org/apps/details/com.github.liferooter.textpieces">here</a> to install app from Flathub.
+<a href="https://flathub.org/apps/details/com.github.liferooter.textpieces">Click here</a> to install app from Flathub.
 
 ## Build from source
 ### Via GNOME Builder
