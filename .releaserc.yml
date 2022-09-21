@@ -20,6 +20,7 @@ plugins:
   -
     - '@semantic-release/exec'
     - prepareCmd: ci/prepare-release.sh ${nextRelease.version}
+    - success: ci/release-to-flathub.sh
   -
     - '@semantic-release/git'
     - assets:
@@ -27,4 +28,5 @@ plugins:
       - meson.build
       - data/*.appdata.xml.in
       - NEXT-RELEASE.xml
+      - build-aux/flatpak/*.yaml
   - '@semantic-release/github'

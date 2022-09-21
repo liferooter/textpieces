@@ -36,3 +36,7 @@ SPDX-License-Identifier: CC0-1.0
 
 <ul></ul>
 EOF
+
+## Update version in Flatpak manifest
+
+sed -i "s/v.*# <-- version/v$version # <-- version/" build-aux/flatpak/com.github.liferooter.textpieces.yaml

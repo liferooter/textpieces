@@ -44,7 +44,7 @@ modules:
   sources:
   - type: git
     url: https://github.com/liferooter/textpieces
-    tag: v3.1.1
+    tag: v3.1.1 # <-- version (comment for CI)
   modules:
   - name: python3-pyyaml
     buildsystem: simple
