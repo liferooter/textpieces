@@ -7,7 +7,7 @@
 version=$1
 
 ## Change version in Meson configuration
-sed "s/ version: '.*'/ version: '$version'/" ./meson.build
+sed -i "s/ version: '.*'/ version: '$version'/" ./meson.build
 
 ## Add release to application's metadata
 appdata_changelog="
@@ -22,7 +22,7 @@ appdata_changelog=${appdata_changelog//
 
 appdata_file=data/com.github.liferooter.textpieces.appdata.xml.in
 
-sed "s/<releases>/<releases>$appdata_changelog/" $appdata_file
+sed -i "s/<releases>/<releases>$appdata_changelog/" $appdata_file
 xmllint --format $appdata_file --output $appdata_file
 
 ## Clear next release notes
