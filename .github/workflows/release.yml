@@ -25,11 +25,7 @@ jobs:
       run: sudo apt install -y --no-install-recommends npm libxml2
 
     - name: Install semantic-release tool
-      run: >
-        npm install -g semantic-release
-          @semantic-release/git
-          @semantic-release/changelog
-          @semantic-release/exec
+      run: npm install -g semantic-release @semantic-release/git @semantic-release/changelog@semantic-release/exec
 
     - name: Run semantic-release
       env:
