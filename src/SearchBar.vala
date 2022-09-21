@@ -4,9 +4,10 @@
 
 [GtkTemplate(ui = "/com/github/liferooter/textpieces/ui/SearchBar.ui")]
 class TextPieces.SearchBar : Adw.Bin {
-    [GtkChild] unowned SearchEntry  search_entry;
-    [GtkChild] unowned Gtk.Entry    replace_entry;
-    [GtkChild] unowned Gtk.Revealer search_revealer;
+    [GtkChild] unowned SearchEntry      search_entry;
+    [GtkChild] unowned Gtk.Entry        replace_entry;
+    [GtkChild] unowned Gtk.Revealer     search_revealer;
+    [GtkChild] unowned Gtk.ToggleButton search_replace;
 
     /**
      * Source view that this search bar is associated with
@@ -52,6 +53,7 @@ class TextPieces.SearchBar : Adw.Bin {
         return {
             { "hide"        , hide_search                    },
             { "show"        , show_search                    },
+            { "show-replace", show_replace                   },
             { "next-match"  , () => { next_match.begin (); } },
             { "prev-match"  , () => { prev_match.begin (); } },
             { "replace"     , replace                        },
@@ -116,10 +118,19 @@ class TextPieces.SearchBar : Adw.Bin {
     }
 
     /**
+     * Show search in replace mode
+     */
+    public void show_replace () {
+        show_search ();
+        search_replace.active = true;
+    }
+
+    /**
      * Hide search
      */
     private void hide_search () {
         search_revealer.reveal_child = false;
+        search_replace.active = false;
         search_cancelable.cancel ();
     }
 

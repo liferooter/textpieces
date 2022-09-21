@@ -176,5 +176,10 @@ template TextPiecesSearchBar : Adw.Bin {
       trigger: "<Ctrl>f";
       action: "action(search.show)";
     }
+
+    Shortcut {
+      trigger: "<Ctrl>h";
+      action: "action(search.show-replace)";
+    }
   }
 }
