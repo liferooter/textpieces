@@ -35,32 +35,32 @@ Swiss knife of text processing
 </p>
 
 
-Small tool for quick text transformations such as checksums, encoding, decoding and so on. Written in Vala for GNOME desktop in hope to be useful.
+Small tool for quick text transformations such as checksums, encoding, decoding and so on. Written in Vala for GNOME desktop in the hope to be useful.
 
 # Features
 - Base64 encoding and decoding
 - SHA-1, SHA-2 and MD5 checksums
 - Prettify and minify JSON
-- Covert JSON to YAML and vice versa
+- Convert JSON to YAML and vice versa
 - Count lines, symbols and words
 - Escape and unescape string, URL and HTML
 - Remove leading and trailing whitespaces
 - Sort and reverse sort lines
 - Reverse lines and whole text
-- You can write your own scripts and create custom tools
+- Extendable with users written scripts and create custom tools
 
 # Installation
 
 ## From Flathub
 > **Recommended**
 
-You can install my app from Flathub <a href="https://flathub.org/apps/details/com.github.liferooter.textpieces">here</a>
+Visit <a href="https://flathub.org/apps/details/com.github.liferooter.textpieces">here</a> to install app from Flathub.
 
 ## Build from source
 ### Via GNOME Builder
-Text Pieces can be built with GNOME Builder >= 3.38. Just clone this repo and click run button.
+Text Pieces can be built with GNOME Builder >= 3.38. Clone this repo and click run button.
 ### Via Flatpak
-Text Pieces has Flatpak manifest, so it can be <a href="https://docs.flatpak.org/en/latest/building-introduction.html">built with Flatpak</a>.
+Text Pieces has Flatpak manifest to enable it to be <a href="https://docs.flatpak.org/en/latest/building-introduction.html">built with Flatpak</a>.
 ### Via Meson
 Text Pieces can be built directly via Meson:
 ```bash
