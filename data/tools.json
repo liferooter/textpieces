@@ -56,8 +56,8 @@
       "script": "trim.py"
     },
     {
-      "name": "RSS from OPML",
-      "description": "Extract RSS links from OPML",
+      "name": "OPML to RSS links",
+      "description": "Extract RSS links from OPML outline",
       "icon": "rss-symbolic",
       "script": "rss-from-opml.py"
     },
