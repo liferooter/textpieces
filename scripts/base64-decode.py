@@ -9,8 +9,8 @@ from sys import stdin, stdout, stderr
 
 try:
     result = b64decode(stdin.read()).decode()
-except Exception:
-    stderr.write("Invalid Base64-encoded text")
+except Exception as err:
+    stderr.write(f"Invalid Base64-encoded text: {err}")
     exit(1)
 
 stdout.write(result)
