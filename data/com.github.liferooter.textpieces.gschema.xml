@@ -11,57 +11,92 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <key name="style-scheme" type="s">
       <default>'Adwaita-dark'</default>
       <summary>Style scheme</summary>
+      <summary xml:lang="hu">Stílusséma</summary>
       <description>
         Which style scheme to use for application interface and editor.
+      </description>
+      <description xml:lang="hu">
+        Milyen stílussémát kell használni az alkalmazásfelülethez és a szerkesztőhöz.
       </description>
     </key>
     <key name="font-name" type="s">
       <default>'Monospace'</default>
       <summary>Font name</summary>
+      <summary xml:lang="hu">Betűkészlet neve</summary>
       <description>
         Name of font used in editor
+      </description>
+      <description xml:lang="hu">
+        A szerkesztőben használt betűkészlet neve
       </description>
     </key>
     <key name="wrap-lines" type="b">
       <default>true</default>
+      <default xml:lang="hu">igaz</default>
       <summary>Wrap lines</summary>
+      <summary xml:lang="hu">Sortörés</summary>
       <description>
         Whether to wrap long lines
+      </description>
+      <description xml:lang="hu">
+        Sortörés beállítása
       </description>
     </key>
     <key name="tabs-to-spaces" type="b">
       <default>false</default>
+      <default xml:lang="hu">hamis</default>
       <summary>Tabs to spaces</summary>
+      <summary xml:lang="hu">Tabulátorok átalakítása szóközökké</summary>
       <description>
         Whether to insert spaces instead of tab
+      </description>
+      <description xml:lang="hu">
+        A tabulátorok szóközökké alakításának beállítása
       </description>
     </key>
     <key name="spaces-in-tab" type="i">
       <default>4</default>
       <summary>Spaces in tab</summary>
+      <summary xml:lang="hu">Szóközök száma a tabulátorban</summary>
       <description>
         Tab width in spaces
+      </description>
+      <description xml:lang="hu">
+        Tabulátor szélessége szóközökben
       </description>
     </key>
     <key name="window-width" type="i">
       <default>800</default>
       <summary>Window width</summary>
+      <summary xml:lang="hu">Ablak szélessége</summary>
       <description>
         Saved width of application window
+      </description>
+      <description xml:lang="hu">
+        Alkalmazásablak mentett szélessége
       </description>
     </key>
     <key name="window-height" type="i">
       <default>500</default>
       <summary>Window height</summary>
+      <summary xml:lang="hu">Ablak magassága</summary>
       <description>
-        Saved height of the window
+        Saved height of application window
+      </description>
+      <description xml:lang="hu">
+        Alkalmazásablak mentett magassága
       </description>
     </key>
     <key name="is-maximized" type="b">
       <default>false</default>
+      <default xml:lang="hu">hamis</default>
       <summary>Is maximized</summary>
+      <summary xml:lang="hu">Maximális méretű</summary>
       <description>
         Whether the application window is maximized
+      </description>
+      <description xml:lang="hu">
+        Alkalmazásablak méretének maximalizálásának beállítása
       </description>
     </key>
   </schema>
