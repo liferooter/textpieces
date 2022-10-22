@@ -58,7 +58,7 @@
     {
       "name": "RSS from OPML",
       "description": "Extract RSS links from OPML",
-      "icon": "view-sort-descending-symbolic",
+      "icon": "rss-symbolic",
       "script": "rss-from-opml.py"
     },
     {
