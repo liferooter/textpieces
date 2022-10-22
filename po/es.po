@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: textpieces\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-22 16:50+0000\n"
+"POT-Creation-Date: 2022-10-22 16:57+0000\n"
 "PO-Revision-Date: 2022-01-24 14:00+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -300,7 +300,7 @@ msgstr ""
 msgid "Whether the application window is maximized"
 msgstr ""
 
-#: src/Editor.vala:148
+#: src/Editor.vala:155
 #, fuzzy
 msgid "Text is copied"
 msgstr "Texto copiado al portapapeles"
