@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: textpieces\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-20 17:16+0000\n"
+"POT-Creation-Date: 2022-10-22 16:50+0000\n"
 "PO-Revision-Date: 2022-02-03 14:21-0300\n"
 "Last-Translator: Éden Alencar <eden.alencar@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <eden.alencar@gmail.com>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Gtranslator 41.0\n"
 
 #: data/com.github.liferooter.textpieces.desktop.in:7
-#: data/com.github.liferooter.textpieces.appdata.xml.in:11 src/Window.vala:241
+#: data/com.github.liferooter.textpieces.appdata.xml.in:9 src/Window.vala:241
 #: resources/ui/Window.blp:9
 msgid "Text Pieces"
 msgstr "Text Pieces"
@@ -33,193 +33,203 @@ msgstr ""
 msgid "New Window"
 msgstr ""
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:12 src/Window.vala:243
+#: data/com.github.liferooter.textpieces.appdata.xml.in:10 src/Window.vala:243
 msgid "Transform text without using random websites"
 msgstr "Transforme texto sem usar sites aleatórios"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:16
+#: data/com.github.liferooter.textpieces.appdata.xml.in:14
 msgid "Do a lot of text transformations, such as:"
 msgstr "Faça muitas transformações de texto, como:"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:18
+#: data/com.github.liferooter.textpieces.appdata.xml.in:16
 msgid "Calculate hashes"
 msgstr "Calcular hashes"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:19
+#: data/com.github.liferooter.textpieces.appdata.xml.in:17
 msgid "Encode text"
 msgstr "Codificar texto"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:20
+#: data/com.github.liferooter.textpieces.appdata.xml.in:18
 msgid "Decode text"
 msgstr "Decodificar texto"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:21
+#: data/com.github.liferooter.textpieces.appdata.xml.in:19
 msgid "Remove trailing spaces and lines"
 msgstr "Remova espaços e linhas à direita"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:22
+#: data/com.github.liferooter.textpieces.appdata.xml.in:20
 msgid "Count lines, symbols and words"
 msgstr "Contar linhas, símbolos e palavras"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:23
+#: data/com.github.liferooter.textpieces.appdata.xml.in:21
 msgid "Format JSON and XML"
 msgstr "Formate JSON e XML"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:24
+#: data/com.github.liferooter.textpieces.appdata.xml.in:22
 msgid "Escape and unescape strings"
 msgstr "Escape e não escape de strings"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:25
+#: data/com.github.liferooter.textpieces.appdata.xml.in:23
 msgid "Convert JSON to YAML and vice versa"
 msgstr "Converter JSON para YAML e vice-versa"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:26
+#: data/com.github.liferooter.textpieces.appdata.xml.in:24
 msgid "Filter lines"
 msgstr "Filtrar linhas"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:27
+#: data/com.github.liferooter.textpieces.appdata.xml.in:25
 msgid "Replace substrings and regular expressions"
 msgstr "Substituir substrings e expressões regulares"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:29
+#: data/com.github.liferooter.textpieces.appdata.xml.in:27
 msgid "...and so on."
 msgstr "...e assim por diante."
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:34
+#: data/com.github.liferooter.textpieces.appdata.xml.in:32
 msgid "Gleb Smirnov"
 msgstr "Gleb Smirnov"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:66
-#, fuzzy
-msgid "New features and improvement:"
-msgstr "Algumas correções de bugs e melhorias"
-
-#: data/com.github.liferooter.textpieces.appdata.xml.in:68
-#, fuzzy
-msgid "Add style schemes"
-msgstr "Esquema de estilo"
-
-#: data/com.github.liferooter.textpieces.appdata.xml.in:69
-msgid "Add search and replace feature to editor"
-msgstr ""
-
-#: data/com.github.liferooter.textpieces.appdata.xml.in:70
-#, fuzzy
-msgid "Fix some bugs"
-msgstr "Corrija muitos bugs"
-
-#: data/com.github.liferooter.textpieces.appdata.xml.in:75
-msgid "Bug fix"
-msgstr "Correção de bug"
-
-#: data/com.github.liferooter.textpieces.appdata.xml.in:79
-#: data/com.github.liferooter.textpieces.appdata.xml.in:98
-#: data/com.github.liferooter.textpieces.appdata.xml.in:113
-#: data/com.github.liferooter.textpieces.appdata.xml.in:124
-#: data/com.github.liferooter.textpieces.appdata.xml.in:134
-#: data/com.github.liferooter.textpieces.appdata.xml.in:144
+#: data/com.github.liferooter.textpieces.appdata.xml.in:64
+#: data/com.github.liferooter.textpieces.appdata.xml.in:72
+#: data/com.github.liferooter.textpieces.appdata.xml.in:93
+#: data/com.github.liferooter.textpieces.appdata.xml.in:112
+#: data/com.github.liferooter.textpieces.appdata.xml.in:127
+#: data/com.github.liferooter.textpieces.appdata.xml.in:138
+#: data/com.github.liferooter.textpieces.appdata.xml.in:148
+#: data/com.github.liferooter.textpieces.appdata.xml.in:158
 #, fuzzy
 msgid "New features and improvements:"
 msgstr "Algumas correções de bugs e melhorias"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:81
+#: data/com.github.liferooter.textpieces.appdata.xml.in:66
+msgid "Add hotkey to open search in replace mode"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:74
+msgid "Add some keywords to the application for system search"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:80
+#, fuzzy
+msgid "New features and improvement:"
+msgstr "Algumas correções de bugs e melhorias"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:82
+#, fuzzy
+msgid "Add style schemes"
+msgstr "Esquema de estilo"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:83
+msgid "Add search and replace feature to editor"
+msgstr ""
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:84
+#, fuzzy
+msgid "Fix some bugs"
+msgstr "Corrija muitos bugs"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:89
+msgid "Bug fix"
+msgstr "Correção de bug"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:95
 msgid "Refresh UI"
 msgstr "Atualizar interface do usuário"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:82
+#: data/com.github.liferooter.textpieces.appdata.xml.in:96
 msgid "Fix a lot of bugs"
 msgstr "Corrija muitos bugs"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:83
+#: data/com.github.liferooter.textpieces.appdata.xml.in:97
 msgid "Add powerful settings"
 msgstr "Adicione configurações poderosas"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:84
+#: data/com.github.liferooter.textpieces.appdata.xml.in:98
 msgid "Add arguments support for custom tools"
 msgstr "Adicionar suporte a argumentos para ferramentas personalizadas"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:85
+#: data/com.github.liferooter.textpieces.appdata.xml.in:99
 msgid "Add translation support"
 msgstr "Adicionar suporte de tradução"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:86
-#: data/com.github.liferooter.textpieces.appdata.xml.in:117
+#: data/com.github.liferooter.textpieces.appdata.xml.in:100
+#: data/com.github.liferooter.textpieces.appdata.xml.in:131
 msgid "Improve search"
 msgstr "Melhorar a pesquisa"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:100
+#: data/com.github.liferooter.textpieces.appdata.xml.in:114
 msgid "Minor UI changes"
 msgstr "Pequenas alterações na interface do usuário"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:101
+#: data/com.github.liferooter.textpieces.appdata.xml.in:115
 msgid "Add XML formatter"
 msgstr "Adicionar formatador XML"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:106
+#: data/com.github.liferooter.textpieces.appdata.xml.in:120
 msgid "Some bugfixes and improvements"
 msgstr "Algumas correções de bugs e melhorias"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:109
+#: data/com.github.liferooter.textpieces.appdata.xml.in:123
 msgid "Bring back tools with arguments"
 msgstr "Traga de volta ferramentas com argumentos"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:115
+#: data/com.github.liferooter.textpieces.appdata.xml.in:129
 msgid "Redesign the application"
 msgstr "Redesenhe o aplicativo"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:116
+#: data/com.github.liferooter.textpieces.appdata.xml.in:130
 msgid "Add custom tools support"
 msgstr "Adicionar suporte a ferramentas personalizadas"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:118
+#: data/com.github.liferooter.textpieces.appdata.xml.in:132
 msgid "Add ability to text load from file and save to file"
 msgstr "Adicione a capacidade de carregar texto do arquivo e salvar no arquivo"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:126
+#: data/com.github.liferooter.textpieces.appdata.xml.in:140
 msgid "Exit by Ctrl+Q"
 msgstr "Sair com Ctrl+Q"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:127
+#: data/com.github.liferooter.textpieces.appdata.xml.in:141
 msgid "Monospace argument entry"
 msgstr "Entrada de argumento monoespaçado"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:128
+#: data/com.github.liferooter.textpieces.appdata.xml.in:142
 msgid "Update new runtime"
 msgstr "Atualizar novo tempo de execução"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:136
+#: data/com.github.liferooter.textpieces.appdata.xml.in:150
 msgid "Sort tools"
 msgstr "Ferramentas de classificação"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:137
+#: data/com.github.liferooter.textpieces.appdata.xml.in:151
 msgid "Filter tools"
 msgstr "Ferramentas de filtro"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:138
+#: data/com.github.liferooter.textpieces.appdata.xml.in:152
 msgid "Minify C-like code"
 msgstr "Minificar código semelhante a C"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:146
+#: data/com.github.liferooter.textpieces.appdata.xml.in:160
 msgid "Add more tools"
 msgstr "Adicionar mais ferramentas"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:147
+#: data/com.github.liferooter.textpieces.appdata.xml.in:161
 msgid "Make tools popover more powerful"
 msgstr "Torne as ferramentas popover mais poderosas"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:148
+#: data/com.github.liferooter.textpieces.appdata.xml.in:162
 msgid "Redesign icon"
 msgstr "Ícone de redesenho"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:149
+#: data/com.github.liferooter.textpieces.appdata.xml.in:163
 msgid "General improvements"
 msgstr "Melhorias gerais"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:154
+#: data/com.github.liferooter.textpieces.appdata.xml.in:168
 msgid "Add tools for replacement and removing"
 msgstr "Adicione ferramentas para substituição e remoção"
 
-#: data/com.github.liferooter.textpieces.appdata.xml.in:157
+#: data/com.github.liferooter.textpieces.appdata.xml.in:171
 msgid "Application release"
 msgstr "Versão do aplicativo"
 
@@ -287,7 +297,7 @@ msgstr ""
 msgid "Whether the application window is maximized"
 msgstr ""
 
-#: src/Editor.vala:129
+#: src/Editor.vala:148
 #, fuzzy
 msgid "Text is copied"
 msgstr "O texto é copiado para a área de transferência"

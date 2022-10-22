@@ -72,6 +72,14 @@ msgid "Remove leading and trailing whitespaces and newlines"
 msgstr ""
 
 msgctxt "tools"
+msgid "OPML to RSS links"
+msgstr ""
+
+msgctxt "tools"
+msgid "Extract RSS links from OPML outline"
+msgstr ""
+
+msgctxt "tools"
 msgid "Count Symbols"
 msgstr ""
 
@@ -317,7 +325,4 @@ msgstr ""
 
 msgctxt "tools"
 msgid "Parse XML and prettify it"
-msgstr ""
-
-msgid "Extract RSS links from OPML"
 msgstr ""
