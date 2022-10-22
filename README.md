@@ -90,7 +90,7 @@ Would you like to see Text Pieces in your own language? Translators are welcome 
 You can contribute translations to the following locations:
 * [Weblate TBA](https://github.com/liferooter/textpieces/issues/19)
 * Submit a pull request on GitHub to change:
-  * [com.github.liferooter.textpieces.appdata.xml.in](data/com.github.xournalpp.xournalpp.appdata.xml)
+  * [com.github.liferooter.textpieces.appdata.xml.in](data/com.github.liferooter.textpieces.appdata.xml.in)
   * [com.github.liferooter.textpieces.desktop.in](data/com.github.liferooter.textpieces.desktop.in)
   * [com.github.liferooter.textpieces.gschema.xml](data/com.github.liferooter.textpieces.gschema.xml)
 
