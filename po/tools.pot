@@ -318,3 +318,6 @@ msgstr ""
 msgctxt "tools"
 msgid "Parse XML and prettify it"
 msgstr ""
+
+msgid "Extract RSS links from OPML"
+msgstr ""
