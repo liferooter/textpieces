@@ -84,5 +84,15 @@ If you use GNOME Builder or Flatpak, dependencies will be installed automaticall
 - python >= 3.8
 - pyyaml >= 5.4
 
+# Translations
+Would you like to see Text Pieces in your own language? Translators are welcome to contribute to Text Pieces.
+
+You can contribute translations to the following locations:
+* [Weblate TBA](https://github.com/liferooter/textpieces/issues/19)
+* Submit a pull request on GitHub to change:
+  * [com.github.liferooter.textpieces.appdata.xml.in](data/com.github.xournalpp.xournalpp.appdata.xml)
+  * [com.github.liferooter.textpieces.desktop.in](data/com.github.liferooter.textpieces.desktop.in)
+  * [com.github.liferooter.textpieces.gschema.xml](data/com.github.liferooter.textpieces.gschema.xml)
+
 # Contributions
 Contributions are welcome.
