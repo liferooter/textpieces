@@ -4,6 +4,7 @@
 
 [Desktop Entry]
 Name=Text Pieces
+Name[hu]=Szövegrészek
 Icon=com.github.liferooter.textpieces
 Exec=textpieces
 Terminal=false
@@ -14,7 +15,9 @@ Actions=new-window;
 
 # Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 Keywords=Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;
+Keywords[hu]=Gnome;GTK;szöveg;Base64;JSON;YAML;számolás;SHA1;SHA256;SHA384;SHA512;MD5;ellenőrzőösszeg;feloldó;kódolás;HTML;URL;szépítés;szűrő;megfordítás;levágás;
 
 [Desktop Action new-window]
 Name=New Window
+Name[hu]=Új ablak
 Exec=textpieces
