@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
-#SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2022 Adrián Bíro
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 from xml.etree import ElementTree
 from sys import stdin, stdout, stderr, argv
@@ -18,5 +20,6 @@ for i in tree.findall('.//outline'):
     titles_urls.update({title: url})
 
 for v in titles_urls.values():
-    if v is not None:  # Some RSS readers tend to export invalid duplicities, this takes care of that.
+    # Some RSS readers tend to export invalid duplicities, this takes care of that.
+    if v is not None:
         stdout.write(f'{v.strip()}\n')
