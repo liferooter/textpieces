@@ -121,6 +121,13 @@ namespace TextPieces {
         }
 
         /**
+         * Move focus to the editor
+         */
+        public override bool grab_focus () {
+            return editor.grab_focus ();
+        }
+
+        /**
          * Get selection or whole text if there are no selection
          */
         public string get_selection () {
