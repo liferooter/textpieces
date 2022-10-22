@@ -7,7 +7,9 @@ SPDX-License-Identifier: CC0-1.0
 <component type="desktop">
   <id>com.github.liferooter.textpieces.desktop</id>
   <name>Text Pieces</name>
+  <name xml:lang="hu">Szövegrészek</name>
   <summary>Transform text without using random websites</summary>
+  <summary xml:lang="hu">Szöveg átalakítása véletlenszerű webhelyek használata nélkül</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <description>
@@ -24,12 +26,29 @@ SPDX-License-Identifier: CC0-1.0
       <li>Filter lines</li>
       <li>Replace substrings and regular expressions</li>
     </ul>
-    <p>...and so on.</p>
+    <p>…and so on.</p>
+
+    <p xml:lang="hu">Végezzen sok szövegátalakítást, például:</p>
+    <ul>
+      <li xml:lang="hu">Kivonatok kiszámítása</li>
+      <li xml:lang="hu">Szöveg kódolása</li>
+      <li xml:lang="hu">Szöveg dekódolása</li>
+      <li xml:lang="hu">Záró szóközök és vonalak eltávolítása</li>
+      <li xml:lang="hu">Sorok, szimbólumok és szavak számolása</li>
+      <li xml:lang="hu">JSON és XML formázása</li>
+      <li xml:lang="hu">Karakterláncok feloldása és zárolása</li>
+      <li xml:lang="hu">JSON-formátum átalakítása YAML-formátumba és fordítva</li>
+      <li xml:lang="hu">Szűrősorok</li>
+      <li xml:lang="hu">Alkarakterláncok és reguláris kifejezések helyettesítése</li>
+    </ul>
+    <p xml:lang="hu">…satöbbi.</p>
+    
   </description>
   <provides>
     <binary>textpieces</binary>
   </provides>
   <developer_name>Gleb Smirnov</developer_name>
+  <developer_name xml:lang="hu">Smirnov Gleb</developer_name>
   <url type="homepage">https://github.com/liferooter/textpieces</url>
   <url type="bugtracker">https://github.com/liferooter/textpieces/issues</url>
   <requires>
