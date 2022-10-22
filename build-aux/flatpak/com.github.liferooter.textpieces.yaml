@@ -6,7 +6,7 @@ app-id: com.github.liferooter.textpieces
 command: textpieces
 
 runtime: org.gnome.Platform
-runtime-version: '42'
+runtime-version: '43'
 sdk: org.gnome.Sdk
 sdk-extensions:
 - org.freedesktop.Sdk.Extension.vala
