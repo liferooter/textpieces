@@ -99,6 +99,25 @@ namespace TextPieces {
                 "style-scheme",
                 SYNC_CREATE
             );
+
+            /* Enable drag-n-drop to open file content */
+            var drop_target = new Gtk.DropTarget (typeof (File), COPY);
+            drop_target.on_drop.connect ((file) => {
+                var path = ((File) file).get_path ();
+                string contents;
+
+                try {
+                    FileUtils.get_contents (path, out contents);
+                    editor.buffer.text = contents;
+
+                    return true;
+                } catch (Error err) {
+                    critical ("failed to load file %s: %s", path, err.message);
+
+                    return false;
+                }
+            });
+            editor.add_controller (drop_target);
         }
 
         /**
