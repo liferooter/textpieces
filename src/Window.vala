@@ -400,6 +400,13 @@ namespace TextPieces {
             search_sorter.changed (DIFFERENT);
             search_filter.changed (DIFFERENT);
 
+            /* Select the first row if no row is selected */
+            if (search_listbox.get_selected_row () == null) {
+                search_listbox.select_row (
+                    search_listbox.get_row_at_index (0)
+                );
+            }
+
             /* Show placeholder if
                there are no tools found */
             search_stack.set_visible_child_name (
