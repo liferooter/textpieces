@@ -139,7 +139,7 @@ namespace TextPieces {
             /* Initialize selected
                tool property and run
                its callback */
-            selected_tool = null;
+            selected_tool = Application.tools.default_tool;
         }
 
         /**

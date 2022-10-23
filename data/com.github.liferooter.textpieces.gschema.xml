@@ -11,58 +11,47 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <key name="style-scheme" type="s">
       <default>'Adwaita-dark'</default>
       <summary>Style scheme</summary>
-      <description>
-        Which style scheme to use for application interface and editor.
-      </description>
+      <description>Which style scheme to use for application interface and editor.</description>
     </key>
     <key name="font-name" type="s">
       <default>'Monospace'</default>
       <summary>Font name</summary>
-      <description>
-        Name of font used in editor
-      </description>
+      <description>Name of font used in editor</description>
     </key>
     <key name="wrap-lines" type="b">
       <default>true</default>
       <summary>Wrap lines</summary>
-      <description>
-        Whether to wrap long lines
-      </description>
+      <description>Whether to wrap long lines</description>
     </key>
     <key name="tabs-to-spaces" type="b">
       <default>false</default>
       <summary>Tabs to spaces</summary>
-      <description>
-        Whether to insert spaces instead of tab
-      </description>
+      <description>Whether to insert spaces instead of tab</description>
     </key>
     <key name="spaces-in-tab" type="i">
       <default>4</default>
       <summary>Spaces in tab</summary>
-      <description>
-        Tab width in spaces
-      </description>
+      <description>Tab width in spaces</description>
     </key>
     <key name="window-width" type="i">
       <default>800</default>
       <summary>Window width</summary>
-      <description>
-        Saved width of application window
-      </description>
+      <description>Saved width of application window</description>
     </key>
     <key name="window-height" type="i">
       <default>500</default>
       <summary>Window height</summary>
-      <description>
-        Saved height of the window
-      </description>
+      <description>Saved height of the window</description>
     </key>
     <key name="is-maximized" type="b">
       <default>false</default>
       <summary>Is maximized</summary>
-      <description>
-        Whether the application window is maximized
-      </description>
+      <description>Whether the application window is maximized</description>
+    </key>
+    <key name="default-tool" type="s">
+      <default>''</default>
+      <summary>Default tool</summary>
+      <description>Tool to select on start. Its value must be a name of tool's script.</description>
     </key>
   </schema>
 </schemalist>

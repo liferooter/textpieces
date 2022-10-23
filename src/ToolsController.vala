@@ -57,6 +57,34 @@ namespace TextPieces {
         }
 
         /**
+         * Default tool
+         */
+        public Tool? default_tool {
+            owned get {
+                var default_tool_script = Application.settings.get_string ("default-tool");
+
+                if (default_tool_script != "") {
+                    for (uint i = 0; i < all_tools.get_n_items (); i++) {
+                        var tool = (Tool) all_tools.get_item (i);
+                        if (tool.script == default_tool_script) {
+                            return tool;
+                        }
+                    }
+
+                    message ("Default tool is not found, so will be reset");
+                    default_tool = null;
+                }
+
+                return null;
+            } set {
+                Application.settings.set_string (
+                    "default-tool",
+                    value?.script ?? ""
+                );
+            }
+        }
+
+        /**
          * Queue of deleted tools
          * pending script removal
          */
