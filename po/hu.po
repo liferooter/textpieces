@@ -26,11 +26,12 @@ msgstr "Szövegrészek"
 msgid ""
 "Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;"
 "Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;"
-msgstr ""
+msgstr "Gnome;GTK;szöveg;Base64;JSON;YAML;számolás;SHA1;SHA256;SHA384;SHA512;MD5;ellenőrzőösszeg;"
+"feloldó;kódolás;HTML;URL;szépítés;szűrő;fordítás;levágás;"
 
 #: data/com.github.liferooter.textpieces.desktop.in:20
 msgid "New Window"
-msgstr ""
+msgstr "Új ablak"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:10 src/Window.vala:243
 msgid "Transform text without using random websites"
