@@ -32,6 +32,7 @@ SPDX-License-Identifier: CC0-1.0
   <developer_name>Gleb Smirnov</developer_name>
   <url type="homepage">https://github.com/liferooter/textpieces</url>
   <url type="bugtracker">https://github.com/liferooter/textpieces/issues</url>
+  <url type="donation">https://www.patreon.com/liferooter</url>
   <requires>
     <display_length compare="ge">medium</display_length>
   </requires>
