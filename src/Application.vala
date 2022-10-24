@@ -122,8 +122,10 @@ namespace TextPieces {
             instance = this;
 
             /* Initialize localization */
+            Intl.setlocale (LocaleCategory.ALL, "");
             Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.GNOMELOCALEDIR);
             Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
+            Intl.textdomain (Config.GETTEXT_PACKAGE);
 
             /* Setup style scheme */
             Gtk.StyleContext.add_provider_for_display (
