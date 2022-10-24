@@ -355,7 +355,7 @@ namespace TextPieces {
         void tool_changed () {
             /* Update tool button */
             with (tool_button_content) {
-                label = selected_tool?.name
+                label = selected_tool?.translated_name
                     ?? NO_TOOL_LABEL;
                 icon_name = selected_tool?.icon
                     ?? NO_TOOL_ICON;
