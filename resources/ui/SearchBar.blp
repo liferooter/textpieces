@@ -23,8 +23,8 @@ template TextPiecesSearchBar : Adw.Bin {
 
       .TextPiecesSearchEntry search_entry {
         layout {
-          row: "0";
-          column: "0";
+          row: 0;
+          column: 0;
         }
       }
 
@@ -48,8 +48,8 @@ template TextPiecesSearchBar : Adw.Bin {
         }
 
         layout {
-          row: "0";
-          column: "1";
+          row: 0;
+          column: 1;
         }
       }
 
@@ -58,8 +58,8 @@ template TextPiecesSearchBar : Adw.Bin {
         tooltip-text: _("Find and replace");
 
         layout {
-          row: "0";
-          column: "2";
+          row: 0;
+          column: 2;
         }
       }
 
@@ -68,8 +68,8 @@ template TextPiecesSearchBar : Adw.Bin {
         tooltip-text: _("Toggle search options");
 
         layout {
-          row: "0";
-          column: "3";
+          row: 0;
+          column: 3;
         }
       }
 
@@ -84,8 +84,8 @@ template TextPiecesSearchBar : Adw.Bin {
         tooltip-text: _("Close search");
 
         layout {
-          row: "0";
-          column: "4";
+          row: 0;
+          column: 4;
         }
       }
 
@@ -97,8 +97,8 @@ template TextPiecesSearchBar : Adw.Bin {
         changed => remove_error_style();
 
         layout {
-          row: "1";
-          column: "0";
+          row: 1;
+          column: 0;
         }
       }
 
@@ -110,8 +110,8 @@ template TextPiecesSearchBar : Adw.Bin {
         action-name: "search.replace";
 
         layout {
-          row: "1";
-          column: "1";
+          row: 1;
+          column: 1;
         }
       }
 
@@ -123,9 +123,9 @@ template TextPiecesSearchBar : Adw.Bin {
         action-name: "search.replace-all";
 
         layout {
-          row: "1";
-          column: "2";
-          column-span: "3";
+          row: 1;
+          column: 2;
+          column-span: 3;
         }
       }
 
@@ -152,9 +152,9 @@ template TextPiecesSearchBar : Adw.Bin {
         }
 
         layout {
-          row: "2";
-          column: "0";
-          column-span: "5";
+          row: 2;
+          column: 0;
+          column-span: 5;
         }
       }
     }
