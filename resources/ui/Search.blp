@@ -1,0 +1,60 @@
+// SPDX-FileCopyrightText: 2022 Gleb Smirnov <glebsmirnov0708@gmail.com>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+using Gtk 4.0;
+using Adw 1;
+
+template TextPiecesSearch : Adw.Bin {
+  Stack search_stack {
+    transition-type: crossfade;
+
+    StackPage {
+      name: "search";
+      child: ScrolledWindow {
+        child: Viewport results_viewport {
+          scroll-to-focus: true;
+
+          Adw.Clamp {
+            maximum-size: 600;
+
+            ListBox results_listbox {
+              styles [
+                "boxed-list",
+              ]
+
+              row-activated => on_row_activated();
+              margin-top: 24;
+              margin-bottom: 24;
+              valign: start;
+              selection-mode: browse;
+            }
+          }
+        };
+      };
+    }
+
+    StackPage {
+      name: "placeholder";
+      child: Adw.StatusPage {
+        icon-name: "applications-utilities-symbolic";
+        title: _("No Tools Found");
+
+        Button {
+          styles [
+            "flat",
+          ]
+
+          halign: center;
+          action-name: "win.tools-settings";
+
+          Adw.ButtonContent {
+            icon-name: "list-add-symbolic";
+            label: _("_Add Custom Tool");
+            use-underline: true;
+          }
+        }
+      };
+    }
+  }
+}

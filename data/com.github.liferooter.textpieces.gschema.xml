@@ -48,10 +48,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
       <summary>Is maximized</summary>
       <description>Whether the application window is maximized</description>
     </key>
-    <key name="default-tool" type="s">
+    <key name="selected-tool" type="s">
       <default>''</default>
-      <summary>Default tool</summary>
-      <description>Tool to select on start. Its value must be a name of tool's script.</description>
+      <summary>Selected tool</summary>
+      <description>Used to restore tool choice on restart. Its value must be a name of tool's script.</description>
     </key>
   </schema>
 </schemalist>

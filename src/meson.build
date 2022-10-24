@@ -4,19 +4,25 @@
 
 textpieces_sources += [
   'Application.vala',
-  'CustomToolPage.vala',
-  'Editor.vala',
-  'NewToolPage.vala',
-  'Preferences.vala',
-  'Recoloring.vala',
-  'Search.vala',
-  'SearchBar.vala',
-  'SearchEntry.vala',
-  'Tool.vala',
-  'ToolSettings.vala',
-  'ToolsController.vala',
-  'Utils.vala',
-  'Window.vala',
+
+  'tools/Tool.vala',
+  'tools/ToolsController.vala',
+
+  'widgets/Window.vala',
+  'widgets/Editor.vala',
+  'widgets/Search.vala',
+  'widgets/SearchBar.vala',
+  'widgets/SearchEntry.vala',
+
+  'widgets/preferences/Preferences.vala',
+  'widgets/preferences/ToolSettings.vala',
+
+  'widgets/preferences/pages/CustomToolPage.vala',
+  'widgets/preferences/pages/NewToolPage.vala',
+
+  'utils/Utils.vala',
+  'utils/Recoloring.vala',
+
 ]
 
 executable('textpieces', [blueprint_hack, textpieces_sources],

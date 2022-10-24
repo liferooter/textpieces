@@ -89,17 +89,7 @@ template TextPiecesWindow : Adw.ApplicationWindow {
 
     SearchBar search_bar {
       search-mode-enabled: bind tool_button.active bidirectional;
-      child:
-      SearchEntry search_entry {
-        changed => update_search_results();
-        activate => on_search_activated();
-
-        EventControllerKey search_event_controller {
-          key-pressed => on_search_entry_key();
-        }
-      }
-
-      ;
+      child: SearchEntry search_entry {};
     }
 
     Stack content_stack {
@@ -118,84 +108,10 @@ template TextPiecesWindow : Adw.ApplicationWindow {
 
       StackPage {
         name: "search";
-        child:
-        Stack search_stack {
-          transition-type: crossfade;
-
-          StackPage {
-            name: "search";
-            child:
-            ScrolledWindow {
-              child:               Viewport search_viewport {
-                scroll-to-focus: true;
-
-                Adw.Clamp {
-                  maximum-size: 600;
-
-                  ListBox search_listbox {
-                    styles [
-                      "boxed-list",
-                    ]
-
-                    row-activated => on_row_activated();
-                    margin-top: 24;
-                    margin-bottom: 24;
-                    valign: start;
-                    selection-mode: browse;
-                  }
-                }
-              }
-
-              ;
-            }
-
-            ;
-          }
-
-          StackPage {
-            name: "placeholder";
-            child:
-            Adw.StatusPage {
-              icon-name: "applications-utilities-symbolic";
-              title: _("No Tools Found");
-
-              Button {
-                styles [
-                  "flat",
-                ]
-
-                halign: center;
-                action-name: "win.tools-settings";
-                child:
-                Box {
-                  spacing: 8;
-
-                  Image {
-                    styles [
-                      "dim-label",
-                    ]
-
-                    icon-name: "list-add-symbolic";
-                  }
-
-                  Label {
-                    styles [
-                      "dim-label",
-                    ]
-
-                    label: _("Add Custom Tool");
-                  }
-                }
-
-                ;
-              }
-            }
-
-            ;
-          }
-        }
-
-        ;
+        child: .TextPiecesSearch search {
+          search-entry: search_entry;
+          tool-selected => on_tool_selected();
+        };
       }
     }
   }

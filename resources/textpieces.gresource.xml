@@ -17,6 +17,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <file preprocess="xml-stripblanks">ui/ToolSettings.ui</file>
     <file preprocess="xml-stripblanks">ui/Window.ui</file>
     <file preprocess="xml-stripblanks">ui/Editor.ui</file>
+    <file preprocess="xml-stripblanks">ui/Search.ui</file>
 
     <!-- Shortcuts window -->
     <file preprocess="xml-stripblanks" alias="gtk/help-overlay.ui">ui/ShortcutsWindow.ui</file>

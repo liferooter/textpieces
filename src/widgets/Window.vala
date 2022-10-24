@@ -9,14 +9,10 @@ namespace TextPieces {
     [GtkTemplate (ui = "/com/github/liferooter/textpieces/ui/Window.ui")]
     class Window : Adw.ApplicationWindow {
         [GtkChild] unowned Adw.ButtonContent tool_button_content;
-        [GtkChild] unowned Gtk.EventControllerKey search_event_controller;
-        [GtkChild] unowned Gtk.ListBox search_listbox;
-        [GtkChild] unowned Gtk.SearchEntry search_entry;
         [GtkChild] unowned TextPieces.Editor editor;
         [GtkChild] unowned Gtk.Stack content_stack;
-        [GtkChild] unowned Gtk.Stack search_stack;
         [GtkChild] unowned Gtk.ToggleButton tool_button;
-        [GtkChild] unowned Gtk.Viewport search_viewport;
+        [GtkChild] unowned Search search;
 
         /**
          * Text used instead of tool name
@@ -30,21 +26,6 @@ namespace TextPieces {
          * where is no tool selected
          */
         const string NO_TOOL_ICON = "applications-utilities-symbolic";
-
-        /**
-         * Tool search model
-         */
-        Gtk.SortListModel search_model;
-
-        /**
-         * Sorter for search results
-         */
-        Gtk.Sorter search_sorter;
-
-        /**
-         * Filter for search results
-         */
-        Gtk.Filter search_filter;
 
         /**
          * Selected tool
@@ -66,6 +47,12 @@ namespace TextPieces {
                 if (_selected_tool != null)
                     _selected_tool.notify
                         .connect (tool_changed);
+
+                /* Save selected tool in GSettings */
+                Application.settings.set_string (
+                    "selected-tool",
+                    value?.script ?? ""
+                );
 
                 /* Trigger tool change callback */
                 tool_changed ();
@@ -105,31 +92,6 @@ namespace TextPieces {
             /* Load actions */
             add_action_entries (ACTION_ENTRIES, this);
 
-            /* Create sorter for search results */
-            search_sorter = new Gtk.CustomSorter (
-                (a, b) => Search.tool_sort_func ((Tool) a, (Tool) b, search_entry.text)
-            );
-
-            /* Create filter for search results */
-            search_filter = new Gtk.CustomFilter (
-                (tool) => Search.tool_filter_func ((Tool) tool, search_entry.text)
-            );
-
-            /* Create model for search results */
-            search_model = new Gtk.SortListModel (
-                new Gtk.FilterListModel (
-                    Application.tools.all_tools,
-                    search_filter
-                ),
-                search_sorter
-            );
-
-            /* Bind the model to list box */
-            search_listbox.bind_model (
-                search_model,
-                build_list_row
-            );
-
             /* Unselect tool if it's deleted */
             Application.tools.delete_tool.connect ((tool) => {
                 if (tool == selected_tool)
@@ -139,7 +101,26 @@ namespace TextPieces {
             /* Initialize selected
                tool property and run
                its callback */
-            selected_tool = Application.tools.default_tool;
+            var selected_tool_script = Application.settings.get_string ("selected-tool");
+            var tool_found = false;
+
+            if (selected_tool_script != "") {
+                for (uint i = 0; i < Application.tools.all_tools.get_n_items (); i++) {
+                    var tool = (Tool) Application.tools.all_tools.get_item (i);
+                    if (tool.script == selected_tool_script) {
+                        selected_tool = tool;
+                        tool_found = true;
+                        break;
+                    }
+                }
+
+                if (!tool_found) {
+                    message ("Previously selected tool is not found, so will be reset");
+                    selected_tool = null;
+                }
+            } else {
+                selected_tool = null;
+            }
         }
 
         /**
@@ -392,83 +373,12 @@ namespace TextPieces {
         }
 
         /**
-         * Update search state
+         * Select tool and close the search
          */
         [GtkCallback]
-        void update_search_results () {
-            /* Invalidate search sorter and filter */
-            search_sorter.changed (DIFFERENT);
-            search_filter.changed (DIFFERENT);
-
-            /* Select the first row if no row is selected */
-            if (search_listbox.get_selected_row () == null) {
-                search_listbox.select_row (
-                    search_listbox.get_row_at_index (0)
-                );
-            }
-
-            /* Show placeholder if
-               there are no tools found */
-            search_stack.set_visible_child_name (
-                search_model.get_n_items () == 0
-                    ? "placeholder"
-                    : "search"
-            );
-        }
-
-        /**
-         * Process key pressed in search entry
-         *
-         * Move focus to the first search result
-         * if `Gdk.Key.Down` is pressed
-         *
-         * @param keyval    pressed key value
-         * @param keycode   pressed key code
-         * @param modifiers pressed modifiers
-         *
-         * @returnif whether the key press was handled
-         */
-        [GtkCallback]
-        bool on_search_entry_key (uint keyval,
-                                  uint keycode,
-                                  Gdk.ModifierType modifiers) {
-            switch (keyval) {
-                case (Gdk.Key.Down):
-                case (Gdk.Key.Up):
-                    /* Move focus to listbox */
-                    search_entry.move_focus (TAB_FORWARD);
-                    /* Forward event to listbox */
-                    search_event_controller.forward (search_listbox);
-                    /* Grab focus back when done */
-                    search_entry.grab_focus ();
-
-                    return true;
-                default:
-                    return false;
-            }
-        }
-
-        /**
-         * Activate selected tool row
-         */
-        [GtkCallback]
-        void on_search_activated () {
-            var row = search_listbox.get_selected_row ()
-                   ?? search_listbox.get_row_at_index (0);
-            if (row != null)
-                search_listbox.row_activated  (row);
-        }
-
-        /**
-         * Select tool from row and stop search
-         *
-         * @param row activated row
-         */
-        [GtkCallback]
-        void on_row_activated (Gtk.ListBoxRow row) {
-            var tool = (Tool) search_model.get_item (row.get_index ());
+        void on_tool_selected (Tool tool) {
             selected_tool = tool;
-            search_entry.stop_search ();
+            tool_button.active = false;
         }
 
         /**
@@ -480,14 +390,10 @@ namespace TextPieces {
             if (tool_button.active) {
                 /* Show search */
                 content_stack.visible_child_name = "search";
-                /* Scroll search to the top */
-                search_viewport.vadjustment.set_value (0);
-                /* Select the first row */
-                var row = search_listbox.get_row_at_index (0);
-                search_listbox.select_row (row);
             } else {
                 /* Show editor */
                 content_stack.visible_child_name = "editor";
+                search.reset ();
             }
         }
     }
