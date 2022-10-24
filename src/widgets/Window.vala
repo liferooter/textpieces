@@ -212,24 +212,27 @@ namespace TextPieces {
          * Show about dialog
          */
         void action_about () {
-            string[] AUTHORS = {_("Gleb Smirnov <glebsmirnov0708@gmail.com>")};
+            var about_window = new Adw.AboutWindow () {
+                transient_for = this,
+                application = application,
 
-            string[] ARTISTS = {_("Tobias Bernard https://tobiasbernard.com"),
-                                _("Gleb Smirnov <glebsmirnov0708@gmail.com>")};
+                application_icon = "com.github.liferooter.textpieces",
+                application_name = _("Text Pieces"),
+                comments = _("Transform text without using random websites"),
+                version = Config.VERSION,
+                license_type = Gtk.License.GPL_3_0,
 
-            Gtk.show_about_dialog (
-                this,
-                "program-name", _("Text Pieces"),
-                "logo-icon-name", "com.github.liferooter.textpieces",
-                "comments", _("Transform text without using random websites"),
-                "version", Config.VERSION,
-                "license-type", Gtk.License.GPL_3_0,
-                "website", "https://github.com/liferooter/textpieces",
-                "artists", ARTISTS,
-                "authors", AUTHORS,
-                "translator-credits", _("translator-credits"),
-                null
-            );
+                website = "https://github.com/liferooter/textpieces",
+                issue_url = "https://github.com/liferooter/textpieces/issues/new",
+
+                artists = {_("Tobias Bernard https://tobiasbernard.com")},
+                developers = {_("Gleb Smirnov <glebsmirnov0708@gmail.com>")},
+
+                developer_name = _("Gleb Smirnov"),
+                translator_credits = _("translator-credits")
+            };
+
+            about_window.present ();
         }
 
         /**
