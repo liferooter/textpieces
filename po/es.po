@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: textpieces\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-01 08:21+0000\n"
+"POT-Creation-Date: 2022-11-01 08:45+0000\n"
 "PO-Revision-Date: 2022-01-24 14:00+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -388,7 +388,7 @@ msgstr ""
 msgid "Select font"
 msgstr "Seleccionar tipografía"
 
-#: src/widgets/preferences/ToolSettings.vala:182
+#: src/widgets/preferences/ToolSettings.vala:187
 #, c-format
 msgid "Argument %d"
 msgstr "Argumento %d"
