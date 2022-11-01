@@ -1,0 +1,954 @@
+# SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: CC0-1.0
+# Turkish translation for com.github.liferooter.textpieces
+# Copyright (C) 2022 com.github.liferooter.textpieces's COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.liferooter.textpieces package.
+#
+# Sabri Ünal <libreajans@gmail.com>, 2022.
+#
+# WARNING AND NOTE to Turkish translators:
+# Metnin sonundaki tools çevirileri tools.pot dosyasından gelmektedir.
+# textpieces.pot dosyasından bu dosyayı güncellediğinizde bu çevirileri kaybedersiniz.
+# Ne yaptığınızdan emin değilseniz, çeviri eksiklerini bana bildirin, çözmeye çalışırım.
+# (Sabri Ünal)
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: textpieces\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-01 08:51+0000\n"
+"PO-Revision-Date: 2022-11-01 15:14+0300\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"Language-Team: Turkish <gnometurk@gnome.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: data/com.github.liferooter.textpieces.desktop.in:7
+#: data/com.github.liferooter.textpieces.appdata.xml.in:9
+#: src/widgets/Window.vala:220 resources/ui/Window.blp:9
+msgid "Text Pieces"
+msgstr "Metin Parçaları"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.github.liferooter.textpieces.desktop.in:17
+msgid ""
+"Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;"
+"Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;"
+msgstr ""
+"Gnome;GTK;Metin;Base64;JSON;YAML;Say;SHA1;SHA256;SHA384;SHA512;MD5;Sağlama;"
+"Sağlama Toplamı;Kaç;Kodla;HTML;URL;Güzelleştir;Filtre;Süzgeç;Ters Çevir;Trim;"
+"Boşluk Sil;"
+
+#: data/com.github.liferooter.textpieces.desktop.in:20
+msgid "New Window"
+msgstr "Yeni Pencere"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:10
+#: src/widgets/Window.vala:221
+msgid "Transform text without using random websites"
+msgstr "Rastgele web siteleri kullanmadan metni dönüştür"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:14
+msgid "Do a lot of text transformations, such as:"
+msgstr "Aşağıdakiler gibi pekçok metin dönüşümünü gerçekleştir:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:16
+msgid "Calculate hashes"
+msgstr "Karmaları hesapla"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:17
+msgid "Encode text"
+msgstr "Metni kodla"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:18
+msgid "Decode text"
+msgstr "Metin kodlamasını çöz"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:19
+msgid "Remove trailing spaces and lines"
+msgstr "Sondaki gereksiz boşlukları ve satırları kaldır"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:20
+msgid "Count lines, symbols and words"
+msgstr "Satırları, sembolleri ve sözcükleri say"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:21
+msgid "Format JSON and XML"
+msgstr "JSON ve XML biçimlendir"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:22
+msgid "Escape and unescape strings"
+msgstr "Dizgelere kaçış uygula ve kaçıştan çıkar"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:23
+msgid "Convert JSON to YAML and vice versa"
+msgstr "JSON biçimiden YAML veya tersine dönüştür"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:24
+msgid "Filter lines"
+msgstr "Satırları süz"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:25
+msgid "Replace substrings and regular expressions"
+msgstr "Alt dizeleri ve kurallı ifadeleri değiştir"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:27
+msgid "...and so on."
+msgstr "ve çok daha fazlası..."
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:32
+#: src/widgets/Window.vala:231
+msgid "Gleb Smirnov"
+msgstr "Gleb Smirnov"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:64
+msgid "Bug fixes:"
+msgstr "Hata düzeltmeler:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:66
+msgid "Tool arguments now work as expected"
+msgstr "Araç argümanları artık beklendiği gibi çalışıyor"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:67
+msgid "Translate some untranslated strings"
+msgstr "Çevrilmemiş kimi dizgeleri çevir"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:73
+#: data/com.github.liferooter.textpieces.appdata.xml.in:85
+#: data/com.github.liferooter.textpieces.appdata.xml.in:93
+#: data/com.github.liferooter.textpieces.appdata.xml.in:114
+#: data/com.github.liferooter.textpieces.appdata.xml.in:133
+#: data/com.github.liferooter.textpieces.appdata.xml.in:148
+#: data/com.github.liferooter.textpieces.appdata.xml.in:159
+#: data/com.github.liferooter.textpieces.appdata.xml.in:169
+#: data/com.github.liferooter.textpieces.appdata.xml.in:179
+msgid "New features and improvements:"
+msgstr "Yeni özellikler ve iyileştirmeler:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:75
+msgid "Add tool for extracting RSS URLs from OPML files"
+msgstr "OPML dosyalarından RSS URL'lerini ayıklamak için araç eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:76
+msgid "Use more verbose error reporting for Base64 decode tool"
+msgstr "Base64 kod çözme aracı için daha ayrıntılı hata raporlaması kullanıldı"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:77
+msgid "Focus editor on startup"
+msgstr "Başlangıçta düzenleyiciye odaklan"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:78
+msgid "Save selected tool between sessions"
+msgstr "Oturumlar arasında seçilen aracı kaydet"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:79
+msgid "Minor UI improvements"
+msgstr "Küçük arayüz iyileştirmeleri"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:87
+msgid "Add hotkey to open search in replace mode"
+msgstr "Aramayı değiştirme kipinde açmak için kısayol tuşu eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:95
+msgid "Add some keywords to the application for system search"
+msgstr "Sistem araması için uygulamaya bazı anahtar kelimeler eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:101
+msgid "New features and improvement:"
+msgstr "Yeni özellikler ve iyileştirmeler:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:103
+msgid "Add style schemes"
+msgstr "Biçem şeması eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:104
+msgid "Add search and replace feature to editor"
+msgstr "Düzenleyiciye arama ve değiştirme özelliği eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:105
+msgid "Fix some bugs"
+msgstr "Kimi hatalar düzeltildi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:110
+msgid "Bug fix"
+msgstr "Hata düzeltme"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:116
+msgid "Refresh UI"
+msgstr "Arayüz yenilendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:117
+msgid "Fix a lot of bugs"
+msgstr "Pek çok hata düzeltildi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:118
+msgid "Add powerful settings"
+msgstr "Güçlü ayarlar eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:119
+msgid "Add arguments support for custom tools"
+msgstr "Özel araçlar için argüman desteği eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:120
+msgid "Add translation support"
+msgstr "Çeviri desteği eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:121
+#: data/com.github.liferooter.textpieces.appdata.xml.in:152
+msgid "Improve search"
+msgstr "Arama iyileştirildi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:135
+msgid "Minor UI changes"
+msgstr "Küçük arayüz değişiklikleri"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:136
+msgid "Add XML formatter"
+msgstr "XML biçimlendirici eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:141
+msgid "Some bugfixes and improvements"
+msgstr "Kimi hata düzeltmeleri ve iyileştirmeler"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:144
+msgid "Bring back tools with arguments"
+msgstr "Araçlarda argüman kullanımı geri getirildi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:150
+msgid "Redesign the application"
+msgstr "Uygulama yeniden tasarlandı"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:151
+msgid "Add custom tools support"
+msgstr "Özel araç desteği eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:153
+msgid "Add ability to text load from file and save to file"
+msgstr "Dosyadan metin yükleme ve dosyaya kaydetme yeteneği eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:161
+msgid "Exit by Ctrl+Q"
+msgstr "Ctrl+Q ile çıkış"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:162
+msgid "Monospace argument entry"
+msgstr "Eş aralıklı argüman girişi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:163
+msgid "Update new runtime"
+msgstr "Yeni çalışma zamanına güncellendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:171
+msgid "Sort tools"
+msgstr "Araçları sırala"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:172
+msgid "Filter tools"
+msgstr "Araçları süz"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:173
+msgid "Minify C-like code"
+msgstr "C benzeri kodu küçültme"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:181
+msgid "Add more tools"
+msgstr "Daha çok araç ekle"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:182
+msgid "Make tools popover more powerful"
+msgstr "Araçların açılır pencereleri daha güçlü hale getirildi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:183
+msgid "Redesign icon"
+msgstr "Simge yeniden tasarlandı"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:184
+msgid "General improvements"
+msgstr "Genel iyileştirmeler"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:189
+msgid "Add tools for replacement and removing"
+msgstr "Değiştirme ve kaldırma için araçlar eklendi"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:192
+msgid "Application release"
+msgstr "Uygulama sürümü"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:13
+msgid "Style scheme"
+msgstr "Biçem şeması"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:14
+msgid "Which style scheme to use for application interface and editor."
+msgstr ""
+"Uygulama arayüzü ve düzenleyici için hangi biçem şemasının kullanılacağı."
+
+#: data/com.github.liferooter.textpieces.gschema.xml:18
+msgid "Font name"
+msgstr "Yazı tipi adı"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:19
+msgid "Name of font used in editor"
+msgstr "Düzenleyicide kullanılan yazı tipinin adı"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:23
+msgid "Wrap lines"
+msgstr "Satırları sar"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:24
+msgid "Whether to wrap long lines"
+msgstr "Uzun satırların sarılma durumu"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:28
+msgid "Tabs to spaces"
+msgstr "Sekmeler ve boşluklar"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:29
+msgid "Whether to insert spaces instead of tab"
+msgstr "Sekme yerine boşluk eklenip eklenmeyeceği"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:33
+msgid "Spaces in tab"
+msgstr "Sekmelerdeki boşluklar"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:34
+msgid "Tab width in spaces"
+msgstr "Boşluklarda sekme genişliği"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:38
+msgid "Window width"
+msgstr "Pencere genişliği"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:39
+msgid "Saved width of application window"
+msgstr "Uygulama penceresinin kaydedilmiş genişliği"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:43
+msgid "Window height"
+msgstr "Pencere yüksekliği"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:44
+msgid "Saved height of the window"
+msgstr "UyPenceresinin kaydedilmiş yüksekliği"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:48
+msgid "Is maximized"
+msgstr "Ekranı kaplamış mı"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:49
+msgid "Whether the application window is maximized"
+msgstr "Uygulama penceresinin ekranı kaplama durumu"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:53
+msgid "Selected tool"
+msgstr "Seçilen araç"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:54
+msgid ""
+"Used to restore tool choice on restart. Its value must be a name of tool's "
+"script."
+msgstr ""
+"Yeniden başlatma sırasında araç seçimini geri yüklemek için kullanılır. "
+"Değeri, aracın komut dosyasının adı olmalıdır."
+
+#: src/widgets/Editor.vala:145
+msgid "Text is copied"
+msgstr "Metin kopyalandı"
+
+#. *
+#. * Text used instead of tool name
+#. * when where is no tool selected
+#.
+#: src/widgets/Window.vala:21 resources/ui/ShortcutsWindow.blp:39
+msgid "Select tool"
+msgstr "Araç seç"
+
+#: src/widgets/Window.vala:228
+msgid "Tobias Bernard https://tobiasbernard.com"
+msgstr "Tobias Bernard https://tobiasbernard.com"
+
+#: src/widgets/Window.vala:229
+msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+msgstr "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+
+#: src/widgets/Window.vala:232
+msgid "translator-credits"
+msgstr "Sabri Ünal <libreajans@gmail.com>"
+
+#: src/widgets/Window.vala:259 resources/ui/Window.blp:78
+msgid "Save to File"
+msgstr "Dosyaya Kaydet"
+
+#: src/widgets/Window.vala:284
+#, c-format
+msgid "Can't save to file: %s"
+msgstr "Dosyaya kaydedilemedi: %s"
+
+#: src/widgets/Window.vala:300 resources/ui/Window.blp:85
+msgid "Load from File"
+msgstr "Dosyadan Yükle"
+
+#: src/widgets/Window.vala:325
+#, c-format
+msgid "Can't load from file: %s"
+msgstr "Dosyadan yüklenemedi: %s"
+
+#: src/widgets/SearchEntry.vala:93
+#, c-format
+msgid "%u of %d"
+msgstr "%u / %d"
+
+#. Create dialog
+#: src/widgets/preferences/Preferences.vala:128
+msgid "Select font"
+msgstr "Yazı tipi seç"
+
+#: src/widgets/preferences/ToolSettings.vala:187
+#, c-format
+msgid "Argument %d"
+msgstr "Argüman %d"
+
+#: src/widgets/preferences/pages/NewToolPage.vala:113
+#, c-format
+msgid "Error occured: %s"
+msgstr "Hata oluştu: %s"
+
+#: resources/ui/CustomToolPage.blp:27
+msgid "Edit Tool"
+msgstr "Düzenleme Aracı"
+
+#: resources/ui/CustomToolPage.blp:38
+msgid "D_elete"
+msgstr "S_il"
+
+#: resources/ui/Search.blp:41
+msgid "No Tools Found"
+msgstr "Hiçbir Araç Bulunamadı"
+
+#: resources/ui/Search.blp:53
+msgid "_Add Custom Tool"
+msgstr "Özel Araç _Ekle"
+
+#: resources/ui/NewToolPage.blp:27
+msgid "New Tool"
+msgstr "Yeni Araç"
+
+#: resources/ui/NewToolPage.blp:42
+msgid "_Create"
+msgstr "_Oluştur"
+
+#: resources/ui/Preferences.blp:13
+msgid "_General"
+msgstr "_Genel"
+
+#: resources/ui/Preferences.blp:19
+msgid "Editor"
+msgstr "Düzenleyici"
+
+#: resources/ui/Preferences.blp:22
+msgid "Editor _Font"
+msgstr "Düzenleyici _Yazı Tipi"
+
+#: resources/ui/Preferences.blp:40
+msgid "_Wrap Lines"
+msgstr "_Satırları Sar"
+
+#: resources/ui/Preferences.blp:51
+msgid "Tabs to _Spaces"
+msgstr "Sekmelerden _Boşluklara"
+
+#: resources/ui/Preferences.blp:62
+msgid "_Tab Width in Spaces"
+msgstr "_Sekmenin Boşluk Karşılığı"
+
+#: resources/ui/Preferences.blp:82
+msgid "Appearance"
+msgstr "Görünüm"
+
+#: resources/ui/Preferences.blp:94
+msgid "T_ools"
+msgstr "A_raçlar"
+
+#: resources/ui/Preferences.blp:100
+msgid "Custom tools"
+msgstr "Özel araçlar"
+
+#: resources/ui/Preferences.blp:112
+msgid "_Add custom tool"
+msgstr "Özel araç _ekle"
+
+#: resources/ui/Preferences.blp:128
+msgid "No Custom Tools"
+msgstr "Özel Araç Yok"
+
+#: resources/ui/Preferences.blp:129
+msgid "You can create one"
+msgstr "Bir tane oluşturabilirsiniz"
+
+#: resources/ui/SearchBar.blp:40
+msgid "Move to revious match"
+msgstr "Önceki eşleşmeye git"
+
+#: resources/ui/SearchBar.blp:46
+msgid "Move to next match"
+msgstr "Sonraki eşleşmeye git"
+
+#: resources/ui/SearchBar.blp:58
+msgid "Find and replace"
+msgstr "Bul ve değiştir"
+
+#: resources/ui/SearchBar.blp:68
+msgid "Toggle search options"
+msgstr "Arama seçeneklerini değiştir"
+
+#: resources/ui/SearchBar.blp:84
+msgid "Close search"
+msgstr "Aramayı kapat"
+
+#: resources/ui/SearchBar.blp:95
+msgid "Replace"
+msgstr "Değiştir"
+
+#: resources/ui/SearchBar.blp:106
+msgid "_Replace"
+msgstr "_Değiştir"
+
+#: resources/ui/SearchBar.blp:119
+msgid "Replace _All"
+msgstr "_Tümünü Değiştir"
+
+#: resources/ui/SearchBar.blp:138
+msgid "Re_gular expressions"
+msgstr "_Düzenli İfadeler"
+
+#: resources/ui/SearchBar.blp:144
+msgid "_Case sensitive"
+msgstr "_Büyük küçük harf duyarlı"
+
+#: resources/ui/SearchBar.blp:150
+msgid "Match whole _word only"
+msgstr "Yalnızca tüm _sözcüğü eşleştir"
+
+#: resources/ui/SearchEntry.blp:15
+msgid "Find"
+msgstr "Ara"
+
+#: resources/ui/ShortcutsWindow.blp:12
+msgid "General"
+msgstr "Genel"
+
+#: resources/ui/ShortcutsWindow.blp:15
+msgid "Keyboard shortcuts"
+msgstr "Klavye kısayolları"
+
+#: resources/ui/ShortcutsWindow.blp:20
+msgid "Preferences"
+msgstr "Tercihler"
+
+#: resources/ui/ShortcutsWindow.blp:25
+msgid "Quit"
+msgstr "Çık"
+
+#: resources/ui/ShortcutsWindow.blp:31
+msgid "Tools"
+msgstr "Araçlar"
+
+#: resources/ui/ShortcutsWindow.blp:34
+msgid "Apply"
+msgstr "Uygula"
+
+#: resources/ui/ShortcutsWindow.blp:44
+msgid "Just to the tool options"
+msgstr "Sadece araç seçeneklerine"
+
+#: resources/ui/ShortcutsWindow.blp:50
+msgid "Undo and Redo"
+msgstr "Geri Al ve Yinele"
+
+#: resources/ui/ShortcutsWindow.blp:53
+msgid "Undo"
+msgstr "Geri al"
+
+#: resources/ui/ShortcutsWindow.blp:58
+msgid "Redo"
+msgstr "Yinele"
+
+#: resources/ui/ShortcutsWindow.blp:64
+msgid "Files"
+msgstr "Dosyalar"
+
+#: resources/ui/ShortcutsWindow.blp:67
+msgid "Load from file"
+msgstr "Dosyadan yükle"
+
+#: resources/ui/ShortcutsWindow.blp:72
+msgid "Save to file"
+msgstr "Dosyaya kaydet"
+
+#: resources/ui/ToolSettings.blp:31
+msgid "_Name"
+msgstr "_Ad"
+
+#: resources/ui/ToolSettings.blp:42
+msgid "_Description"
+msgstr "_Açıklama"
+
+#: resources/ui/ToolSettings.blp:52
+msgid "_Arguments"
+msgstr "_Argümanlar"
+
+#: resources/ui/ToolSettings.blp:80
+msgid "Edit _Script"
+msgstr "_Betiği Düzenle"
+
+#: resources/ui/Window.blp:32
+msgid "_Apply"
+msgstr "_Uygula"
+
+#: resources/ui/Window.blp:35
+msgid "Apply Selected Tool"
+msgstr "Seçilen Aracı Uygula"
+
+#: resources/ui/Window.blp:45
+msgid "Copy"
+msgstr "Kopyala"
+
+#: resources/ui/Window.blp:71
+msgid "Main Menu"
+msgstr "Ana Menü"
+
+#: resources/ui/Window.blp:123
+msgid "_New Window"
+msgstr "_Yeni Pencere"
+
+#: resources/ui/Window.blp:131
+msgid "_Find/Replace…"
+msgstr "_Bul/Değiştir…"
+
+#: resources/ui/Window.blp:139
+msgid "_Preferences"
+msgstr "_Tercihler"
+
+#: resources/ui/Window.blp:145
+msgid "_Keyboard Shortcuts"
+msgstr "_Klavye Kısayolları"
+
+#: resources/ui/Window.blp:151
+msgid "_About Text Pieces"
+msgstr "Metin Parçaları _Hakkında"
+
+msgctxt "tools"
+msgid "SHA1 Checksum"
+msgstr "SHA1 Sağlama Toplamı"
+
+msgctxt "tools"
+msgid "Compute SHA1 hash sum"
+msgstr "SHA1 karma toplamı hesapla"
+
+msgctxt "tools"
+msgid "SHA256 Checksum"
+msgstr "SHA256 Sağlama Toplamı"
+
+msgctxt "tools"
+msgid "Compute SHA256 hash sum"
+msgstr "SHA256 karma toplamı hesapla"
+
+msgctxt "tools"
+msgid "SHA384 Checksum"
+msgstr "SHA384 Sağlama Toplamı"
+
+msgctxt "tools"
+msgid "Compute SHA384 hash sum"
+msgstr "SHA384 karma toplamı hesapla"
+
+msgctxt "tools"
+msgid "SHA512 Checksum"
+msgstr "SHA512 Sağlama Toplamı"
+
+msgctxt "tools"
+msgid "Compute SHA512 hash sum"
+msgstr "SHA512 karma toplamı hesapla"
+
+msgctxt "tools"
+msgid "MD5 Checksum"
+msgstr "MD5 Sağlama Toplamı"
+
+msgctxt "tools"
+msgid "Compute MD5 hash sum"
+msgstr "MD5 karma toplamı hesapla"
+
+msgctxt "tools"
+msgid "Base64 Encode"
+msgstr "Base64 Kodlama"
+
+msgctxt "tools"
+msgid "Encode text to Base64"
+msgstr "Metni Base64 ile kodla"
+
+msgctxt "tools"
+msgid "Base64 Decode"
+msgstr "Base64 Çözümle"
+
+msgctxt "tools"
+msgid "Decode text from Base64"
+msgstr "Base64 ile kodlanmış metni çözümle"
+
+msgctxt "tools"
+msgid "Remove Trailing"
+msgstr "Gereksiz Boşlukları Kırp"
+
+msgctxt "tools"
+msgid "Remove trailing whitespaces and newlines"
+msgstr "Sondaki boşlukları ve yeni satırları kırp"
+
+msgctxt "tools"
+msgid "Trim Lines"
+msgstr "Satırları Kırp"
+
+msgctxt "tools"
+msgid "Remove leading and trailing whitespaces and newlines"
+msgstr "Baştaki ve sondaki boşlukları ve yeni satırları kırp"
+
+msgctxt "tools"
+msgid "OPML to RSS links"
+msgstr "OPML'den RSS bağlantılarına"
+
+msgctxt "tools"
+msgid "Extract RSS links from OPML outline"
+msgstr "OPML özetinden RSS bağlantılarını ayıkla"
+
+msgctxt "tools"
+msgid "Count Symbols"
+msgstr "Sembolleri Say"
+
+msgctxt "tools"
+msgid "Count how many symbols are in text"
+msgstr "Metindeki sembolleri say"
+
+msgctxt "tools"
+msgid "Count Lines"
+msgstr "Satırları Say"
+
+msgctxt "tools"
+msgid "Count how many lines are in text"
+msgstr "Metindeki satırları say"
+
+msgctxt "tools"
+msgid "Count Words"
+msgstr "Sözcükleri Say"
+
+msgctxt "tools"
+msgid "Count how many words are in text"
+msgstr "Metindeki sözcükleri say"
+
+msgctxt "tools"
+msgid "Prettify JSON"
+msgstr "JSON Güzelleştir"
+
+msgctxt "tools"
+msgid "Parse JSON and prettify it"
+msgstr "JSON ayrıştır ve güzelleştir"
+
+msgctxt "tools"
+msgid "Minify JSON"
+msgstr "JSON Küçült"
+
+msgctxt "tools"
+msgid "Parse JSON and minify it"
+msgstr "JSON ayrıştır ve küçült"
+
+msgctxt "tools"
+msgid "Escape String"
+msgstr "Dizge Kaçış"
+
+msgctxt "tools"
+msgid "Replace special characters with escape sequences"
+msgstr "Özel karakterleri kaçış dizeleriyle değiştir"
+
+msgctxt "tools"
+msgid "Escape HTML"
+msgstr "HTML Kaçış"
+
+msgctxt "tools"
+msgid "Replace special characters with HTML-safe sequences"
+msgstr "Özel karakterleri HTML güvenli dizelerle değiştir"
+
+msgctxt "tools"
+msgid "Escape URL"
+msgstr "URL Kaçış"
+
+msgctxt "tools"
+msgid "Replace special characters with URL-safe sequences"
+msgstr "Özel karakterleri URL güvenli dizelerle değiştir"
+
+msgctxt "tools"
+msgid "Unescape String"
+msgstr "Dizge Kaçışlarını Kaldır"
+
+msgctxt "tools"
+msgid "Replace escape sequences with characters"
+msgstr "Kaçış dizelerini karakterlerle değiştir"
+
+msgctxt "tools"
+msgid "Unescape HTML"
+msgstr "HTML Kaçışlarını Kaldır"
+
+msgctxt "tools"
+msgid "Replace HTML sequences with characters"
+msgstr "HTML dizelerini karakterlerle değiştir"
+
+msgctxt "tools"
+msgid "Unescape URL"
+msgstr "URL Kaçışını Kaldır"
+
+msgctxt "tools"
+msgid "Replace URL sequences with characters"
+msgstr "URL dizelerini karakterlerle değiştir"
+
+msgctxt "tools"
+msgid "Convert JSON to YAML"
+msgstr "JSONʼdan YAMLʼe Dönüştür"
+
+msgctxt "tools"
+msgid "Parse JSON and convert it to YAML document"
+msgstr "JSON ayrıştır ve YAML belgesine dönüştür"
+
+msgctxt "tools"
+msgid "Convert YAML to JSON"
+msgstr "YAMLʼden JSONʼa Dönüştür"
+
+msgctxt "tools"
+msgid "Parse YAML document and convert it to JSON"
+msgstr "YAML belgesini ayrıştır ve JSON biçimine dönüştür"
+
+msgctxt "tools"
+msgid "Reverse Lines"
+msgstr "Satırları Ters Çevir"
+
+msgctxt "tools"
+msgid "Reoder lines in reverse order"
+msgstr "Satırları ters sırada yeniden sırala"
+
+msgctxt "tools"
+msgid "Reverse Text"
+msgstr "Metni Ters Çevir"
+
+msgctxt "tools"
+msgid "Reorder characters in reverse order"
+msgstr "Karakterleri ters sırada yeniden sırala"
+
+msgctxt "tools"
+msgid "Sort Lines"
+msgstr "Satırları Sırala"
+
+msgctxt "tools"
+msgid "Sort lines in text in alphabetical order"
+msgstr "Metindeki satırları alfabetik olarak sırala"
+
+msgctxt "tools"
+msgid "Reverse Sort Lines"
+msgstr "Satırları Ters Sırala"
+
+msgctxt "tools"
+msgid "Sort lines in text in reverse alphabetical order"
+msgstr "Metindeki satırları alfabetik olarak ters sırala"
+
+msgctxt "tools"
+msgid "Filter Lines by Regex"
+msgstr "Satırları Düzenli İfadelerle Süz"
+
+msgctxt "tools"
+msgid "Remove all lines which don't match given regular expression"
+msgstr "Verilen düzenli ifadeyle eşleşmeyen tüm satırları kaldır"
+
+msgctxt "tools"
+msgid "Regex"
+msgstr "Düzenli İfade"
+
+msgctxt "tools"
+msgid "Filter Lines by Substring"
+msgstr "Satırları Alt Dizeye Göre Süz"
+
+msgctxt "tools"
+msgid "Remove all lines which don't contain given substring"
+msgstr "Verilen alt dizeyi içermeyen tüm satırları kaldır"
+
+msgctxt "tools"
+msgid "Substring"
+msgstr "Alt Dize"
+
+msgctxt "tools"
+msgid "Reverse Filter Lines by Regex"
+msgstr "Satırları Diziye Göre Ters Süz"
+
+msgctxt "tools"
+msgid "Remove all lines which match given regular expression"
+msgstr "Verilen düzenli ifadeyle eşleşen tüm satırları kaldır"
+
+msgctxt "tools"
+msgid "Reverse Filter Lines by Substring"
+msgstr "Satırları Alt Dizeye Göre Ters Süz"
+
+msgctxt "tools"
+msgid "Remove all lines which contain given substring"
+msgstr "Verilen alt dizeyi içeren tüm satırları kaldır"
+
+msgctxt "tools"
+msgid "Remove Regex"
+msgstr "Düzenli İfade Kaldır"
+
+msgctxt "tools"
+msgid "Remove all matches of regular expression"
+msgstr "Normal ifadenin tüm eşleşmelerini kaldır"
+
+msgctxt "tools"
+msgid "Remove Substring"
+msgstr "Alt Dize Kaldır"
+
+msgctxt "tools"
+msgid "Remove all occurrences of given substring in text"
+msgstr "Verilen alt dizenin metindeki tüm oluşumlarını kaldır"
+
+msgctxt "tools"
+msgid "Replace Substring"
+msgstr "Alt Dize Değiştir"
+
+msgctxt "tools"
+msgid "Replace all occurrences of given substring in text with other string"
+msgstr ""
+"Verilen alt dizenin metindeki tüm oluşumlarını diğer dizeyle değiştir"
+
+msgctxt "tools"
+msgid "Find"
+msgstr "Bul"
+
+msgctxt "tools"
+msgid "Replace With"
+msgstr "Şununla Değiştir"
+
+msgctxt "tools"
+msgid "Replace Regex"
+msgstr "Düzenli İfade Değiştir"
+
+msgctxt "tools"
+msgid "Replace all given regex matches in text with given string"
+msgstr ""
+"Verilen düzenli ifadenin metindeki tüm eşleşmelerini verilen dizeyle "
+"değiştir"
+
+msgctxt "tools"
+msgid "Find (regex)"
+msgstr "Bul (düzenli ifade)"
+
+msgctxt "tools"
+msgid "Prettify XML"
+msgstr "XML Güzelleştir"
+
+msgctxt "tools"
+msgid "Parse XML and prettify it"
+msgstr "XML ayrıştır ve güzelleştir"
