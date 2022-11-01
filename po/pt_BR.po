@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: textpieces\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-24 20:05+0000\n"
+"POT-Creation-Date: 2022-11-01 08:21+0000\n"
 "PO-Revision-Date: 2022-02-03 14:21-0300\n"
 "Last-Translator: Éden Alencar <eden.alencar@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <eden.alencar@gmail.com>\n"
@@ -332,7 +332,7 @@ msgid ""
 "script."
 msgstr ""
 
-#: src/widgets/Editor.vala:155
+#: src/widgets/Editor.vala:145
 #, fuzzy
 msgid "Text is copied"
 msgstr "O texto é copiado para a área de transferência"

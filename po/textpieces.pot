@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: textpieces\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-24 20:05+0000\n"
+"POT-Creation-Date: 2022-11-01 08:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -327,7 +327,7 @@ msgid ""
 "script."
 msgstr ""
 
-#: src/widgets/Editor.vala:155
+#: src/widgets/Editor.vala:145
 msgid "Text is copied"
 msgstr ""
 
