@@ -42,9 +42,9 @@ modules:
   builddir: true
   buildsystem: meson
   sources:
-  - type: git
-    url: https://github.com/liferooter/textpieces
-    tag: v3.3.0
+  - type: dir
+    path: ../..
+
   modules:
   - name: python3-pyyaml
     buildsystem: simple
