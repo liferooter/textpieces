@@ -55,11 +55,6 @@ namespace TextPieces {
         }
 
         /**
-         * Style scheme binding
-         */
-        private Binding style_scheme_binding;
-
-        /**
          * Editor's application
          *
          * Used to bind editor style scheme
@@ -69,11 +64,6 @@ namespace TextPieces {
             get {
                 return Application.instance;
             }
-        }
-
-        ~Editor () {
-            /* Disconnect global style scheme */
-            style_scheme_binding.unbind ();
         }
 
         construct {
