@@ -55,6 +55,11 @@ namespace TextPieces {
             public string name { get; construct set; }
 
             /**
+             * Translated name of the argument
+             */
+            public string translated_name { get { return _(name); } }
+
+            /**
              * Create argument object
              *
              * @param index index of the argument
@@ -205,7 +210,7 @@ namespace TextPieces {
                 var new_args = new string[added];
                 for (var i = 0; i < added; i++) {
                     var arg = arguments.get_item (pos + i) as Argument;
-                    new_args[i] = arg.name;
+                    new_args[i] = arg.translated_name;
                 }
 
                 /* Update tool arguments */

@@ -79,8 +79,8 @@ namespace TextPieces {
                 (obj) => {
                     var item = (Tool) obj;
                     var row = new Adw.ActionRow () {
-                        title = item.name,
-                        subtitle = item.description,
+                        title = item.translated_name,
+                        subtitle = item.translated_description,
                         activatable = true
                     };
                     row.add_suffix (new Gtk.Image () {

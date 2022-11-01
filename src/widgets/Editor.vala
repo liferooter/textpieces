@@ -55,11 +55,6 @@ namespace TextPieces {
         }
 
         /**
-         * Style scheme binding
-         */
-        private Binding style_scheme_binding;
-
-        /**
          * Editor's application
          *
          * Used to bind editor style scheme
@@ -69,11 +64,6 @@ namespace TextPieces {
             get {
                 return Application.instance;
             }
-        }
-
-        ~Editor () {
-            /* Disconnect global style scheme */
-            style_scheme_binding.unbind ();
         }
 
         construct {
@@ -205,7 +195,8 @@ namespace TextPieces {
         public void set_arguments (string[] arguments) {
             var children = arguments_box.observe_children ();
             for (int i = (int) children.get_n_items () - 1; i >= 0; i--) {
-                ((Gtk.Entry) children.get_item (i)).destroy ();
+                var entry = (Gtk.Widget) children.get_item (i);
+                arguments_box.remove (entry);
             }
 
             foreach (var argument in arguments) {
