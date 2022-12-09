@@ -57,7 +57,6 @@ namespace TextPieces {
             { "win.apply"             , "<Ctrl>Return"   },
             { "win.copy"              , "<Ctrl><Shift>c" },
             { "win.open-preferences"  , "<Ctrl>comma"    },
-            { "win.show-help-overlay" , "<Ctrl>question" },
             { "win.load-file"         , "<Ctrl>o"        },
             { "win.save-as"           , "<Ctrl>s"        },
             { "win.toggle-search"     , "<Alt>s"         },
