@@ -7,9 +7,15 @@ using Gtk 4.0;
 ShortcutsWindow help_overlay {
   ShortcutsSection {
     section-name: "shortcuts";
+    max-height: 12;
 
     ShortcutsGroup {
       title: _("General");
+
+      ShortcutsShortcut {
+        title: _("New window");
+        action-name: "app.new-window";
+      }
 
       ShortcutsShortcut {
         title: _("Keyboard shortcuts");
@@ -22,8 +28,13 @@ ShortcutsWindow help_overlay {
       }
 
       ShortcutsShortcut {
-        title: _("Quit");
+        title: _("Close window");
         action-name: "window.close";
+      }
+
+      ShortcutsShortcut {
+        title: _("Quit");
+        action-name: "app.quit";
       }
     }
 
@@ -73,5 +84,30 @@ ShortcutsWindow help_overlay {
         action-name: "win.save-as";
       }
     }
+
+    ShortcutsGroup {
+      title: _("Search and Replace");
+
+      ShortcutsShortcut {
+        title: _("Search");
+        accelerator: "<ctrl>f";
+      }
+
+      ShortcutsShortcut {
+        title: _("Replace");
+        accelerator: "<ctrl>h";
+      }
+
+      ShortcutsShortcut {
+        title: _("Move to previous match");
+        accelerator: "<Shift>Return";
+      }
+
+      ShortcutsShortcut {
+        title: _("Move to next match");
+        accelerator: "Return";
+      }
+    }
+
   }
 }
