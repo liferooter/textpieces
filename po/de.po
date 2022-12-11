@@ -1,0 +1,631 @@
+# German translation of the textpieces package
+# Copyright (C) 2022 THE textpieces'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the textpieces package.
+# gregorni <mail.gregorni@proton.me>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: textpieces\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-01 08:51+0000\n"
+"PO-Revision-Date: 2022-12-09 10:47+0200\n"
+"Last-Translator: gregorni <mail.gregorni@proton.me>\n"
+"Language-Team: German <gnome-de@gnome.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.liferooter.textpieces.desktop.in:7
+#: data/com.github.liferooter.textpieces.appdata.xml.in:9
+#: src/widgets/Window.vala:220 resources/ui/Window.blp:9
+msgid "Text Pieces"
+msgstr "Schriftstücke"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.github.liferooter.textpieces.desktop.in:17
+msgid ""
+"Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;"
+"Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;"
+msgstr ""
+"Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;"
+"Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;"
+"Zählen;Prüfsumme;Verschlüsseln;Überarbeiten;Filtern;Umkehren;Zuschneiden;"
+
+#: data/com.github.liferooter.textpieces.desktop.in:20
+msgid "New Window"
+msgstr "Neues Fenster"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:10
+#: src/widgets/Window.vala:221
+msgid "Transform text without using random websites"
+msgstr "Text bearbeiten"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:14
+msgid "Do a lot of text transformations, such as:"
+msgstr "Viele Textumwandlungen durchführen, zum Beispiel:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:16
+msgid "Calculate hashes"
+msgstr "Hashwerte berechnen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:17
+msgid "Encode text"
+msgstr "Text verschlüsseln"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:18
+msgid "Decode text"
+msgstr "Text entschlüsseln"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:19
+msgid "Remove trailing spaces and lines"
+msgstr "Nachlaufende Leerzeichen und Zeilen entfernen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:20
+msgid "Count lines, symbols and words"
+msgstr "Zeilen, Zeichen und Wörter zählen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:21
+msgid "Format JSON and XML"
+msgstr "JSON und XML formatieren"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:22
+msgid "Escape and unescape strings"
+msgstr "Wörter einbeziehen oder ausschließen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:23
+msgid "Convert JSON to YAML and vice versa"
+msgstr "JSON zu YAML konvertieren und umgekehrt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:24
+msgid "Filter lines"
+msgstr "Zeilen filtern"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:25
+msgid "Replace substrings and regular expressions"
+msgstr "Wortteile und reguläre Ausdrücke ersetzen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:27
+msgid "...and so on."
+msgstr "...und so weiter."
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:32
+#: src/widgets/Window.vala:231
+msgid "Gleb Smirnov"
+msgstr "Gleb Smirnov"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:64
+msgid "Bug fixes:"
+msgstr "Fehlerbehebungen:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:66
+msgid "Tool arguments now work as expected"
+msgstr "Werkzeug-Parameter funktionieren jetzt so, wie sie sollen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:67
+msgid "Translate some untranslated strings"
+msgstr "Ein paar Übersetzungen vervollständigt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:73
+#: data/com.github.liferooter.textpieces.appdata.xml.in:85
+#: data/com.github.liferooter.textpieces.appdata.xml.in:93
+#: data/com.github.liferooter.textpieces.appdata.xml.in:114
+#: data/com.github.liferooter.textpieces.appdata.xml.in:133
+#: data/com.github.liferooter.textpieces.appdata.xml.in:148
+#: data/com.github.liferooter.textpieces.appdata.xml.in:159
+#: data/com.github.liferooter.textpieces.appdata.xml.in:169
+#: data/com.github.liferooter.textpieces.appdata.xml.in:179
+msgid "New features and improvements:"
+msgstr "Neue Funktionen und Verbesserungen:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:75
+msgid "Add tool for extracting RSS URLs from OPML files"
+msgstr "Werkzeug zum Extrahieren von RSS-URLs aus OPML-Dateien hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:76
+msgid "Use more verbose error reporting for Base64 decode tool"
+msgstr "Ausführlichere Fehlermeldungen für das Base64-Entschlüsseln-Werkzeug"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:77
+msgid "Focus editor on startup"
+msgstr "Editor beim Start fokussieren"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:78
+msgid "Save selected tool between sessions"
+msgstr "Ausgewähltes Werkzeug zwischen Sitzungen speichern"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:79
+msgid "Minor UI improvements"
+msgstr "Kleine Verbesserungen in der Nutzeroberfläche"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:87
+msgid "Add hotkey to open search in replace mode"
+msgstr "Tastenkürzel hinzugefügt, um Suchen im Ersetzen-Modus zu öffnen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:95
+msgid "Add some keywords to the application for system search"
+msgstr "Für die Systemsuche ein paar Schlagwörter zur Anwendung hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:101
+msgid "New features and improvement:"
+msgstr "Neue Funktionen und Verbesserungen:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:103
+msgid "Add style schemes"
+msgstr "Design-Schemata hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:104
+msgid "Add search and replace feature to editor"
+msgstr "Suchen-und-Ersetzen-Funktion zum Editor hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:105
+msgid "Fix some bugs"
+msgstr "Fehlerkorrekturen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:110
+msgid "Bug fix"
+msgstr "Fehlerkorrektur"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:116
+msgid "Refresh UI"
+msgstr "Nutzeroberfläche aufgefrischt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:117
+msgid "Fix a lot of bugs"
+msgstr "Viele Fehlerkorrekturen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:118
+msgid "Add powerful settings"
+msgstr "Erweiterte Einstellungen hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:119
+msgid "Add arguments support for custom tools"
+msgstr "Parameter-Unterstützung für eigene Werkzeugen hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:120
+msgid "Add translation support"
+msgstr "Unterstützung für Übersetzungen hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:121
+#: data/com.github.liferooter.textpieces.appdata.xml.in:152
+msgid "Improve search"
+msgstr "Suche verbessert"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:135
+msgid "Minor UI changes"
+msgstr "Kleine Änderungen in der Nutzeroberfläche"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:136
+msgid "Add XML formatter"
+msgstr "XML-Formatierer hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:141
+msgid "Some bugfixes and improvements"
+msgstr "Ein paar Fehlerkorrekturen und Verbesserungen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:144
+msgid "Bring back tools with arguments"
+msgstr "Werkzeuge mit Parametern wiedereinführen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:150
+msgid "Redesign the application"
+msgstr "Anwendung neugestaltet"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:151
+msgid "Add custom tools support"
+msgstr "Unterstützung für eigene Werkzeuge hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:153
+msgid "Add ability to text load from file and save to file"
+msgstr "Von Datei laden und Als Datei speichern hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:161
+msgid "Exit by Ctrl+Q"
+msgstr "Schließen mit Strg+Q"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:162
+msgid "Monospace argument entry"
+msgstr "Parameter jetzt in Monospace"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:163
+msgid "Update new runtime"
+msgstr "Laufzeit aktualisiert"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:171
+msgid "Sort tools"
+msgstr "Werkeuge sortieren"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:172
+msgid "Filter tools"
+msgstr "Werkzeuge filtern"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:173
+msgid "Minify C-like code"
+msgstr "C-artigen Code kürzen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:181
+msgid "Add more tools"
+msgstr "Mehr Werkzeuge hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:182
+msgid "Make tools popover more powerful"
+msgstr "Werkzeuge-Popover bietet jetzt mehr Möglichkeiten"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:183
+msgid "Redesign icon"
+msgstr "Symbol neu gestalten"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:184
+msgid "General improvements"
+msgstr "Algemeine Verbesserungen"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:189
+msgid "Add tools for replacement and removing"
+msgstr "Werkzeuge zum Ersetzen und Entfernen hinzugefügt"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:192
+msgid "Application release"
+msgstr "Veröffentlichung der Anwendung"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:13
+msgid "Style scheme"
+msgstr "Design-Schema"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:14
+msgid "Which style scheme to use for application interface and editor."
+msgstr "Welches Design-Schema in der Anwendung und dem Editor verwendet werden soll"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:18
+msgid "Font name"
+msgstr "Schriftart"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:19
+msgid "Name of font used in editor"
+msgstr "Name der Schriftart im Editor"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:23
+msgid "Wrap lines"
+msgstr "Zeilen umschlagen"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:24
+msgid "Whether to wrap long lines"
+msgstr "Ob lange Zeilen umgeschlagen werden sollen"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:28
+msgid "Tabs to spaces"
+msgstr "Leerzeichen statt Tabs"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:29
+msgid "Whether to insert spaces instead of tab"
+msgstr "Leerzeichen statt Tabs einfügen"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:33
+msgid "Spaces in tab"
+msgstr "Leerzeichen pro Tab"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:34
+msgid "Tab width in spaces"
+msgstr "Tabbreite in Leerzeichen"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:38
+msgid "Window width"
+msgstr "Fensterbreite"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:39
+msgid "Saved width of application window"
+msgstr "Breite des Anwendungsfensters gespeichert"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:43
+msgid "Window height"
+msgstr "Fensterhöhe"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:44
+msgid "Saved height of the window"
+msgstr "Höhe des Anwendungsfensters gespeichert"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:48
+msgid "Is maximized"
+msgstr "Ist maximiert"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:49
+msgid "Whether the application window is maximized"
+msgstr "Ob das Anwendungsfenster maximiert ist"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:53
+msgid "Selected tool"
+msgstr "Ausgewähltes Werkzeug"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:54
+msgid ""
+"Used to restore tool choice on restart. Its value must be a name of tool's "
+"script."
+msgstr ""
+"Wird benutzt, um das ausgewählte Werkzeug bei Neustart wiederherzustellen. "
+"Der Wert muss der Name eines Werkzeug-Skripts sein."
+
+#: src/widgets/Editor.vala:145
+msgid "Text is copied"
+msgstr "Text wurde kopiert"
+
+#. *
+#. * Text used instead of tool name
+#. * when where is no tool selected
+#.
+#: src/widgets/Window.vala:21 resources/ui/ShortcutsWindow.blp:39
+msgid "Select tool"
+msgstr "Auswahlwerkzeug"
+
+#: src/widgets/Window.vala:228
+msgid "Tobias Bernard https://tobiasbernard.com"
+msgstr "Tobias Bernard https://tobiasbernard.com"
+
+#: src/widgets/Window.vala:229
+msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+msgstr "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+
+#: src/widgets/Window.vala:232
+msgid "translator-credits"
+msgstr ""
+
+#: src/widgets/Window.vala:259 resources/ui/Window.blp:78
+msgid "Save to File"
+msgstr "Als Datei speichern"
+
+#: src/widgets/Window.vala:284
+#, c-format
+msgid "Can't save to file: %s"
+msgstr "Speichern fehlgeschlagen: %s"
+
+#: src/widgets/Window.vala:300 resources/ui/Window.blp:85
+msgid "Load from File"
+msgstr "Von Datei laden"
+
+#: src/widgets/Window.vala:325
+#, c-format
+msgid "Can't load from file: %s"
+msgstr "Laden fehlgeschlagen: %s"
+
+#: src/widgets/SearchEntry.vala:93
+#, c-format
+msgid "%u of %d"
+msgstr "%u von %d"
+
+#. Create dialog
+#: src/widgets/preferences/Preferences.vala:128
+msgid "Select font"
+msgstr "Schriftart auswählen"
+
+#: src/widgets/preferences/ToolSettings.vala:187
+#, c-format
+msgid "Argument %d"
+msgstr "Parameter %d"
+
+#: src/widgets/preferences/pages/NewToolPage.vala:113
+#, c-format
+msgid "Error occured: %s"
+msgstr "Ein Fehler ist aufgetreten: %s"
+
+#: resources/ui/CustomToolPage.blp:27
+msgid "Edit Tool"
+msgstr "Werkzeug bearbeiten"
+
+#: resources/ui/CustomToolPage.blp:38
+msgid "D_elete"
+msgstr "Löschen"
+
+#: resources/ui/Search.blp:41
+msgid "No Tools Found"
+msgstr "Kein Werkzeuge gefunden"
+
+#: resources/ui/Search.blp:53
+msgid "_Add Custom Tool"
+msgstr "_Eigenes Werkzeug hinzufügen"
+
+#: resources/ui/NewToolPage.blp:27
+msgid "New Tool"
+msgstr "Neues Werkzeug"
+
+#: resources/ui/NewToolPage.blp:42
+msgid "_Create"
+msgstr "_Erstellen"
+
+#: resources/ui/Preferences.blp:13
+msgid "_General"
+msgstr "_Allgemein"
+
+#: resources/ui/Preferences.blp:19
+msgid "Editor"
+msgstr "Editor"
+
+#: resources/ui/Preferences.blp:22
+msgid "Editor _Font"
+msgstr "Schriftart"
+
+#: resources/ui/Preferences.blp:40
+msgid "_Wrap Lines"
+msgstr "_Zeilen umschlagen"
+
+#: resources/ui/Preferences.blp:51
+msgid "Tabs to _Spaces"
+msgstr "Leerzeichen statt Tabs"
+
+#: resources/ui/Preferences.blp:62
+msgid "_Tab Width in Spaces"
+msgstr "Tabbreite in Leerzeichen"
+
+#: resources/ui/Preferences.blp:82
+msgid "Appearance"
+msgstr "Erscheinungsbild"
+
+#: resources/ui/Preferences.blp:94
+msgid "T_ools"
+msgstr "Werkzeuge"
+
+#: resources/ui/Preferences.blp:100
+msgid "Custom tools"
+msgstr "Eigene Werkzeuge"
+
+#: resources/ui/Preferences.blp:112
+msgid "_Add custom tool"
+msgstr "_Eigenes Werkzeug hinzufügen"
+
+#: resources/ui/Preferences.blp:128
+msgid "No Custom Tools"
+msgstr "Keine eigenen Werkzeuge"
+
+#: resources/ui/Preferences.blp:129
+msgid "You can create one"
+msgstr "Sie können eins erstellen"
+
+#: resources/ui/SearchBar.blp:40
+msgid "Move to revious match"
+msgstr "Vorherige Übereinstimmung"
+
+#: resources/ui/SearchBar.blp:46
+msgid "Move to next match"
+msgstr "Nächste Übereinstimmung"
+
+#: resources/ui/SearchBar.blp:58
+msgid "Find and replace"
+msgstr "Suchen und Ersetzen"
+
+#: resources/ui/SearchBar.blp:68
+msgid "Toggle search options"
+msgstr "Suchoptionen ein-/ausblenden"
+
+#: resources/ui/SearchBar.blp:84
+msgid "Close search"
+msgstr "Suche schließen"
+
+#: resources/ui/SearchBar.blp:95
+msgid "Replace"
+msgstr "Ersetzen"
+
+#: resources/ui/SearchBar.blp:106
+msgid "_Replace"
+msgstr "_Ersetzen"
+
+#: resources/ui/SearchBar.blp:119
+msgid "Replace _All"
+msgstr "Alle Ersetzen"
+
+#: resources/ui/SearchBar.blp:138
+msgid "Re_gular expressions"
+msgstr "Regulärere Ausdruck"
+
+#: resources/ui/SearchBar.blp:144
+msgid "_Case sensitive"
+msgstr "Groß-/Kleinschreibung beachten"
+
+#: resources/ui/SearchBar.blp:150
+msgid "Match whole _word only"
+msgstr "Nur ganze Wörter"
+
+#: resources/ui/SearchEntry.blp:15
+msgid "Find"
+msgstr "Suchen"
+
+#: resources/ui/ShortcutsWindow.blp:12
+msgid "General"
+msgstr "Allgemein"
+
+#: resources/ui/ShortcutsWindow.blp:15
+msgid "Keyboard shortcuts"
+msgstr "Tastenkürzel"
+
+#: resources/ui/ShortcutsWindow.blp:20
+msgid "Preferences"
+msgstr "Einstellungen"
+
+#: resources/ui/ShortcutsWindow.blp:25
+msgid "Quit"
+msgstr "Schließen"
+
+#: resources/ui/ShortcutsWindow.blp:31
+msgid "Tools"
+msgstr "Werkzeuge"
+
+#: resources/ui/ShortcutsWindow.blp:34
+msgid "Apply"
+msgstr "Anwenden"
+
+#: resources/ui/ShortcutsWindow.blp:44
+msgid "Just to the tool options"
+msgstr "Zu den Werkzeug-Parametern"
+
+#: resources/ui/ShortcutsWindow.blp:50
+msgid "Undo and Redo"
+msgstr "Rückgängigmachen und wiederherstellen"
+
+#: resources/ui/ShortcutsWindow.blp:53
+msgid "Undo"
+msgstr "Rückgangig"
+
+#: resources/ui/ShortcutsWindow.blp:58
+msgid "Redo"
+msgstr "Wiederherstellen"
+
+#: resources/ui/ShortcutsWindow.blp:64
+msgid "Files"
+msgstr "Dateien"
+
+#: resources/ui/ShortcutsWindow.blp:67
+msgid "Load from file"
+msgstr "Von Datei laden"
+
+#: resources/ui/ShortcutsWindow.blp:72
+msgid "Save to file"
+msgstr "Als Datei speichern"
+
+#: resources/ui/ToolSettings.blp:31
+msgid "_Name"
+msgstr "_Name"
+
+#: resources/ui/ToolSettings.blp:42
+msgid "_Description"
+msgstr "_Beschreibung"
+
+#: resources/ui/ToolSettings.blp:52
+msgid "_Arguments"
+msgstr "_Argumente"
+
+#: resources/ui/ToolSettings.blp:80
+msgid "Edit _Script"
+msgstr "Skript bearbeiten"
+
+#: resources/ui/Window.blp:32
+msgid "_Apply"
+msgstr "_Anwenden"
+
+#: resources/ui/Window.blp:35
+msgid "Apply Selected Tool"
+msgstr "Ausgewähltes Werkzeug anwenden"
+
+#: resources/ui/Window.blp:45
+msgid "Copy"
+msgstr "Kopieren"
+
+#: resources/ui/Window.blp:71
+msgid "Main Menu"
+msgstr "Hauptmenü"
+
+#: resources/ui/Window.blp:123
+msgid "_New Window"
+msgstr "_Neues Fenster"
+
+#: resources/ui/Window.blp:131
+msgid "_Find/Replace…"
+msgstr "_Suchen/Ersetzen…"
+
+#: resources/ui/Window.blp:139
+msgid "_Preferences"
+msgstr "_Einstellungen"
+
+#: resources/ui/Window.blp:145
+msgid "_Keyboard Shortcuts"
+msgstr "_Tastenkürzel"
+
+#: resources/ui/Window.blp:151
+msgid "_About Text Pieces"
+msgstr "_Über Schriftstücke"
