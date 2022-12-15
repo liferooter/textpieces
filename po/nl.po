@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-01 08:51+0000\n"
+"POT-Creation-Date: 2022-12-15 08:17+0000\n"
 "PO-Revision-Date: 2022-03-24 14:33+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -356,7 +356,7 @@ msgstr "De tekst is gekopieerd naar het klembord"
 #. * Text used instead of tool name
 #. * when where is no tool selected
 #.
-#: src/widgets/Window.vala:21 resources/ui/ShortcutsWindow.blp:39
+#: src/widgets/Window.vala:21 resources/ui/ShortcutsWindow.blp:50
 msgid "Select tool"
 msgstr "Kies een gereedschap"
 
@@ -487,11 +487,11 @@ msgstr "Eigen gereedschap"
 msgid "You can create one"
 msgstr ""
 
-#: resources/ui/SearchBar.blp:40
-msgid "Move to revious match"
+#: resources/ui/SearchBar.blp:40 resources/ui/ShortcutsWindow.blp:102
+msgid "Move to previous match"
 msgstr ""
 
-#: resources/ui/SearchBar.blp:46
+#: resources/ui/SearchBar.blp:46 resources/ui/ShortcutsWindow.blp:107
 msgid "Move to next match"
 msgstr ""
 
@@ -508,7 +508,7 @@ msgstr ""
 msgid "Close search"
 msgstr "Verbeterd: zoekfunctie"
 
-#: resources/ui/SearchBar.blp:95
+#: resources/ui/SearchBar.blp:95 resources/ui/ShortcutsWindow.blp:97
 #, fuzzy
 msgid "Replace"
 msgstr "Vervangen door"
@@ -540,58 +540,74 @@ msgstr ""
 msgid "Find"
 msgstr "Zoeken"
 
-#: resources/ui/ShortcutsWindow.blp:12
+#: resources/ui/ShortcutsWindow.blp:13
 msgid "General"
 msgstr "Algemeen"
 
-#: resources/ui/ShortcutsWindow.blp:15
+#: resources/ui/ShortcutsWindow.blp:16
+msgid "New window"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.blp:21
 msgid "Keyboard shortcuts"
 msgstr "Sneltoetsen"
 
-#: resources/ui/ShortcutsWindow.blp:20
+#: resources/ui/ShortcutsWindow.blp:26
 msgid "Preferences"
 msgstr "Voorkeuren"
 
-#: resources/ui/ShortcutsWindow.blp:25
+#: resources/ui/ShortcutsWindow.blp:31
+msgid "Close window"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.blp:36
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: resources/ui/ShortcutsWindow.blp:31
+#: resources/ui/ShortcutsWindow.blp:42
 msgid "Tools"
 msgstr "Gereedschap"
 
-#: resources/ui/ShortcutsWindow.blp:34
+#: resources/ui/ShortcutsWindow.blp:45
 msgid "Apply"
 msgstr "Toepassen"
 
-#: resources/ui/ShortcutsWindow.blp:44
+#: resources/ui/ShortcutsWindow.blp:55
 #, fuzzy
 msgid "Just to the tool options"
 msgstr "Open het gereedschapsoptiemenu"
 
-#: resources/ui/ShortcutsWindow.blp:50
+#: resources/ui/ShortcutsWindow.blp:61
 msgid "Undo and Redo"
 msgstr "Ongedaan maken/Opnieuw"
 
-#: resources/ui/ShortcutsWindow.blp:53
+#: resources/ui/ShortcutsWindow.blp:64
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: resources/ui/ShortcutsWindow.blp:58
+#: resources/ui/ShortcutsWindow.blp:69
 msgid "Redo"
 msgstr "Opnieuw"
 
-#: resources/ui/ShortcutsWindow.blp:64
+#: resources/ui/ShortcutsWindow.blp:75
 msgid "Files"
 msgstr "Bestanden"
 
-#: resources/ui/ShortcutsWindow.blp:67
+#: resources/ui/ShortcutsWindow.blp:78
 msgid "Load from file"
 msgstr "Laden uit bestand"
 
-#: resources/ui/ShortcutsWindow.blp:72
+#: resources/ui/ShortcutsWindow.blp:83
 msgid "Save to file"
 msgstr "Opslaan als bestand"
+
+#: resources/ui/ShortcutsWindow.blp:89
+msgid "Search and Replace"
+msgstr ""
+
+#: resources/ui/ShortcutsWindow.blp:92
+msgid "Search"
+msgstr ""
 
 #: resources/ui/ToolSettings.blp:31
 msgid "_Name"
