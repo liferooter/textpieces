@@ -5,7 +5,8 @@
 [Desktop Entry]
 Name=Text Pieces
 Icon=com.github.liferooter.textpieces
-Exec=textpieces
+Exec=textpieces %U
+MimeType=text/plain;
 Terminal=false
 Type=Application
 Categories=Utility;TextTools;GTK;GNOME;
@@ -13,7 +14,7 @@ StartupNotify=true
 Actions=new-window;
 
 # Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-Keywords=Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;
+Keywords=GNOME;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;
 
 [Desktop Action new-window]
 Name=New Window

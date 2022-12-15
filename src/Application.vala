@@ -100,8 +100,10 @@ namespace TextPieces {
             .get_scheme (settings.get_string ("style-scheme"));
 
         public Application () {
+            ApplicationFlags flags = FLAGS_NONE | HANDLES_OPEN;
+
             Object (
-                flags: ApplicationFlags.FLAGS_NONE,
+                flags: flags,
                 application_id: "com.github.liferooter.textpieces"
             );
         }
@@ -166,6 +168,20 @@ namespace TextPieces {
         protected override void activate () {
             /* Create window window */
             new_window ();
+        }
+
+        /**
+         * Open file method
+         *
+         * This method is called when user
+         * opens a file with the application.
+         */
+        protected override void open (File[] files, string hint) {
+            foreach (var file in files) {
+                var win = new TextPieces.Window (this);
+                win.load_from (file);
+                win.present();
+            }
         }
 
         /**

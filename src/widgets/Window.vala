@@ -146,6 +146,13 @@ namespace TextPieces {
         }
 
         /**
+         * Load content from file
+         */
+        public void load_from (File file) {
+            editor.load_from (file);
+        }
+
+        /**
          * Apply tool
          */
         void action_apply () {
