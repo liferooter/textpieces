@@ -4,8 +4,6 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from sys import stdin, stdout, argv
+from sys import stdin, stdout
 
-for line in stdin:
-    if argv[1] in line:
-        stdout.write(line)
+stdout.write('\n'.join(sorted(stdin.read().split('\n'), reverse=True)))

@@ -4,4 +4,4 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-echo -n $(cat | base64)
+base64 -d

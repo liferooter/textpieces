@@ -4,6 +4,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+from hashlib import sha1
 from sys import stdin, stdout
 
-stdout.write('\n'.join(sorted(map(lambda s: s.replace('\n', ''), stdin), reverse=True)))
+stdout.write(sha1(stdin.read().encode()).hexdigest())

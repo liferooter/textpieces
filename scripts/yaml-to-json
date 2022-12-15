@@ -4,15 +4,15 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from sys import stdin, stdout, stderr
-
 import json
+from sys import stderr, stdin, stdout
+
 import yaml
 
 try:
     _dict = yaml.load(stdin, Loader=yaml.SafeLoader)
-except Exception:
-    stderr.write("Invalid YAML")
+except Exception as err:
+    stderr.write(f'Invalid YAML: {err}')
     exit(1)
 
 json.dump(

@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from urllib.parse import unquote_plus
+from hashlib import sha384
 from sys import stdin, stdout
 
-stdout.write(unquote_plus(stdin.read()))
+stdout.write(sha384(stdin.read().encode()).hexdigest())

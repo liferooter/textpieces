@@ -5,13 +5,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import xml.etree.ElementTree as xml
-from sys import stdin, stdout, stderr
+from sys import stderr, stdin, stdout
 
 etree = xml.ElementTree()
 try:
     etree.parse(stdin)
 except xml.ParseError as err:
-    stderr.write(f"Can't parse XML: {err.msg}")
+    stderr.write(f"Can't parse XML: {err}")
     exit(1)
 xml.indent(etree)
 etree.write(

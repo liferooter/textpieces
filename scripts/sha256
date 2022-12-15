@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+from hashlib import sha256
 from sys import stdin, stdout
-from hashlib import sha512
 
-stdout.write(sha512(stdin.read().encode()).hexdigest())
+stdout.write(sha256(stdin.read().encode()).hexdigest())

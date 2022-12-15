@@ -4,8 +4,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+from hashlib import md5
 from sys import stdin, stdout
 
-for line in stdin:
-    if argv[1] not in line:
-        stdout.write(line)
+stdout.write(md5(stdin.read().encode()).hexdigest())

@@ -4,20 +4,17 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from sys import stdin, stdout, stderr
-
 import json
-import yaml
+from sys import stderr, stdin, stdout
 
 try:
     _dict = json.load(stdin)
-except json.JSONDecodeError:
-    stderr.write("Invalid JSON")
+except json.JSONDecodeError as err:
+    stderr.write(f'Invalid JSON: {err}')
     exit(1)
-
-yaml.dump(
+json.dump(
     _dict,
     stdout,
-    sort_keys=False,
-    allow_unicode=True
+    separators=(',', ':'),
+    ensure_ascii=False
 )

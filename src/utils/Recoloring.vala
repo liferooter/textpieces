@@ -3,13 +3,6 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-/*
- FIXME: there are some lines of code in this file
-        which uses unstable API from gtksourceview-5.4.
-        These lines are commented. Uncomment them after
-        gtksourceview-5.4 release.
- */
-
 using GtkSource;
 using Gdk;
 
@@ -122,8 +115,7 @@ namespace Recoloring {
      * @return color, or `null` if not defined
      */
     RGBA? get_metadata_color (StyleScheme scheme, string key) {
-        //  var str = scheme.get_metadata (key);
-        string? str = null;
+        var str = scheme.get_metadata (key);
 
         if (str == null)
             return null;
@@ -185,7 +177,7 @@ namespace Recoloring {
      */
      public bool is_scheme_dark (StyleScheme scheme) {
         string id = scheme.get_id ();
-        string variant = null; // scheme.get_metadata ("variant");
+        string variant = scheme.get_metadata ("variant");
 
 
         if (variant == "light")

@@ -4,13 +4,13 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+from sys import stderr, stdin, stdout
 from xml.etree import ElementTree
-from sys import stdin, stdout, stderr, argv
 
 try:
     tree = ElementTree.parse(stdin)
 except ElementTree.ParseError as err:
-    stderr.write(f"Can't parse OPML-XML: {err.msg}")
+    stderr.write(f"Can't parse OPML-XML: {err}")
     exit(1)
 
 titles_urls = {}
