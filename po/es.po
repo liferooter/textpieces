@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: textpieces\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 08:17+0000\n"
+"POT-Creation-Date: 2022-12-15 09:01+0000\n"
 "PO-Revision-Date: 2022-01-24 14:00+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,23 +18,23 @@ msgstr ""
 
 #: data/com.github.liferooter.textpieces.desktop.in:7
 #: data/com.github.liferooter.textpieces.appdata.xml.in:9
-#: src/widgets/Window.vala:220 resources/ui/Window.blp:9
+#: src/widgets/Window.vala:227 resources/ui/Window.blp:9
 msgid "Text Pieces"
 msgstr "Text Pieces"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.github.liferooter.textpieces.desktop.in:17
+#: data/com.github.liferooter.textpieces.desktop.in:18
 msgid ""
-"Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;"
+"GNOME;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;"
 "Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;"
 msgstr ""
 
-#: data/com.github.liferooter.textpieces.desktop.in:20
+#: data/com.github.liferooter.textpieces.desktop.in:21
 msgid "New Window"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:10
-#: src/widgets/Window.vala:221
+#: src/widgets/Window.vala:228
 msgid "Transform text without using random websites"
 msgstr "Transformar el texto sin usar sitios web aleatorios"
 
@@ -87,7 +87,7 @@ msgid "...and so on."
 msgstr "...y más."
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:32
-#: src/widgets/Window.vala:231
+#: src/widgets/Window.vala:238
 msgid "Gleb Smirnov"
 msgstr ""
 
@@ -361,32 +361,32 @@ msgstr "Texto copiado al portapapeles"
 msgid "Select tool"
 msgstr "Seleccionar herramienta"
 
-#: src/widgets/Window.vala:228
+#: src/widgets/Window.vala:235
 msgid "Tobias Bernard https://tobiasbernard.com"
 msgstr ""
 
-#: src/widgets/Window.vala:229
+#: src/widgets/Window.vala:236
 msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
 msgstr ""
 
-#: src/widgets/Window.vala:232
+#: src/widgets/Window.vala:239
 msgid "translator-credits"
 msgstr "Óscar Fernández Díaz <oscfdezdz@tuta.io>"
 
-#: src/widgets/Window.vala:259 resources/ui/Window.blp:78
+#: src/widgets/Window.vala:266 resources/ui/Window.blp:78
 msgid "Save to File"
 msgstr "Guardar en archivo"
 
-#: src/widgets/Window.vala:284
+#: src/widgets/Window.vala:291
 #, c-format
 msgid "Can't save to file: %s"
 msgstr "No se puede guardar en el archivo: %s"
 
-#: src/widgets/Window.vala:300 resources/ui/Window.blp:85
+#: src/widgets/Window.vala:307 resources/ui/Window.blp:85
 msgid "Load from File"
 msgstr "Cargar desde archivo"
 
-#: src/widgets/Window.vala:325
+#: src/widgets/Window.vala:332
 #, c-format
 msgid "Can't load from file: %s"
 msgstr "No se puede cargar desde el archivo: %s"
