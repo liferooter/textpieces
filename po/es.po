@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: textpieces\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 09:01+0000\n"
+"POT-Creation-Date: 2022-12-17 09:19+0000\n"
 "PO-Revision-Date: 2022-01-24 14:00+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: data/com.github.liferooter.textpieces.desktop.in:7
 #: data/com.github.liferooter.textpieces.appdata.xml.in:9
-#: src/widgets/Window.vala:227 resources/ui/Window.blp:9
+#: src/widgets/Window.vala:241 resources/ui/Window.blp:9
 msgid "Text Pieces"
 msgstr "Text Pieces"
 
@@ -34,7 +34,7 @@ msgid "New Window"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:10
-#: src/widgets/Window.vala:228
+#: src/widgets/Window.vala:242
 msgid "Transform text without using random websites"
 msgstr "Transformar el texto sin usar sitios web aleatorios"
 
@@ -87,7 +87,7 @@ msgid "...and so on."
 msgstr "...y más."
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:32
-#: src/widgets/Window.vala:238
+#: src/widgets/Window.vala:252
 msgid "Gleb Smirnov"
 msgstr ""
 
@@ -352,35 +352,35 @@ msgstr "Texto copiado al portapapeles"
 msgid "Select tool"
 msgstr "Seleccionar herramienta"
 
-#: src/widgets/Window.vala:235
+#: src/widgets/Window.vala:161
+#, c-format
+msgid "Can't load from file: %s"
+msgstr "No se puede cargar desde el archivo: %s"
+
+#: src/widgets/Window.vala:249
 msgid "Tobias Bernard https://tobiasbernard.com"
 msgstr ""
 
-#: src/widgets/Window.vala:236
+#: src/widgets/Window.vala:250
 msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
 msgstr ""
 
-#: src/widgets/Window.vala:239
+#: src/widgets/Window.vala:253
 msgid "translator-credits"
 msgstr "Óscar Fernández Díaz <oscfdezdz@tuta.io>"
 
-#: src/widgets/Window.vala:266 resources/ui/Window.blp:78
+#: src/widgets/Window.vala:280 resources/ui/Window.blp:78
 msgid "Save to File"
 msgstr "Guardar en archivo"
 
-#: src/widgets/Window.vala:291
+#: src/widgets/Window.vala:305
 #, c-format
 msgid "Can't save to file: %s"
 msgstr "No se puede guardar en el archivo: %s"
 
-#: src/widgets/Window.vala:307 resources/ui/Window.blp:85
+#: src/widgets/Window.vala:321 resources/ui/Window.blp:85
 msgid "Load from File"
 msgstr "Cargar desde archivo"
-
-#: src/widgets/Window.vala:332
-#, c-format
-msgid "Can't load from file: %s"
-msgstr "No se puede cargar desde el archivo: %s"
 
 #: src/widgets/SearchEntry.vala:93
 #, c-format

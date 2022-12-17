@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 09:01+0000\n"
+"POT-Creation-Date: 2022-12-17 09:19+0000\n"
 "PO-Revision-Date: 2022-03-24 14:33+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: data/com.github.liferooter.textpieces.desktop.in:7
 #: data/com.github.liferooter.textpieces.appdata.xml.in:9
-#: src/widgets/Window.vala:227 resources/ui/Window.blp:9
+#: src/widgets/Window.vala:241 resources/ui/Window.blp:9
 msgid "Text Pieces"
 msgstr "Tekstdelen"
 
@@ -34,7 +34,7 @@ msgid "New Window"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:10
-#: src/widgets/Window.vala:228
+#: src/widgets/Window.vala:242
 msgid "Transform text without using random websites"
 msgstr "Zet tekst om zonder het gebruik van willekeurige websites"
 
@@ -87,7 +87,7 @@ msgid "...and so on."
 msgstr "…en nog veel meer."
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:32
-#: src/widgets/Window.vala:238
+#: src/widgets/Window.vala:252
 msgid "Gleb Smirnov"
 msgstr "Gleb Smirnov"
 
@@ -352,35 +352,35 @@ msgstr "De tekst is gekopieerd naar het klembord"
 msgid "Select tool"
 msgstr "Kies een gereedschap"
 
-#: src/widgets/Window.vala:235
+#: src/widgets/Window.vala:161
+#, c-format
+msgid "Can't load from file: %s"
+msgstr "Het bestand kan niet worden geladen: %s"
+
+#: src/widgets/Window.vala:249
 msgid "Tobias Bernard https://tobiasbernard.com"
 msgstr "Tobias Bernard https://tobiasbernard.com"
 
-#: src/widgets/Window.vala:236
+#: src/widgets/Window.vala:250
 msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
 msgstr "Gleb Smirnov <glebsmirnov0708@gmail.com>"
 
-#: src/widgets/Window.vala:239
+#: src/widgets/Window.vala:253
 msgid "translator-credits"
 msgstr "Heimen Stoffels <vistausss@fastmail.com>"
 
-#: src/widgets/Window.vala:266 resources/ui/Window.blp:78
+#: src/widgets/Window.vala:280 resources/ui/Window.blp:78
 msgid "Save to File"
 msgstr "Opslaan als bestand"
 
-#: src/widgets/Window.vala:291
+#: src/widgets/Window.vala:305
 #, c-format
 msgid "Can't save to file: %s"
 msgstr "Het bestand kan niet worden opgeslagen: %s"
 
-#: src/widgets/Window.vala:307 resources/ui/Window.blp:85
+#: src/widgets/Window.vala:321 resources/ui/Window.blp:85
 msgid "Load from File"
 msgstr "Laden uit bestand"
-
-#: src/widgets/Window.vala:332
-#, c-format
-msgid "Can't load from file: %s"
-msgstr "Het bestand kan niet worden geladen: %s"
 
 #: src/widgets/SearchEntry.vala:93
 #, c-format
