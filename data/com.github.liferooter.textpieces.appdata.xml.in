@@ -59,6 +59,20 @@ SPDX-License-Identifier: CC0-1.0
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="3.4.0" date="2022-12-17">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Text Pieces now can open files</li>
+        </ul>
+        <p>Bug fixes:</p>
+        <ul>
+          <li>Some translation issues are fixed</li>
+          <li>Some tools are fixed and optimized</li>
+          <li>Shortcuts window is updated and fixed</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.3.1" date="2022-11-01">
       <description>
         <p>Bug fixes:</p>
