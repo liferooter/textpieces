@@ -45,7 +45,7 @@ namespace TextPieces {
         public string name { get; set; }
         public string translated_name {
             get {
-                return dpgettext2(Config.GETTEXT_PACKAGE, "tools", name);
+                return dpgettext2(null, "tools", name);
             }
         }
 
@@ -55,7 +55,7 @@ namespace TextPieces {
         public string description { get; set; }
         public string translated_description {
             get {
-                return dpgettext2(Config.GETTEXT_PACKAGE, "tools", description);
+                return dpgettext2(null, "tools", description);
             }
         }
 
@@ -64,6 +64,16 @@ namespace TextPieces {
          * line aguments
          */
         public string[] arguments;
+        public string[] translated_arguments {
+            owned get {
+                string[] res = {};
+                foreach (var arg in arguments) {
+                    res += dpgettext2(null, "tools", arg);
+                }
+
+                return res;
+            }
+        }
 
         /**
          * The icon of the tool

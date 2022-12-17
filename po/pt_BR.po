@@ -92,7 +92,6 @@ msgid "Gleb Smirnov"
 msgstr "Gleb Smirnov"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:64
-#, fuzzy
 msgid "Bug fixes:"
 msgstr "Correção de bug"
 
@@ -113,7 +112,6 @@ msgstr ""
 #: data/com.github.liferooter.textpieces.appdata.xml.in:159
 #: data/com.github.liferooter.textpieces.appdata.xml.in:169
 #: data/com.github.liferooter.textpieces.appdata.xml.in:179
-#, fuzzy
 msgid "New features and improvements:"
 msgstr "Algumas correções de bugs e melhorias"
 
@@ -134,7 +132,6 @@ msgid "Save selected tool between sessions"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:79
-#, fuzzy
 msgid "Minor UI improvements"
 msgstr "Melhorias gerais"
 
@@ -147,12 +144,10 @@ msgid "Add some keywords to the application for system search"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:101
-#, fuzzy
 msgid "New features and improvement:"
 msgstr "Algumas correções de bugs e melhorias"
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:103
-#, fuzzy
 msgid "Add style schemes"
 msgstr "Esquema de estilo"
 
@@ -161,7 +156,6 @@ msgid "Add search and replace feature to editor"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:105
-#, fuzzy
 msgid "Fix some bugs"
 msgstr "Corrija muitos bugs"
 
@@ -335,7 +329,6 @@ msgid "Whether the application window is maximized"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.gschema.xml:53
-#, fuzzy
 msgid "Selected tool"
 msgstr "Selecionar ferramenta"
 
@@ -346,7 +339,6 @@ msgid ""
 msgstr ""
 
 #: src/widgets/Editor.vala:145
-#, fuzzy
 msgid "Text is copied"
 msgstr "O texto é copiado para a área de transferência"
 
@@ -409,7 +401,6 @@ msgid "Error occured: %s"
 msgstr "Ocorreu um erro: %s"
 
 #: resources/ui/CustomToolPage.blp:27
-#, fuzzy
 msgid "Edit Tool"
 msgstr "Editor"
 
@@ -422,12 +413,10 @@ msgid "No Tools Found"
 msgstr "Nenhuma ferramenta encontrada"
 
 #: resources/ui/Search.blp:53
-#, fuzzy
 msgid "_Add Custom Tool"
 msgstr "Adicionar ferramenta personalizada"
 
 #: resources/ui/NewToolPage.blp:27
-#, fuzzy
 msgid "New Tool"
 msgstr "Ferramentas"
 
@@ -472,12 +461,10 @@ msgid "Custom tools"
 msgstr "Ferramentas personalizadas"
 
 #: resources/ui/Preferences.blp:112
-#, fuzzy
 msgid "_Add custom tool"
 msgstr "Adicionar ferramenta personalizada"
 
 #: resources/ui/Preferences.blp:128
-#, fuzzy
 msgid "No Custom Tools"
 msgstr "Ferramentas personalizadas"
 
@@ -502,7 +489,6 @@ msgid "Toggle search options"
 msgstr ""
 
 #: resources/ui/SearchBar.blp:84
-#, fuzzy
 msgid "Close search"
 msgstr "Melhorar a pesquisa"
 
@@ -519,7 +505,6 @@ msgid "Replace _All"
 msgstr ""
 
 #: resources/ui/SearchBar.blp:138
-#, fuzzy
 msgid "Re_gular expressions"
 msgstr "Substituir substrings e expressões regulares"
 
@@ -568,7 +553,6 @@ msgid "Apply"
 msgstr "Aplicar"
 
 #: resources/ui/ShortcutsWindow.blp:55
-#, fuzzy
 msgid "Just to the tool options"
 msgstr "Ir para as opções da ferramenta"
 
@@ -656,53 +640,390 @@ msgstr "_Atalhos do teclado"
 msgid "_About Text Pieces"
 msgstr "_Sobre Text Pieces"
 
-#, fuzzy
-#~ msgid "Encode text to Base64"
-#~ msgstr "Codificar texto"
+#: data/tools.json
+msgctxt "tools"
+msgid "Base64 Decode"
+msgstr ""
 
-#, fuzzy
-#~ msgid "Decode text from Base64"
-#~ msgstr "Decodificar texto"
+#: data/tools.json
+msgctxt "tools"
+msgid "Base64 Encode"
+msgstr ""
 
-#, fuzzy
-#~ msgid "Remove trailing whitespaces and newlines"
-#~ msgstr "Remova espaços e linhas à direita"
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute MD5 hash sum"
+msgstr ""
 
-#, fuzzy
-#~ msgid "Trim Lines"
-#~ msgstr "_Linhas de quebra"
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA1 hash sum"
+msgstr ""
 
-#, fuzzy
-#~ msgid "Remove leading and trailing whitespaces and newlines"
-#~ msgstr "Remova espaços e linhas à direita"
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA256 hash sum"
+msgstr ""
 
-#, fuzzy
-#~ msgid "Escape String"
-#~ msgstr "Escape e não escape de strings"
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA384 hash sum"
+msgstr ""
 
-#, fuzzy
-#~ msgid "Unescape String"
-#~ msgstr "Escape e não escape de strings"
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA512 hash sum"
+msgstr ""
 
-#, fuzzy
-#~ msgid "Convert JSON to YAML"
-#~ msgstr "Converter JSON para YAML e vice-versa"
+#: data/tools.json
+msgctxt "tools"
+msgid "Convert JSON to YAML"
+msgstr "Converter JSON para YAML e vice-versa"
 
-#, fuzzy
-#~ msgid "Sort Lines"
-#~ msgstr "_Linhas de quebra"
+#: data/tools.json
+msgctxt "tools"
+msgid "Convert YAML to JSON"
+msgstr "Converter JSON para YAML e vice-versa"
 
-#, fuzzy
-#~ msgid "Filter Lines by Regex"
-#~ msgstr "Filtrar linhas"
+#: data/tools.json
+msgctxt "tools"
+msgid "Count how many lines are in text"
+msgstr ""
 
-#, fuzzy
-#~ msgid "Remove all lines which match given regular expression"
-#~ msgstr "Substituir substrings e expressões regulares"
+#: data/tools.json
+msgctxt "tools"
+msgid "Count how many symbols are in text"
+msgstr ""
 
-#, fuzzy
-#~ msgid "Remove all matches of regular expression"
-#~ msgstr "Substituir substrings e expressões regulares"
+#: data/tools.json
+msgctxt "tools"
+msgid "Count how many words are in text"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count Lines"
+msgstr "_Linhas de quebra"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count Symbols"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count Words"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Decode text from Base64"
+msgstr "Decodificar texto"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Encode text to Base64"
+msgstr "Codificar texto"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Escape HTML"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Escape String"
+msgstr "Escape e não escape de strings"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Escape URL"
+msgstr "Escape e não escape de strings"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Extract RSS links from OPML outline"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Filter Lines by Regex"
+msgstr "Filtrar linhas"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Filter Lines by Substring"
+msgstr "Filtrar linhas"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Find"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Find (regex)"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "MD5 Checksum"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Minify JSON"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "OPML to RSS links"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse JSON and convert it to YAML document"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse JSON and minify it"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse JSON and prettify it"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse XML and prettify it"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse YAML document and convert it to JSON"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Prettify JSON"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Prettify XML"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Regex"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which contain given substring"
+msgstr "Substituir substrings e expressões regulares"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which don't contain given substring"
+msgstr "Substituir substrings e expressões regulares"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which don't match given regular expression"
+msgstr "Substituir substrings e expressões regulares"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which match given regular expression"
+msgstr "Substituir substrings e expressões regulares"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all matches of regular expression"
+msgstr "Substituir substrings e expressões regulares"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all occurrences of given substring in text"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove leading and trailing whitespaces and newlines"
+msgstr "Remova espaços e linhas à direita"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove Regex"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove Substring"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove Trailing"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove trailing whitespaces and newlines"
+msgstr "Remova espaços e linhas à direita"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reoder lines in reverse order"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reorder characters in reverse order"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace all given regex matches in text with given string"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace all occurrences of given substring in text with other string"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace escape sequences with characters"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace HTML sequences with characters"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace Regex"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace special characters with escape sequences"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace special characters with HTML-safe sequences"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace special characters with URL-safe sequences"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace Substring"
+msgstr "Escape e não escape de strings"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace URL sequences with characters"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace With"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Filter Lines by Regex"
+msgstr "Filtrar linhas"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Filter Lines by Substring"
+msgstr "Filtrar linhas"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Lines"
+msgstr "_Linhas de quebra"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Sort Lines"
+msgstr "_Linhas de quebra"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Text"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA1 Checksum"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA256 Checksum"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA384 Checksum"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA512 Checksum"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Sort Lines"
+msgstr "_Linhas de quebra"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Sort lines in text in alphabetical order"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Sort lines in text in reverse alphabetical order"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Substring"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Trim Lines"
+msgstr "_Linhas de quebra"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Unescape HTML"
+msgstr "Escape e não escape de strings"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Unescape String"
+msgstr "Escape e não escape de strings"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Unescape URL"
+msgstr "Escape e não escape de strings"
 
 #~ msgid "Copy and Paste"
 #~ msgstr "Copiar e colar"

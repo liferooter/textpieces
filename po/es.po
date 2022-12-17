@@ -92,7 +92,6 @@ msgid "Gleb Smirnov"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:64
-#, fuzzy
 msgid "Bug fixes:"
 msgstr "Corrección de errores"
 
@@ -113,7 +112,6 @@ msgstr ""
 #: data/com.github.liferooter.textpieces.appdata.xml.in:159
 #: data/com.github.liferooter.textpieces.appdata.xml.in:169
 #: data/com.github.liferooter.textpieces.appdata.xml.in:179
-#, fuzzy
 msgid "New features and improvements:"
 msgstr "Algunas correcciones de errores y mejoras"
 
@@ -134,7 +132,6 @@ msgid "Save selected tool between sessions"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:79
-#, fuzzy
 msgid "Minor UI improvements"
 msgstr "Mejoras generales"
 
@@ -147,7 +144,6 @@ msgid "Add some keywords to the application for system search"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:101
-#, fuzzy
 msgid "New features and improvement:"
 msgstr "Algunas correcciones de errores y mejoras"
 
@@ -160,7 +156,6 @@ msgid "Add search and replace feature to editor"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.appdata.xml.in:105
-#, fuzzy
 msgid "Fix some bugs"
 msgstr "Corrección de un montón de errores"
 
@@ -272,12 +267,10 @@ msgid "Application release"
 msgstr "Publicación de la aplicación"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:13
-#, fuzzy
 msgid "Style scheme"
 msgstr "Esquema de colores"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:14
-#, fuzzy
 msgid "Which style scheme to use for application interface and editor."
 msgstr "Qué combinación de colores usar para la interfaz de la aplicación."
 
@@ -338,7 +331,6 @@ msgid "Whether the application window is maximized"
 msgstr ""
 
 #: data/com.github.liferooter.textpieces.gschema.xml:53
-#, fuzzy
 msgid "Selected tool"
 msgstr "Seleccionar herramienta"
 
@@ -349,7 +341,6 @@ msgid ""
 msgstr ""
 
 #: src/widgets/Editor.vala:145
-#, fuzzy
 msgid "Text is copied"
 msgstr "Texto copiado al portapapeles"
 
@@ -412,7 +403,6 @@ msgid "Error occured: %s"
 msgstr "Se ha producido un error: %s"
 
 #: resources/ui/CustomToolPage.blp:27
-#, fuzzy
 msgid "Edit Tool"
 msgstr "Editor"
 
@@ -425,12 +415,10 @@ msgid "No Tools Found"
 msgstr "No se han encontrado herramientas"
 
 #: resources/ui/Search.blp:53
-#, fuzzy
 msgid "_Add Custom Tool"
 msgstr "Añadir herramienta personalizada"
 
 #: resources/ui/NewToolPage.blp:27
-#, fuzzy
 msgid "New Tool"
 msgstr "Herramientas"
 
@@ -475,12 +463,10 @@ msgid "Custom tools"
 msgstr "Herramientas personalizadas"
 
 #: resources/ui/Preferences.blp:112
-#, fuzzy
 msgid "_Add custom tool"
 msgstr "Añadir herramienta personalizada"
 
 #: resources/ui/Preferences.blp:128
-#, fuzzy
 msgid "No Custom Tools"
 msgstr "Herramientas personalizadas"
 
@@ -505,27 +491,22 @@ msgid "Toggle search options"
 msgstr ""
 
 #: resources/ui/SearchBar.blp:84
-#, fuzzy
 msgid "Close search"
 msgstr "Mejora de la búsqueda"
 
 #: resources/ui/SearchBar.blp:95 resources/ui/ShortcutsWindow.blp:97
-#, fuzzy
 msgid "Replace"
 msgstr "Reemplazar con"
 
 #: resources/ui/SearchBar.blp:106
-#, fuzzy
 msgid "_Replace"
 msgstr "Reemplazar con"
 
 #: resources/ui/SearchBar.blp:119
-#, fuzzy
 msgid "Replace _All"
 msgstr "Reemplazar con"
 
 #: resources/ui/SearchBar.blp:138
-#, fuzzy
 msgid "Re_gular expressions"
 msgstr "Reemplazar subcadenas y expresiones regulares"
 
@@ -574,7 +555,6 @@ msgid "Apply"
 msgstr "Aplicar"
 
 #: resources/ui/ShortcutsWindow.blp:55
-#, fuzzy
 msgid "Just to the tool options"
 msgstr "Saltar a las opciones de la herramienta"
 
@@ -662,235 +642,394 @@ msgstr "Atajos del _teclado"
 msgid "_About Text Pieces"
 msgstr "_Acerca de Text Pieces"
 
-#~ msgid "SHA1 Checksum"
-#~ msgstr "Suma de verificación SHA1"
-
-#~ msgid "Compute SHA1 hash sum"
-#~ msgstr "Calcular la suma del hash SHA1"
-
-#~ msgid "SHA256 Checksum"
-#~ msgstr "Suma de verificación SHA256"
-
-#~ msgid "Compute SHA256 hash sum"
-#~ msgstr "Calcular la suma del hash SHA256"
-
-#~ msgid "SHA384 Checksum"
-#~ msgstr "Suma de verificación SHA384"
-
-#~ msgid "Compute SHA384 hash sum"
-#~ msgstr "Calcular la suma del hash SHA384"
-
-#~ msgid "SHA512 Checksum"
-#~ msgstr "Suma de verificación SHA512"
-
-#~ msgid "Compute SHA512 hash sum"
-#~ msgstr "Calcular la suma del hash SHA512"
-
-#~ msgid "MD5 Checksum"
-#~ msgstr "Suma de verificación MD5"
-
-#~ msgid "Compute MD5 hash sum"
-#~ msgstr "Calcular la suma del hash MD5"
-
-#~ msgid "Base64 Encode"
-#~ msgstr "Codificación en Base64"
-
-#~ msgid "Encode text to Base64"
-#~ msgstr "Codificar texto en Base64"
-
-#~ msgid "Base64 Decode"
-#~ msgstr "Decodificación en Base64"
-
-#~ msgid "Decode text from Base64"
-#~ msgstr "Decodificación de texto en Base64"
-
-#~ msgid "Remove Trailing"
-#~ msgstr "Quitar los restos"
-
-#~ msgid "Remove trailing whitespaces and newlines"
-#~ msgstr "Quitar los espacios en blanco al final y los saltos de línea"
-
-#~ msgid "Trim Lines"
-#~ msgstr "Recortar líneas"
-
-#~ msgid "Remove leading and trailing whitespaces and newlines"
-#~ msgstr ""
-#~ "Quitar los espacios en blanco iniciales y finales y las líneas nuevas"
-
-#~ msgid "Count Symbols"
-#~ msgstr "Contar símbolos"
-
-#~ msgid "Count how many symbols are in text"
-#~ msgstr "Contar cuántos símbolos hay en el texto"
-
-#~ msgid "Count Lines"
-#~ msgstr "Contar líneas"
-
-#~ msgid "Count how many lines are in text"
-#~ msgstr "Contar cuántas líneas hay en el texto"
-
-#~ msgid "Count Words"
-#~ msgstr "Contar palabras"
-
-#~ msgid "Count how many words are in text"
-#~ msgstr "Contar cuántas palabras hay en el texto"
-
-#~ msgid "Prettify JSON"
-#~ msgstr "Mejorar JSON"
-
-#~ msgid "Parse JSON and prettify it"
-#~ msgstr "Analizar JSON y mejorarlo"
-
-#~ msgid "Minify JSON"
-#~ msgstr "Minimizar JSON"
-
-#~ msgid "Parse JSON and minify it"
-#~ msgstr "Analizar JSON y minimizarlo"
-
-#~ msgid "Escape String"
-#~ msgstr "Cadena de escape"
-
-#~ msgid "Replace special characters with escape sequences"
-#~ msgstr "Reemplazar los caracteres especiales por secuencias de escape"
-
-#~ msgid "Escape HTML"
-#~ msgstr "Escape HTML"
-
-#~ msgid "Replace special characters with HTML-safe sequences"
-#~ msgstr ""
-#~ "Reemplazar los caracteres especiales por secuencias seguras para HTML"
-
-#~ msgid "Escape URL"
-#~ msgstr "Escape URL"
-
-#~ msgid "Replace special characters with URL-safe sequences"
-#~ msgstr ""
-#~ "Reemplazar los caracteres especiales por secuencias seguras para la URL"
-
-#~ msgid "Unescape String"
-#~ msgstr "Cadena de desescape"
-
-#~ msgid "Replace escape sequences with characters"
-#~ msgstr "Reemplazar las secuencias de escape por caracteres"
-
-#~ msgid "Unescape HTML"
-#~ msgstr "Desescape HTML"
-
-#~ msgid "Replace HTML sequences with characters"
-#~ msgstr "Reemplazar las secuencias HTML por caracteres"
-
-#~ msgid "Unescape URL"
-#~ msgstr "Desescape URL"
-
-#~ msgid "Replace URL sequences with characters"
-#~ msgstr "Reemplazar las secuencias de URL con caracteres"
-
-#~ msgid "Convert JSON to YAML"
-#~ msgstr "Convertir JSON en YAML"
-
-#~ msgid "Parse JSON and convert it to YAML document"
-#~ msgstr "Analizar JSON y convertirlo en un documento YAML"
-
-#~ msgid "Convert YAML to JSON"
-#~ msgstr "Convertir YAML en JSON"
-
-#~ msgid "Parse YAML document and convert it to JSON"
-#~ msgstr "Analizar el documento YAML y convertirlo en JSON"
-
-#~ msgid "Reverse Lines"
-#~ msgstr "Invertir líneas"
-
-#~ msgid "Reoder lines in reverse order"
-#~ msgstr "Reordenar las líneas en orden inverso"
-
-#~ msgid "Reverse Text"
-#~ msgstr "Invertir texto"
-
-#~ msgid "Reorder characters in reverse order"
-#~ msgstr "Reordenar los caracteres en orden inverso"
-
-#~ msgid "Sort Lines"
-#~ msgstr "Ordenar líneas"
-
-#~ msgid "Sort lines in text in alphabetical order"
-#~ msgstr "Ordenar las líneas del texto por orden alfabético"
-
-#~ msgid "Reverse Sort Lines"
-#~ msgstr "Ordenar las líneas de forma inversa"
-
-#~ msgid "Sort lines in text in reverse alphabetical order"
-#~ msgstr "Ordenar las líneas del texto en orden alfabético inverso"
-
-#~ msgid "Filter Lines by Regex"
-#~ msgstr "Filtrar líneas por regex"
-
-#~ msgid "Remove all lines which don't match given regular expression"
-#~ msgstr ""
-#~ "Quitar todas las líneas que no coincidan con la expresión regular dada"
-
-#~ msgid "Regex"
-#~ msgstr "Regex"
-
-#~ msgid "Reverse Filter Lines by Regex"
-#~ msgstr "Invertir las líneas de filtrado por regex"
-
-#~ msgid "Remove all lines which match given regular expression"
-#~ msgstr "Quitar todas las líneas que coincidan con la expresión regular dada"
-
-#~ msgid "Filter Lines by Substring"
-#~ msgstr "Filtrar líneas por subcadena"
-
-#~ msgid "Remove all lines which don't contain given substring"
-#~ msgstr "Quitar todas las líneas que no contengan la subcadena dada"
-
-#~ msgid "Substring"
-#~ msgstr "Subcadena"
-
-#~ msgid "Reverse Filter Lines by Substring"
-#~ msgstr "Filtrar líneas por subcadena de forma inversa"
-
-#~ msgid "Remove all lines which contain given substring"
-#~ msgstr "Quitar todas las líneas que contengan la subcadena dada"
-
-#~ msgid "Remove Regex"
-#~ msgstr "Quitar regex"
-
-#~ msgid "Remove all matches of regular expression"
-#~ msgstr "Quitar todas las coincidencias de la expresión regular"
-
-#~ msgid "Remove Substring"
-#~ msgstr "Quitar la subcadena"
-
-#~ msgid "Remove all occurrences of given substring in text"
-#~ msgstr "Quitar todas las ocurrencias de la subcadena dada en el texto"
-
-#~ msgid "Replace Substring"
-#~ msgstr "Reemplazar subcadena"
-
-#~ msgid "Replace all occurrences of given substring in text with other string"
-#~ msgstr ""
-#~ "Reemplazar todas las ocurrencias de la subcadena dada en el texto con "
-#~ "otra cadena"
-
-#~ msgid "Replace With"
-#~ msgstr "Reemplazar con"
-
-#~ msgid "Replace Regex"
-#~ msgstr "Reemplazar regex"
-
-#~ msgid "Replace all given regex matches in text with given string"
-#~ msgstr ""
-#~ "Reemplazar todas las coincidencias regex dadas en el texto con la cadena "
-#~ "dada"
-
-#~ msgid "Find (regex)"
-#~ msgstr "Buscar (regex)"
-
-#~ msgid "Prettify XML"
-#~ msgstr "Mejorar XML"
-
-#~ msgid "Parse XML and prettify it"
-#~ msgstr "Analizar XML y mejorarlo"
+#: data/tools.json
+msgctxt "tools"
+msgid "Base64 Decode"
+msgstr "Decodificación en Base64"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Base64 Encode"
+msgstr "Codificación en Base64"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute MD5 hash sum"
+msgstr "Calcular la suma del hash MD5"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA1 hash sum"
+msgstr "Calcular la suma del hash SHA1"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA256 hash sum"
+msgstr "Calcular la suma del hash SHA256"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA384 hash sum"
+msgstr "Calcular la suma del hash SHA384"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA512 hash sum"
+msgstr "Calcular la suma del hash SHA512"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Convert JSON to YAML"
+msgstr "Convertir JSON en YAML"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Convert YAML to JSON"
+msgstr "Convertir YAML en JSON"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count how many lines are in text"
+msgstr "Contar cuántas líneas hay en el texto"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count how many symbols are in text"
+msgstr "Contar cuántos símbolos hay en el texto"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count how many words are in text"
+msgstr "Contar cuántas palabras hay en el texto"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count Lines"
+msgstr "Contar líneas"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count Symbols"
+msgstr "Contar símbolos"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count Words"
+msgstr "Contar palabras"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Decode text from Base64"
+msgstr "Decodificación de texto en Base64"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Encode text to Base64"
+msgstr "Codificar texto en Base64"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Escape HTML"
+msgstr "Escape HTML"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Escape String"
+msgstr "Cadena de escape"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Escape URL"
+msgstr "Escape URL"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Extract RSS links from OPML outline"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Filter Lines by Regex"
+msgstr "Filtrar líneas por regex"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Filter Lines by Substring"
+msgstr "Filtrar líneas por subcadena"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Find"
+msgstr "Buscar"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Find (regex)"
+msgstr "Buscar (regex)"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "MD5 Checksum"
+msgstr "Suma de verificación MD5"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Minify JSON"
+msgstr "Minimizar JSON"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "OPML to RSS links"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse JSON and convert it to YAML document"
+msgstr "Analizar JSON y convertirlo en un documento YAML"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse JSON and minify it"
+msgstr "Analizar JSON y minimizarlo"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse JSON and prettify it"
+msgstr "Analizar JSON y mejorarlo"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse XML and prettify it"
+msgstr "Analizar XML y mejorarlo"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse YAML document and convert it to JSON"
+msgstr "Analizar el documento YAML y convertirlo en JSON"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Prettify JSON"
+msgstr "Mejorar JSON"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Prettify XML"
+msgstr "Mejorar XML"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Regex"
+msgstr "Regex"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which contain given substring"
+msgstr "Quitar todas las líneas que contengan la subcadena dada"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which don't contain given substring"
+msgstr "Quitar todas las líneas que no contengan la subcadena dada"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which don't match given regular expression"
+msgstr "Quitar todas las líneas que no coincidan con la expresión regular dada"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which match given regular expression"
+msgstr "Quitar todas las líneas que coincidan con la expresión regular dada"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all matches of regular expression"
+msgstr "Quitar todas las coincidencias de la expresión regular"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all occurrences of given substring in text"
+msgstr "Quitar todas las ocurrencias de la subcadena dada en el texto"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove leading and trailing whitespaces and newlines"
+msgstr "Quitar los espacios en blanco iniciales y finales y las líneas nuevas"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove Regex"
+msgstr "Quitar regex"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove Substring"
+msgstr "Quitar la subcadena"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove Trailing"
+msgstr "Quitar los restos"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove trailing whitespaces and newlines"
+msgstr "Quitar los espacios en blanco al final y los saltos de línea"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reoder lines in reverse order"
+msgstr "Reordenar las líneas en orden inverso"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reorder characters in reverse order"
+msgstr "Reordenar los caracteres en orden inverso"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace all given regex matches in text with given string"
+msgstr ""
+"Reemplazar todas las coincidencias regex dadas en el texto con la cadena dada"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace all occurrences of given substring in text with other string"
+msgstr ""
+"Reemplazar todas las ocurrencias de la subcadena dada en el texto con otra "
+"cadena"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace escape sequences with characters"
+msgstr "Reemplazar las secuencias de escape por caracteres"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace HTML sequences with characters"
+msgstr "Reemplazar las secuencias HTML por caracteres"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace Regex"
+msgstr "Reemplazar regex"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace special characters with escape sequences"
+msgstr "Reemplazar los caracteres especiales por secuencias de escape"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace special characters with HTML-safe sequences"
+msgstr "Reemplazar los caracteres especiales por secuencias seguras para HTML"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace special characters with URL-safe sequences"
+msgstr ""
+"Reemplazar los caracteres especiales por secuencias seguras para la URL"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace Substring"
+msgstr "Reemplazar subcadena"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace URL sequences with characters"
+msgstr "Reemplazar las secuencias de URL con caracteres"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace With"
+msgstr "Reemplazar con"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Filter Lines by Regex"
+msgstr "Invertir las líneas de filtrado por regex"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Filter Lines by Substring"
+msgstr "Filtrar líneas por subcadena de forma inversa"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Lines"
+msgstr "Invertir líneas"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Sort Lines"
+msgstr "Ordenar las líneas de forma inversa"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Text"
+msgstr "Invertir texto"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA1 Checksum"
+msgstr "Suma de verificación SHA1"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA256 Checksum"
+msgstr "Suma de verificación SHA256"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA384 Checksum"
+msgstr "Suma de verificación SHA384"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA512 Checksum"
+msgstr "Suma de verificación SHA512"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Sort Lines"
+msgstr "Ordenar líneas"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Sort lines in text in alphabetical order"
+msgstr "Ordenar las líneas del texto por orden alfabético"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Sort lines in text in reverse alphabetical order"
+msgstr "Ordenar las líneas del texto en orden alfabético inverso"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Substring"
+msgstr "Subcadena"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Trim Lines"
+msgstr "Recortar líneas"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Unescape HTML"
+msgstr "Desescape HTML"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Unescape String"
+msgstr "Cadena de desescape"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Unescape URL"
+msgstr "Desescape URL"
 
 #~ msgid "Color Scheme"
 #~ msgstr "Esquema de colores"

@@ -17,11 +17,13 @@ if [[ -z "$changes" ]]; then
 fi
 
 ci/generate-tools-po.sh &&
-    meson _build &&
-    ninja -C _build textpieces-pot &&
-    cat po/tools.pot >>po/textpieces.pot &&
-    ninja -C _build textpieces-update-po ||
-    exit 1
+meson _build &&
+ninja -C _build textpieces-pot &&
+cat po/tools.pot >>po/textpieces.pot &&
+
+for file in $(ls po/*.po); do
+    msgmerge --backup=off -U $file po/textpieces.pot -D .
+done || exit 1
 
 git add po &&
     git commit -m 'chore(po): update translations' ||

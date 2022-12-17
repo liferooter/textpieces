@@ -149,7 +149,21 @@ namespace TextPieces {
          * Load content from file
          */
         public void load_from (File file) {
-            editor.load_from (file);
+            try {
+                editor.load_from (file);
+            } catch (FileError e) {
+                /* Show error dialog if error occurs */
+                var dialog = new Gtk.MessageDialog (
+                    this,
+                    MODAL | DESTROY_WITH_PARENT,
+                    WARNING,
+                    CLOSE,
+                    _("Can't load from file: %s"),
+                    e.message
+                );
+                dialog.response.connect (dialog.destroy);
+                dialog.show ();
+            }
         }
 
         /**
@@ -320,21 +334,7 @@ namespace TextPieces {
                 if (file == null)
                     return;
 
-                try {
-                    editor.load_from (file);
-                } catch (FileError e) {
-                    /* Show error dialog if error occurs */
-                    var dialog = new Gtk.MessageDialog (
-                        this,
-                        MODAL | DESTROY_WITH_PARENT,
-                        WARNING,
-                        CLOSE,
-                        _("Can't load from file: %s"),
-                        e.message
-                    );
-                    dialog.response.connect (dialog.destroy);
-                    dialog.show ();
-                }
+                load_from (file);
             });
             file_chooser.show ();
         }
@@ -372,7 +372,7 @@ namespace TextPieces {
             ((SimpleAction) lookup_action ("apply"))
                 .set_enabled (selected_tool != null);
 
-            editor.set_arguments (selected_tool?.arguments ?? new string[0]);
+            editor.set_arguments (selected_tool?.translated_arguments ?? new string[0]);
 
             /* Update editor's top margin */
             Idle.add (() => {
