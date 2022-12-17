@@ -57,7 +57,6 @@ namespace TextPieces {
             { "win.apply"             , "<Ctrl>Return"   },
             { "win.copy"              , "<Ctrl><Shift>c" },
             { "win.open-preferences"  , "<Ctrl>comma"    },
-            { "win.show-help-overlay" , "<Ctrl>question" },
             { "win.load-file"         , "<Ctrl>o"        },
             { "win.save-as"           , "<Ctrl>s"        },
             { "win.toggle-search"     , "<Alt>s"         },
@@ -101,8 +100,10 @@ namespace TextPieces {
             .get_scheme (settings.get_string ("style-scheme"));
 
         public Application () {
+            ApplicationFlags flags = FLAGS_NONE | HANDLES_OPEN;
+
             Object (
-                flags: ApplicationFlags.FLAGS_NONE,
+                flags: flags,
                 application_id: "com.github.liferooter.textpieces"
             );
         }
@@ -122,8 +123,10 @@ namespace TextPieces {
             instance = this;
 
             /* Initialize localization */
+            Intl.setlocale ();
             Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.GNOMELOCALEDIR);
             Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
+            Intl.textdomain (Config.GETTEXT_PACKAGE);
 
             /* Setup style scheme */
             Gtk.StyleContext.add_provider_for_display (
@@ -165,6 +168,20 @@ namespace TextPieces {
         protected override void activate () {
             /* Create window window */
             new_window ();
+        }
+
+        /**
+         * Open file method
+         *
+         * This method is called when user
+         * opens a file with the application.
+         */
+        protected override void open (File[] files, string hint) {
+            foreach (var file in files) {
+                var win = new TextPieces.Window (this);
+                win.load_from (file);
+                win.present();
+            }
         }
 
         /**

@@ -25,7 +25,7 @@ output_string = 'You said "' + input_string + '"'
 
 # ...handle errors...
 if len(output_string) > 30:
-    stderr.write("The message is too long")
+    stderr.write('The message is too long')
     exit(1)
 
 # ...and write result to stdout
