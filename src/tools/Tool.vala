@@ -169,12 +169,13 @@ namespace TextPieces {
          */
         public void open (Gtk.Window? window)
                 requires (!this.is_system) {
-            Gtk.show_uri (
-                window,
+            new Xdp.Portal ().open_uri.begin (
+                Xdp.parent_new_gtk(window),
                 File.new_build_filename (
                     Tool.CUSTOM_TOOLS_DIR.get (), this.script
                 ).get_uri (),
-                Gdk.CURRENT_TIME
+                ASK | WRITABLE,
+                null
             );
         }
 
