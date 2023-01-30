@@ -1,0 +1,582 @@
+# SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: CC0-1.0
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/com.github.liferooter.textpieces.desktop.in:7
+#: data/com.github.liferooter.textpieces.appdata.xml.in:9 src/Window.vala:241
+#: resources/ui/Window.blp:9
+msgid "Text Pieces"
+msgstr "Szövegrészek"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.github.liferooter.textpieces.desktop.in:17
+msgid ""
+"Gnome;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;Checksum;"
+"Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;"
+msgstr "Gnome;GTK;szöveg;Base64;JSON;YAML;számolás;SHA1;SHA256;SHA384;SHA512;MD5;ellenőrzőösszeg;"
+"feloldó;kódolás;HTML;URL;szépítés;szűrő;fordítás;levágás;"
+
+#: data/com.github.liferooter.textpieces.desktop.in:20
+msgid "New Window"
+msgstr "Új ablak"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:10 src/Window.vala:243
+msgid "Transform text without using random websites"
+msgstr "Szöveg átalakítása véletlenszerű webhelyek használata nélkül"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:14
+msgid "Do a lot of text transformations, such as:"
+msgstr "Végezzen sok szövegátalakítást, például:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:16
+msgid "Calculate hashes"
+msgstr "Kivonatok kiszámítása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:17
+msgid "Encode text"
+msgstr "Szöveg kódolása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:18
+msgid "Decode text"
+msgstr "Szöveg dekódolása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:19
+msgid "Remove trailing spaces and lines"
+msgstr "Záró szóközök és vonalak eltávolítása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:20
+msgid "Count lines, symbols and words"
+msgstr "Sorok, szimbólumok és szavak számolása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:21
+msgid "Format JSON and XML"
+msgstr "JSON és XML formázása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:22
+msgid "Escape and unescape strings"
+msgstr "Karakterláncok feloldása és zárolása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:23
+msgid "Convert JSON to YAML and vice versa"
+msgstr "JSON-formátum átalakítása YAML-formátumba és fordítva"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:24
+msgid "Filter lines"
+msgstr Szűrősorok"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:25
+msgid "Replace substrings and regular expressions"
+msgstr "Alkarakterláncok és reguláris kifejezések helyettesítése"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:27
+msgid "...and so on."
+msgstr "…satöbbi."
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:32
+msgid "Gleb Smirnov"
+msgstr "Smirnov Gleb"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:64
+#: data/com.github.liferooter.textpieces.appdata.xml.in:72
+#: data/com.github.liferooter.textpieces.appdata.xml.in:93
+#: data/com.github.liferooter.textpieces.appdata.xml.in:112
+#: data/com.github.liferooter.textpieces.appdata.xml.in:127
+#: data/com.github.liferooter.textpieces.appdata.xml.in:138
+#: data/com.github.liferooter.textpieces.appdata.xml.in:148
+#: data/com.github.liferooter.textpieces.appdata.xml.in:158
+msgid "New features and improvements:"
+msgstr "Új jellemzők és fejlesztések:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:66
+msgid "Add hotkey to open search in replace mode"
+msgstr "Gyorsbillentyű hozzáadása a keresés megnyitásához csere módban"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:74
+msgid "Add some keywords to the application for system search"
+msgstr "Adjon hozzá néhány kulcsszót az alkalmazáshoz a rendszerkereséshez"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:80
+msgid "New features and improvement:"
+msgstr "Új jellemzők és fejlesztések:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:82
+msgid "Add style schemes"
+msgstr "Stílussémák hozzáadása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:83
+msgid "Add search and replace feature to editor"
+msgstr "Keresés és csere jellemző hozzáadása a szerkesztőhöz"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:84
+msgid "Fix some bugs"
+msgstr "Hibajavítások"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:89
+msgid "Bug fix"
+msgstr "Hibajavítás"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:95
+msgid "Refresh UI"
+msgstr "Felhasználói felület frissítése"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:96
+msgid "Fix a lot of bugs"
+msgstr "Hibajavítások"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:97
+msgid "Add powerful settings"
+msgstr "Hatékony beállítások hozzáadása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:98
+msgid "Add arguments support for custom tools"
+msgstr "Adjon hozzá argumentumot az egyéni eszközökhöz"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:99
+msgid "Add translation support"
+msgstr "Fordítási támogatás hozzáadása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:100
+#: data/com.github.liferooter.textpieces.appdata.xml.in:131
+msgid "Improve search"
+msgstr "Keresés javítása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:114
+msgid "Minor UI changes"
+msgstr "Felhasználói felület változásai"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:115
+msgid "Add XML formatter"
+msgstr "XML-formázó hozzáadása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:120
+msgid "Some bugfixes and improvements"
+msgstr "Néhány hibajavítás és fejlesztés"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:123
+msgid "Bring back tools with arguments"
+msgstr "Hozza vissza az érvekkel ellátott eszközöket"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:129
+msgid "Redesign the application"
+msgstr "Újratervezett alkalmazás"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:130
+msgid "Add custom tools support"
+msgstr "Egyéni eszközök támogatása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:132
+msgid "Add ability to text load from file and save to file"
+msgstr ""
+"Add hozzá a szöveg fájlból való betöltésének és a szöveg fájlba "
+"mentésének lehetőségét"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:140
+msgid "Exit by Ctrl+Q"
+msgstr "Kilépés a Ctrl+Q billentyűkombinációval"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:141
+msgid "Monospace argument entry"
+msgstr "Fix széles argumentum bejegyzés"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:142
+msgid "Update new runtime"
+msgstr "Új futásidejű frissítés"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:150
+msgid "Sort tools"
+msgstr "Rendezési eszközök"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:151
+msgid "Filter tools"
+msgstr "Szűrőeszközök"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:152
+msgid "Minify C-like code"
+msgstr "C-szerű kód kicsinyítése"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:160
+msgid "Add more tools"
+msgstr "További eszközök hozzáadása"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:161
+msgid "Make tools popover more powerful"
+msgstr "Tegye erősebbé az eszközök felbukkanását"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:162
+msgid "Redesign icon"
+msgstr "Újratervezett ikon"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:163
+msgid "General improvements"
+msgstr "Általános fejlesztések"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:168
+msgid "Add tools for replacement and removing"
+msgstr "Szerszámok hozzáadása a cseréhez és eltávolításhoz"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:171
+msgid "Application release"
+msgstr "Alkalmazás kiadása"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:13
+msgid "Style scheme"
+msgstr "Stílusséma"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:14
+msgid "Which style scheme to use for application interface and editor."
+msgstr "Milyen stílussémát kell használni az alkalmazásfelülethez és a szerkesztőhöz."
+
+#: data/com.github.liferooter.textpieces.gschema.xml:20
+msgid "Font name"
+msgstr "Betűkészlet neve"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:21
+msgid "Name of font used in editor"
+msgstr "A szerkesztőben használt betűkészlet neve"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:27
+msgid "Wrap lines"
+msgstr "Sortörés"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:28
+msgid "Whether to wrap long lines"
+msgstr "Sortörés beállítása"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:34
+msgid "Tabs to spaces"
+msgstr "Tabulátorok átalakítása szóközökké"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:35
+msgid "Whether to insert spaces instead of tab"
+msgstr "A tabulátorok szóközökké alakításának beállítása"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:41
+msgid "Spaces in tab"
+msgstr "Szóközök száma a tabulátorban"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:42
+msgid "Tab width in spaces"
+msgstr "Tabulátor szélessége szóközökben"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:48
+msgid "Window width"
+msgstr "Ablak szélessége"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:49
+msgid "Saved width of application window"
+msgstr "Alkalmazásablak mentett szélessége"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:55
+msgid "Window height"
+msgstr "Ablak magassága"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:56
+msgid "Saved height of the window"
+msgstr "Alkalmazásablak mentett magassága"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:62
+msgid "Is maximized"
+msgstr "Maximális méretű"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:63
+msgid "Whether the application window is maximized"
+msgstr "Alkalmazásablak méretének maximalizálásának beállítása"
+
+#: src/Editor.vala:155
+msgid "Text is copied"
+msgstr "Szöveg vágólapra másolva"
+
+#: src/NewToolPage.vala:113
+#, c-format
+msgid "Error occured: %s"
+msgstr "Hiba történt: %s"
+
+#. Create dialog
+#: src/Preferences.vala:128
+msgid "Select font"
+msgstr "Betűkészlet kijelölése"
+
+#: src/SearchEntry.vala:93
+#, c-format
+msgid "%u of %d"
+msgstr "%u/%d"
+
+#: src/ToolSettings.vala:182
+#, c-format
+msgid "Argument %d"
+msgstr "Argumentum %d"
+
+#. *
+#. * Text used instead of tool name
+#. * when where is no tool selected
+#.
+#: src/Window.vala:25 resources/ui/ShortcutsWindow.blp:39
+msgid "Select tool"
+msgstr "Eszköz kijelölése"
+
+#: src/Window.vala:234 src/Window.vala:237
+msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+msgstr "Smirnov Gleb <glebsmirnov0708@gmail.com>"
+
+#: src/Window.vala:236
+msgid "Tobias Bernard https://tobiasbernard.com"
+msgstr "Bernard Tobias https://tobiasbernard.com"
+
+#: src/Window.vala:249
+msgid "translator-credits"
+msgstr "Stoffels Heimen <vistausss@fastmail.com>"
+
+#: src/Window.vala:275 resources/ui/Window.blp:78
+msgid "Save to File"
+msgstr "Mentés a fájlba"
+
+#: src/Window.vala:300
+#, c-format
+msgid "Can't save to file: %s"
+msgstr "Nem lehet menteni a fájlba: %s"
+
+#: src/Window.vala:316 resources/ui/Window.blp:85
+msgid "Load from File"
+msgstr "Betöltés a fájlból"
+
+#: src/Window.vala:341
+#, c-format
+msgid "Can't load from file: %s"
+msgstr "Nem lehet betölteni a fájlból: %s"
+
+#: resources/ui/CustomToolPage.blp:27
+msgid "Edit Tool"
+msgstr "Szerkesztő eszköz"
+
+#: resources/ui/CustomToolPage.blp:38
+msgid "D_elete"
+msgstr "_Törlés"
+
+#: resources/ui/NewToolPage.blp:27
+msgid "New Tool"
+msgstr "Új eszköz"
+
+#: resources/ui/NewToolPage.blp:42
+msgid "_Create"
+msgstr "_Létrehozás"
+
+#: resources/ui/Preferences.blp:13
+msgid "_General"
+msgstr "_Általános"
+
+#: resources/ui/Preferences.blp:19
+msgid "Editor"
+msgstr "Szerkesztő"
+
+#: resources/ui/Preferences.blp:22
+msgid "Editor _Font"
+msgstr "Szerkesztő _betűkészlet"
+
+#: resources/ui/Preferences.blp:40
+msgid "_Wrap Lines"
+msgstr "Sor_törések"
+
+#: resources/ui/Preferences.blp:51
+msgid "Tabs to _Spaces"
+msgstr "Tabulátorok átalakítása _szóközökké"
+
+#: resources/ui/Preferences.blp:62
+msgid "_Tab Width in Spaces"
+msgstr "_Tabulátor szélessége szóközökben"
+
+#: resources/ui/Preferences.blp:82
+msgid "Appearance"
+msgstr "Megjelenés"
+
+#: resources/ui/Preferences.blp:94
+msgid "T_ools"
+msgstr "_Eszközök"
+
+#: resources/ui/Preferences.blp:100
+msgid "Custom tools"
+msgstr "Egyéni eszközök"
+
+#: resources/ui/Preferences.blp:112
+msgid "_Add custom tool"
+msgstr "Egyéni eszközök _hozzáadása"
+
+#: resources/ui/Preferences.blp:128
+msgid "No Custom Tools"
+msgstr "Nincsenek egyéni eszközök"
+
+#: resources/ui/Preferences.blp:129
+msgid "You can create one"
+msgstr "Létrehozhat egyet"
+
+#: resources/ui/SearchBar.blp:40
+msgid "Move to revious match"
+msgstr "Ugrás az előző egyezésre"
+
+#: resources/ui/SearchBar.blp:46
+msgid "Move to next match"
+msgstr "Ugrás a következő egyezésre"
+
+#: resources/ui/SearchBar.blp:58
+msgid "Find and replace"
+msgstr "Keresés és csere"
+
+#: resources/ui/SearchBar.blp:68
+msgid "Toggle search options"
+msgstr "Keresési beállítások átváltása"
+
+#: resources/ui/SearchBar.blp:84
+msgid "Close search"
+msgstr "Keresés bezárása"
+
+#: resources/ui/SearchBar.blp:95
+msgid "Replace"
+msgstr "Csere"
+
+#: resources/ui/SearchBar.blp:106
+msgid "_Replace"
+msgstr "_Csere"
+
+#: resources/ui/SearchBar.blp:119
+msgid "Replace _All"
+msgstr "Az öss_zes cseréje"
+
+#: resources/ui/SearchBar.blp:138
+msgid "Re_gular expressions"
+msgstr "_Szabályos kifejezések"
+
+#: resources/ui/SearchBar.blp:144
+msgid "_Case sensitive"
+msgstr "Kis- és _nagybetűk megkülönböztetése"
+
+#: resources/ui/SearchBar.blp:150
+msgid "Match whole _word only"
+msgstr "Csak a _teljes szó egyezése"
+
+#: resources/ui/SearchEntry.blp:15
+msgid "Find"
+msgstr "Keresés"
+
+#: resources/ui/ShortcutsWindow.blp:12
+msgid "General"
+msgstr "Általános"
+
+#: resources/ui/ShortcutsWindow.blp:15
+msgid "Keyboard shortcuts"
+msgstr "Billentyűparancsok"
+
+#: resources/ui/ShortcutsWindow.blp:20
+msgid "Preferences"
+msgstr "Beállítások"
+
+#: resources/ui/ShortcutsWindow.blp:25
+msgid "Quit"
+msgstr "Kilépés"
+
+#: resources/ui/ShortcutsWindow.blp:31
+msgid "Tools"
+msgstr "Eszközök"
+
+#: resources/ui/ShortcutsWindow.blp:34
+msgid "Apply"
+msgstr "Alkalmaz"
+
+#: resources/ui/ShortcutsWindow.blp:44
+msgid "Just to the tool options"
+msgstr "Csak az eszközbeállításokhoz"
+
+#: resources/ui/ShortcutsWindow.blp:50
+msgid "Undo and Redo"
+msgstr "Visszavonás és újra"
+
+#: resources/ui/ShortcutsWindow.blp:53
+msgid "Undo"
+msgstr "Visszavonás"
+
+#: resources/ui/ShortcutsWindow.blp:58
+msgid "Redo"
+msgstr "Újra"
+
+#: resources/ui/ShortcutsWindow.blp:64
+msgid "Files"
+msgstr "Fájlok"
+
+#: resources/ui/ShortcutsWindow.blp:67
+msgid "Load from file"
+msgstr "Betöltés fájlból"
+
+#: resources/ui/ShortcutsWindow.blp:72
+msgid "Save to file"
+msgstr "Mentés fájlba"
+
+#: resources/ui/ToolSettings.blp:31
+msgid "_Name"
+msgstr "_Név"
+
+#: resources/ui/ToolSettings.blp:42
+msgid "_Description"
+msgstr "_Leírás"
+
+#: resources/ui/ToolSettings.blp:52
+msgid "_Arguments"
+msgstr "_Argumentumok"
+
+#: resources/ui/ToolSettings.blp:80
+msgid "Edit _Script"
+msgstr "_Parancsfájl szerkesztése"
+
+#: resources/ui/Window.blp:32
+msgid "_Apply"
+msgstr "_Alkalmaz"
+
+#: resources/ui/Window.blp:35
+msgid "Apply Selected Tool"
+msgstr "Kiválasztott eszköz alkalmazása"
+
+#: resources/ui/Window.blp:45
+msgid "Copy"
+msgstr "Másolás"
+
+#: resources/ui/Window.blp:71
+msgid "Main Menu"
+msgstr "Főmenü"
+
+#: resources/ui/Window.blp:160
+msgid "No Tools Found"
+msgstr "Nem található eszköz"
+
+#: resources/ui/Window.blp:186
+msgid "Add Custom Tool"
+msgstr "Egyéni eszköz hozzáadása"
+
+#: resources/ui/Window.blp:207
+msgid "_New Window"
+msgstr "_Új ablak"
+
+#: resources/ui/Window.blp:215
+msgid "_Find/Replace…"
+msgstr "_Keresés/csere…"
+
+#: resources/ui/Window.blp:223
+msgid "_Preferences"
+msgstr "_Beállítások"
+
+#: resources/ui/Window.blp:229
+msgid "_Keyboard Shortcuts"
+msgstr "_Billentyűparancsok"
+
+#: resources/ui/Window.blp:235
+msgid "_About Text Pieces"
+msgstr "_A Szövegrészek névjegye"
