@@ -141,7 +141,7 @@
     },
     {
       "name": "Reverse Lines",
-      "description": "Reoder lines in reverse order",
+      "description": "Reorder lines in reverse order",
       "icon": "object-flip-vertical-symbolic",
       "script": "reverse-lines"
     },

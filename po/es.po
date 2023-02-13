@@ -910,7 +910,7 @@ msgstr "Quitar los espacios en blanco al final y los saltos de línea"
 
 #: data/tools.json
 msgctxt "tools"
-msgid "Reoder lines in reverse order"
+msgid "Reorder lines in reverse order"
 msgstr "Reordenar las líneas en orden inverso"
 
 #: data/tools.json
