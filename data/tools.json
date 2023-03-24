@@ -242,6 +242,30 @@
       "description": "Parse XML and prettify it",
       "icon": "format-justify-left-symbolic",
       "script": "format-xml"
+    },
+    {
+      "name": "Uppercase",
+      "description": "Returns all characters are in upper case",
+      "icon": "format-text-plaintext-symbolic",
+      "script": "uppercase"
+    },
+    {
+      "name": "Lowercase",
+      "description": "Returns all characters are lower case",
+      "icon": "format-text-plaintext-symbolic",
+      "script": "lowercase"
+    },
+    {
+      "name": "Capitalize each word",
+      "description": "Returns the first character in every word as upper case",
+      "icon": "format-text-plaintext-symbolic",
+      "script": "capitalize"
+    },
+    {
+      "name": "CamelCase",
+      "description": "Writing without spaces in capitalized words",
+      "icon": "format-text-plaintext-symbolic",
+      "script": "camelcase"
     }
   ]
 }
