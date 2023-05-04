@@ -71,7 +71,7 @@ namespace TextPieces {
             }
 
             /* Generate script filename with salt */
-            var filename = Tool.generate_filename (name);
+            var filename = Tool.generate_filename (new_tool.name);
 
             /* Get script file */
             var script_file = File.new_build_filename (

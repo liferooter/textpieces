@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 project('textpieces', 'vala',
-          version: '3.4.0',
+          version: '3.4.1',
     meson_version: '>= 0.59.0',
   default_options: [ 'warning_level=2',
                    ],
@@ -91,6 +91,8 @@ textpieces_deps = [
   dependency('gio-unix-2.0', version: '>= 2.50'),
   dependency('gtk4', version: '>= 4.2'),
   dependency('gee-0.8', version: '>= 0.8'),
+  dependency('libportal', version: '>= 0.6'),
+  dependency('libportal-gtk4', version: '>= 0.6'),
   json_glib_dep,
   gtksourceview_dep,
   libadwaita_dep,
