@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: textpieces\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-08-04 20:40+0300\n"
-"PO-Revision-Date: 2022-08-06 11:41+0200\n"
+"PO-Revision-Date: 2023-05-05 00:02+0200\n"
 "Last-Translator: Irénée Thirion <irenee.thirion@e.email>\n"
 "Language-Team: French <>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: data/com.github.liferooter.textpieces.desktop.in:7
 #: data/com.github.liferooter.textpieces.appdata.xml.in:11 src/Window.vala:241
@@ -224,7 +224,7 @@ msgstr "Schéma de style"
 #: data/com.github.liferooter.textpieces.gschema.xml:14
 msgid "Which style scheme to use for application interface and editor."
 msgstr ""
-"Quel schéma de style utiliser pour l’interface et l’éditeur de l'application."
+"Quel schéma de style utiliser pour l’interface et l’éditeur de l’application."
 
 #: data/com.github.liferooter.textpieces.gschema.xml:20
 msgid "Font name"
@@ -240,7 +240,7 @@ msgstr "Envelopper les lignes"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:28
 msgid "Whether to wrap long lines"
-msgstr "Possibilité d‘envelopper les longues lignes"
+msgstr "Possibilité d’envelopper les longues lignes"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:34
 msgid "Tabs to spaces"
@@ -248,7 +248,7 @@ msgstr "Tabulations en espaces"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:35
 msgid "Whether to insert spaces instead of tab"
-msgstr "Possibilité d'insérer des espaces à la place des tabulations"
+msgstr "Possibilité d’insérer des espaces à la place des tabulations"
 
 #: data/com.github.liferooter.textpieces.gschema.xml:41
 msgid "Spaces in tab"
@@ -324,7 +324,7 @@ msgstr "Enregistrer dans un fichier"
 #: src/Window.vala:300
 #, c-format
 msgid "Can't save to file: %s"
-msgstr "Impossible d'enregistrer dans un fichier : %s"
+msgstr "Impossible d’enregistrer dans un fichier : %s"
 
 #: src/Window.vala:316 resources/ui/Window.ui:77
 msgid "Load from File"
@@ -361,7 +361,7 @@ msgstr "Éditeur"
 
 #: resources/ui/Preferences.ui:18
 msgid "Editor _Font"
-msgstr "_Police de l’Éditeur"
+msgstr "_Police de l’éditeur"
 
 #: resources/ui/Preferences.ui:39
 msgid "_Wrap Lines"
@@ -753,21 +753,21 @@ msgid "Remove Regex"
 msgstr "Supprimer une expression régulière"
 
 msgid "Remove all matches of regular expression"
-msgstr "Supprimer toutes les correspondances d'une expression régulière"
+msgstr "Supprimer toutes les correspondances d’une expression régulière"
 
 msgid "Remove Substring"
 msgstr "Supprimer une sous-chaîne"
 
 msgid "Remove all occurrences of given substring in text"
 msgstr ""
-"Supprimer toutes les occurrences d'une sous-chaîne donnée dans le texte"
+"Supprimer toutes les occurrences d’une sous-chaîne donnée dans le texte"
 
 msgid "Replace Substring"
 msgstr "Remplacer une sous-chaîne"
 
 msgid "Replace all occurrences of given substring in text with other string"
 msgstr ""
-"Remplacer toutes les occurrences d'une sous-chaîne donnée dans le texte par "
+"Remplacer toutes les occurrences d’une sous-chaîne donnée dans le texte par "
 "une autre chaîne"
 
 msgid "Replace With"
@@ -778,7 +778,7 @@ msgstr "Remplacer une expression régulière"
 
 msgid "Replace all given regex matches in text with given string"
 msgstr ""
-"Remplacer toutes les correspondances d'une expression régulière dans le "
+"Remplacer toutes les correspondances d’une expression régulière dans le "
 "texte par une chaîne donnée"
 
 msgid "Find (regex)"
@@ -788,7 +788,7 @@ msgid "Prettify XML"
 msgstr "Embellissement XML"
 
 msgid "Parse XML and prettify it"
-msgstr "Analyser le texte XML et l'embellir"
+msgstr "Analyser le texte XML et l’embellir"
 
 #~ msgid "Text is copied to clipboard"
 #~ msgstr "Texte copié dans le presse-papiers"
