@@ -242,6 +242,18 @@
       "description": "Parse XML and prettify it",
       "icon": "format-justify-left-symbolic",
       "script": "format-xml"
+    },
+    {
+      "name": "Remove Duplicate Lines",
+      "description": "Remove all duplicate lines and leave one occurrence",
+      "icon": "edit-cut-symbol",
+      "script": "remove-duplicates"
+    },
+    {
+      "name": "Remove All Duplicate Lines",
+      "description": "Remove all occurrences of lines which show up more than once",
+      "icon": "edit-cut-symbol",
+      "script": "remove-all-duplicates"
     }
   ]
 }
