@@ -5,73 +5,109 @@
 using Gtk 4.0;
 
 ShortcutsWindow help_overlay {
-    ShortcutsSection {
-        section-name: 'shortcuts';
+  ShortcutsSection {
+    section-name: "shortcuts";
+    max-height: 12;
 
-        ShortcutsGroup {
-            title: _('General');
+    ShortcutsGroup {
+      title: _("General");
 
-            ShortcutsShortcut {
-                title: _('Keyboard shortcuts');
-                action-name: 'win.show-help-overlay';
-            }
+      ShortcutsShortcut {
+        title: _("New window");
+        action-name: "app.new-window";
+      }
 
-            ShortcutsShortcut {
-                title: _('Preferences');
-                action-name: 'win.preferences';
-            }
+      ShortcutsShortcut {
+        title: _("Keyboard shortcuts");
+        action-name: "win.show-help-overlay";
+      }
 
-            ShortcutsShortcut {
-                title: _('Quit');
-                action-name: 'window.close';
-            }
-        }
+      ShortcutsShortcut {
+        title: _("Preferences");
+        action-name: "win.open-preferences";
+      }
 
-        ShortcutsGroup {
-            title: _('Tools')        ;
+      ShortcutsShortcut {
+        title: _("Close window");
+        action-name: "window.close";
+      }
 
-            ShortcutsShortcut {
-                title: _('Apply');
-                action-name: 'win.apply';
-            }
-
-            ShortcutsShortcut {
-                title: _('Select tool');
-                action-name: 'win.toggle-search';
-            }
-
-            ShortcutsShortcut {
-                title: _('Just to the tool options');
-                action-name: 'win.jump-to-args';
-            }
-        }
-
-        ShortcutsGroup {
-            title: _('Undo and Redo');
-
-            ShortcutsShortcut {
-                title: _('Undo');
-                accelerator: '<ctrl>z';
-            }
-
-            ShortcutsShortcut {
-                title: _('Redo');
-                accelerator: '<ctrl><shift>z';
-            }
-        }
-
-        ShortcutsGroup {
-            title: _('Files');
-
-            ShortcutsShortcut {
-                title: _('Load from file');
-                action-name: 'win.load-file';
-            }
-
-            ShortcutsShortcut {
-                title: _('Save to file');
-                action-name: 'win.save-as';
-            }
-        }
+      ShortcutsShortcut {
+        title: _("Quit");
+        action-name: "app.quit";
+      }
     }
+
+    ShortcutsGroup {
+      title: _("Tools");
+
+      ShortcutsShortcut {
+        title: _("Apply");
+        action-name: "win.apply";
+      }
+
+      ShortcutsShortcut {
+        title: _("Select tool");
+        action-name: "win.toggle-search";
+      }
+
+      ShortcutsShortcut {
+        title: _("Just to the tool options");
+        action-name: "win.jump-to-args";
+      }
+    }
+
+    ShortcutsGroup {
+      title: _("Undo and Redo");
+
+      ShortcutsShortcut {
+        title: _("Undo");
+        accelerator: "<ctrl>z";
+      }
+
+      ShortcutsShortcut {
+        title: _("Redo");
+        accelerator: "<ctrl><shift>z";
+      }
+    }
+
+    ShortcutsGroup {
+      title: _("Files");
+
+      ShortcutsShortcut {
+        title: _("Load from file");
+        action-name: "win.load-file";
+      }
+
+      ShortcutsShortcut {
+        title: _("Save to file");
+        action-name: "win.save-as";
+      }
+    }
+
+    ShortcutsGroup {
+      title: _("Search and Replace");
+
+      ShortcutsShortcut {
+        title: _("Search");
+        accelerator: "<ctrl>f";
+      }
+
+      ShortcutsShortcut {
+        title: _("Replace");
+        accelerator: "<ctrl>h";
+      }
+
+      ShortcutsShortcut {
+        title: _("Move to previous match");
+        accelerator: "<Shift>Return";
+      }
+
+      ShortcutsShortcut {
+        title: _("Move to next match");
+        accelerator: "Return";
+      }
+    }
+
+  }
 }

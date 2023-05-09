@@ -3,52 +3,50 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 using Gtk 4.0;
-
 using Adw 1;
 
 template TextPiecesNewToolPage : Box {
-    orientation: vertical;
+  orientation: vertical;
 
-    Adw.HeaderBar {
-        show-start-title-buttons: false;
-        show-end-title-buttons: false;
+  Adw.HeaderBar {
+    show-start-title-buttons: false;
+    show-end-title-buttons: false;
 
-        /* Left button */
-        [start]
-        Button {
-            clicked => go_back();
-
-            icon-name: 'go-previous-symbolic';
-        }
-
-        /* Title widget */
-        [title]
-        Label {
-            styles [
-                'heading'
-            ]
-
-            label: _('New Tool');
-        }
-
-        /* Right button */
-        [end]
-        Revealer {
-            transition-type: crossfade;
-            reveal-child: bind tool_settings.is_valid;
-            child: Button {
-                styles [
-                    'suggested-action'
-                ]
-
-                clicked => create();
-                clicked => go_back();
-
-                label: _('_Create');
-                use-underline: true;
-            };
-        }
+    [start]
+    Button {
+      clicked => go_back();
+      icon-name: "go-previous-symbolic";
     }
 
-    .TextPiecesToolSettings tool_settings { }
+    [title]
+    Label {
+      styles [
+        "heading",
+      ]
+
+      label: _("New Tool");
+    }
+
+    [end]
+    Revealer {
+      transition-type: crossfade;
+      reveal-child: bind tool_settings.is_valid;
+      child: 
+      Button {
+        styles [
+          "suggested-action",
+        ]
+
+        clicked => create();
+        clicked => go_back();
+        label: _("_Create");
+        use-underline: true;
+      }
+
+      ;
+    }
+  }
+
+  .TextPiecesToolSettings tool_settings {
+  }
 }

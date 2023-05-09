@@ -24,12 +24,12 @@ namespace TextPieces {
         /**
          * Text Pieces settings
          */
-        public static GLib.Settings settings;
+        public static GLib.Settings settings = new GLib.Settings ("com.github.liferooter.textpieces");
 
         /**
          * Tools controller
          */
-        public static ToolsController tools;
+        public static ToolsController tools = new ToolsController ();
 
         /**
          * Application actions
@@ -57,26 +57,16 @@ namespace TextPieces {
             { "win.apply"             , "<Ctrl>Return"   },
             { "win.copy"              , "<Ctrl><Shift>c" },
             { "win.open-preferences"  , "<Ctrl>comma"    },
-            { "win.show-help-overlay" , "<Ctrl>question" },
             { "win.load-file"         , "<Ctrl>o"        },
             { "win.save-as"           , "<Ctrl>s"        },
             { "win.toggle-search"     , "<Alt>s"         },
             { "win.jump-to-args"      , "<Ctrl>e"        },
-            { "win.show-search"       , "<Ctrl>f"        },
             { "window.close"          , "<Ctrl>w"        },
 
             /*            Application actions           */
             { "app.quit"              , "<Ctrl>q"        },
             { "app.new-window"        , "<Ctrl>n"        }
         };
-
-        static construct {
-            /* Load settingse */
-            settings = new GLib.Settings ("com.github.liferooter.textpieces");
-
-            /* Load tools */
-            tools = new ToolsController ();
-        }
 
         /**
          * CSS provider used to set style scheme
@@ -110,8 +100,10 @@ namespace TextPieces {
             .get_scheme (settings.get_string ("style-scheme"));
 
         public Application () {
+            ApplicationFlags flags = FLAGS_NONE | HANDLES_OPEN;
+
             Object (
-                flags: ApplicationFlags.FLAGS_NONE,
+                flags: flags,
                 application_id: "com.github.liferooter.textpieces"
             );
         }
@@ -131,8 +123,10 @@ namespace TextPieces {
             instance = this;
 
             /* Initialize localization */
+            Intl.setlocale ();
             Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.GNOMELOCALEDIR);
             Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
+            Intl.textdomain (Config.GETTEXT_PACKAGE);
 
             /* Setup style scheme */
             Gtk.StyleContext.add_provider_for_display (
@@ -157,6 +151,9 @@ namespace TextPieces {
                     { action_accel.accel }
                 );
             }
+
+            /* Load tools */
+            tools.load.begin ();
         }
 
         /**
@@ -174,6 +171,20 @@ namespace TextPieces {
         }
 
         /**
+         * Open file method
+         *
+         * This method is called when user
+         * opens a file with the application.
+         */
+        protected override void open (File[] files, string hint) {
+            foreach (var file in files) {
+                var win = new TextPieces.Window (this);
+                win.load_from (file);
+                win.present();
+            }
+        }
+
+        /**
          * Shutdown method
          *
          * This method is called when app
@@ -181,8 +192,12 @@ namespace TextPieces {
          */
         protected override void shutdown () {
             /* Save window geometry if can */
-            var win = (TextPieces.Window?) get_active_window ();
-            win?.save_window_size ();
+            var window = get_active_window ();
+            if (window is TextPieces.Window) {
+                ((TextPieces.Window) window).save_window_size ();
+            } else {
+                (window?.get_transient_for () as TextPieces.Window)?.save_window_size ();
+            }
 
             base.shutdown ();
         }
@@ -205,8 +220,17 @@ namespace TextPieces {
          * `Application::activate`.
          */
         public static int main (string[] args) {
+            ensure_types ();
+
             var app = new TextPieces.Application ();
             return app.run (args);
+        }
+
+        /**
+         * Ensure needed types are registered
+         */
+        private static void ensure_types () {
+            typeof (TextPieces.SearchBar).ensure ();
         }
     }
 }

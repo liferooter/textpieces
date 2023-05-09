@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+
+# SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+import re
+import warnings
+from sys import argv, stderr, stdin, stdout
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
+try:
+    stdout.write(re.sub(argv[1], argv[2], stdin.read(), flags=re.MULTILINE))
+except re.error as err:
+    stderr.write(f'Invalid regex: {err}')
+    exit(1)

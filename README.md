@@ -35,32 +35,32 @@ Swiss knife of text processing
 </p>
 
 
-Small tool for quick text transformations such as checksums, encoding, decoding and so on. Written in Vala for GNOME desktop in hope to be useful.
+Small tool for quick text transformations such as checksums, encoding, decoding and so on. Written in Vala for GNOME desktop in the hope to be useful.
 
 # Features
 - Base64 encoding and decoding
-- SHA1, SHA2 and MD5 checksums
+- SHA-1, SHA-2 and MD5 checksums
 - Prettify and minify JSON
-- Covert JSON to YAML and vice versa
+- Convert JSON to YAML and vice versa
 - Count lines, symbols and words
 - Escape and unescape string, URL and HTML
 - Remove leading and trailing whitespaces
 - Sort and reverse sort lines
 - Reverse lines and whole text
-- You can write your own scripts and create custom tools
+- Extendable with third-party scripts and custom tools
 
 # Installation
 
 ## From Flathub
 > **Recommended**
 
-You can install my app from Flathub <a href="https://flathub.org/apps/details/com.github.liferooter.textpieces">here</a>
+<a href="https://flathub.org/apps/details/com.github.liferooter.textpieces">Click here</a> to install app from Flathub.
 
 ## Build from source
 ### Via GNOME Builder
-Text Pieces can be built with GNOME Builder >= 3.38. Just clone this repo and click run button.
+Text Pieces can be built with GNOME Builder >= 3.38. Clone this repo and click run button.
 ### Via Flatpak
-Text Pieces has Flatpak manifest, so it can be <a href="https://docs.flatpak.org/en/latest/building-introduction.html">built with Flatpak</a>.
+Text Pieces has a Flatpak manifest to enable it to be <a href="https://docs.flatpak.org/en/latest/building-introduction.html">built with Flatpak</a>.
 ### Via Meson
 Text Pieces can be built directly via Meson:
 ```bash
@@ -72,14 +72,13 @@ meson compile
 ```
 Next, it can be installed by `meson install`.
 
-**Attention! You should NEVER install anything directly with `meson install` or `make install` because it creates unmanaged files and can break system. Consider building a package for your distro and install it.**
-
 # Dependencies
 If you use GNOME Builder or Flatpak, dependencies will be installed automatically. If you use pure Meson, dependencies will be:
 - vala >= 0.52
 - gtk >= 4.2
 - gtksourceview >= 5.2
 - gio >= 2.50
+- gee >= 0.8
 - json-glib >= 1.6
 - libadwaita >= 1.0
 - python >= 3.8

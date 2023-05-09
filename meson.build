@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 project('textpieces', 'vala',
-          version: '3.0.2',
+          version: '3.4.1',
     meson_version: '>= 0.59.0',
   default_options: [ 'warning_level=2',
                    ],
@@ -66,7 +66,7 @@ if not gtksourceview_dep.found()
 endif
 
 json_glib_dep = dependency('json-glib-1.0', version: '>= 1.6.0', required: false)
-if not gtksourceview_dep.found()
+if not json_glib_dep.found()
   json_glib = subproject(
     'json-glib',
     default_options: [
@@ -90,6 +90,9 @@ textpieces_deps = [
   dependency('gio-2.0', version: '>= 2.50'),
   dependency('gio-unix-2.0', version: '>= 2.50'),
   dependency('gtk4', version: '>= 4.2'),
+  dependency('gee-0.8', version: '>= 0.8'),
+  dependency('libportal', version: '>= 0.6'),
+  dependency('libportal-gtk4', version: '>= 0.6'),
   json_glib_dep,
   gtksourceview_dep,
   libadwaita_dep,

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
 
 SPDX-License-Identifier: CC0-1.0
 -->
-
 <component type="desktop">
   <id>com.github.liferooter.textpieces.desktop</id>
   <name>Text Pieces</name>
@@ -61,6 +59,76 @@ SPDX-License-Identifier: CC0-1.0
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="3.4.1" date="2022-12-21">
+      <description>
+        <p>Bug fixes:</p>
+        <ul>
+          <li>Script files can be correctly opened using an editor of your choice</li>
+          <li>Newly created script names are generated from tool name</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.4.0" date="2022-12-17">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Text Pieces now can open files</li>
+        </ul>
+        <p>Bug fixes:</p>
+        <ul>
+          <li>Some translation issues are fixed</li>
+          <li>Some tools are fixed and optimized</li>
+          <li>Shortcuts window is updated and fixed</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.3.1" date="2022-11-01">
+      <description>
+        <p>Bug fixes:</p>
+        <ul>
+          <li>Tool arguments now work as expected</li>
+          <li>Translate some untranslated strings</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.3.0" date="2022-10-24">
+      <description>
+        <p>New features and improvements:</p>
+        <ul>
+          <li>Add tool for extracting RSS URLs from OPML files</li>
+          <li>Use more verbose error reporting for Base64 decode tool</li>
+          <li>Focus editor on startup</li>
+          <li>Save selected tool between sessions</li>
+          <li>Minor UI improvements</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.2.0" date="2022-09-21">
+      <description>
+        <p>New features and improvements:</p>
+        <ul>
+          <li>Add hotkey to open search in replace mode</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.1.1" date="2022-09-21">
+      <description>
+        <p>New features and improvements:</p>
+        <ul>
+          <li>Add some keywords to the application for system search</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.1.0" date="2022-08-04">
+      <description>
+        <p>New features and improvement:</p>
+        <ul>
+          <li>Add style schemes</li>
+          <li>Add search and replace feature to editor</li>
+          <li>Fix some bugs</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.0.2" date="2021-12-16">
       <description>Bug fix</description>
     </release>
@@ -79,10 +147,10 @@ SPDX-License-Identifier: CC0-1.0
     </release>
     <release version="2.3.2" date="2021-09-30">
       Fix theme switcher
-    </release>
+</release>
     <release version="2.3.1" date="2021-09-30">
       Add theme switcher for system which don't support color schemes
-    </release>
+</release>
     <release version="2.2.1" date="2021-09-29">
       <description>
         <p>New features and improvements:</p>

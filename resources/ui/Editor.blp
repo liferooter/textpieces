@@ -7,196 +7,50 @@ using GtkSource 5;
 using Adw 1;
 
 template TextPiecesEditor : Adw.Bin {
-    child: Adw.ToastOverlay message_overlay {
-        Overlay {
-            ScrolledWindow {
-                GtkSource.View editor {
-                    monospace: true;
-                    auto-indent: true;
-                    show-line-numbers: true;
-                    smart-backspace: true;
-                    smart-home-end: before;
-                    top-margin: 6;
-                }
-            }
-
-            [overlay]
-            Box {
-                valign: start;
-                halign: end;
-                margin-top: 4;
-
-                orientation: vertical;
-                spacing: 6;
-
-                Revealer search_revealer {
-                    transition-type: slide_down;
-
-                    Grid {
-                        styles [
-                            'card',
-                            'editor-overlay'
-                        ]
-
-                        row-spacing: 6;
-                        column-spacing: 6;
-
-                        Entry search_entry {
-                            width-request: 300;
-                            primary-icon-name: 'edit-find-symbolic';
-                            primary-icon-activatable: false;
-                            placeholder-text: _('Search');
-
-                            layout {
-                                row: 0;
-                                column: 0;
-                            }
-                        }
-
-                        Box {
-                            styles [
-                                'linked'
-                            ]
-
-                            homogeneous: true;
-
-                            Button {
-                                icon-name: 'go-up-symbolic';
-                                tooltip-text: _('Move to revious match');
-                            }
-
-                            Button {
-                                icon-name: 'go-down-symbolic';
-                                tooltip-text: _('Move to next match');
-                            }
-
-                            layout {
-                                row: 0;
-                                column: 1;
-                            }
-                        }
-
-                        ToggleButton search_replace {
-                            icon-name: 'edit-find-replace-symbolic';
-                            tooltip-text: _('Search and replace');
-
-                            layout {
-                                row: 0;
-                                column: 2;
-                            }
-                        }
-
-                        ToggleButton search_options {
-                            icon-name: 'preferences-symbolic';
-                            tooltip-text: _('Toggle search options');
-
-                            layout {
-                                row: 0;
-                                column: 3;
-                            }
-                        }
-
-                        Button {
-                            styles [
-                                'flat',
-                                'circular'
-                            ]
-
-                            icon-name: 'window-close-symbolic';
-                            action-name: 'editor.hide-search';
-                            tooltip-text: _('Close search');
-
-                            layout {
-                                row: 0;
-                                column: 4;
-                            }
-                        }
-
-                        Entry replace_entry {
-                            primary-icon-name: 'edit-find-replace-symbolic';
-                            primary-icon-activatable: false;
-                            placeholder-text: _('Replace');
-                            visible: bind search_replace.active;
-
-                            layout {
-                                row: 1;
-                                column: 0;
-                            }
-                        }
-
-                        Button {
-                            label: _('Replace');
-                            visible: bind search_replace.active;
-
-                            layout {
-                                row: 1;
-                                column: 1;
-                            }
-                        }
-
-                        Button {
-                            label: _('Replace All');
-                            visible: bind search_replace.active;
-
-                            layout {
-                                row: 1;
-                                column: 2;
-                                column-span: 3;
-                            }
-                        }
-
-                        Box {
-                            spacing: 6;
-                            visible: bind search_options.active;
-
-                            CheckButton {
-                                use-underline: true;
-                                label: _('Re_gular expressions');
-                            }
-
-                            CheckButton {
-                                use-underline: true;
-                                label: _('_Case sensitive');
-                            }
-
-                            CheckButton {
-                                use-underline: true;
-                                label: _('Match whole _word only');
-                            }
-
-                            layout {
-                                row: 2;
-                                column: 0;
-                                column-span: 5;
-                            }
-                        }
-                    }
-
-                    ShortcutController {
-                        scope: managed;
-
-                        Shortcut {
-                            trigger: 'Escape';
-                            action: 'action(editor.hide-search)';
-                        }
-                    }
-                }
-
-                Box arguments_box {
-                    styles [
-                        'card',
-                        'linked',
-                        'editor-overlay'
-                    ]
-
-                    halign: end;
-                    hexpand: false;
-                    width-request: 300;
-
-                    spacing: 3;
-                    orientation: vertical;
-                }
-            }
+  child:   Adw.ToastOverlay message_overlay {
+    Overlay {
+      ScrolledWindow {
+        GtkSource.View editor {
+          monospace: true;
+          auto-indent: true;
+          show-line-numbers: true;
+          smart-backspace: true;
+          smart-home-end: before;
+          top-margin: 6;
         }
-    };
+      }
+
+      [overlay]
+      Box {
+        valign: start;
+        halign: end;
+        margin-top: 4;
+        orientation: vertical;
+        spacing: 6;
+
+        .TextPiecesSearchBar search_bar {
+          editor: "editor";
+        }
+
+        Box arguments_box {
+          styles [
+            "linked",
+            "editor-overlay",
+          ]
+
+          halign: end;
+          hexpand: false;
+          width-request: 300;
+          margin-top: 5;
+          margin-bottom: 2.5;
+          margin-start: 5;
+          margin-end: 10;
+          spacing: 3;
+          orientation: vertical;
+        }
+      }
+    }
+  }
+
+  ;
 }
