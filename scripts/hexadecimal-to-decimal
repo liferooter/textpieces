@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+# SPDX-FileCopyrightText: 2023 ZtereoHYPE <me@ztereohype.dev>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+from sys import stdin, stdout
+
+def is_hex(string):
+    hex_digits = frozenset('0123456789abcdefABCDEF')
+    return all(char in hex_digits for char in string)
+
+for line in stdin:
+    words = line.split()
+    stripped_words = [word[2:] if word.startswith('0x') and is_hex(word[2:]) else word for word in words]
+    converted_words = [str(int(word, 16)) if is_hex(word) else word for word in stripped_words]
+    stdout.write(' '.join(converted_words) + '\n')
