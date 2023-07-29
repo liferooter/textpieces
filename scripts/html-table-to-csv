@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+
+__author__ = "Nathan Lloyd"
+
+from html.parser import HTMLParser
+from html import escape
+from sys import stdin, stdout, exit
+
+DATA_ELEMENTS = ["td", "th"]
+ROW_ELEMENTS = ["tr", "thead", "tbody", "tfoot"]
+BUFFER_SIZE = 4096
+
+class TableParser(HTMLParser):
+	"""
+	A custom HTML parser that extracts tabular data from HTML tables.
+
+	This parser inherits from the `HTMLParser` class and overrides its methods
+	to handle table-related HTML elements and extract data from them.
+	"""
+	def __init__(self, separator='\t', newline='\n'):
+		""" Initializes the TableHTMLParser with optional separator
+			and newline characters. """
+		super().__init__()
+		self.separator = separator
+		self.newline = newline
+		self._in_table: bool = False
+		self._at_data = False
+	
+	def handle_starttag(self, tag, attrs):
+		""" Method handles by detecting table elements and data elements
+			(e.g., <td> or <th>) inside a table. """
+		if "table" == tag:
+			# this could handle multiple tables in one html document
+			self._in_table = next((v for k, v in attrs if "id"==k), True)
+		if tag in DATA_ELEMENTS:
+			self._at_data = True
+	
+	def handle_endtag(self, tag):
+		""" Method handles by detecting the end of table elements and reseting
+			the data extraction flag.  It also controls the output format by
+			writing separators and newlines as needed. """
+		if "table" == tag:
+			self._in_table = False
+		if self._in_table:
+			if tag in DATA_ELEMENTS:
+				stdout.write(self.separator)
+				self._at_data = False
+			if tag in ROW_ELEMENTS:
+				stdout.write(self.newline)
+	
+	def handle_data(self, data):
+		""" This method is used to capture and output the data inside table
+			data elements (<td> or <th>) when the parser is inside a table
+			and currently at a data element. """
+		if self._in_table and self._at_data:
+			stdout.write(escape(data.strip()))
+
+if __name__ == "__name__":
+	parser = TableParser()
+	while (data := stdin.read(BUFFER_SIZE)):
+		parser.feed(escape(data))
+	parser.close()
+	exit()
