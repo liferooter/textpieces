@@ -29,7 +29,7 @@ SPDX-License-Identifier: CC0-1.0
   <provides>
     <binary>textpieces</binary>
   </provides>
-  <developer_name>Gleb Smirnov</developer_name>
+  <developer_name translatable="no">Gleb Smirnov</developer_name>
   <url type="homepage">https://github.com/liferooter/textpieces</url>
   <url type="bugtracker">https://github.com/liferooter/textpieces/issues</url>
   <requires>
@@ -60,7 +60,7 @@ SPDX-License-Identifier: CC0-1.0
   <content_rating type="oars-1.1" />
   <releases>
     <release version="3.4.1" date="2022-12-21">
-      <description>
+      <description translatable="no">
         <p>Bug fixes:</p>
         <ul>
           <li>Script files can be correctly opened using an editor of your choice</li>
@@ -69,7 +69,7 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="3.4.0" date="2022-12-17">
-      <description>
+      <description translatable="no">
         <p>New features:</p>
         <ul>
           <li>Text Pieces now can open files</li>
@@ -83,7 +83,7 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="3.3.1" date="2022-11-01">
-      <description>
+      <description translatable="no">
         <p>Bug fixes:</p>
         <ul>
           <li>Tool arguments now work as expected</li>
@@ -92,7 +92,7 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="3.3.0" date="2022-10-24">
-      <description>
+      <description translatable="no">
         <p>New features and improvements:</p>
         <ul>
           <li>Add tool for extracting RSS URLs from OPML files</li>
@@ -104,7 +104,7 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="3.2.0" date="2022-09-21">
-      <description>
+      <description translatable="no">
         <p>New features and improvements:</p>
         <ul>
           <li>Add hotkey to open search in replace mode</li>
@@ -112,7 +112,7 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="3.1.1" date="2022-09-21">
-      <description>
+      <description translatable="no">
         <p>New features and improvements:</p>
         <ul>
           <li>Add some keywords to the application for system search</li>
@@ -120,7 +120,7 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="3.1.0" date="2022-08-04">
-      <description>
+      <description translatable="no">
         <p>New features and improvement:</p>
         <ul>
           <li>Add style schemes</li>
@@ -130,10 +130,10 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="3.0.2" date="2021-12-16">
-      <description>Bug fix</description>
+      <description translatable="no">Bug fix</description>
     </release>
     <release version="3.0.1" date="2021-12-16">
-      <description>
+      <description translatable="no">
         <p>New features and improvements:</p>
         <ul>
           <li>Refresh UI</li>
@@ -152,7 +152,7 @@ SPDX-License-Identifier: CC0-1.0
       Add theme switcher for system which don't support color schemes
 </release>
     <release version="2.2.1" date="2021-09-29">
-      <description>
+      <description translatable="no">
         <p>New features and improvements:</p>
         <ul>
           <li>Minor UI changes</li>
@@ -161,13 +161,13 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="2.1.2" date="2021-09-23">
-      <description>Some bugfixes and improvements</description>
+      <description translatable="no">Some bugfixes and improvements</description>
     </release>
     <release version="2.1.1" date="2021-09-08">
-      <description>Bring back tools with arguments</description>
+      <description translatable="no">Bring back tools with arguments</description>
     </release>
     <release version="2.0.1" date="2021-08-18">
-      <description>
+      <description translatable="no">
         <p>New features and improvements:</p>
         <ul>
           <li>Redesign the application</li>
@@ -178,7 +178,7 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="1.3.0" date="2021-04-25">
-      <description>
+      <description translatable="no">
         <p>New features and improvements:</p>
         <ul>
           <li>Exit by Ctrl+Q</li>
@@ -188,7 +188,7 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="1.2.0" date="2021-04-03">
-      <description>
+      <description translatable="no">
         <p>New features and improvements:</p>
         <ul>
           <li>Sort tools</li>
@@ -198,7 +198,7 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="1.1.0" date="2021-04-01">
-      <description>
+      <description translatable="no">
         <p>New features and improvements:</p>
         <ul>
           <li>Add more tools</li>
@@ -209,10 +209,10 @@ SPDX-License-Identifier: CC0-1.0
       </description>
     </release>
     <release version="1.0.2" date="2021-03-13">
-      <description>Add tools for replacement and removing</description>
+      <description translatable="no">Add tools for replacement and removing</description>
     </release>
     <release version="1.0.0" date="2021-03-10">
-      <description>Application release</description>
+      <description translatable="no">Application release</description>
     </release>
   </releases>
 </component>
