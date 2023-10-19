@@ -84,5 +84,8 @@ If you use GNOME Builder or Flatpak, dependencies will be installed automaticall
 - python >= 3.8
 - pyyaml >= 5.4
 
-# Contributions
-Contributions are welcome.
+# State of the project
+
+I'm in the process of rewriting the project from scratch in Rust, reworking some basic mechanics, UI/UX and the architecture. Unfortunately, I didn't have enough time to finish the rewriting because of school final exams and starting studying at university. I still work on it in my free time, but until I'm adaped to my new conditions of life I probably won't have enough time for solid work on the project.
+
+The locations where I work on the next version of the project is https://gitlab.com/liferooter/textpieces and https://gitlab.com/liferooter/textpieces-gnome.
