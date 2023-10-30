@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+# SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
+
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+from collections import Counter
+from sys import stdin, stdout
+
+input_list = stdin.read().split('\n')
+duplicate_items = [k for k,v in Counter(input_list).items() if v>1]
+for n in duplicate_items:
+    input_list = [i for i in input_list if i != n]
+stdout.write('\n'.join(input_list))
+

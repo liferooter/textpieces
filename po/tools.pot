@@ -181,6 +181,16 @@ msgstr ""
 
 #: data/tools.json
 msgctxt "tools"
+msgid "Remove All Duplicate Lines"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all duplicate lines and leave one occurrence"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
 msgid "Remove all lines which contain given substring"
 msgstr ""
 
@@ -207,6 +217,16 @@ msgstr ""
 #: data/tools.json
 msgctxt "tools"
 msgid "Remove all occurrences of given substring in text"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all occurrences of lines which show up more than once"
+msgstr ""
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove Duplicate Lines"
 msgstr ""
 
 #: data/tools.json
