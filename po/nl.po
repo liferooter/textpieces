@@ -913,7 +913,7 @@ msgstr "Verwijder witruimtes en nieuwe regels"
 
 #: data/tools.json
 msgctxt "tools"
-msgid "Reoder lines in reverse order"
+msgid "Reorder lines in reverse order"
 msgstr "Plaats alle regels in omgekeerde volgorde"
 
 #: data/tools.json
