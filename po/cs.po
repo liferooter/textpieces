@@ -1,0 +1,560 @@
+# SPDX-FileCopyrightText: 2022 vikdevelop <https://github.com/vikdevelop>
+#
+# SPDX-License-Identifier: CC0-1.0
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-01 20:30+0300\n"
+"PO-Revision-Date: 2022-07-01 20:30+0100\n"
+"Last-Translator: vikdevelop\n"
+"Language-Team: CZ\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: data/com.github.liferooter.textpieces.desktop.in:3
+#: data/com.github.liferooter.textpieces.appdata.xml.in:4 src/Window.vala:322
+#: resources/ui/Window.ui:29
+msgid "Text Pieces"
+msgstr "Kousky Textu"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:5 src/Window.vala:324
+msgid "Transform text without using random websites"
+msgstr "Přeměňte text bez použití náhodných webových stránek"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:9
+msgid "Do a lot of text transformations, such as:"
+msgstr "Provádějte mnoho transformací textu, například:"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:11
+msgid "Calculate hashes"
+msgstr "Vypočet kontrolních součtů"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:12
+msgid "Encode text"
+msgstr "Kódování textu"
+This typo has been fixed, it needs to be "Parse YAML document and convert it to JSON" now
+#: data/com.github.liferooter.textpieces.appdata.xml.in:13
+msgid "Decode text"
+msgstr "Dekódování textu"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:14
+msgid "Remove trailing spaces and lines"
+msgstr "Odstranění koncových mezer a řádků"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:15
+msgid "Count lines, symbols and words"
+msgstr "Počítání řádků, symbolů a slov"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:16
+msgid "Format JSON and XML"
+msgstr "Formátování JSON a XML"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:17
+msgid "Escape and unescape strings"
+msgstr "Únikové a neúnikové řetězce"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:18
+msgid "Convert JSON to YAML and vice versa"
+msgstr "Převádění JSON na XML a naopak"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:19
+msgid "Filter lines"
+msgstr "Filtrování řádků"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:20
+msgid "Replace substrings and regular expressions"
+msgstr "Nahrazení podřetezců a regulárních výrazů"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:22
+msgid "...and so on."
+msgstr "...a tak dále."
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:27
+msgid "Gleb Smirnov"
+msgstr "Gleb Smirnov"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:11
+msgid "Color scheme"
+msgstr "Barevné schéma"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:18
+msgid "Font name"
+msgstr "Jméno fontu"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:19
+msgid "Name of font used in editor"
+msgstr "Název fontu používaný v editoru"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:25
+msgid "Wrap lines"
+msgstr "Zarovnání řádků"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:26
+msgid "Whether to wrap long lines"
+msgstr "Zda zabalit dlouhé řádky"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:32
+msgid "Tabs to spaces"
+msgstr "Přechod z tabulátorů na mezery"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:33
+msgid "Whether to insert spaces instead of tab"
+msgstr "Zda se mají místo tabulátoru vkládat mezery"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:39
+msgid "Spaces in tab"
+msgstr "Mezery na kartě"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:40
+msgid "Tab width in spaces"
+msgstr "Šířka tabulátoru v mezerách"
+
+#: src/NewToolPage.vala:129
+#, c-format
+msgid "Error occured: %s"
+msgstr "Došlo k chybě: %s"
+
+#: src/Preferences.vala:135
+msgid "Select font"
+msgstr "Vybrat font"
+
+#: src/ToolSettings.vala:198
+#, c-format
+msgid "Argument %d"
+msgstr "Argument %d"
+
+#: src/Window.vala:49 resources/ui/ShortcutsWindow.ui:68
+msgid "Select tool"
+msgstr "Vybrat nástroj"
+
+#: src/Window.vala:315 src/Window.vala:318
+msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+msgstr "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+
+#: src/Window.vala:317
+msgid "Tobias Bernard https://tobiasbernard.com"
+msgstr "Tobias Bernard https://tobiasbernard.com"
+
+#: src/Window.vala:330
+msgid "translator-credits"
+msgstr "vikdevelop <super-vik1@protonmail.com>"
+
+#: src/Window.vala:350
+msgid "Text is copied to clipboard"
+msgstr "Text je zkopírován do schránky"
+
+#: src/Window.vala:359 resources/ui/Window.ui:114
+msgid "Save to File"
+msgstr "Uložit do souboru"
+
+#: src/Window.vala:388
+#, c-format
+msgid "Can't save to file: %s"
+msgstr "Není možné uložit do souboru: %s"
+
+#: src/Window.vala:404 resources/ui/Window.ui:121
+msgid "Load from File"
+msgstr "Načíst ze souboru"
+
+#: src/Window.vala:437
+#, c-format
+msgid "Can't load from file: %s"
+msgstr "Nelze načíst ze souboru: %s"
+
+#: resources/ui/CustomToolPage.ui:49
+msgid "D_elete"
+msgstr "_Odstranit"
+
+#: resources/ui/NewToolPage.ui:55
+msgid "_Create"
+msgstr "_Vytvořit"
+
+#: resources/ui/Preferences.ui:34
+msgid "_General"
+msgstr "_Obecné"
+
+#: resources/ui/Preferences.ui:40
+msgid "Editor"
+msgstr "Editor"
+
+#: resources/ui/Preferences.ui:43
+msgid "Editor _Font"
+msgstr "Editor _Písma"
+
+#: resources/ui/Preferences.ui:64
+msgid "_Wrap Lines"
+msgstr "_Zalomit řádky"
+
+#: resources/ui/Preferences.ui:77
+msgid "Tabs to _Spaces"
+msgstr "Tabulátory do _Mpaces"
+
+#: resources/ui/Preferences.ui:90
+msgid "_Tab Width in Spaces"
+msgstr "_Šířka tabulátoru v prostorech"
+
+#: resources/ui/Preferences.ui:112
+msgid "Color Scheme"
+msgstr "Barevné schéma"
+
+#: resources/ui/Preferences.ui:115
+msgid "_Light"
+msgstr "_Světlé"
+
+#: resources/ui/Preferences.ui:129
+msgid "_Dark"
+msgstr "_Tmavé"
+
+#: resources/ui/Preferences.ui:144
+msgid "S_ystem Default"
+msgstr "Výchozí podle s_ystému"
+
+#: resources/ui/Preferences.ui:163
+msgid "T_ools"
+msgstr "N_ástroje"
+
+#: resources/ui/Preferences.ui:169
+msgid "Custom tools"
+msgstr "Vlastní nástroje"
+
+#: resources/ui/ShortcutsWindow.ui:35
+msgid "General"
+msgstr "Obecné"
+
+#: resources/ui/ShortcutsWindow.ui:38
+msgid "Keyboard shortcuts"
+msgstr "Klávesové zkratky"
+
+#: resources/ui/ShortcutsWindow.ui:44
+msgid "Preferences"
+msgstr "Předvolby"
+
+#: resources/ui/ShortcutsWindow.ui:50
+msgid "Quit"
+msgstr "Odejít"
+
+#: resources/ui/ShortcutsWindow.ui:59
+msgid "Tools"
+msgstr "Nástroje"
+
+#: resources/ui/ShortcutsWindow.ui:62
+msgid "Apply"
+msgstr "Použít"
+
+#: resources/ui/ShortcutsWindow.ui:74
+msgid "Jump to the tool options"
+msgstr "Skočit do předvoleb nástroje"
+
+#: resources/ui/ShortcutsWindow.ui:83
+msgid "Undo and Redo"
+msgstr "Zpět a Vpřed"
+
+#: resources/ui/ShortcutsWindow.ui:86
+msgid "Undo"
+msgstr "Zpět"
+
+#: resources/ui/ShortcutsWindow.ui:92
+msgid "Redo"
+msgstr "Vpřed"
+
+#: resources/ui/ShortcutsWindow.ui:101
+msgid "Copy and Paste"
+msgstr "Kopírovat a vložit"
+
+#: resources/ui/ShortcutsWindow.ui:104 resources/ui/Window.ui:72
+msgid "Copy"
+msgstr "Kopírovat"
+
+#: resources/ui/ShortcutsWindow.ui:110
+msgid "Paste"
+msgstr "Vložit"
+
+#: resources/ui/ShortcutsWindow.ui:116
+msgid "Copy all"
+msgstr "Kopírovat vše"
+
+#: resources/ui/ShortcutsWindow.ui:125
+msgid "Files"
+msgstr "Soubory"
+
+#: resources/ui/ShortcutsWindow.ui:128
+msgid "Load from file"
+msgstr "Načíst ze souboru"
+
+#: resources/ui/ShortcutsWindow.ui:134
+msgid "Save to file"
+msgstr "Uložit do souboru"
+
+#: resources/ui/ToolSettings.ui:53
+msgid "_Name"
+msgstr "_Název"
+
+#: resources/ui/ToolSettings.ui:69
+msgid "_Description"
+msgstr "_Popis"
+
+#: resources/ui/ToolSettings.ui:81
+msgid "_Arguments"
+msgstr "_Argumenty"
+
+#: resources/ui/Window.ui:59
+msgid "_Apply"
+msgstr "_Použít"
+
+#: resources/ui/Window.ui:62
+msgid "Apply Selected Tool"
+msgstr "Použít vybraný nástroj"
+
+#: resources/ui/Window.ui:107
+msgid "Main Menu"
+msgstr "Hlavní nabídka"
+
+#: resources/ui/Window.ui:249
+msgid "No Tools Found"
+msgstr "Nebyly nalezeny žádné nástroje"
+
+#: resources/ui/Window.ui:270
+msgid "Add Custom Tool"
+msgstr "Přidat vlastní nástroje"
+
+#: resources/ui/Window.ui:299
+msgid "_Preferences"
+msgstr "_Předvolby"
+
+#: resources/ui/Window.ui:304
+msgid "_Keyboard Shortcuts"
+msgstr "_Klávesové zkratky"
+
+#: resources/ui/Window.ui:309
+msgid "_About Text Pieces"
+msgstr "_O programu Text Pieces"
+
+msgid "SHA1 Checksum"
+msgstr "Kontrolní součet SHA1"
+
+msgid "Compute SHA1 hash sum"
+msgstr "Vypočítat kontrolní součet SHA1"
+
+msgid "SHA256 Checksum"
+msgstr "Kontrolní součet SHA256"
+
+msgid "Compute SHA256 hash sum"
+msgstr "Vypočítat kontrolní součet SHA256"
+
+msgid "SHA384 Checksum"
+msgstr "Kontrolní součet SHA384"
+
+msgid "Compute SHA384 hash sum"
+msgstr "Vypočítat kontrolní součet SHA384"
+
+msgid "SHA512 Checksum"
+msgstr "Kontrolní součet SHA512"
+
+msgid "Compute SHA512 hash sum"
+msgstr "Vypočítat kontrolní součet SHA512"
+
+msgid "MD5 Checksum"
+msgstr "Kontrolní součet MD5"
+
+msgid "Compute MD5 hash sum"
+msgstr "Vypočítat kontrolní součet MD5"
+
+msgid "Base64 Encode"
+msgstr "Kódování Base64"
+
+msgid "Encode text to Base64"
+msgstr "Kódování textu do Base64"
+
+msgid "Base64 Decode"
+msgstr "Dekódování Base64"
+
+msgid "Decode text from Base64"
+msgstr "Dekódování textu z Base64"
+
+msgid "Remove Trailing"
+msgstr "Odstranit koncování"
+
+msgid "Remove trailing whitespaces and newlines"
+msgstr "Odstranit Koncové mezery a nové řádky"
+
+msgid "Trim Lines"
+msgstr "Oříznout řádky"
+
+msgid "Remove leading and trailing whitespaces and newlines"
+msgstr "Odstranit načítání a koncové mezery a nové řádky"
+
+msgid "Count Symbols"
+msgstr "Počet symbolů"
+
+msgid "Count how many symbols are in text"
+msgstr "Spočítat, kolik symbolů je v textu"
+
+msgid "Count Lines"
+msgstr "Počet řádků"
+
+msgid "Count how many lines are in text"
+msgstr "Spočítat, kolik řádků je v textu"
+
+msgid "Count Words"
+msgstr "Počet slov"
+
+msgid "Count how many words are in text"
+msgstr "Spočítat, kolik slov je v textu"
+
+msgid "Prettify JSON"
+msgstr "Zkrášlit JSON"
+
+msgid "Parse JSON and prettify it"
+msgstr "Zpracovat JSON a zkrášlit jej"
+
+msgid "Minify JSON"
+msgstr "Minifikovat JSON"
+
+msgid "Parse JSON and minify it"
+msgstr "Zpracovat JSON a minifikovat jej"
+
+msgid "Escape String"
+msgstr "Únikový řetězec"
+
+msgid "Replace special characters with escape sequences"
+msgstr "Nahradit speciální znaky s uniklými sekvencemi"
+
+msgid "Escape HTML"
+msgstr "Únikový HTML"
+
+msgid "Replace special characters with HTML-safe sequences"
+msgstr "Nahradit speciální znaky pomocí zabezpečených HTML sekvencí"
+
+msgid "Escape URL"
+msgstr "Úniková URL adresa"
+
+msgid "Replace special characters with URL-safe sequences"
+msgstr "Nahradit speciální znaky pomocí zabezpečených URL sekvencí"
+
+msgid "Unescape String"
+msgstr "Unescape String"
+
+msgid "Replace escape sequences with characters"
+msgstr "Nahradit únikové sekvence znaky"
+
+msgid "Unescape HTML"
+msgstr "Unescape HTML"
+
+msgid "Replace HTML sequences with characters"
+msgstr "Nahradit HTML sekvence znaky"
+
+msgid "Unescape URL"
+msgstr "Unescape URL"
+
+msgid "Replace URL sequences with characters"
+msgstr "Nahradit URL sekvence znaky"
+
+msgid "Convert JSON to YAML"
+msgstr "Převést JSON na YAML"
+
+msgid "Parse JSON and convert it to YAML document"
+msgstr "Zpracovat JSON a převést jej na YAML dokument"
+
+msgid "Convert YAML to JSON"
+msgstr "Převést YAML na JSON"
+
+msgid "Parse YAML document and convert it to JSON"
+msgstr "Zpracovat YAML dokument a převést jej na JSON"
+
+msgid "Reverse Lines"
+msgstr "Převrátit řádky"
+
+msgid "Reoder lines in reverse order"
+msgstr "Řádky kodéru v opačném pořadí"
+
+msgid "Reverse Text"
+msgstr "Převrátit text"
+
+msgid "Reorder characters in reverse order"
+msgstr "Změna pořadí znaků v opačném pořadí"
+
+msgid "Sort Lines"
+msgstr "Řadit řádky"
+
+msgid "Sort lines in text in alphabetical order"
+msgstr "Řadit řádky v textu podle abecedního pořadí"
+
+msgid "Reverse Sort Lines"
+msgstr "Obrácené řazení řádků"
+
+msgid "Sort lines in text in reverse alphabetical order"
+msgstr "Řadit řádky v textu v obrácenném abecedním pořadí"
+
+msgid "Filter Lines by Regex"
+msgstr "Řadit řádky podle Regex"
+
+msgid "Remove all lines which don't match given regular expression"
+msgstr "Odstranit všechny řádky které neodpovídají zadnému regulárnímu výrazu"
+
+msgid "Regex"
+msgstr "Regex"
+
+msgid "Reverse Filter Lines by Regex"
+msgstr "Řádky reverzního filtru podle Regexu"
+
+msgid "Remove all lines which match given regular expression"
+msgstr "Odstranit všechny řádky které odpovídají regulárnímu výrazu"
+
+msgid "Filter Lines by Substring"
+msgstr "Řadit řádky podle podřetězce"
+
+msgid "Remove all lines which don't contain given substring"
+msgstr "Odstranit všechny řádky které neobsahují dyný podřetězec"
+
+msgid "Substring"
+msgstr "Podřetezec"
+
+msgid "Reverse Filter Lines by Substring"
+msgstr "Obrácený filtr řádků podle podřetězce"
+
+msgid "Remove all lines which contain given substring"
+msgstr "Odstranit všechny řádky které obsahují daný řetězec"
+
+msgid "Remove Regex"
+msgstr "Odstranit Regex"
+
+msgid "Remove all matches of regular expression"
+msgstr "Odstranit všechny shody regulárního výrazu"
+
+msgid "Remove Substring"
+msgstr "Odstranit podřetězec"
+
+msgid "Remove all occurrences of given substring in text"
+msgstr "Odstranit všechny výskyty daného podřetězce v textu"
+
+msgid "Replace Substring"
+msgstr "Nahradit podřetězec"
+
+msgid "Replace all occurrences of given substring in text with other string"
+msgstr "Nahradit všechny výskyty podřetězce v textu pomocí jiného řetězce"
+
+msgid "Find"
+msgstr "Najít"
+
+msgid "Replace With"
+msgstr "Nahradit pomocí"
+
+msgid "Replace Regex"
+msgstr "Nahradit Regex"
+
+msgid "Replace all given regex matches in text with given string"
+msgstr "Nahradit všechny zadané regex, které odpovídají v textu zadanému řetězci"
+
+msgid "Find (regex)"
+msgstr "Najít (regex)"
+
+msgid "Prettify XML"
+msgstr "Zkrášlit XML"
+
+msgid "Parse XML and prettify it"
+msgstr "Zpracovat XML a zkrášlit jej"
