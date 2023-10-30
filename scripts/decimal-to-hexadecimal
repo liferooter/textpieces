@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+
+# SPDX-FileCopyrightText: 2023 ZtereoHYPE <me@ztereohype.dev>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+from sys import stdin, stdout
+
+for line in stdin:
+    words = line.split()
+    converted_words = [hex(int(word)) if word.isdigit() else word for word in words]
+    stdout.write(' '.join(converted_words) + '\n')

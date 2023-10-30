@@ -242,6 +242,18 @@
       "description": "Parse XML and prettify it",
       "icon": "format-justify-left-symbolic",
       "script": "format-xml"
+    },
+    {
+      "name": "Decimal to Hexadecimal",
+      "description": "Convert decimal numbers to hexadecimal",
+      "icon": "accessories-calculator-symbolic",
+      "script": "decimal-to-hexadecimal"
+    },
+    {
+      "name": "Hexadecimal to Decimal",
+      "description": "Convert hexadecimal numbers to decimal",
+      "icon": "accessories-calculator-symbolic",
+      "script": "hexadecimal-to-decimal"
     }
   ]
 }
