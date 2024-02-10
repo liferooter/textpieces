@@ -1,0 +1,1055 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: textpieces\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-21 08:25+0000\n"
+"PO-Revision-Date: 2024-02-10 16:04+0800\n"
+"Last-Translator: Genius Alray <GeniusAlray@outlook.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: data/com.github.liferooter.textpieces.desktop.in:7
+#: data/com.github.liferooter.textpieces.appdata.xml.in:9
+#: src/widgets/Window.vala:241 resources/ui/Window.blp:9
+msgid "Text Pieces"
+msgstr "Text Pieces"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.github.liferooter.textpieces.desktop.in:18
+msgid ""
+"GNOME;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;"
+"Checksum;Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;"
+msgstr ""
+"GNOME;GTK;Text;Base64;JSON;YAML;Count;SHA1;SHA256;SHA384;SHA512;MD5;"
+"Checksum;Escape;Encode;HTML;URL;Prettify;Filter;Reverse;Trim;"
+
+#: data/com.github.liferooter.textpieces.desktop.in:21
+msgid "New Window"
+msgstr "新建窗口"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:10
+#: src/widgets/Window.vala:242
+msgid "Transform text without using random websites"
+msgstr "在不使用其他网站的情况下转换文本"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:14
+msgid "Do a lot of text transformations, such as:"
+msgstr "转换许多种文本格式，例如："
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:16
+msgid "Calculate hashes"
+msgstr "计算Hash"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:17
+msgid "Encode text"
+msgstr "编码文本"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:18
+msgid "Decode text"
+msgstr "解码文本"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:19
+msgid "Remove trailing spaces and lines"
+msgstr "删除末尾空格和空行"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:20
+msgid "Count lines, symbols and words"
+msgstr "计数换行、符号和单词"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:21
+msgid "Format JSON and XML"
+msgstr "格式化JSON和XML"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:22
+msgid "Escape and unescape strings"
+msgstr "转义和反转义字符串"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:23
+msgid "Convert JSON to YAML and vice versa"
+msgstr "JSON 与 YAML 相互转换"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:24
+msgid "Filter lines"
+msgstr "过滤行"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:25
+msgid "Replace substrings and regular expressions"
+msgstr "替换子字符串和正则表达式"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:27
+msgid "...and so on."
+msgstr "等等。"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:32
+#: src/widgets/Window.vala:252
+msgid "Gleb Smirnov"
+msgstr "Gleb Smirnov"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:64
+#: data/com.github.liferooter.textpieces.appdata.xml.in:77
+#: data/com.github.liferooter.textpieces.appdata.xml.in:87
+msgid "Bug fixes:"
+msgstr "Bug修复："
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:66
+msgid "Script files can be correctly opened using an editor of your choice"
+msgstr "脚本文件可被您选择的编辑器正确地打开"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:67
+msgid "Newly created script names are generated from tool name"
+msgstr "新创建的脚本名称是从工具名称生成的"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:73
+msgid "New features:"
+msgstr "新功能："
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:75
+msgid "Text Pieces now can open files"
+msgstr "Text Pieces 现在可以打开文件"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:79
+msgid "Some translation issues are fixed"
+msgstr "修复了一些翻译问题"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:80
+msgid "Some tools are fixed and optimized"
+msgstr "修复和优化了一些工具"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:81
+msgid "Shortcuts window is updated and fixed"
+msgstr "修复和更新了快捷键窗口"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:89
+msgid "Tool arguments now work as expected"
+msgstr "工具参数现在正常工作"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:90
+msgid "Translate some untranslated strings"
+msgstr "翻译了一些未翻译的字符串"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:96
+#: data/com.github.liferooter.textpieces.appdata.xml.in:108
+#: data/com.github.liferooter.textpieces.appdata.xml.in:116
+#: data/com.github.liferooter.textpieces.appdata.xml.in:137
+#: data/com.github.liferooter.textpieces.appdata.xml.in:156
+#: data/com.github.liferooter.textpieces.appdata.xml.in:171
+#: data/com.github.liferooter.textpieces.appdata.xml.in:182
+#: data/com.github.liferooter.textpieces.appdata.xml.in:192
+#: data/com.github.liferooter.textpieces.appdata.xml.in:202
+msgid "New features and improvements:"
+msgstr "新功能和改进："
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:98
+msgid "Add tool for extracting RSS URLs from OPML files"
+msgstr "添加用于从 OPML 文件中提取 RSS URL 的工具"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:99
+msgid "Use more verbose error reporting for Base64 decode tool"
+msgstr "对 Base64 解码工具使用更详细的错误报告"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:100
+msgid "Focus editor on startup"
+msgstr "启动时将焦点移动到编辑器"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:101
+msgid "Save selected tool between sessions"
+msgstr "在会话之间记忆所选工具"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:102
+msgid "Minor UI improvements"
+msgstr "一部分 UI 改进"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:110
+msgid "Add hotkey to open search in replace mode"
+msgstr "添加热键以在替换模式下打开搜索"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:118
+msgid "Add some keywords to the application for system search"
+msgstr "向应用程序添加一些关键字以进行系统搜索"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:124
+msgid "New features and improvement:"
+msgstr "新功能和改进："
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:126
+msgid "Add style schemes"
+msgstr "添加样式方案"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:127
+msgid "Add search and replace feature to editor"
+msgstr "向编辑器添加搜索和替换功能"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:128
+msgid "Fix some bugs"
+msgstr "修复一些bug"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:133
+msgid "Bug fix"
+msgstr "Bug 修复"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:139
+msgid "Refresh UI"
+msgstr "新的 UI"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:140
+msgid "Fix a lot of bugs"
+msgstr "修复许多bug"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:141
+msgid "Add powerful settings"
+msgstr "添加了一个强大的设置"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:142
+msgid "Add arguments support for custom tools"
+msgstr "添加对自定义工具的参数支持"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:143
+msgid "Add translation support"
+msgstr "添加翻译支持"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:144
+#: data/com.github.liferooter.textpieces.appdata.xml.in:175
+msgid "Improve search"
+msgstr "改善搜索"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:158
+msgid "Minor UI changes"
+msgstr "小型 UI 改变"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:159
+msgid "Add XML formatter"
+msgstr "添加了 XML 格式化处理程序"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:164
+msgid "Some bugfixes and improvements"
+msgstr "一些错误修复和改进"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:167
+msgid "Bring back tools with arguments"
+msgstr "带回带有参数的工具"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:173
+msgid "Redesign the application"
+msgstr "重新设计应用程序"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:174
+msgid "Add custom tools support"
+msgstr "添加自定义工具支持"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:176
+msgid "Add ability to text load from file and save to file"
+msgstr "添加从文件加载文本并保存到文件"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:184
+msgid "Exit by Ctrl+Q"
+msgstr "按 Ctrl+Q 退出"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:185
+msgid "Monospace argument entry"
+msgstr "等宽参数条目"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:186
+msgid "Update new runtime"
+msgstr "更新新的运行时"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:194
+msgid "Sort tools"
+msgstr "排序工具"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:195
+msgid "Filter tools"
+msgstr "筛选工具"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:196
+msgid "Minify C-like code"
+msgstr "减少 C风格 的代码"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:204
+msgid "Add more tools"
+msgstr "添加更多工具"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:205
+msgid "Make tools popover more powerful"
+msgstr "使工具弹出窗口更强大"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:206
+msgid "Redesign icon"
+msgstr "图标重新设计"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:207
+msgid "General improvements"
+msgstr "一般改进"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:212
+msgid "Add tools for replacement and removing"
+msgstr "添加用于更换和拆卸的工具"
+
+#: data/com.github.liferooter.textpieces.appdata.xml.in:215
+msgid "Application release"
+msgstr "应用程序发布"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:13
+msgid "Style scheme"
+msgstr "样式方案"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:14
+msgid "Which style scheme to use for application interface and editor."
+msgstr "应用程序界面和编辑器使用哪种样式方案。"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:18
+msgid "Font name"
+msgstr "字体名称"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:19
+msgid "Name of font used in editor"
+msgstr "编辑器中使用的字体名称"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:23
+msgid "Wrap lines"
+msgstr "自动换行"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:24
+msgid "Whether to wrap long lines"
+msgstr "是否将过长的行自动换行"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:28
+msgid "Tabs to spaces"
+msgstr "将制表符转为空格"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:29
+msgid "Whether to insert spaces instead of tab"
+msgstr "是否插入空格而不是制表符"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:33
+msgid "Spaces in tab"
+msgstr "制表符长度"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:34
+msgid "Tab width in spaces"
+msgstr "一个制表符相当于多少空格"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:38
+msgid "Window width"
+msgstr "窗口宽度"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:39
+msgid "Saved width of application window"
+msgstr "保存的应用程序窗口宽度"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:43
+msgid "Window height"
+msgstr "窗口高度"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:44
+msgid "Saved height of the window"
+msgstr "保存的窗口高度"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:48
+msgid "Is maximized"
+msgstr "最大化"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:49
+msgid "Whether the application window is maximized"
+msgstr "应用程序窗口是否最大化"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:53
+msgid "Selected tool"
+msgstr "所选工具"
+
+#: data/com.github.liferooter.textpieces.gschema.xml:54
+msgid ""
+"Used to restore tool choice on restart. Its value must be a name of tool's "
+"script."
+msgstr "用于在重新启动时恢复工具选择。其值必须是工具脚本的名称。"
+
+#: src/widgets/Editor.vala:145
+msgid "Text is copied"
+msgstr "复制的文本"
+
+#. *
+#. * Text used instead of tool name
+#. * when where is no tool selected
+#.
+#: src/widgets/Window.vala:21 resources/ui/ShortcutsWindow.blp:50
+msgid "Select tool"
+msgstr "选择工具"
+
+#: src/widgets/Window.vala:161
+#, c-format
+msgid "Can't load from file: %s"
+msgstr "无法加载文件: %s"
+
+#: src/widgets/Window.vala:249
+msgid "Tobias Bernard https://tobiasbernard.com"
+msgstr "Tobias Bernard https://tobiasbernard.com"
+
+#: src/widgets/Window.vala:250
+msgid "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+msgstr "Gleb Smirnov <glebsmirnov0708@gmail.com>"
+
+#: src/widgets/Window.vala:253
+msgid "translator-credits"
+msgstr "翻译人员鸣谢"
+
+#: src/widgets/Window.vala:280 resources/ui/Window.blp:78
+msgid "Save to File"
+msgstr "保存到文件"
+
+#: src/widgets/Window.vala:305
+#, c-format
+msgid "Can't save to file: %s"
+msgstr "无法保存到文件：%s"
+
+#: src/widgets/Window.vala:321 resources/ui/Window.blp:85
+msgid "Load from File"
+msgstr "从文件加载"
+
+#: src/widgets/SearchEntry.vala:93
+#, c-format
+msgid "%u of %d"
+msgstr "第 %u 个 共 %d 个"
+
+#. Create dialog
+#: src/widgets/preferences/Preferences.vala:128
+msgid "Select font"
+msgstr "选择字体"
+
+#: src/widgets/preferences/ToolSettings.vala:187
+#, c-format
+msgid "Argument %d"
+msgstr "参数 %d"
+
+#: src/widgets/preferences/pages/NewToolPage.vala:113
+#, c-format
+msgid "Error occured: %s"
+msgstr "发生错误： %s"
+
+#: resources/ui/CustomToolPage.blp:27
+msgid "Edit Tool"
+msgstr "编辑工具"
+
+#: resources/ui/CustomToolPage.blp:38
+msgid "D_elete"
+msgstr "删除(_e)"
+
+#: resources/ui/Search.blp:41
+msgid "No Tools Found"
+msgstr "没有找到工具"
+
+#: resources/ui/Search.blp:53
+msgid "_Add Custom Tool"
+msgstr "添加自定义工具(_A)"
+
+#: resources/ui/NewToolPage.blp:27
+msgid "New Tool"
+msgstr "新工具"
+
+#: resources/ui/NewToolPage.blp:42
+msgid "_Create"
+msgstr "创建(_C)"
+
+#: resources/ui/Preferences.blp:13
+msgid "_General"
+msgstr "通用(_G)"
+
+#: resources/ui/Preferences.blp:19
+msgid "Editor"
+msgstr "编辑器"
+
+#: resources/ui/Preferences.blp:22
+msgid "Editor _Font"
+msgstr "编辑器字体(_F)"
+
+#: resources/ui/Preferences.blp:40
+msgid "_Wrap Lines"
+msgstr "自动换行(_W)"
+
+#: resources/ui/Preferences.blp:51
+msgid "Tabs to _Spaces"
+msgstr "将制表符转为空格(_S)"
+
+#: resources/ui/Preferences.blp:62
+msgid "_Tab Width in Spaces"
+msgstr "制表符宽度(_T)"
+
+#: resources/ui/Preferences.blp:82
+msgid "Appearance"
+msgstr "外观"
+
+#: resources/ui/Preferences.blp:94
+msgid "T_ools"
+msgstr "工具(_o)"
+
+#: resources/ui/Preferences.blp:100
+msgid "Custom tools"
+msgstr "自定义工具"
+
+#: resources/ui/Preferences.blp:112
+msgid "_Add custom tool"
+msgstr "添加自定义工具(_A)"
+
+#: resources/ui/Preferences.blp:128
+msgid "No Custom Tools"
+msgstr "没有自定义工具"
+
+#: resources/ui/Preferences.blp:129
+msgid "You can create one"
+msgstr "你可以创建一个"
+
+#: resources/ui/SearchBar.blp:40 resources/ui/ShortcutsWindow.blp:102
+msgid "Move to previous match"
+msgstr "跳转到上一个结果"
+
+#: resources/ui/SearchBar.blp:46 resources/ui/ShortcutsWindow.blp:107
+msgid "Move to next match"
+msgstr "跳转到下一个结果"
+
+#: resources/ui/SearchBar.blp:58
+msgid "Find and replace"
+msgstr "查找和替换"
+
+#: resources/ui/SearchBar.blp:68
+msgid "Toggle search options"
+msgstr "切换搜索选项"
+
+#: resources/ui/SearchBar.blp:84
+msgid "Close search"
+msgstr "关闭搜索"
+
+#: resources/ui/SearchBar.blp:95 resources/ui/ShortcutsWindow.blp:97
+msgid "Replace"
+msgstr "替换"
+
+#: resources/ui/SearchBar.blp:106
+msgid "_Replace"
+msgstr "替换(_R)"
+
+#: resources/ui/SearchBar.blp:119
+msgid "Replace _All"
+msgstr "替换全部(_A)"
+
+#: resources/ui/SearchBar.blp:138
+msgid "Re_gular expressions"
+msgstr "正则表达式(_g)"
+
+#: resources/ui/SearchBar.blp:144
+msgid "_Case sensitive"
+msgstr "区分大小写(_C)"
+
+#: resources/ui/SearchBar.blp:150
+msgid "Match whole _word only"
+msgstr "全字匹配(_w)"
+
+#: resources/ui/SearchEntry.blp:15
+msgid "Find"
+msgstr "查找"
+
+#: resources/ui/ShortcutsWindow.blp:13
+msgid "General"
+msgstr "通用"
+
+#: resources/ui/ShortcutsWindow.blp:16
+msgid "New window"
+msgstr "新建窗口"
+
+#: resources/ui/ShortcutsWindow.blp:21
+msgid "Keyboard shortcuts"
+msgstr "键盘快捷键"
+
+#: resources/ui/ShortcutsWindow.blp:26
+msgid "Preferences"
+msgstr "首选项"
+
+#: resources/ui/ShortcutsWindow.blp:31
+msgid "Close window"
+msgstr "关闭窗口"
+
+#: resources/ui/ShortcutsWindow.blp:36
+msgid "Quit"
+msgstr "退出"
+
+#: resources/ui/ShortcutsWindow.blp:42
+msgid "Tools"
+msgstr "工具"
+
+#: resources/ui/ShortcutsWindow.blp:45
+msgid "Apply"
+msgstr "应用"
+
+#: resources/ui/ShortcutsWindow.blp:55
+msgid "Just to the tool options"
+msgstr "工具选项"
+
+#: resources/ui/ShortcutsWindow.blp:61
+msgid "Undo and Redo"
+msgstr "撤销和重做"
+
+#: resources/ui/ShortcutsWindow.blp:64
+msgid "Undo"
+msgstr "撤销"
+
+#: resources/ui/ShortcutsWindow.blp:69
+msgid "Redo"
+msgstr "重做"
+
+#: resources/ui/ShortcutsWindow.blp:75
+msgid "Files"
+msgstr "文件"
+
+#: resources/ui/ShortcutsWindow.blp:78
+msgid "Load from file"
+msgstr "从文件加载"
+
+#: resources/ui/ShortcutsWindow.blp:83
+msgid "Save to file"
+msgstr "保存到文件"
+
+#: resources/ui/ShortcutsWindow.blp:89
+msgid "Search and Replace"
+msgstr "搜索和替换"
+
+#: resources/ui/ShortcutsWindow.blp:92
+msgid "Search"
+msgstr "搜索"
+
+#: resources/ui/ToolSettings.blp:31
+msgid "_Name"
+msgstr "名称(_N)"
+
+#: resources/ui/ToolSettings.blp:42
+msgid "_Description"
+msgstr "描述(_D)"
+
+#: resources/ui/ToolSettings.blp:52
+msgid "_Arguments"
+msgstr "参数(_A)"
+
+#: resources/ui/ToolSettings.blp:80
+msgid "Edit _Script"
+msgstr "编辑脚本(_S)"
+
+#: resources/ui/Window.blp:32
+msgid "_Apply"
+msgstr "应用(_A)"
+
+#: resources/ui/Window.blp:35
+msgid "Apply Selected Tool"
+msgstr "应用选中的工具"
+
+#: resources/ui/Window.blp:45
+msgid "Copy"
+msgstr "复制"
+
+#: resources/ui/Window.blp:71
+msgid "Main Menu"
+msgstr "主菜单"
+
+#: resources/ui/Window.blp:123
+msgid "_New Window"
+msgstr "新建窗口(_N)"
+
+#: resources/ui/Window.blp:131
+msgid "_Find/Replace…"
+msgstr "查找/替换(_F)"
+
+#: resources/ui/Window.blp:139
+msgid "_Preferences"
+msgstr "首选项(_P)"
+
+#: resources/ui/Window.blp:145
+msgid "_Keyboard Shortcuts"
+msgstr "键盘快捷键(_K)"
+
+#: resources/ui/Window.blp:151
+msgid "_About Text Pieces"
+msgstr "关于 Text Pieces (_A)"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Base64 Decode"
+msgstr "Base64 解码"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Base64 Encode"
+msgstr "Base64 编码"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute MD5 hash sum"
+msgstr "计算 MD5 hash sum"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA1 hash sum"
+msgstr "计算 SHA1 hash sum"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA256 hash sum"
+msgstr "计算 SHA256 hash sum"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA384 hash sum"
+msgstr "计算 SHA384 hash sum"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Compute SHA512 hash sum"
+msgstr "计算 SHA512 hash sum"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Convert JSON to YAML"
+msgstr "将 JSON 转换为 YAML"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Convert YAML to JSON"
+msgstr "将 YAML 转换为 JSON"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count how many lines are in text"
+msgstr "计算文本行数"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count how many symbols are in text"
+msgstr "计算文本符号数"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count how many words are in text"
+msgstr "计算文本单词数"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count Lines"
+msgstr "行计数"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count Symbols"
+msgstr "符号计数"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Count Words"
+msgstr "单词计数"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Decode text from Base64"
+msgstr "从 Base64 解码文字"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Encode text to Base64"
+msgstr "将文字编码为 Base64"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Escape HTML"
+msgstr "转义 HTML"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Escape String"
+msgstr "转义 字符串"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Escape URL"
+msgstr "转义 URL"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Extract RSS links from OPML outline"
+msgstr "从 OPML 大纲中提取 RSS 链接"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Filter Lines by Regex"
+msgstr "按正则表达式过滤行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Filter Lines by Substring"
+msgstr "按子字符串过滤行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Find"
+msgstr "查找"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Find (regex)"
+msgstr "查找（正则）"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "MD5 Checksum"
+msgstr "MD5 Checksum"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Minify JSON"
+msgstr "压缩 JSON"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "OPML to RSS links"
+msgstr "OPML 转换为 RSS 链接"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse JSON and convert it to YAML document"
+msgstr "解析JSON并将其转换为YAML文档"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse JSON and minify it"
+msgstr "解析 JSON 并压缩"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse JSON and prettify it"
+msgstr "解析 JSON 并美化"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse XML and prettify it"
+msgstr "解析 XML 并美化"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Parse YAML document and convert it to JSON"
+msgstr "解析 YAML 文档并将其转换为 JSON"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Prettify JSON"
+msgstr "美化 JSON"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Prettify XML"
+msgstr "美化 XML"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Regex"
+msgstr "正则表达式"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which contain given substring"
+msgstr "删除所有包含给定子字符串的行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which don't contain given substring"
+msgstr "删除所有不包含给定子字符串的行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which don't match given regular expression"
+msgstr "删除所有与给定正则表达式不匹配的行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all lines which match given regular expression"
+msgstr "删除与给定正则表达式匹配的所有行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all matches of regular expression"
+msgstr "删除正则表达式的所有匹配项"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove all occurrences of given substring in text"
+msgstr "删除文本中所有出现的给定子字符串"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove leading and trailing whitespaces and newlines"
+msgstr "删除前导和尾随空格和换行符"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove Regex"
+msgstr "删除正则表达式"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove Substring"
+msgstr "删除子字符串"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove Trailing"
+msgstr "删除尾随字符"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Remove trailing whitespaces and newlines"
+msgstr "删除尾随空格和换行符"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reoder lines in reverse order"
+msgstr "倒序排列行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reorder characters in reverse order"
+msgstr "倒序排列字符"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace all given regex matches in text with given string"
+msgstr "将文本中所有给定的正则表达式匹配项替换为给定的字符串"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace all occurrences of given substring in text with other string"
+msgstr "将文本中所有出现的给定子字符串替换为其他字符串"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace escape sequences with characters"
+msgstr "将转义序列替换为字符"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace HTML sequences with characters"
+msgstr "将 HTML 序列替换为字符"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace Regex"
+msgstr "替换正则表达式"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace special characters with escape sequences"
+msgstr "将特殊字符替换为转义序列"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace special characters with HTML-safe sequences"
+msgstr "将特殊字符替换为 HTML 安全序列"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace special characters with URL-safe sequences"
+msgstr "将特殊字符替换为 URL 安全序列"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace Substring"
+msgstr "替换子字符串"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace URL sequences with characters"
+msgstr "将 URL 序列替换为字符"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Replace With"
+msgstr "替换"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Filter Lines by Regex"
+msgstr "用正则表达式反向过滤行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Filter Lines by Substring"
+msgstr "按子字符串反向过滤行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Lines"
+msgstr "反转行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Sort Lines"
+msgstr "倒序行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Reverse Text"
+msgstr "反转文本"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA1 Checksum"
+msgstr "SHA1 Checksum"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA256 Checksum"
+msgstr "SHA256 Checksum"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA384 Checksum"
+msgstr "SHA384 Checksum"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "SHA512 Checksum"
+msgstr "SHA512 Checksum"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Sort Lines"
+msgstr "排序行"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Sort lines in text in alphabetical order"
+msgstr "按字母顺序对文本中的行进行排序"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Sort lines in text in reverse alphabetical order"
+msgstr "按相反的字母顺序对文本中的行进行排序"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Substring"
+msgstr "子字符串"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Trim Lines"
+msgstr "去除两端空白"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Unescape HTML"
+msgstr "反转义 HTML"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Unescape String"
+msgstr "反转义字符串"
+
+#: data/tools.json
+msgctxt "tools"
+msgid "Unescape URL"
+msgstr "反转义 URL"
