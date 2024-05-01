@@ -4,14 +4,16 @@ SPDX-FileCopyrightText: 2021 Gleb Smirnov <glebsmirnov0708@gmail.com>
 
 SPDX-License-Identifier: CC0-1.0
 -->
-<component type="desktop">
+<component type="desktop-application">
   <id>com.github.liferooter.textpieces.desktop</id>
   <name>Text Pieces</name>
   <summary>Transform text without using random websites</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <description>
-    <p>Do a lot of text transformations, such as:</p>
+    <p>
+      Powerful scratchpad with ability to perform a lot of text transformations, such as:
+    </p>
     <ul>
       <li>Calculate hashes</li>
       <li>Encode text</li>
@@ -23,23 +25,30 @@ SPDX-License-Identifier: CC0-1.0
       <li>Convert JSON to YAML and vice versa</li>
       <li>Filter lines</li>
       <li>Replace substrings and regular expressions</li>
+      <li>And so on.</li>
     </ul>
-    <p>...and so on.</p>
+    <p>The application is extendable with your own script-based actions.</p>
   </description>
+  <launchable type="desktop-id">@app-id@.desktop</launchable>
   <provides>
     <binary>textpieces</binary>
   </provides>
-  <developer_name>Gleb Smirnov</developer_name>
+  <developer id="com.github.liferooter">
+    <name>Gleb Smirnov</name>
+  </developer>
   <url type="homepage">https://github.com/liferooter/textpieces</url>
   <url type="bugtracker">https://github.com/liferooter/textpieces/issues</url>
-  <requires>
-    <display_length compare="ge">medium</display_length>
-  </requires>
-  <recommends>
-    <control>keyboard</control>
+  <supports>
     <control>pointing</control>
     <control>touch</control>
+  </supports>
+  <recommends>
+    <control>keyboard</control>
   </recommends>
+  <requires>
+    <display_length compare="ge">360</display_length>
+    <internet>offline-only</internet>
+  </requires>
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/liferooter/textpieces/6b766fbb9956175db454c3266ab3d8c2bfa57b07/screenshots/slide1.png</image>

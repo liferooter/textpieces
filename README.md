@@ -34,8 +34,13 @@ Swiss knife of text processing
     <img alt="Screenshot" src="screenshots/screenshot.png"/>
 </p>
 
+# State of the project
 
-Small tool for quick text transformations such as checksums, encoding, decoding and so on. Written in Vala for GNOME desktop in the hope to be useful.
+The project was rewritten from scratch and moved to [a new repository](https://gitlab.com/liferooter/textpieces). This repository will never receive updates.
+
+# What is it?
+
+Text Pieces is a small tool for quick text transformations such as checksums, encoding, decoding and so on. Written in Vala for GNOME desktop in the hope to be useful.
 
 # Features
 - Base64 encoding and decoding
@@ -83,9 +88,3 @@ If you use GNOME Builder or Flatpak, dependencies will be installed automaticall
 - libadwaita >= 1.0
 - python >= 3.8
 - pyyaml >= 5.4
-
-# State of the project
-
-I'm in the process of rewriting the project from scratch in Rust, reworking some basic mechanics, UI/UX and the architecture. Unfortunately, I didn't have enough time to finish the rewriting because of school final exams and starting studying at university. I still work on it in my free time, but until I'm adaped to my new conditions of life I probably won't have enough time for solid work on the project.
-
-The locations where I work on the next version of the project is https://gitlab.com/liferooter/textpieces and https://gitlab.com/liferooter/textpieces-gnome.
